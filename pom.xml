@@ -21,7 +21,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	
-	<artifactId>Hello-World</artifactId>
+	<name>Acme-SF</name>
+	<description>Acme project from DP2</description>
+
+	<artifactId>Acme-SF-D01</artifactId>
 	
 	<packaging>war</packaging>
 	
