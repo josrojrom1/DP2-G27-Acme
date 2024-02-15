@@ -22,6 +22,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pepe" action="http://www.artistapirata.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-dani" action="http://www.google.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-guadalupe" action="https://www.amazon.es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-benji" action="https://chat.openai.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
