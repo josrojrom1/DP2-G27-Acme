@@ -5,8 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -28,7 +30,7 @@ public class AuditRecord extends AbstractEntity {
 
 	//code (pattern “AU-[0-9]{4}-[0-9]{3}”, not blank, unique)
 	@NotBlank
-	@Pattern(regexp = "AU-//d{4}-//d{3}")
+	@Pattern(regexp = "AU-\\d{4}-\\d{3}")
 	@Column(unique = true)
 	private String				code;
 
@@ -50,5 +52,11 @@ public class AuditRecord extends AbstractEntity {
 	//optional link with further information
 	@URL
 	private String				link;
+
+	//Relationships
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private CodeAudit			codeAudit;
 
 }

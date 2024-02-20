@@ -5,8 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -16,6 +18,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +31,7 @@ public class CodeAudit extends AbstractEntity {
 
 	//Code (pattern "[A-Z]{1,3}-[0,9]{3}", not blank, unique)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}-d{3}")
+	@Pattern(regexp = "[A-Z]{1,3}-\\d{3}")
 	@Column(unique = true)
 	private String				code;
 
@@ -53,5 +56,11 @@ public class CodeAudit extends AbstractEntity {
 	//optional link with further information.
 	@URL
 	private String				link;
+
+	//Relationships
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Auditor				auditor;
 
 }
