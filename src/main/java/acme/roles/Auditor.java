@@ -25,7 +25,7 @@ public class Auditor extends AbstractRole {
 
 	//professional ID (not blank, shorter than 26 characters)
 	@NotBlank
-	@Length(max = 26)
+	@Length(max = 25)
 	private String				professionalId;
 
 	//a list of certifications (not blank, shorter than 101 characters)
