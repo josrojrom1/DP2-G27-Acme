@@ -16,5 +16,5 @@ master.license.text = \
 	"JSESSIONID" to identify your work session, "remember" to let you authenticate \
 	automatically, "language" to store your language preferences, "XSRF-TOKEN" to \
 	deal with CSRF attacks, and "returnStack" to know where to return when your press \
-	some buttons. This program is free software: you can redistribute it and/or \ 
-	modify it under the terms of the GNU General Public License version 3.
+	some buttons. This program is free software: you can redistribute it or modify it \ 
+	under the terms of the GNU General Public License version 3.
