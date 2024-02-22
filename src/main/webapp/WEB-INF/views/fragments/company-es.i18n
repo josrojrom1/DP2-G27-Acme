@@ -10,8 +10,8 @@
 
 master.company.title = La empresa
 master.company.text = \
-	Acme-SF, Inc. es una empresa ficticia que ofrece un proyecto starter\
-	para superar con éxito la asignatura de Diseño y Pruebas 2 del grado\
+	Acme-SF, Inc. es una empresa ficticia que ofrece un proyecto starter \
+	para superar con éxito la asignatura de Diseño y Pruebas 2 del grado \
 	Ingeniería Informática del Software, Universidad de Sevilla. 
 master.company.name = Acme, Inc.
 master.company.address = Av. Reina Mercedes s/n, Sevilla
