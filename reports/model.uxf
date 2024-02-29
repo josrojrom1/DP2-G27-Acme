@@ -233,7 +233,7 @@ CodeAudit
 + type: Type
 + correctiveActions: String {NotBlank,Length(max=100)}
 + mark: Mark
-+link: String {URL}
++ link: String {URL}
 bg=pink</panel_attributes>
     <additional_attributes/>
   </element>
@@ -284,5 +284,24 @@ createdBy
 m2=0..n
 m1=1</panel_attributes>
     <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>406</x>
+      <y>196</y>
+      <w>147</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>La marca (mark) en cada 
+CodeAudit será el resultado
+de hacer la moda de las marcas
+de los AuditRecors asociados.
+Los empates deben romper
+arbitrariamente si fuese 
+necesario.
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
