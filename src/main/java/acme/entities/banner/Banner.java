@@ -31,7 +31,7 @@ public class Banner extends AbstractEntity {
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				instalationOrUpdateMoment;
+	private Date				instantiationOrUpdateMoment;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
