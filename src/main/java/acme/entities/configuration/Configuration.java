@@ -1,5 +1,5 @@
 
-package acme.entities.currencies;
+package acme.entities.configuration;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class SystemCurrency extends AbstractEntity {
+public class Configuration extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 

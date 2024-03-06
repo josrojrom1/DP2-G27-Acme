@@ -1,10 +1,12 @@
 
 package acme.roles;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -16,31 +18,27 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Developer extends AbstractRole {
+public class Client extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
 
-	//degree (not blank, shorter than 76 characters)
 	@NotBlank
-	@Length(max = 75)
-	private String				degree;
+	@Pattern(regexp = "CLI-\\d{4}")
+	@Column(unique = true)
+	private String				identification;
 
-	//specialisation (not blank, shorter than 101 characters)
 	@NotBlank
-	@Length(max = 100)
-	private String				specialisation;
+	@Length(max = 76)
+	private String				companyName;
 
-	//list of skills (not blank, shorter than 101 characters)
-	@NotBlank
-	@Length(max = 100)
-	private String				listSkills;
-
-	//email
 	@NotNull
+	private ClientType			type;
+
 	@Email
+	@NotBlank
 	private String				email;
 
-	//optional link with further information
 	@URL
 	private String				link;
+
 }

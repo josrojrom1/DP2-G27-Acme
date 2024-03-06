@@ -1,12 +1,11 @@
 
-package acme.entities.notice;
+package acme.entities.objectives;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -21,47 +20,45 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class notice extends AbstractEntity {
+public class Objective extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	//an instantiation moment (in the past)
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
 	private Date				instantiationMoment;
 
-	//a title (not blank, shorter than 76 characters)
 	@NotBlank
-	@Length(max = 75)
+	@Length(max = 76)
 	private String				title;
 
-	//an author (not blank, shorter than 76 characters)
 	@NotBlank
-	@Length(max = 75)
-	private String				author;
+	@Length(max = 101)
+	private String				description;
 
-	//a message (not blank, shorter than 101 characters)
-	@NotBlank
-	@Length(max = 100)
-	private String				message;
+	@NotNull
+	private Priority			priority;
 
-	//an optional email address
-	@Email
-	private String				email;
+	// para indicar si es crítico o no, true indica crítico
+	private boolean				critical;
 
-	//an optional link
+	@NotNull
+	private Date				executionPeriodStart; // hay que verlo bien
+
+	@NotNull
+	private Date				executionPeriodFinish;
+
 	@URL
 	private String				link;
 
-	//TODO:relationships
 	/*
-	 * @NotNull
-	 * 
 	 * @Valid
 	 * 
 	 * @ManyToOne(optional = false)
-	 * private Principal principal;
+	 * 
+	 * @NotNull
+	 * private Project project;
 	 */
 
 }
