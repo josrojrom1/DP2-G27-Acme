@@ -44,6 +44,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry excluding="**/fragments/**" kind="src" path="acme-framework"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Acme-Framework-24.1.0"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Acme-Framework-24.1.0">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
