@@ -21,7 +21,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class notice extends AbstractEntity {
+public class Notice extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
@@ -36,6 +36,7 @@ public class notice extends AbstractEntity {
 	@Length(max = 75)
 	private String				title;
 
+	//TODO: 〈username〉 - 〈surname, name〉 formatter
 	//an author (not blank, shorter than 76 characters)
 	@NotBlank
 	@Length(max = 75)

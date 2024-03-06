@@ -31,7 +31,6 @@ public class Developer extends AbstractRole {
 	private String				specialisation;
 
 	//list of skills (not blank, shorter than 101 characters)
-	//TODO: DEBE SER UNA LISTA O CON SER UN STRING SIRVE???
 	@NotBlank
 	@Length(max = 100)
 	private String				listSkills;
