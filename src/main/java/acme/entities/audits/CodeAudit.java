@@ -65,6 +65,7 @@ public class CodeAudit extends AbstractEntity {
 	private Auditor				auditor;
 
 	//Falta NotNull aquí, esperando a que se cree el csv de Project para meterlo como key
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;
