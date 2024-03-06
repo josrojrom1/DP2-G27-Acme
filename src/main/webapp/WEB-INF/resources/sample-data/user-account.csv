@@ -7,3 +7,5 @@ user-account-auditor-01,true,"UserIdentity{name: 'Mariano', surname: 'Parra', em
 user-account-auditor-02,true,"UserIdentity{name: 'Miguel', surname: 'Romero', email: 'miguelromero@acme.com'}",auditor2,auditor2
 user-account-sponsor-01,true,"UserIdentity{name: 'Jorge', surname: 'Garcia', email: 'jorgegar@acme.com'}",sponsor1,sponsor1
 user-account-sponsor-02,true,"UserIdentity{name: 'Jimena', surname: 'Pineda', email: 'xixi@acme.com'}",sponsor2,sponsor2
+user-account-manager-01,true,"UserIdentity{name: 'Antonio', surname: 'Gutierrez', email: 'anguti@acme.com'}",manager1,manager1
+user-account-manager-01,true,"UserIdentity{name: 'Lucia', surname: 'Sanchez', email: 'sanlu@acme.com'}",manager2,manager2
