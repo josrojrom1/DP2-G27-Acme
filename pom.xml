@@ -26,7 +26,7 @@
 
 	<artifactId>Acme-SF</artifactId>
 	<version>D02</version>
-	
+
 	<packaging>war</packaging>
 	
 	<parent>
@@ -35,7 +35,6 @@
 		<version>24.1.0</version>
 		<relativePath>../../pom-24.1.0.xml</relativePath>
 	</parent>
-
 	
 	<dependencies>
 		<dependency>
