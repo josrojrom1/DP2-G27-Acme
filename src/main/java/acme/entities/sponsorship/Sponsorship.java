@@ -20,7 +20,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.project.Project;
+import acme.entities.projects.Project;
 import acme.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
