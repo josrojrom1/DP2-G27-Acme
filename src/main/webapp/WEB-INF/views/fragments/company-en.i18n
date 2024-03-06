@@ -10,11 +10,11 @@
 
 master.company.title = The company
 master.company.text = \
-	Hello World G27, Inc. is a fictitious company that provides a starter \
-	project to successfully complete the Design and Testing 2 course \
+	Acme-SF, Inc. is a fictitious company that provides a starter \
+	project to successfully complete the Design and Testing 2 course in \
 	Software Engineering, University of Seville.
-master.company.name = Acme, Inc.
-master.company.address = 01 Acme Drive, Wondercity, Wonderland
-master.company.phone = +1 000 111 222
-master.company.email = contact@acme.com
+master.company.name = Acme-SF, Inc.
+master.company.address = Av. Reina Mercedes s/n, Seville
+master.company.phone = +34 620 666 999
+master.company.email = acme.sf.contact@acme.com
 
