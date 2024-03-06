@@ -1,5 +1,7 @@
 key,code,execution,type,correctiveActions,mark,link,key:auditor
 audit-01-01,"AAA-001",2021/04/30 16:18,STATIC,"Se necesita cambiar los nombres de las carpetas",A_PLUS,https://example.com,auditor-01
 audit-02-01,"AAA-002",2021/04/30 18:23,DYNAMIC,"Vaciar el sistema de logs para ahorrar espacio en el proyecto",F,,auditor-01
+audit-03-01,"AAA-003",2021/05/30 18:23,DYNAMIC,"A",C,https://example.com,auditor-01
+audit-04-01,"AAA-004",2021/05/02 18:23,STATIC,"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",C,https://example.com,auditor-01
 audit-01-02,"BBB-001",2021/05/30 15:50,STATIC,"Cambiar contraseñas de los roles a contraseñas más seguras",C,,auditor-02
 audit-02-02,"BBB-002",2021/05/30 14:32,DYNAMIC,"Añadir las relaciones adecuadas a las entidades",B,https://youtue.com/explicacion,auditor-02
