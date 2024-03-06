@@ -41,8 +41,4 @@ public class Sponsor extends AbstractRole {
 	@Email
 	private String				contact;
 
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
-
 }
