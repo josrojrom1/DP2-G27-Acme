@@ -25,7 +25,6 @@ public class UserStory extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@NotNull
-	@NotBlank
 	@ManyToOne
 	private Manager				manager;
 
@@ -37,12 +36,12 @@ public class UserStory extends AbstractEntity {
 	@Length(max = 101)
 	private String				description;
 
-	@NotNull
-	private Boolean				indication;
-
 	@Min(0)
 	@NotNull
 	private Double				estimatedCost;
+
+	@NotNull
+	private String				acceptanceCriteria;
 
 	@NotNull
 	private PriorityEnum		priority;
@@ -50,7 +49,6 @@ public class UserStory extends AbstractEntity {
 	private String				link;
 
 	@NotNull
-	@NotBlank
 	@ManyToOne
 	private Project				project;
 }
