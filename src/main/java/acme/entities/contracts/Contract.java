@@ -1,11 +1,13 @@
 
-package acme.entities.audits;
+package acme.entities.contracts;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -15,58 +17,63 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.projects.Project;
-import acme.roles.Auditor;
+import acme.client.data.datatypes.Money;
+import acme.roles.Client;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class CodeAudit extends AbstractEntity {
+public class Contract extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	//Code (pattern "[A-Z]{1,3}-[0,9]{3}", not blank, unique)
 	@NotBlank
 	@Pattern(regexp = "[A-Z]{1,3}-\\d{3}")
 	@Column(unique = true)
 	private String				code;
 
-	//execution date (in the past)
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
-	private Date				execution;
+	private Date				instantiationMoment;
 
-	//type (“Static”, “Dynamic”) -> Enumerate
-	@NotNull
-	private Type				type;
-
-	//list of proposed corrective actions (not blank, shorter than 101 characters)
 	@NotBlank
-	@Length(max = 100)
-	private String				correctiveActions;
+	@Length(max = 76)
+	private String				provider;
 
-	//mark (computed as the mode of the marks in the corresponding auditing records; ties must be broken arbitrarily if necessary)
-	private Mark				mark;
+	@NotBlank
+	@Length(max = 76)
+	private String				customer;
 
-	//optional link with further information.
-	@URL
-	private String				link;
+	@NotBlank
+	@Length(max = 101)
+	private String				goals;
 
-	//Relationships
+	// less than or equal to the corresponding project cost
+	@Valid
+	private Money				budget;
+
+	/*
+	 * @NotNull
+	 * 
+	 * @Valid
+	 * 
+	 * @ManyToOne
+	 * private Project project;
+	 */
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Auditor				auditor;
+	private Client				client;
 
 	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
-	private Project				project;
+	@OneToMany
+	private List<ProgressLog>	progressLogs;
 
 }
