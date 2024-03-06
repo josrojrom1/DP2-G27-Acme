@@ -1,0 +1,3 @@
+key,key:manager,title,description,estimatedCost,acceptanceCriteria,priority,link,key:project
+user-story-01,manager-01,"titulo de historia de ususario 1", "descripción de historia de ususario 1",423.5,"criterio de aceptacion 1",COULD,,project-01
+user-story-02,manager-01,"titulo de historia de ususario 2", "descripción de historia de ususario 2",42831.5,"criterio de aceptacion 2",WONT,,project-02
