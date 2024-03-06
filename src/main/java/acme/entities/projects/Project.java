@@ -7,6 +7,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -35,6 +36,9 @@ public class Project extends AbstractEntity {
 	@NotBlank
 	@Length(max = 101)
 	private String				description;
+
+	@NotNull
+	private Boolean				indication;
 
 	@Min(0)
 	private Double				cost;
