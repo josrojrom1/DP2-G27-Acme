@@ -24,7 +24,8 @@
 	<name>Acme-SF</name>
 	<description>Acme project from DP2</description>
 
-	<artifactId>Acme-SF-D01</artifactId>
+	<artifactId>Acme-SF</artifactId>
+	<version>D02</version>
 	
 	<packaging>war</packaging>
 	
