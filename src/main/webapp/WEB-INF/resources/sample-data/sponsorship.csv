@@ -1,0 +1,7 @@
+key,code,moment,duration,amount,type,contact,link,key:project,key:sponsor
+sponsorship-01,"SPO-001",2022/05/01 00:30,2022/06/10 14:30,30,FINANCIAL,"example@gmail.com","www.example.spon.com",project-01,sponsor-01
+sponsorship-02,"SPO-002",2021/05/13 23:59,2021/06/14 00:00,0,FINANCIAL,"example@gmail.com","www.example.spon.com",project-01,sponsor-01
+sponsorship-03,"SPO-003",2021/05/13 00:30,2021/06/14 10:00,0,IN_KIND,"example@gmail.com","www.example.spon.com",project-01,sponsor-01
+sponsorship-04,"SPO-004",2021/05/13 00:30,2021/06/14 10:00,0,IN_KIND,"somebody@hotmail.es",,project-01,sponsor-01
+sponsorship-05,"SPO-005",2021/05/13 00:30,2021/06/14 10:00,0,FINANCIAL,,"www.somesponsorship.com",project-01,sponsor-01
+sponsorship-06,"SPO-006",2014/05/13 00:30,2021/06/14 10:00,0,IN_KIND,,"www.somesponsorship.com",project-01,sponsor-02

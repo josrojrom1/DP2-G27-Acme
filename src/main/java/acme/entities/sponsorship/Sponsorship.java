@@ -48,8 +48,9 @@ public class Sponsorship extends AbstractEntity {
 	private Date				moment;
 
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	// falta indicar que tiene que ser al menos un mes despues de moment
-	private Integer				duration;
+	private Date				duration;
 
 	@NotNull
 	@Positive
