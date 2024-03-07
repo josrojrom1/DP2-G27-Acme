@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -32,6 +33,7 @@ public class ProgressLog extends AbstractEntity {
 	private String				recordId;
 
 	@DecimalMin("0.0")
+	@DecimalMax("1.0")
 	private Double				completeness;
 
 	@NotBlank
