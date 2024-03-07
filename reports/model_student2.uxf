@@ -206,7 +206,7 @@ bg=pink</panel_attributes>
       <h>153</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
-m2=1..n
+m2=0..n
 m1=
 &lt; composed of</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
