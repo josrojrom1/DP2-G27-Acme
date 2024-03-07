@@ -4,7 +4,6 @@ package acme.entities.contracts;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -55,7 +54,6 @@ public class Contract extends AbstractEntity {
 
 	// less than or equal to the corresponding project cost
 	@Valid
-	@Embedded
 	private Money				budget;
 
 	@Valid

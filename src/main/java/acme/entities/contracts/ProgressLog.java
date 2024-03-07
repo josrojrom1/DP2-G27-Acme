@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -34,7 +35,8 @@ public class ProgressLog extends AbstractEntity {
 	private String				recordId;
 
 	@DecimalMin("0.0")
-	private Double				completeness;
+	@DecimalMax("1.0")
+	private double				completeness;
 
 	@NotBlank
 	@Length(max = 100)
@@ -49,7 +51,7 @@ public class ProgressLog extends AbstractEntity {
 	@Length(max = 75)
 	private String				responsiblePerson;
 
-	@NotBlank
+	@NotNull
 	@ManyToOne(optional = false)
 	@Valid
 	private Contract			contract;

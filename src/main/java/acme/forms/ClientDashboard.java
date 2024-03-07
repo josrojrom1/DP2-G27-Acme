@@ -18,7 +18,7 @@ public class ClientDashboard extends AbstractForm {
 
 	Double						contractsBudgetAverage;
 	Double						contractsBudgetDeviation;
-	Double						contractsBudgetMinimum;
-	Double						contractsBudgetMaximum;
+	double						contractsBudgetMinimum;
+	double						contractsBudgetMaximum;
 
 }
