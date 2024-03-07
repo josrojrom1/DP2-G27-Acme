@@ -30,18 +30,18 @@ public class Objective extends AbstractEntity {
 	private Date				instantiationMoment;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				description;
 
 	@NotNull
 	private Priority			priority;
 
 	// para indicar si es crítico o no, true indica crítico
-	private boolean				critical;
+	private boolean				critical			= false;
 
 	@NotNull
 	private Date				executionPeriodStart; // hay que verlo bien
@@ -51,14 +51,5 @@ public class Objective extends AbstractEntity {
 
 	@URL
 	private String				link;
-
-	/*
-	 * @Valid
-	 * 
-	 * @ManyToOne(optional = false)
-	 * 
-	 * @NotNull
-	 * private Project project;
-	 */
 
 }

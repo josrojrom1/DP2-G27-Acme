@@ -5,8 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -35,7 +37,7 @@ public class ProgressLog extends AbstractEntity {
 	private Double				completeness;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				comment;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -44,7 +46,12 @@ public class ProgressLog extends AbstractEntity {
 	private Date				registrationMoment;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				responsiblePerson;
+
+	@NotBlank
+	@ManyToOne(optional = false)
+	@Valid
+	private Contract			contract;
 
 }
