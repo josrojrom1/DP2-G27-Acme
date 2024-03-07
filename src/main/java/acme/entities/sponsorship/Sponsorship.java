@@ -4,7 +4,6 @@ package acme.entities.sponsorship;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -57,7 +56,6 @@ public class Sponsorship extends AbstractEntity {
 	private Date				expirationDate;
 
 	@NotNull
-	@Embedded
 	// Must be positive (must be implemented in the service)
 	private Money				amount;
 
