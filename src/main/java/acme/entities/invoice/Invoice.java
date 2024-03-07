@@ -4,6 +4,7 @@ package acme.entities.invoice;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -53,6 +54,7 @@ public class Invoice extends AbstractEntity {
 	private Date				dueDate;
 
 	@NotNull
+	@Embedded
 	// Must be positive
 	private Money				quantity;
 
