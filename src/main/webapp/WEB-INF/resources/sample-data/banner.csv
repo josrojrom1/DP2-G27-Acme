@@ -1,0 +1,22 @@
+key,instantiationOrUpdateMoment,displayStartDate,displayEndDate,picture,slogan,webDocument
+banner-01,2020/02/01 19:39,2020/02/02 14:00,2020/02/11 14:00,./images/example.jpg,Just do it!,http://www.example.com
+banner-02,2020/02/01 00:00,2020/02/02 14:00,2020/02/11 14:00,./images/example.jpg,Just do it!,http://www.example.com
+banner-03,2020/02/01 12:00,2020/02/02 14:00,2020/02/11 14:00,./images/example.jpg,Just do it!,http://www.example.com
+banner-04,2020/02/01 23:59,2020/02/02 14:00,2020/02/11 14:00,./images/example.jpg,Just do it!,http://www.example.com
+banner-05,2022/07/29 00:00,2022/12/02 14:00,2022/12/11 14:00,./images/example.jpg,Just do it!,http://www.example.com
+banner-06,2022/07/29 23:59,2022/12/02 14:00,2022/12/11 14:00,./images/example.jpg,Just do it!,http://www.example.com
+banner-07,2022/07/29 23:59,2022/12/02 14:00,2022/12/11 14:00,./images/example.jpg,Just do it!,http://www.example.com
+banner-08,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 00:00,./images/example.jpg,Just do it!,http://www.example.com
+banner-09,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 12:00,./images/example.jpg,Just do it!,http://www.example.com
+banner-10,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 23:59,./images/example.jpg,Just do it!,http://www.example.com
+banner-11,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 00:00,/home/usuario/pictures/imagen2.png,Just do it!,http://www.example.com
+banner-12,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 12:00,/usuario/pictures/imagen3.jpeg,Just do it!,http://www.example.com
+banner-13,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 23:59,./images/example.jpg,"¡Vålvę å lå lůnåtėėræš dë tëxťö dėmøšţråmöš løžåńđö mäž ťřåbåjø pøř vęlrė!",http://www.example.com
+banner-14,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 12:00,./images/example.jpg,ཕ་པོའི་གསེར་གྱི་དཔལ་ནས་བྱ་བ་རང་རྒྱུན་ལ།,http://www.example.com
+banner-15,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 23:59,./images/example.jpg,Ɓǝwäřə öf ẗhə hìđđəņ ẁòlfs īŋ ẅəstérņ ẁəạḻth,http://www.example.com
+banner-16,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 00:00,/home/usuario/pictures/imagen2.png,Just do it!,http://www.example.org/file.txt
+banner-17,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 12:00,/usuario/pictures/imagen3.jpeg,Just do it!,https://www.example.com/document.pdf
+banner-18,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 12:00,/usuario/pictures/imagen3.jpeg,Just do it!,https://www.example.com/document.pdf?query1=value1&query2=value2&query3=value3&query4=value4
+banner-19,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 12:00,/usuario/pictures/imagen3.jpeg,Just do it!,mailto:user@example.com?subject=Hello%20World&body=Message%20Content
+banner-20,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 12:00,/usuario/pictures/imagen3.jpeg,Just do it!,ftp://user:password@www.example.com:21/folder/document.pdf?query=value#fragment
+banner-21,2020/02/01 19:39,2020/02/02 14:00,2020/02/09 12:00,/usuario/pictures/imagen3.jpeg,Just do it!,http://jpeg;base64/9j/4AAQSkZJRgABAQEAAAAAAAD/4QBYRXhpZgAATU0AKgAAAAgAAABBAgAA

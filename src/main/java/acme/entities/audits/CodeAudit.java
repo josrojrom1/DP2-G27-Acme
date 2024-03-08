@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -52,7 +53,8 @@ public class CodeAudit extends AbstractEntity {
 	private String				correctiveActions;
 
 	//mark (computed as the mode of the marks in the corresponding auditing records; ties must be broken arbitrarily if necessary)
-	private Mark				mark;
+	@Transient
+	private Mark				mark; //Se ha dejado como String al ser depentiente del método que se construya en el servicio correspondiente en el futuro
 
 	//optional link with further information.
 	@URL
@@ -64,6 +66,7 @@ public class CodeAudit extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private Auditor				auditor;
 
+	//Falta NotNull aquí, esperando a que se cree el csv de Project para meterlo como key
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
