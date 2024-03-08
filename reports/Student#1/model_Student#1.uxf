@@ -4,39 +4,25 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
-      <y>184</y>
-      <w>248</w>
-      <h>88</h>
+      <x>736</x>
+      <y>176</y>
+      <w>312</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
-Sponsor
+Manager
 --
-+ degree: String {NotNull, NotBlank, Length(75)}
-+ overview: String {NotNull, NotBlank, Length(100)}
-+ certifications: String {NotNull, NotBlank, Length(100)}
-+ link: String {URL, Length(255)}</panel_attributes>
++ degree: String {NotBlank, Length(75)}
++ overview: String {NotBlank, Length(100)}
++ certifications: String {NotBlank, Length(100)}
++ link: String {URL}</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>328</x>
-      <y>184</y>
-      <w>56</w>
-      <h>144</h>
-    </coordinates>
-    <panel_attributes>lt=x-&gt;
-m1=0..n
-m2= 1
-bill a ^</panel_attributes>
-    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>488</x>
-      <y>416</y>
+      <x>672</x>
+      <y>408</y>
       <w>144</w>
       <h>96</h>
     </coordinates>
@@ -52,8 +38,8 @@ PriorityEnum
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>0</x>
-      <y>216</y>
+      <x>184</x>
+      <y>208</y>
       <w>112</w>
       <h>48</h>
     </coordinates>
@@ -66,8 +52,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>48</y>
+      <x>184</x>
+      <y>40</y>
       <w>376</w>
       <h>144</h>
     </coordinates>
@@ -77,69 +63,32 @@ Project
 + code: String {Unique, NotBlank, Pattern("[A-Z]{3}-[0-9]{4}")}
 + title: String {NotBlank, Length(75)}
 + description: String {NotBlank, Length(100)}
-+ indication: Boolean {NotNull}
-+ draftMode: Boolean {NotNull}
-+ cost: int
-+ link: String {URL, Length(255)}
++ indication: boolean 
++ draftMode: boolean 
++ cost: int {Min(0)]
++ link: String {URL}
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>368</x>
-      <y>80</y>
+      <x>552</x>
+      <y>72</y>
       <w>336</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-x
+    <panel_attributes>lt=x-&gt;
 m1=0..n
 m2=1
-  funds ^</panel_attributes>
+&lt; creates </panel_attributes>
     <additional_attributes>10.0;20.0;390.0;20.0;390.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>48</x>
-      <y>184</y>
-      <w>24</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>208</x>
-      <y>184</y>
-      <w>24</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>136</x>
-      <y>456</y>
-      <w>88</w>
-      <h>64</h>
-    </coordinates>
-    <panel_attributes>estimated cost
-must be 
-positive
-not nought
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>168</x>
-      <y>424</y>
+      <x>232</x>
+      <y>176</y>
       <w>24</w>
       <h>48</h>
     </coordinates>
@@ -149,73 +98,99 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>128</x>
-      <y>576</y>
+      <x>208</x>
+      <y>528</y>
       <w>368</w>
-      <h>168</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 ManagerDashboard
 --
 + totalNumOfMustUserStories: int {Min(0)}
 + totalNumOfShouldUserStories: int {Min(0)}
-+ totalNumOfCouldUserStories: double {DecimalMin(0.0)}	
-+ totalNumOfWontUserStories: double {DecimalMin(0.0)}
-+ averageEstimatedCostOfUS: double
++ totalNumOfCouldUserStories: int {Min(0)}	
++ totalNumOfWontUserStories: int {Min(0)}
++ averageEstimatedCostOfUS: Double {Min(0)}
 + deviationOfEstimatedCostUS: double
-+ minimumEstimatedCostOfUS: double {DecimalMin(0.0)}
-+ maximumEstimatedCostOfUS double {@DecimalMin(0.0)}
-+ averageProjectCost: double
++ minimumEstimatedCostOfUS: double {Min(0)}
++ maximumEstimatedCostOfUS double {Min(0)}
++ averageProjectCost: Double {Min(0)}
 + deviationOfProjectCost: double
-+ minimumProjectCost: double
-+ maximumProjectCost: double</panel_attributes>
++ minimumProjectCost: double {Min(0)}
++ maximumProjectCost: double {Min(0)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>368</x>
+      <x>552</x>
       <y>264</y>
       <w>336</w>
-      <h>144</h>
+      <h>136</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-x
+    <panel_attributes>lt=x-&gt;
 m1=0..n
 m2=1
-  funds ^</panel_attributes>
-    <additional_attributes>10.0;150.0;390.0;150.0;390.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>176</x>
-      <y>216</y>
-      <w>80</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>cost must
-be positive
-bg=yellow</panel_attributes>
-    <additional_attributes/>
+&lt; elicites</panel_attributes>
+    <additional_attributes>10.0;140.0;390.0;140.0;390.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>312</y>
+      <x>184</x>
+      <y>304</y>
       <w>376</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-Project
+User Story
 --
 + title: String {NotBlank, Length(75)}
 + description: String {NotBlank, Length(100)}
-+ estimatedCost: int
++ estimatedCost: int {min(0)}
 + acceptanceCriteria: String {NotBlank, Length(100)}
 + indication: PriorityEnum {NotNull}
-+ link: String {URL, Length(255)}
++ link: String {URL}
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>176</y>
+      <w>40</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
+m1=0..n
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>328</x>
+      <y>208</y>
+      <w>112</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>All user story in a 
+project must have 
+been elicited by the 
+same manager
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>376</x>
+      <y>176</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
 </diagram>
