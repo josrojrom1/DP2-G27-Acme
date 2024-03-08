@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -18,6 +19,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.projects.Project;
 import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
@@ -51,16 +53,26 @@ public class CodeAudit extends AbstractEntity {
 	private String				correctiveActions;
 
 	//mark (computed as the mode of the marks in the corresponding auditing records; ties must be broken arbitrarily if necessary)
-	private Mark				mark;
+	@Transient
+	private Mark				mark; //En el foro pone que esta propiedad derivada se calcula en el bind/unbind del servicio correspondiente asi que se deja asi de momento
 
 	//optional link with further information.
 	@URL
 	private String				link;
+
+	private boolean				draftMode;
+	//Atributo perteneciente a las siguientes lecciones que indica si cada CodeAudit está en modo edición o no
 
 	//Relationships
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	private Auditor				auditor;
+
+	//Falta NotNull aquí, esperando a que se cree el csv de Project para meterlo como key
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Project				project;
 
 }

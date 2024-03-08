@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>736</x>
+      <y>176</y>
+      <w>312</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Manager
+--
++ degree: String {NotBlank, Length(75)}
++ overview: String {NotBlank, Length(100)}
++ certifications: String {NotBlank, Length(100)}
++ link: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>408</y>
+      <w>144</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+PriorityEnum
+--
++ MUST
++ SHOULD
++ COULD
++ WONT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>184</x>
+      <y>208</y>
+      <w>112</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Projects with fatal
+errors cant be
+publicated
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>184</x>
+      <y>40</y>
+      <w>376</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Project
+--
++ code: String {Unique, NotBlank, Pattern("[A-Z]{3}-[0-9]{4}")}
++ title: String {NotBlank, Length(75)}
++ description: String {NotBlank, Length(100)}
++ indication: boolean 
++ draftMode: boolean 
++ cost: int {Min(0)]
++ link: String {URL}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>72</y>
+      <w>336</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=0..n
+m2=1
+&lt; creates </panel_attributes>
+    <additional_attributes>10.0;20.0;390.0;20.0;390.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>232</x>
+      <y>176</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>208</x>
+      <y>528</y>
+      <w>368</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+ManagerDashboard
+--
++ totalNumOfMustUserStories: int {Min(0)}
++ totalNumOfShouldUserStories: int {Min(0)}
++ totalNumOfCouldUserStories: int {Min(0)}	
++ totalNumOfWontUserStories: int {Min(0)}
++ averageEstimatedCostOfUS: Double {Min(0)}
++ deviationOfEstimatedCostUS: double
++ minimumEstimatedCostOfUS: double {Min(0)}
++ maximumEstimatedCostOfUS double {Min(0)}
++ averageProjectCost: Double {Min(0)}
++ deviationOfProjectCost: double
++ minimumProjectCost: double {Min(0)}
++ maximumProjectCost: double {Min(0)}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>264</y>
+      <w>336</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=0..n
+m2=1
+&lt; elicites</panel_attributes>
+    <additional_attributes>10.0;140.0;390.0;140.0;390.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>184</x>
+      <y>304</y>
+      <w>376</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+User Story
+--
++ title: String {NotBlank, Length(75)}
++ description: String {NotBlank, Length(100)}
++ estimatedCost: int {min(0)}
++ acceptanceCriteria: String {NotBlank, Length(100)}
++ indication: PriorityEnum {NotNull}
++ link: String {URL}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>176</y>
+      <w>40</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
+m1=0..n
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>328</x>
+      <y>208</y>
+      <w>112</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>All user story in a 
+project must have 
+been elicited by the 
+same manager
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>376</x>
+      <y>176</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+</diagram>

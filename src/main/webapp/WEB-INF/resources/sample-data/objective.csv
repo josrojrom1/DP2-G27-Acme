@@ -1,0 +1,6 @@
+key,instantiationMoment,title,description,priority,critical,executionPeriodStart,executionPeriodFinish,link
+objective-01,2020/03/06 21:00,"prueba","prueba",LOW,false,2020/03/06 21:10,2020/03/06 21:40,https://google.com
+objective-02,2019/10/07 22:40,"1","1",MEDIUM,true,2019/10/08 11:10,2019/10/08 11:50,
+objective-03,2015/01/14 01:00,"estoesunstringde75caracteres...............................................","prueba",HIGH,false,2015/11/14 01:55,2015/11/14 02:30,https://google.com
+objective-04,2010/06/27 14:35,"estoesunstringde75caracteres...............................................","estoesunstringde100caracteres.......................................................................",HIGH,true,2010/06/27 14:36,2010/06/27 14:37,
+objective-05,2011/06/27 14:35,"1","estoesunstringde100caracteres.......................................................................",MEDIUM,false,2011/06/27 14:36,2011/06/27 14:37,
