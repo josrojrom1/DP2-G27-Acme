@@ -9,5 +9,9 @@ user-account-auditor-01,true,"UserIdentity{name: 'Mariano', surname: 'Parra', em
 user-account-auditor-02,true,"UserIdentity{name: 'Miguel', surname: 'Romero', email: 'miguelromero@acme.com'}",auditor2,auditor2
 user-account-sponsor-01,true,"UserIdentity{name: 'Jorge', surname: 'Garcia', email: 'jorgegar@acme.com'}",sponsor1,sponsor1
 user-account-sponsor-02,true,"UserIdentity{name: 'Jimena', surname: 'Pineda', email: 'xixi@acme.com'}",sponsor2,sponsor2
+user-account-client-01,true,"UserIdentity{name: 'Paco', surname: 'Jemez', email: 'pacojemez@acme.com'}",client1,client1
+user-account-client-02,true,"UserIdentity{name: 'Maria', surname: 'Fernandez', email: 'mariafernandez@acme.com'}",client2,client2
+user-account-manager-01,true,"UserIdentity{name: 'Antonio', surname: 'Gutierrez', email: 'anguti@acme.com'}",manager1,manager1
+user-account-manager-01,true,"UserIdentity{name: 'Lucia', surname: 'Sanchez', email: 'sanlu@acme.com'}",manager2,manager2
 user-account-developer-01,true,"UserIdentity{name: 'Carlos', surname: 'Sicard', email: 'carlos@acme.com'}",developer1,developer1
 user-account-developer-02,true,"UserIdentity{name: 'Andres', surname: 'Romero', email: 'andres@acme.com'}",developer2,developer2

@@ -1,0 +1,10 @@
+key,code,instantiationMoment,heading,description,department,email,link
+claim-01,"C-0001",2020/03/06 21:00,"Fallos en la aplicación","Han habido fallos en las pantallas de la aplicación","Departamento técnico",hola@example.com,
+claim-02,"C-0002",2019/10/10 10:30,"sajdn823701adf´`´.","Det har vært feil på applikasjonsskjermene","Departamento técnico",hola@example.com,https://google.com
+claim-03,"C-0003",2010/11/20 23:30,"Prueba","prueba","prueba",,https://google.com
+claim-04,"C-0004",2015/01/31 23:59,"EstoEsUnStringDe75CaracteresParaTuNecesidadEspecíficaEsperoQueTeSeaÚtil","prueba","prueba",,https://google.com
+claim-05,"C-0005",2021/07/01 00:00,"EstoEsUnStringDe75CaracteresParaTuNecesidadEspecíficaEsperoQueTeSeaÚtil","LaInteligenciaArtificialEsUnCampoDeLaInformáticaQueSeCentraEnLaCreaciónDeSistemasCapacesDeResolverAA","1",,https://google.com
+claim-06,"C-0006",2017/12/03 12:10,"1","LaInteligenciaArtificialEsUnCampoDeLaInformáticaQueSeCentraEnLaCreaciónDeSistemasCapacesDeResolverAA","LaInteligenciaArtificialEsUnCampoDeLaInformáticaQueSeCentraEnLaCreaciónDeSistemasCapacesDeResolverAA",,https://google.com
+claim-07,"C-0007",2014/05/24 11:50,"EstoEsUnStringDe75CaracteresParaTuNecesidadEspecíficaEsperoQueTeSeaÚtil","LaInteligenciaArtificialEsUnCampoDeLaInformáticaQueSeCentraEnLaCreaciónDeSistemasCapacesDeResolverAA","LaInteligenciaArtificialEsUnCampoDeLaInformáticaQueSeCentraEnLaCreaciónDeSistemasCapacesDeResolverAA",asjfaoif@gmail.com,https://google.com
+claim-08,"C-0008",2009/01/01 01:01,"1","1","1",asjfaoif@gmail.com,https://google.com
+claim-09,"C-0009",2008/03/03 03:03,"1","1","1",,

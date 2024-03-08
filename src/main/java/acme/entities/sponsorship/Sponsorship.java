@@ -14,12 +14,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import acme.entities.projects.Project;
 import acme.roles.Sponsor;
 import lombok.Getter;
@@ -36,7 +35,6 @@ public class Sponsorship extends AbstractEntity {
 
 	// Attributes
 
-	@NotNull
 	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
 	@NotBlank
 	@Column(unique = true)
@@ -48,23 +46,29 @@ public class Sponsorship extends AbstractEntity {
 	private Date				moment;
 
 	@NotNull
-	// falta indicar que tiene que ser al menos un mes despues de moment
-	private Integer				duration;
+	@Temporal(TemporalType.TIMESTAMP)
+	// After the moment
+	private Date				startDate;
 
 	@NotNull
-	@Positive
-	private Integer				amount;
+	@Temporal(TemporalType.TIMESTAMP)
+	// One month after startDate
+	private Date				expirationDate;
+
+	@NotNull
+	// Must be positive (must be implemented in the service)
+	private Money				amount;
 
 	@NotNull
 	private SponsorshipType		type;
 
 	@Email
-	@Length(max = 255)
 	private String				contact;
 
 	@URL
-	@Length(max = 255)
 	private String				link;
+
+	// Relations
 
 	@NotNull
 	@Valid
