@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -35,6 +36,7 @@ public class UserStory extends AbstractEntity {
 	@Length(max = 100)
 	private String				description;
 
+	@Min(0)
 	private int					estimatedCost;
 
 	@NotBlank

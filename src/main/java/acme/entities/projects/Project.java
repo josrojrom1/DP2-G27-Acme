@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -48,6 +49,7 @@ public class Project extends AbstractEntity {
 	@NotNull
 	private Boolean				draftMode;
 
+	@Min(0)
 	private int					cost;
 
 	@URL
