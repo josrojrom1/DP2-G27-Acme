@@ -13,3 +13,5 @@ user-account-client-01,true,"UserIdentity{name: 'Paco', surname: 'Jemez', email:
 user-account-client-02,true,"UserIdentity{name: 'Maria', surname: 'Fernandez', email: 'mariafernandez@acme.com'}",client2,client2
 user-account-manager-01,true,"UserIdentity{name: 'Antonio', surname: 'Gutierrez', email: 'anguti@acme.com'}",manager1,manager1
 user-account-manager-01,true,"UserIdentity{name: 'Lucia', surname: 'Sanchez', email: 'sanlu@acme.com'}",manager2,manager2
+user-account-developer-01,true,"UserIdentity{name: 'Carlos', surname: 'Sicard', email: 'carlos@acme.com'}",developer1,developer1
+user-account-developer-02,true,"UserIdentity{name: 'Andres', surname: 'Romero', email: 'andres@acme.com'}",developer2,developer2
