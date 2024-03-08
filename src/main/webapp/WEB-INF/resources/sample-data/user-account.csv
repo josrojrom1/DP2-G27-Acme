@@ -12,4 +12,4 @@ user-account-sponsor-02,true,"UserIdentity{name: 'Jimena', surname: 'Pineda', em
 user-account-client-01,true,"UserIdentity{name: 'Paco', surname: 'Jemez', email: 'pacojemez@acme.com'}",client1,client1
 user-account-client-02,true,"UserIdentity{name: 'Maria', surname: 'Fernandez', email: 'mariafernandez@acme.com'}",client2,client2
 user-account-manager-01,true,"UserIdentity{name: 'Antonio', surname: 'Gutierrez', email: 'anguti@acme.com'}",manager1,manager1
-user-account-manager-01,true,"UserIdentity{name: 'Lucia', surname: 'Sanchez', email: 'sanlu@acme.com'}",manager2,manager2
+user-account-manager-02,true,"UserIdentity{name: 'Lucia', surname: 'Sanchez', email: 'sanlu@acme.com'}",manager2,manager2

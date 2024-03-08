@@ -5,11 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.roles.Manager;
@@ -24,31 +24,27 @@ public class UserStory extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@NotNull
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Manager				manager;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				description;
 
-	@Min(0)
-	@NotNull
-	private Double				estimatedCost;
+	private int					estimatedCost;
 
-	@NotNull
+	@NotBlank
+	@Length(max = 100)
 	private String				acceptanceCriteria;
 
 	@NotNull
 	private PriorityEnum		priority;
 
+	@URL
 	private String				link;
 
-	@NotNull
-	@ManyToOne
-	private Project				project;
 }
