@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>544</x>
+      <y>72</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Project
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>296</y>
+      <w>376</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Invoice
+--
++ code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}-[0-9]{3}")}
++ registration: Date {Temporal(TIMESTAMP), Past, NotNull}
++ dueDate: Date {Temporal(TIMESTAMP), NotNull}
++ quantity: Double {Positive, NotNull, Digits(6,2)}
++ tax: Double {DecimalMin(0.0), DecimalMax(100.0), NotNull, Digits(2,2)}
++ link: String {URL}
++ / amount: Double {Transient}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>464</x>
+      <y>296</y>
+      <w>248</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Sponsor
+--
++ name: String {NotNull, NotBlank, Length(75)}
++ benefits: String {NotNull, NotBlank, Length(100)}
++ webPage: String {NotNull, Length(255)}
++ contact: String {Email}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>88</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=0..n
+m2=1
+finances &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>376</x>
+      <y>184</y>
+      <w>56</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=0..n
+m2= 1
+bill a ^</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>568</x>
+      <y>152</y>
+      <w>144</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+SponsorshipType
+--
++ FINANCIAL
++ IN_KIND</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>168</x>
+      <y>216</y>
+      <w>112</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>expirationDate must be 
+at least one month
+after startDate
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>88</x>
+      <y>184</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>48</x>
+      <y>440</y>
+      <w>120</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>dueDate must be
+at least one month 
+ahead the registration 
+time
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>88</x>
+      <y>416</y>
+      <w>24</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>48</y>
+      <w>376</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Sponsorship
+--
++ code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}-[0-9]{3}")}
++ moment: Date {Temporal(TIMESTAMP), Past, NotNull}
++ startDate: Date {Temporal(TIMESTAMP), NotNull}
++ expirationDate: Date {Temporal(TIMESTAMP), NotNull}
++ amount: Money {NotNull}
++ type: SponsorshipType {NotNull}
++ contact: String {Email, Length(255)}
++ link: String {URL, Length(255)}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>128</y>
+      <w>184</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=0..n
+m2=1
+  funds ^</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>536</x>
+      <y>400</y>
+      <w>176</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;DateType&gt;&gt;
+Money
+--
++ amount: Double {Digits(10,2)}
++ currency: String {NotBlank}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>48</x>
+      <y>216</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>startDate must be 
+later than moment
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>184</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>288</x>
+      <y>216</y>
+      <w>80</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>amount must
+be positive
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>184</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>184</x>
+      <y>440</y>
+      <w>88</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>quantity must 
+be positive
+not nought
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>416</y>
+      <w>24</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>288</x>
+      <y>440</y>
+      <w>200</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>The sum of the amount 
+of invoices (including taxes) 
+must add up and never exceed 
+the the amount of money to be 
+paid in the corresponding sponsorship
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>352</x>
+      <y>416</y>
+      <w>24</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>544</y>
+      <w>368</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+SponsorDashboard
+--
++ totalNumOfInvoicesWithTaxLessOrEqualToTwentyOne: int {Min(0)}
++ totalNumOfSponsorshipsWithLink: int {Min(0)}
++ sponsorshipAmountAverage: double {DecimalMin(0.0)}	
++ sponsorshipAmountDeviation: double {DecimalMin(0.0)}
++ minimumSponsorshipAmount: double
++ maximumSponsorshipAmount: double
++ invoiceQuantityAverage: double {DecimalMin(0.0)}
++ invoiceQuantityDeviation double {@DecimalMin(0.0)}
++ minimumInvoiceQuantity: double
++ maximumInvoiceQuantity: double</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
