@@ -60,6 +60,9 @@ public class CodeAudit extends AbstractEntity {
 	@URL
 	private String				link;
 
+	private boolean				draftMode;
+	//Atributo perteneciente a las siguientes lecciones que indica si cada CodeAudit está en modo edición o no
+
 	//Relationships
 	@NotNull
 	@Valid
