@@ -21,4 +21,4 @@ project-019,manager-01,"KBC-6234","titulo del proyecto 1","descripcion del proye
 project-020,manager-01,"ABC-2234","Собака","descripcion del proyecto 1",true,false,34,"https://linkopcional.com"
 project-021,manager-01,"ABC-3234","龙","descripcion del proyecto 1",true,false,34,"https://linkopcional.com"
 project-022,manager-01,"ABC-4234","titulo del proyecto 1","Книга",true,false,34,"https://linkopcional.com"
-project-023,manager-01,"ABC-5234","titulo del proyecto 1","茶 ",true,false,34,"https://linkopcional.com"
+project-023,manager-01,"ABC-5234","titulo del proyecto 1","茶 ",true,null,34,"https://linkopcional.com"
