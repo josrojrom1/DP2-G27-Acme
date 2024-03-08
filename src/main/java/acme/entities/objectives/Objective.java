@@ -44,9 +44,11 @@ public class Objective extends AbstractEntity {
 	private boolean				critical			= false;
 
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				executionPeriodStart; // hay que verlo bien
 
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				executionPeriodFinish;
 
 	@URL
