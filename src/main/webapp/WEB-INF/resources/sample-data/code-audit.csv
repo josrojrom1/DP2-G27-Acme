@@ -1,15 +1,15 @@
-key,code,execution,type,correctiveActions,link,key:auditor,key:project
-audit-01-01,"AAA-001",2021/04/30 16:18,STATIC,"Se necesita cambiar los nombres de las carpetas",https://example.com,auditor-01,project-01
-audit-02-01,"AAA-002",2021/04/30 18:23,DYNAMIC,"Vaciar el sistema de logs para ahorrar espacio en el proyecto",,auditor-01,project-01
-audit-03-01,"AAA-003",2021/05/30 18:23,DYNAMIC,"A",https://example.com,auditor-01,project-01
-audit-04-01,"AAA-004",2021/05/02 18:23,STATIC,"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",https://example.com,auditor-01,project-01
-audit-05-01,"AA-003",2021/05/04 19:32,DYNAMIC,"Corrective Actions",https://example1.com,auditor-01,project-01
-audit-06-01,"A-003",2021/05/05 20:01,STATIC,"Comprobación de rootkits en el sistema",,auditor-01,project-01
-audit-07-01,"AAA-044",2021/05/06 18:23,DYNAMIC,"Crear backups y respuesta activa frente a cambios no autorizados",https://example2.com,auditor-01,project-01
-audit-08-01,"AAA-555",2021/05/07 14:45,STATIC,"Sistema de detención de intrusión",,auditor-01,project-01
-audit-09-01,"AAA-333",2021/05/30 18:23,DYNAMIC,"A",https://examplex/AAAAAAAAA/BBBBBBBBB/CCCCCCCCC/kasljdhflkasjdhflkjsahdflkjashdfkjhpwieuhpeiruhpfnvpsudnfvoidfvs234230874y2387420837db08d08fa7bef008aw7b4f087aw4bf08a740f87a40f87ab408f7ba084f7ba084f7b80ag74f087gah408f7h048af70aw408a7hw40f87ha4f747puifjp.com,auditor-01,project-01
-audit-01-02,"BBB-001",2021/05/30 15:50,STATIC,"Cambiar contraseñas de los roles a contraseñas más seguras",,auditor-02,project-02
-audit-02-02,"BBB-002",2021/05/30 14:32,DYNAMIC,"Añadir las relaciones adecuadas a las entidades",https://youtue.com/explicacion,auditor-02,project-02
-audit-03-02,"B-003",2021/04/12 14:32,DYNAMIC,"Prueba de carga",https://youtue.com/explicacion4,auditor-02,project-02
-audit-04-02,"X-221",2021/04/13 11:24,STATIC,"这是示例文本",,auditor-02,project-02
-audit-05-02,"CC-111",2021/04/30 18:23,DYNAMIC,"هذا نص مثال",https://testing.com,auditor-02,project-02
+key,code,execution,type,correctiveActions,link,key:auditor,key:project,draftMode
+audit-01-01,"AAA-001",2021/04/30 16:18,STATIC,"Se necesita cambiar los nombres de las carpetas",https://example.com,auditor-01,project-01,false
+audit-02-01,"AAA-002",2021/04/30 18:23,DYNAMIC,"Vaciar el sistema de logs para ahorrar espacio en el proyecto",,auditor-01,project-01,false
+audit-03-01,"AAA-003",2021/05/30 18:23,DYNAMIC,"A",https://example.com,auditor-01,project-01,false
+audit-04-01,"AAA-004",2021/05/02 18:23,STATIC,"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",https://example.com,auditor-01,project-01,false
+audit-05-01,"AA-003",2021/05/04 19:32,DYNAMIC,"Corrective Actions",https://example1.com,auditor-01,project-01,false
+audit-06-01,"A-003",2021/05/05 20:01,STATIC,"Comprobación de rootkits en el sistema",,auditor-01,project-01,false
+audit-07-01,"AAA-044",2021/05/06 18:23,DYNAMIC,"Crear backups y respuesta activa frente a cambios no autorizados",https://example2.com,auditor-01,project-01,false
+audit-08-01,"AAA-555",2021/05/07 14:45,STATIC,"Sistema de detención de intrusión",,auditor-01,project-01,false
+audit-09-01,"AAA-333",2021/05/30 18:23,DYNAMIC,"A",https://examplex/AAAAAAAAA/BBBBBBBBB/CCCCCCCCC/kasljdhflkasjdhflkjsahdflkjashdfkjhpwieuhpeiruhpfnvpsudnfvoidfvs234230874y2387420837db08d08fa7bef008aw7b4f087aw4bf08a740f87a40f87ab408f7ba084f7ba084f7b80ag74f087gah408f7h048af70aw408a7hw40f87ha4f747puifjp.com,auditor-01,project-01,false
+audit-01-02,"BBB-001",2021/05/30 15:50,STATIC,"Cambiar contraseñas de los roles a contraseñas más seguras",,auditor-02,project-02,false
+audit-02-02,"BBB-002",2021/05/30 14:32,DYNAMIC,"Añadir las relaciones adecuadas a las entidades",https://youtue.com/explicacion,auditor-02,project-02,false
+audit-03-02,"B-003",2021/04/12 14:32,DYNAMIC,"Prueba de carga",https://youtue.com/explicacion4,auditor-02,project-02,false
+audit-04-02,"X-221",2021/04/13 11:24,STATIC,"这是示例文本",,auditor-02,project-02,false
+audit-05-02,"CC-111",2021/04/30 18:23,DYNAMIC,"هذا نص مثال",https://testing.com,auditor-02,project-02,false
