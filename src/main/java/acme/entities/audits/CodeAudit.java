@@ -54,7 +54,7 @@ public class CodeAudit extends AbstractEntity {
 
 	//mark (computed as the mode of the marks in the corresponding auditing records; ties must be broken arbitrarily if necessary)
 	@Transient
-	private Mark				mark; //Se ha dejado como String al ser depentiente del método que se construya en el servicio correspondiente en el futuro
+	private Mark				mark; //En el foro pone que esta propiedad derivada se calcula en el bind/unbind del servicio correspondiente asi que se deja asi de momento
 
 	//optional link with further information.
 	@URL
