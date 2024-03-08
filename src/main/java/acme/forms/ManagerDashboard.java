@@ -1,6 +1,8 @@
 
 package acme.forms;
 
+import javax.validation.constraints.Min;
+
 import acme.client.data.AbstractForm;
 
 public class ManagerDashboard extends AbstractForm {
@@ -9,17 +11,41 @@ public class ManagerDashboard extends AbstractForm {
 
 	// Attributes
 
-	Integer						totalNumOfMustUserStories;
-	Integer						totalNumOfShouldUserStories;
-	Integer						totalNumOfCouldUserStories;
-	Integer						totalNumOfWontUserStories;
+	//User Story Priorities
+	@Min(0)
+	int							totalNumOfMustUserStories;
 
-	Double						averageDeviationOfEstimatedCostUS;
-	Double						averageMinimumEstimatedCostOfUS;
-	Double						averageMaximumEstimatedCostOfUS;
+	@Min(0)
+	int							totalNumOfShouldUserStories;
 
-	Double						averageDeviationOfProjectCost;
-	Double						averageMinimumProjectCost;
-	Double						averageMaximumProjectCost;
+	@Min(0)
+	int							totalNumOfCouldUserStories;
+
+	@Min(0)
+	int							totalNumOfWontUserStories;
+
+	//User Story Cost 
+	@Min(0)
+	Double						averageEstimatedCostOfUS;
+
+	double						deviationOfEstimatedCostUS;
+
+	@Min(0)
+	double						minimumEstimatedCostOfUS;
+
+	@Min(0)
+	double						maximumEstimatedCostOfUS;
+
+	//Project Cost
+	@Min(0)
+	Double						averageProjectCost;
+
+	double						deviationOfProjectCost;
+
+	@Min(0)
+	double						minimumProjectCost;
+
+	@Min(0)
+	double						maximumProjectCost;
 
 }
