@@ -33,9 +33,12 @@ public class TrainingSessions extends AbstractEntity {
 	private String				code;
 
 	//time period (at least one week ahead the training module creation moment, at least one week long)
-	//TODO
+	//TODO:Service
 	@NotNull
-	private Date				period;
+	private Date				periodStart;
+
+	@NotNull
+	private Date				periodFinish;
 
 	//location (not blank, shorter than 76 characters)
 	@NotBlank
@@ -59,6 +62,6 @@ public class TrainingSessions extends AbstractEntity {
 	//Relationships
 	@NotNull
 	@Valid
-	@ManyToOne()
+	@ManyToOne(optional = false)
 	private TrainingModule		trainingModule;
 }

@@ -19,6 +19,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.projects.Project;
+import acme.roles.Developer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -51,7 +52,7 @@ public class TrainingModule extends AbstractEntity {
 	private DifficultyLevel		difficultyLevel;
 
 	//update moment (in the past, after the creation moment)
-	//TODO: COMO HAGO PARA VERIFICAR QUE SE CREE DESPUÉS DEL CREATIONMOMENT???
+	//TODO: Service
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date				updateMoment;
@@ -61,12 +62,16 @@ public class TrainingModule extends AbstractEntity {
 	private String				link;
 
 	//estimated total time
-	@NotNull
-	private Integer				totalTime;
+	private double				totalTime;
 
 	//Relationships
 	@NotNull
 	@Valid
-	@ManyToOne()
+	@ManyToOne(optional = false)
+	private Developer			developer;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
 	private Project				project;
 }
