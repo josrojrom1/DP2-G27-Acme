@@ -1,0 +1,11 @@
+key,instantiationMoment,title,author,message,email,link
+notice-01,2021/04/30 16:18,"Soy un titulo","principal-principal principal","Soy un mensaje","user_19@domain.co.jp",ftp://sitioftp.ejemplo
+notice-02,2021/02/22 20:00,"Este titulo contiene caracteres especiales: #@!$%^&*()","principal-principal principal","Este mensaje contiene caracteres especiales: #@!$%^&*()","user24@[192.168.0.1]",https://www.ejemplo.com
+notice-03,2020/01/01 13:18,"我是细节","principal-principal principal","我是细节","notice1.10@domain.io",ftp://sitioftp.ejemplo
+notice-04,2021/07/13 12:22,"titulo con líneas múltiples. \n Segunda línea.","principal-principal principal","mensaje con líneas múltiples. \n Segunda línea.","user_27@company+department.org",ftp://sitioftp.ejemplo
+notice-05,2019/04/22 06:11,"|123456789|","principal-principal principal","|123456789|","info.2222@domain.io",ftp://sitioftp.ejemplo
+notice-06,2017/11/26 01:18,"Привет, мир!","principal-principal principal","Привет, мир!","notice.5555@domain.io",https://www.ejemplo.com/ruta?parámetro=valor
+notice-07,2009/10/17 11:06,"こんにちは世界","principal-principal principal","こんにちは世界","info.10@domain.io",https://www.ejemplo.com/%20espacios%20en%20ruta
+notice-08,2014/04/11 23:18,"titulo con código HTML: <p>Este es un párrafo HTML.</p>","principal-principal principal","mensaje con código HTML: <p>Este es un párrafo HTML.</p>","support_13@company.net",https://www.ejemplo.com/página#sección
+notice-09,2021/07/03 16:44,"titulo con símbolos matemáticos: √2 + ∑i=1n Xi","principal-principal principal","mensaje con símbolos matemáticos: √2 + ∑i=1n Xi","weird.email_23@strange.domain",file:///ruta/archivo.txt
+notice-10,2021/09/09 17:00,"titulo con fecha: 2024-03-07","principal-principal principal","mensaje con fecha: 2024-03-07","email20@sample.us",https://[::1]

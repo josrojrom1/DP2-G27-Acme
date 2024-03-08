@@ -36,7 +36,7 @@ public class Notice extends AbstractEntity {
 	@Length(max = 75)
 	private String				title;
 
-	//TODO: 〈username〉 - 〈surname, name〉 formatter
+	//TODO: 〈username〉 - 〈surname, name〉
 	//an author (not blank, shorter than 76 characters)
 	@NotBlank
 	@Length(max = 75)
@@ -54,15 +54,5 @@ public class Notice extends AbstractEntity {
 	//an optional link
 	@URL
 	private String				link;
-
-	//TODO:relationships
-	/*
-	 * @NotNull
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne(optional = false)
-	 * private Principal principal;
-	 */
 
 }

@@ -1,0 +1,11 @@
+key,reference,identificationDate,impact,probability,description,link
+risk-01,"R-123",2021/04/30 16:18,54.33,22.52,"Soy una descripcion",ftp://sitioftp.ejemplo
+risk-02,"R-222",2021/02/22 20:00,00.00,99.99,"Esta descripción contiene caracteres especiales: #@!$%^&*()",https://www.ejemplo.com
+risk-03,"R-987",2020/01/01 13:18,5.0,100.00,"我是细节",https://[::1]
+risk-04,"R-323",2021/07/13 12:22,5.,22.,"Descripción con líneas múltiples. \n Segunda línea.",file:///ruta/archivo.txt
+risk-05,"R-200",2019/04/22 06:11,33.01,99.12,"|123456789|",https://www.ejemplo.com/página#sección
+risk-06,"R-330",2017/11/26 01:18,55.33,22.11,"Привет, мир!",https://www.ejemplo.com/%20espacios%20en%20ruta
+risk-07,"R-355",2009/10/17 11:06,66.74,74.66,"こんにちは世界",https://www.ejemplo.com/ruta?parámetro=valor
+risk-08,"R-000",2014/04/11 23:18,22.52,22.52,"Descripción con código HTML: <p>Este es un párrafo HTML.</p>",
+risk-09,"R-111",2021/07/03 16:44,33.33,22.22,"Descripción con símbolos matemáticos: √2 + ∑i=1n Xi",
+risk-10,"R-666",2021/09/09 17:00,66.66,66.66,"Descripción con fecha: 2024-03-07",ftp://sitioftp.ejemplo
