@@ -22,15 +22,15 @@ public class Manager extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				degree;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				overview;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				certifications;
 
 	@URL
