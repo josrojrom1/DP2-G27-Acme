@@ -62,7 +62,6 @@ public class TrainingModule extends AbstractEntity {
 	private String				link;
 
 	//estimated total time
-	@NotNull
 	private double				totalTime;
 
 	//Relationships
