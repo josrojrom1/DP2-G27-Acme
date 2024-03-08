@@ -28,7 +28,7 @@ public class Client extends AbstractRole {
 	private String				identification;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				companyName;
 
 	@NotNull

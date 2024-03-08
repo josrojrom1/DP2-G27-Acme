@@ -45,6 +45,13 @@ public class AuditRecord extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				endPeriod;
 
+	// Posible método para implementar en la validación o servicio correspondiente cuando se de en teoría
+	//public boolean atLeastOneHourLong() {
+	//	double diff = this.endPeriod.getTime() - this.startPeriod.getTime();
+	//	double hours = diff / (1000 * 60 * 60);
+	//	return hours >= 1;
+	//}
+
 	//mark (“A+”, “A”, “B”, “C”, “F”, or “F-”)
 	@NotNull
 	private Mark				mark;
