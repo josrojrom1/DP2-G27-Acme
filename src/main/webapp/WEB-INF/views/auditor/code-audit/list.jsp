@@ -21,9 +21,7 @@
 	<acme:list-column code="auditor.code-audit.list.label.execution" path="execution" width="33%"/>	
 </acme:list>
 
-<!-- 
-<jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="auditor.codeAudit.list.button.create" action="/employer/job/create"/>
-</jstl:if>		
- -->
 
+<jstl:if test="${_command == 'list-mine'}">
+	<acme:button code="auditor.code-audit.list.button.create" action="/auditor/code-audit/create"/>
+</jstl:if>		

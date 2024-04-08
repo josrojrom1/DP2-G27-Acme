@@ -21,15 +21,15 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		AuditRecord auditRecord;
+		//		boolean status;
+		//		int id;
+		//		AuditRecord auditRecord;
+		//
+		//		id = super.getRequest().getData("id", int.class);
+		//		auditRecord = this.repository.findOneAuditRecordById(id);
+		//		status = auditRecord != null && (!auditRecord.isDraftMode() || super.getRequest().getPrincipal().hasRole(Auditor.class));
 
-		id = super.getRequest().getData("id", int.class);
-		auditRecord = this.repository.findOneAuditRecordById(id);
-		status = auditRecord != null && (!auditRecord.isDraftMode() || super.getRequest().getPrincipal().hasRole(Auditor.class));
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		Collection<AuditRecord> objects;
 		//Principal principal;
 		int id;
-		id = super.getRequest().getData("id", int.class);
+		id = super.getRequest().getData("masterId", int.class);
 		objects = this.repository.findManyAuditRecordsByCodeAuditId(id);
 
 		super.getBuffer().addData(objects);
@@ -49,7 +49,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "mark");
+		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
 
 		super.getResponse().addData(dataset);
 	}

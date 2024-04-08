@@ -9,12 +9,19 @@
 # they accept any liabilities with respect to them.
 
 # List labels ####################################################
-auditor.audit-record.list.label = Audit record list
-auditor.audit-record.list.title = Audit record list
-auditor.audit-record.list.label.code= Code
-auditor.audit-record.list.label.mark = Mark
+auditor.code-audit.list.label = List audits
+auditor.code-audit.list.title = List of my audits
+auditor.code-audit.list.label.code= Code
+auditor.code-audit.list.label.mark = Mark
+auditor.code-audit.list.label.execution = Execution time
+auditor.code-audit.list.button.create = Create new audit
 
 # Form labels ####################################################
-auditor.audit-record.form.title = Audit record form
-auditor.audit-record.form.label.code = Code
-auditor.audit-record.form.label.mark = Mark
+auditor.code-audit.form.title = Code audit form
+auditor.code-audit.form.label.code = code
+auditor.code-audit.form.label.execution = Execution time
+auditor.code-audit.form.label.type = Type
+auditor.code-audit.form.label.correctiveActions = Corrective actions
+auditor.code-audit.form.label.mark = Mark
+auditor.code-audit.form.label.link = Link
+auditor.code-audit.form.button.audit-records = Audit record

@@ -14,7 +14,7 @@ import acme.entities.audits.CodeAudit;
 public interface AuditorAuditRecordRepository extends AbstractRepository {
 
 	@Query("select a from AuditRecord a where a.id = :id")
-	AuditRecord findOneAuditRecordById(int masterId);
+	AuditRecord findOneAuditRecordById(int id);
 
 	@Query("select a from AuditRecord a where a.codeAudit.id = :id")
 	Collection<AuditRecord> findManyAuditRecordsByCodeAuditId(int id);
