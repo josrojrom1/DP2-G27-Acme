@@ -34,6 +34,15 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
 		</acme:menu-option>
+		
+		
+		<!-- AUDITOR SECTION -->
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">			
+			<acme:menu-suboption code="master.menu.auditor.my-code-audits" action="/auditor/codeAudit/list-mine"/>
+		</acme:menu-option>
+		
+		
+		
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
