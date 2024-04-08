@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-textbox code="auditor.code-audit.form.label.code" path="code"/>
+	<acme:input-textbox code="auditor.code-audit.form.label.code" path="code" readonly="true"/>
 	<acme:input-moment code="auditor.code-audit.form.label.execution" path="execution"/>	
-	<acme:input-textbox code="auditor.code-audit.form.label.type" path="type"/><!-- Cambiar a input-select y añadir atrib choices -->
+	<acme:input-select code="auditor.code-audit.form.label.type" path="type" choices="${types}"/>
 	<acme:input-textbox code="auditor.code-audit.form.label.correctiveActions" path="correctiveActions"/>
 	<acme:input-textbox code="auditor.code-audit.form.label.mark" path="mark"/>
 	<acme:input-url code="auditor.code-audit.form.label.link" path="link"/>

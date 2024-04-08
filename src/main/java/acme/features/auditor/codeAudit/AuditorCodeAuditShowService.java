@@ -13,9 +13,11 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
+import acme.entities.audits.Type;
 import acme.roles.Auditor;
 
 @Service
@@ -28,12 +30,12 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int id;
 		CodeAudit codeAudit;
 		Auditor auditor;
 
-		masterId = super.getRequest().getData("id", int.class);
-		codeAudit = this.repository.findOneCodeAuditById(masterId);
+		id = super.getRequest().getData("id", int.class);
+		codeAudit = this.repository.findOneCodeAuditById(id);
 		auditor = codeAudit == null ? null : codeAudit.getAuditor();
 		status = super.getRequest().getPrincipal().hasRole(auditor) || codeAudit != null && !codeAudit.isDraftMode();
 		super.getResponse().setAuthorised(status);
@@ -59,15 +61,16 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		Mark auditMark;
 		auditMark = this.getModeOfAuditRecordMarks(object.getId());
 
+		SelectChoices typeChoices;
 		//if (!object.isDraftMode())
 		//	contractors = this.repository.findAllContractors();
 		//else {
 		//	employerId = super.getRequest().getPrincipal().getActiveRoleId();
 		//	contractors = this.repository.findManyContractorsByEmployerId(employerId);
 		//}
-		//choices = SelectChoices.from(contractors, "name", object.getContractor());
+		typeChoices = SelectChoices.from(Type.class, object.getType());
 
-		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "mark", "link", "draftMode");
+		dataset = super.unbind(object, "code", "execution", "correctiveActions", "link");
 		if (this.repository.findAuditRecordsById(object.getId()).isEmpty())
 			dataset.put("mark", " - ");
 		else
@@ -75,8 +78,8 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 		dataset.put("draftMode", object.isDraftMode());
 
-		//dataset.put("contractor", choices.getSelected().getKey());
-		//dataset.put("contractors", choices);
+		dataset.put("type", typeChoices.getSelected().getKey());
+		dataset.put("types", typeChoices);
 
 		super.getResponse().addData(dataset);
 	}

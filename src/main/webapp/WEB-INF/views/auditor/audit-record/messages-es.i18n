@@ -17,4 +17,11 @@ auditor.audit-record.list.label.mark = Puntuación
 # Form labels ####################################################
 auditor.audit-record.form.title = Formulario del registro de auditoría
 auditor.audit-record.form.label.code = Código
-auditor.audit-record.form.label.mark = Nota
+auditor.audit-record.form.label.mark = Puntuación
+auditor.audit-record.form.label.startPeriod = Fecha de inicio
+auditor.audit-record.form.label.endPeriod = Fecha de finalización
+auditor.audit-record.form.label.link = Enlace
+auditor.audit-record.form.button.update = Actualizar
+auditor.audit-record.form.button.delete = Borrar
+auditor.audit-record.form.button.publish = Publicar
+auditor.audit-record.form.button.create = Crear nuevo registro de auditoría
