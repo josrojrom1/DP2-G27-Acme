@@ -15,6 +15,7 @@ auditor.code-audit.list.label.code= Code
 auditor.code-audit.list.label.mark = Mark
 auditor.code-audit.list.label.execution = Execution time
 auditor.code-audit.list.button.create = Create new audit
+auditor.code-audit.list.label.draftMode = Published
 
 # Form labels ####################################################
 auditor.code-audit.form.title = Code audit form
@@ -25,3 +26,6 @@ auditor.code-audit.form.label.correctiveActions = Corrective actions
 auditor.code-audit.form.label.mark = Mark
 auditor.code-audit.form.label.link = Link
 auditor.code-audit.form.button.audit-records = Audit record
+auditor.code-audit.form.button.update = Update
+auditor.code-audit.form.button.delete = Delete
+auditor.code-audit.form.button.publish = Publish

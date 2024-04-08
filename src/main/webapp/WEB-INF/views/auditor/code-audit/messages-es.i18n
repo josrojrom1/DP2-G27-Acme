@@ -15,6 +15,7 @@ auditor.code-audit.list.label.code= Códio
 auditor.code-audit.list.label.mark = Puntuación
 auditor.code-audit.list.label.execution = Fecha
 auditor.code-audit.list.button.create = Crear nueva auditoría
+auditor.code-audit.list.label.draftMode = Publicado
 
 # Form labels ####################################################
 auditor.code-audit.form.title = Formulario de la auditoría de código
@@ -25,3 +26,6 @@ auditor.code-audit.form.label.correctiveActions = Acciones correctivas
 auditor.code-audit.form.label.mark = Nota
 auditor.code-audit.form.label.link = Enlace
 auditor.code-audit.form.button.audit-records = ver registro/s de auditoría
+auditor.code-audit.form.button.update = Actualizar
+auditor.code-audit.form.button.delete = Borrar
+auditor.code-audit.form.button.publish = Publicar
