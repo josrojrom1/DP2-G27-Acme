@@ -8,8 +8,19 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+# List labels ####################################################
 auditor.code-audit.list.label = Lista de auditorías
 auditor.code-audit.list.title = Listado de mis auditorías
 auditor.code-audit.list.label.code= Códio
 auditor.code-audit.list.label.mark = Puntuación
 auditor.code-audit.list.label.execution = Fecha
+
+# Form labels ####################################################
+auditor.code-audit.form.title = Formulario de la auditoría de código
+auditor.code-audit.form.label.code = Código
+auditor.code-audit.form.label.execution = Fecha de ejecución
+auditor.code-audit.form.label.type = Tipo
+auditor.code-audit.form.label.correctiveActions = Acciones correctivas
+auditor.code-audit.form.label.mark = Nota
+auditor.code-audit.form.label.link = Enlace
+auditor.code-audit.form.button.audit-records = Registro/s de auditoría
