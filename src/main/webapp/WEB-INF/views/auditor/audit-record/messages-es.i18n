@@ -1,4 +1,4 @@
-# messages-en.i18n
+# messages-es.i18n
 #
 # Copyright (C) 2012-2024 Rafael Corchuelo.
 #
@@ -9,12 +9,12 @@
 # they accept any liabilities with respect to them.
 
 # List labels ####################################################
-auditor.audit-record.list.label = Audit record list
-auditor.audit-record.list.title = Audit record list
-auditor.audit-record.list.label.code= Code
-auditor.audit-record.list.label.mark = Mark
+auditor.audit-record.list.label = Lista de registros de auditorías
+auditor.audit-record.list.title = Listado de mis registros de auditorías
+auditor.audit-record.list.label.code= Códio
+auditor.audit-record.list.label.mark = Puntuación
 
 # Form labels ####################################################
-auditor.audit-record.form.title = Audit record form
-auditor.audit-record.form.label.code = Code
-auditor.audit-record.form.label.mark = Mark
+auditor.audit-record.form.title = Formulario del registro de auditoría
+auditor.audit-record.form.label.code = Código
+auditor.audit-record.form.label.mark = Nota

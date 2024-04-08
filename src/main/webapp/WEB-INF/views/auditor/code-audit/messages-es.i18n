@@ -23,4 +23,4 @@ auditor.code-audit.form.label.type = Tipo
 auditor.code-audit.form.label.correctiveActions = Acciones correctivas
 auditor.code-audit.form.label.mark = Nota
 auditor.code-audit.form.label.link = Enlace
-auditor.code-audit.form.button.audit-records = Registro/s de auditoría
+auditor.code-audit.form.button.audit-records = ver registro/s de auditoría
