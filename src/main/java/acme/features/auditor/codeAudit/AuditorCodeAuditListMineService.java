@@ -58,50 +58,13 @@ public class AuditorCodeAuditListMineService extends AbstractService<Auditor, Co
 		else
 			dataset.put("mark", auditMark);
 
+		if (this.repository.findOneCodeAuditById(object.getId()).isDraftMode())
+			dataset.put("draftMode", "✖");
+		else
+			dataset.put("draftMode", "✔");
+
 		super.getResponse().addData(dataset);
 	}
-
-	//	private Mark getModeOfAuditRecordMarks(final int codeAuditId) {
-	//		Collection<AuditRecord> ls = this.repository.findAuditRecordsById(codeAuditId);
-	//		Collection<Mark> markList = new ArrayList<>();
-	//		Mark mark;
-	//
-	//		for (final AuditRecord ar : ls)
-	//			markList.add(ar.getMark());
-	//
-	//		if (markList.size() == 0)
-	//			mark = Mark.F_MINUS;
-	//		else {
-	//			Map<Mark, Integer> markCount = new HashMap<>();
-	//			for (final Mark m : markList) {
-	//				Integer count = markCount.get(m);
-	//				if (count == null)
-	//					count = 0;
-	//				markCount.put(m, count + 1);
-	//			}
-	//
-	//			int maxValue;
-	//			maxValue = Collections.max(markCount.values());
-	//			List<Mark> maxMarks = new ArrayList<>();
-	//			for (final Map.Entry<Mark, Integer> entry : markCount.entrySet())
-	//				if (entry.getValue() == maxValue)
-	//					maxMarks.add(entry.getKey());
-	//
-	//			Mark result;
-	//			if (maxMarks.size() == 1)
-	//				result = maxMarks.get(0);
-	//			else
-	//				//En caso de empate devolvemos la menor nota
-	//
-	//				//Ordenamos según la nota para que la más baja aparezca primero
-	//				Collections.reverse(maxMarks);
-	//
-	//			result = maxMarks.get(0);
-	//
-	//			mark = result;
-	//		}
-	//		return mark;
-	//	}
 
 	private Mark getModeOfAuditRecordMarks(final int codeAuditId) {
 		Map<Mark, Integer> markCount = new HashMap<>();

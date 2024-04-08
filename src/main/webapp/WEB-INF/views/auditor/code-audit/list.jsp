@@ -18,7 +18,7 @@
 <acme:list>
 	<acme:list-column code="auditor.code-audit.list.label.code" path="code" width="33%"/>
 	<acme:list-column code="auditor.code-audit.list.label.mark" path="mark" width="33%"/>
-	<acme:list-column code="auditor.code-audit.list.label.execution" path="execution" width="33%"/>	
+	<acme:list-column code="auditor.code-audit.list.label.draftMode" path="draftMode" width="33%"/>	
 
 </acme:list>
 
