@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-auditor.codeAudit.list.label = Code audits list
-
-auditor.codeAudit.list.label.code= Code
-auditor.codeAudit.list.label.mark = Mark
-auditor.codeAudit.list.label.execution = Execution time
+auditor.code-audit.list.label = Code audit list
+auditor.code-audit.list.title = My audit list
+auditor.code-audit.list.label.code= Code
+auditor.code-audit.list.label.mark = Mark
+auditor.code-audit.list.label.execution = Execution time

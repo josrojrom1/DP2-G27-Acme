@@ -8,33 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-# auditor.codeAudit.form.title = Detalles de trabajo
-auditor.codeAudit.list.label = Lista de auditorías
-
-auditor.codeAudit.list.label.code= Códio
-auditor.codeAudit.list.label.mark = Puntuación
-auditor.codeAudit.list.label.execution = Fecha
-
-#auditor.codeAudit.list.button.create = Crear
-
-#auditor.codeAudit.form.label.reference = Referencia: 
-#auditor.codeAudit.form.label.contractor = Contratista: 
-#auditor.codeAudit.form.label.title = Título:
-#auditor.codeAudit.form.label.deadline = Fecha límite:
-#auditor.codeAudit.form.label.salary = Salario:
-#auditor.codeAudit.form.label.score = Puntuación:
-#auditor.codeAudit.form.label.moreInfo = Más información: (Opcional)
-#auditor.codeAudit.form.label.description = Descripción:
-
-#auditor.codeAudit.form.placeholder.score = 0,00 - 100,00
-		
-#auditor.codeAudit.form.button.duties = Responsabilidades
-#auditor.codeAudit.form.button.update = Actualizar
-#auditor.codeAudit.form.button.delete = Borrar
-#auditor.codeAudit.form.button.publish = Publicar
-#auditor.codeAudit.form.button.create = Crear
-
-#auditor.codeAudit.form.error.duplicated = Esta referencia no está libre
-#auditor.codeAudit.form.error.too-close = La fecha límite debe ser en una semana como mínimo
-#auditor.codeAudit.form.error.bad-work-load = La carga de trabajo no es del 100%
-#auditor.codeAudit.form.error.negative-salary = El salario debe ser positivo
+auditor.code-audit.list.label = Lista de auditorías
+auditor.code-audit.list.title = Listado de mis auditorías
+auditor.code-audit.list.label.code= Códio
+auditor.code-audit.list.label.mark = Puntuación
+auditor.code-audit.list.label.execution = Fecha
