@@ -14,7 +14,7 @@ auditor.code-audit.list.title = List of my audits
 auditor.code-audit.list.label.code= Code
 auditor.code-audit.list.label.mark = Mark
 auditor.code-audit.list.label.execution = Execution time
-auditor.code-audit.list.button.create = Create new audit
+auditor.code-audit.list.button.create = Create new code audit
 auditor.code-audit.list.label.draftMode = Published
 
 # Form labels ####################################################
@@ -30,3 +30,7 @@ auditor.code-audit.form.button.audit-records = Show audit records
 auditor.code-audit.form.button.update = Update
 auditor.code-audit.form.button.delete = Delete
 auditor.code-audit.form.button.publish = Publish
+auditor.code-audit.form.button.create = Create
+
+# Validation form errors #########################################
+auditor.code-audit.form.error.duplicated = The inserted code already exists, please try another one

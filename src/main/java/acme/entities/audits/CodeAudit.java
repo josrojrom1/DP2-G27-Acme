@@ -54,14 +54,13 @@ public class CodeAudit extends AbstractEntity {
 
 	//mark (computed as the mode of the marks in the corresponding auditing records; ties must be broken arbitrarily if necessary)
 	@Transient
-	private Mark				mark; //En el foro pone que esta propiedad derivada se calcula en el bind/unbind del servicio correspondiente asi que se deja asi de momento
+	private Mark				mark;
 
 	//optional link with further information.
 	@URL
 	private String				link;
 
 	private boolean				draftMode;
-	//Atributo perteneciente a las siguientes lecciones que indica si cada CodeAudit está en modo edición o no
 
 	//Relationships
 	@NotNull
