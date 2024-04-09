@@ -21,6 +21,7 @@
 	<acme:input-select code="auditor.code-audit.form.label.type" path="type" choices="${types}"/>
 	<acme:input-textbox code="auditor.code-audit.form.label.correctiveActions" path="correctiveActions"/>
 	<acme:input-textbox code="auditor.code-audit.form.label.mark" path="mark"/>
+	<acme:input-select code="auditor.code-audit.form.label.project" path="type" choices="${projects}"/>
 	<acme:input-url code="auditor.code-audit.form.label.link" path="link"/>
 
 	<jstl:choose>	 

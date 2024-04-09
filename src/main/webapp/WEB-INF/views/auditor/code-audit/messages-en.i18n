@@ -24,6 +24,7 @@ auditor.code-audit.form.label.execution = Execution time
 auditor.code-audit.form.label.type = Type
 auditor.code-audit.form.label.correctiveActions = Corrective actions
 auditor.code-audit.form.label.mark = Mark
+auditor.code-audit.form.label.project = Project
 auditor.code-audit.form.label.link = Link
 auditor.code-audit.form.button.audit-records = Show audit records
 auditor.code-audit.form.button.update = Update

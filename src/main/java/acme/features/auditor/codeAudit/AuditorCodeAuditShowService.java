@@ -18,6 +18,7 @@ import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
 import acme.entities.audits.Type;
+import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
@@ -62,13 +63,16 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		auditMark = this.getModeOfAuditRecordMarks(object.getId());
 
 		SelectChoices typeChoices;
+		SelectChoices projectChoices;
 		//if (!object.isDraftMode())
 		//	contractors = this.repository.findAllContractors();
 		//else {
 		//	employerId = super.getRequest().getPrincipal().getActiveRoleId();
 		//	contractors = this.repository.findManyContractorsByEmployerId(employerId);
 		//}
+		Collection<Project> projects = this.repository.findPublishedProjects();
 		typeChoices = SelectChoices.from(Type.class, object.getType());
+		projectChoices = SelectChoices.from(projects, "title", object.getProject());
 
 		dataset = super.unbind(object, "code", "execution", "correctiveActions", "link");
 		if (this.repository.findAuditRecordsById(object.getId()).isEmpty())
@@ -76,8 +80,9 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		else
 			dataset.put("mark", auditMark);
 
+		dataset.put("project", projectChoices.getSelected().getKey());
+		dataset.put("projects", projectChoices);
 		dataset.put("draftMode", object.isDraftMode());
-
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
 

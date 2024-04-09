@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
+import acme.entities.projects.Project;
 
 @Repository
 public interface AuditorCodeAuditRepository extends AbstractRepository {
@@ -21,5 +22,8 @@ public interface AuditorCodeAuditRepository extends AbstractRepository {
 
 	@Query("select a from AuditRecord a where a.codeAudit.id=:id")
 	Collection<AuditRecord> findAuditRecordsById(int id);
+
+	@Query("select p from Project p where p.draftMode = false")
+	Collection<Project> findPublishedProjects();
 
 }
