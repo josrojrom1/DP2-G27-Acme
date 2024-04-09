@@ -20,6 +20,7 @@
 	<acme:list-column code="auditor.audit-record.list.label.mark" path="mark" width="33%"/>
 </acme:list>
 
+<acme:button test="${showCreate}" code="auditor.audit-record.list.button.create" action="/auditor/audit-record/create?masterId=${masterId}"/>
 <!-- 
 <jstl:if test="${_command == 'list-mine'}">
 	<acme:button code="auditor.codeAudit.list.button.create" action="/employer/job/create"/>

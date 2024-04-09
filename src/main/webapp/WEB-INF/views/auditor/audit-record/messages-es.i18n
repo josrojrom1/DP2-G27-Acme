@@ -13,6 +13,7 @@ auditor.audit-record.list.label = Lista de registros de auditorías
 auditor.audit-record.list.title = Listado de mis registros de auditorías
 auditor.audit-record.list.label.code= Códio
 auditor.audit-record.list.label.mark = Puntuación
+auditor.audit-record.list.button.create = Crear nuevo registro de auditoría
 
 # Form labels ####################################################
 auditor.audit-record.form.title = Formulario del registro de auditoría

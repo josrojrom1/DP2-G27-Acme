@@ -13,6 +13,7 @@ auditor.audit-record.list.label = Audit record list
 auditor.audit-record.list.title = My audit record list
 auditor.audit-record.list.label.code= Code
 auditor.audit-record.list.label.mark = Mark
+auditor.audit-record.list.button.create = Create new audit record
 
 # Form labels ####################################################
 auditor.audit-record.form.title = Audit record form
