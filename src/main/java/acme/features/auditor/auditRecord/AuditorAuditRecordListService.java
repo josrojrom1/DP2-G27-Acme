@@ -21,21 +21,22 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 	@Override
 	public void authorise() {
-		//		boolean status;
-		//		int id;
-		//		AuditRecord auditRecord;
-		//
-		//		id = super.getRequest().getData("id", int.class);
-		//		auditRecord = this.repository.findOneAuditRecordById(id);
-		//		status = auditRecord != null && (!auditRecord.isDraftMode() || super.getRequest().getPrincipal().hasRole(Auditor.class));
+		boolean status;
+		int id;
+		CodeAudit codeAudit;
+		Auditor auditor;
 
-		super.getResponse().setAuthorised(true);
+		id = super.getRequest().getData("masterId", int.class);
+		codeAudit = this.repository.findOneCodeAuditById(id);
+		auditor = this.repository.findOneAuditorByUsername(super.getRequest().getPrincipal().getUsername());
+		status = codeAudit != null && auditor == codeAudit.getAuditor();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Collection<AuditRecord> objects;
-		//Principal principal;
 		int id;
 		id = super.getRequest().getData("masterId", int.class);
 		objects = this.repository.findManyAuditRecordsByCodeAuditId(id);
