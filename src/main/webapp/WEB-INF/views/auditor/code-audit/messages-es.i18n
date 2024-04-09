@@ -24,6 +24,7 @@ auditor.code-audit.form.label.execution = Fecha de ejecución
 auditor.code-audit.form.label.type = Tipo
 auditor.code-audit.form.label.correctiveActions = Acciones correctivas
 auditor.code-audit.form.label.mark = Nota
+auditor.code-audit.form.label.project = Proyecto
 auditor.code-audit.form.label.link = Enlace
 auditor.code-audit.form.button.audit-records = Ver registro/s de auditoría
 auditor.code-audit.form.button.update = Actualizar
