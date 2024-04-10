@@ -29,6 +29,7 @@ master.menu.anonymous.favourite-link-agus = 29565167R: Devós Bono, Agustín
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.configuration.show = Mostrar configuración del sistema
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
@@ -37,6 +38,11 @@ master.menu.administrator.shut-down = Parar el sistema
 
 master.menu.provider = Proveedor
 master.menu.provider.favourite-link = Enlace favorito
+
+# master.menu.client ########################################################
+
+master.menu.client = Cliente
+master.menu.client.contract.list = Listar mis contratos
 
 # master.menu.consumer ##########################################################
 

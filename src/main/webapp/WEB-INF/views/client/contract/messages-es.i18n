@@ -1,0 +1,23 @@
+client.contract.list.title = Mis contratos
+client.contract.list.label.code = Código
+client.contract.list.label.instantiationMoment = Momento de creación
+client.contract.list.label.provider = Proveedor
+
+client.contract.form.placeholder.code = CON-XXX
+client.contract.form.placeholder.instantiationMoment = yyyy/MM/dd HH:mm
+client.contract.form.placeholder.budget = 0.00 EUR/USD/GBP
+
+client.contract.form.title = Formulario de contrato
+client.contract.form.label.code = Código
+client.contract.form.label.instantiationMoment = Momento de creación
+client.contract.form.label.provider = Proveedor
+client.contract.form.label.customer = Cliente
+client.contract.form.label.goals = Objetivos
+client.contract.form.label.budget = Presupuesto
+
+client.contract.list.button.create = Crear
+
+client.contract.form.button.create = Crear
+client.contract.form.button.update = Actualizar
+client.contract.form.button.delete = Borrar
+client.contract.form.button.publish = Publicar
