@@ -14,12 +14,16 @@ import acme.roles.Sponsor;
 public class SponsorInvoiceController extends AbstractController<Sponsor, Invoice> {
 
 	@Autowired
-	private SponsorInvoiceListService listService;
+	private SponsorInvoiceListService	listService;
+
+	@Autowired
+	private SponsorInvoiceShowService	showService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }

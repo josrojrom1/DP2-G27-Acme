@@ -14,3 +14,11 @@ sponsor.invoice.list.label.code = Código
 sponsor.invoice.list.label.registration = Fecha de registro
 sponsor.invoice.list.label.quantity = Cantidad
 
+sponsor.invoice.form.title = Detalles de Factura
+
+sponsor.invoice.form.label.code = Código
+sponsor.invoice.form.label.registration = Fecha de registro
+sponsor.invoice.form.label.dueDate = Fecha de vencimiento
+sponsor.invoice.form.label.quantity = Cantidad
+sponsor.invoice.form.label.tax = Impuesto
+sponsor.invoice.form.label.link = Link

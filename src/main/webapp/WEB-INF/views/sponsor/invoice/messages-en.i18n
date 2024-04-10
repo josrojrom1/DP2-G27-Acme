@@ -13,3 +13,12 @@ sponsor.invoice.list.title = Invoices
 sponsor.invoice.list.label.code = Code
 sponsor.invoice.list.label.registration = Registration Date
 sponsor.invoice.list.label.quantity = Quantity
+
+sponsor.invoice.form.title = Invoice Details
+
+sponsor.invoice.form.label.code = Code
+sponsor.invoice.form.label.registration = Registration Date
+sponsor.invoice.form.label.dueDate = Due Date
+sponsor.invoice.form.label.quantity = Quantity
+sponsor.invoice.form.label.tax = Tax
+sponsor.invoice.form.label.link = Link
