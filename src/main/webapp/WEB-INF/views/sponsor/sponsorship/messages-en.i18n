@@ -13,3 +13,16 @@ sponsor.sponsorship.list.title = Listing of sponsorships
 sponsor.sponsorship.list.label.code = Code
 sponsor.sponsorship.list.label.moment = Moment
 sponsor.sponsorship.list.label.amount = Amount
+
+sponsor.sponsorship.form.title = Sponsorship Details
+
+sponsor.sponsorship.form.label.code = Code
+sponsor.sponsorship.form.label.moment = Moment
+sponsor.sponsorship.form.label.startDate = Start Date
+sponsor.sponsorship.form.label.expirationDate = Expiration Date
+sponsor.sponsorship.form.label.amount = Amount
+sponsor.sponsorship.form.label.type = Type
+sponsor.sponsorship.form.label.contact = Contact
+sponsor.sponsorship.form.label.link = Link
+
+sponsor.sponsorship.form.button.invoices = Invoices

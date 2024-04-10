@@ -13,3 +13,16 @@ sponsor.sponsorship.list.title = Lista de patrocinios
 sponsor.sponsorship.list.label.code = Código
 sponsor.sponsorship.list.label.moment = Fecha
 sponsor.sponsorship.list.label.amount = Cantidad
+
+sponsor.sponsorship.form.title = Detalles del Patrocinio
+
+sponsor.sponsorship.form.label.code = Código
+sponsor.sponsorship.form.label.moment = Fecha
+sponsor.sponsorship.form.label.startDate = Fecha Inicio
+sponsor.sponsorship.form.label.expirationDate = Fecha de caducidad
+sponsor.sponsorship.form.label.amount = Cantidad
+sponsor.sponsorship.form.label.type = Tipo
+sponsor.sponsorship.form.label.contact = Contacto
+sponsor.sponsorship.form.label.link = Link
+
+sponsor.sponsorship.form.button.invoices = Facturas
