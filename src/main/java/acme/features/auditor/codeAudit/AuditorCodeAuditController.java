@@ -22,12 +22,16 @@ public class AuditorCodeAuditController extends AbstractController<Auditor, Code
 	@Autowired
 	private AuditorCodeAuditCreateService	createService;
 
+	@Autowired
+	private AuditorCodeAuditDeleteService	deleteService;
+
 
 	@PostConstruct
 	protected void initialise() {
 
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("delete", this.deleteService);
 
 		super.addCustomCommand("list-mine", "list", this.listService);
 	}
