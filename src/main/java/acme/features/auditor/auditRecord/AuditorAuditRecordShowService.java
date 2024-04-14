@@ -8,6 +8,7 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditRecord;
+import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
 import acme.roles.Auditor;
 
@@ -21,13 +22,16 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 	@Override
 	public void authorise() {
 		boolean status;
-		AuditRecord auditRecord;
-		Auditor auditor;
+		//AuditRecord auditRecord;
+		CodeAudit codeAudit;
+		//Auditor auditor;
 		int id;
 		id = super.getRequest().getData("id", int.class);
-		auditRecord = this.repository.findOneAuditRecordById(id);
-		auditor = auditRecord == null ? null : auditRecord.getCodeAudit().getAuditor();
-		status = super.getRequest().getPrincipal().hasRole(auditor) || auditRecord != null && !auditRecord.isDraftMode();
+		//auditRecord = this.repository.findOneAuditRecordById(id);
+		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(id);
+		//auditor = auditRecord == null ? null : auditRecord.getCodeAudit().getAuditor();
+		//status = super.getRequest().getPrincipal().hasRole(auditor) || auditRecord != null && !auditRecord.isDraftMode();
+		status = codeAudit != null && (!codeAudit.isDraftMode() || super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor()));
 		super.getResponse().setAuthorised(status);
 
 	}
@@ -49,6 +53,7 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 		markChoices = SelectChoices.from(Mark.class, object.getMark());
 
 		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
+		dataset.put("masterId", object.getCodeAudit().getId());
 		dataset.put("mark", markChoices);
 		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
 		super.getResponse().addData(dataset);

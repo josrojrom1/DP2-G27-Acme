@@ -24,7 +24,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		boolean status;
 		int masterId;
 		CodeAudit codeAudit;
-		masterId = super.getRequest().getData("codeAuditId", int.class);
+		masterId = super.getRequest().getData("masterId", int.class);
 		codeAudit = this.repository.findOneCodeAuditById(masterId);
 		status = codeAudit != null && codeAudit.isDraftMode() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 		super.getResponse().setAuthorised(status);
@@ -33,12 +33,14 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	@Override
 	public void load() {
 		AuditRecord object;
-		CodeAudit audit;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		audit = this.repository.findOneCodeAuditById(id);
+		CodeAudit codeAudit;
+		int masterId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		System.out.println("#### " + masterId + "\n");
+		codeAudit = this.repository.findOneCodeAuditById(masterId);
 		object = new AuditRecord();
-		object.setCodeAudit(audit);
+		object.setCodeAudit(codeAudit);
 		super.getBuffer().addData(object);
 	}
 
@@ -66,8 +68,12 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		SelectChoices markChoices;
 		markChoices = SelectChoices.from(Mark.class, object.getMark());
 		Dataset dataset;
+		int masterId;
+		masterId = super.getRequest().getData("masterId", int.class);
 		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
 		dataset.put("marks", markChoices);
+		dataset.put("masterId", masterId);
+		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
 		super.getResponse().addData(dataset);
 	}
 
