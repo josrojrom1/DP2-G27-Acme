@@ -14,6 +14,8 @@ any.audit-record.list.title = Listado de mis registros de auditorías
 any.audit-record.list.label.code= Códio
 any.audit-record.list.label.mark = Puntuación
 any.audit-record.list.button.create = Crear nuevo registro de auditoría
+any.audit-record.list.label.startPeriod = Fecha de inicio
+any.audit-record.list.label.endPeriod = Fecha de fin
 
 # Form labels ####################################################
 any.audit-record.form.title = Formulario del registro de auditoría

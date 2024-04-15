@@ -17,6 +17,7 @@ any.code-audit.form.label.type = Tipo:
 any.code-audit.form.label.correctiveActions = Correcciones:
 any.code-audit.form.label.mark = Puntuación:
 any.code-audit.form.label.link = Enlace:
+any.code-audit.form.label.project: Proyecto
 
 
 any.code-audit.form.button.audit-records = Registros de auditoría

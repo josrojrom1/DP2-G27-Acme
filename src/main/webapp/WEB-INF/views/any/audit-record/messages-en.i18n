@@ -14,6 +14,8 @@ any.audit-record.list.title = My audit record list
 any.audit-record.list.label.code= Code
 any.audit-record.list.label.mark = Mark
 any.audit-record.list.button.create = Create new audit record
+any.audit-record.list.label.startPeriod = Start period
+any.audit-record.list.label.endPeriod = End period
 
 # Form labels ####################################################
 any.audit-record.form.title = Audit record form
