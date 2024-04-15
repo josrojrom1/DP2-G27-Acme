@@ -39,15 +39,10 @@ master.menu.auditor = Auditor
 master.menu.auditor.my-code-audits = List my code audits
 master.menu.auditor.my-audit-records = List my audit records
 
-# master.menu.provider ########################################################
+# master.menu.any ########################################################
 
-master.menu.provider = Provider
-master.menu.provider.favourite-link = Favourite link
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumer
-master.menu.consumer.favourite-link = Favourite link
+master.menu.any = Any principal
+master.menu.anonymous.code-audit.list = List published code audits
 
 # master.menu.user-account ####################################################
 

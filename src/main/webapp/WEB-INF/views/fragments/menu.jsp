@@ -15,9 +15,11 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
-
+<!-- MENU BAR -->
 <acme:menu-bar code="master.menu.home">
+	<!-- LEFT MENU -->
 	<acme:menu-left>
+		<!-- ANONYMOUS MENU -->
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-pepe" action="http://www.artistapirata.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-dani" action="https://www.kawasaki.es/es/products"/>
@@ -25,7 +27,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-benji" action="https://chat.openai.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-agus" action="https://loldle.net/"/>
 		</acme:menu-option>
-
+		<!-- ADMINISTRATOR MENU -->
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -34,21 +36,22 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
 		</acme:menu-option>
-		
-		
+		<!-- ANY PRINCIPAL MENU OPTIONS -->
+		<acme:menu-option code="master.menu.any" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.any.code-audit.list" action="/any/code-audit/list"/>
+		</acme:menu-option>
 		<!-- AUDITOR SECTION -->
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">			
 			<acme:menu-suboption code="master.menu.auditor.my-code-audits" action="/auditor/code-audit/list-mine"/>	
 		</acme:menu-option>
-		
-		
 	</acme:menu-left>
-
+	<!-- RIGHT MENU -->
 	<acme:menu-right>
 		<acme:menu-option code="master.menu.sign-up" action="/anonymous/user-account/create" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.sign-in" action="/anonymous/system/sign-in" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
+			<!-- BECOME AUDITOR -->
 			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
 		</acme:menu-option>
