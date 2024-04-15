@@ -37,7 +37,7 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
 		</acme:menu-option>
 		<!-- ANY PRINCIPAL MENU OPTIONS -->
-		<acme:menu-option code="master.menu.any" access="isAuthenticated()">
+		<acme:menu-option code="master.menu.any">
 			<acme:menu-suboption code="master.menu.any.code-audit.list" action="/any/code-audit/list"/>
 		</acme:menu-option>
 		<!-- AUDITOR SECTION -->

@@ -42,7 +42,7 @@ master.menu.auditor.my-audit-records = Listar mis registros de auditorías
 # master.menu.any ########################################################
 
 master.menu.any = Cualquier principal
-master.menu.anonymous.code-audit.list = Listar auditorías de código publicadas 
+master.menu.any.code-audit.list = Listar auditorías de código publicadas 
 
 # master.menu.user-account ####################################################
 

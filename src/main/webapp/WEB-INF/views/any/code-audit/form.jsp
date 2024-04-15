@@ -17,10 +17,11 @@
 
 <acme:form>
 	<acme:input-textbox code="any.code-audit.form.label.code" path="code"/>
-	<acme:input-moment code="any.code-audit.form.label.execution" path="execution"/>
-	<acme:input-textbox code="any.code-audit.form.label.type" path="type"/>
-	<acme:input-textarea code="any.code-audit.form.label.correctiveActions" path="correctiveActions"/>
-	<acme:input-textbox code="any.code-audit.form.label.mark" path="mark"/>
+	<acme:input-moment code="any.code-audit.form.label.execution" path="execution"/>	
+	<acme:input-select code="any.code-audit.form.label.type" path="type" choices="${types}"/>
+	<acme:input-textbox code="any.code-audit.form.label.correctiveActions" path="correctiveActions"/>
+	<acme:input-textbox code="any.code-audit.form.label.mark" path="mark" readonly="true"/>
+	<acme:input-select code="any.code-audit.form.label.project" path="project" choices="${projects}"/>
 	<acme:input-url code="any.code-audit.form.label.link" path="link"/>
 	
 	<acme:button code="any.code-audit.form.button.audit-records" action="/any/audit-record/list?masterId=${id}"/>

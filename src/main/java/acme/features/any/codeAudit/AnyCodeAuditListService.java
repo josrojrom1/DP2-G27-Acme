@@ -35,8 +35,15 @@ public class AnyCodeAuditListService extends AbstractService<Any, CodeAudit> {
 	public void unbind(final CodeAudit object) {
 
 		Dataset dataset;
-
+		String payload;
 		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "mark", "link");
+		payload = String.format(//
+			"%s; %s; %s; %s", //
+			object.getAuditor().getIdentity().getFullName(), //
+			object.getAuditor().getFirm(), //
+			object.getAuditor().getCertifications(), //
+			object.getAuditor().getProfessionalId());
+		dataset.put("payload", payload);
 		super.getResponse().addData(dataset);
 	}
 }

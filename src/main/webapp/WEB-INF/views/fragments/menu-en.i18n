@@ -42,7 +42,7 @@ master.menu.auditor.my-audit-records = List my audit records
 # master.menu.any ########################################################
 
 master.menu.any = Any principal
-master.menu.anonymous.code-audit.list = List published code audits
+master.menu.any.code-audit.list = List published code audits
 
 # master.menu.user-account ####################################################
 

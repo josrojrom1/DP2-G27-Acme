@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="any.code-audit.list.label.code" path="code" width="33%"/>
-	<acme:list-column code="any.code-audit.list.label.execution" path="execution" width="33%"/>
-	<!--<acme:list-payload path="payload"/> -->
+	<acme:list-column code="any.audit-record.list.label.code" path="code" width="33%"/>
+	<acme:list-column code="any.audit-record.list.label.startPeriod" path="startPeriod" width="33%"/>
+	<acme:list-column code="any.audit-record.list.label.endPeriod" path="endPeriod" width="33%"/>
 </acme:list>
