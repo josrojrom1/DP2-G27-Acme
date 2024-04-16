@@ -13,7 +13,7 @@ import acme.entities.audits.Mark;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditRecordShowService extends AbstractService<Auditor, AuditRecord> {
+public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, AuditRecord> {
 
 	@Autowired
 	private AuditorAuditRecordRepository repository;
@@ -22,39 +22,53 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 	@Override
 	public void authorise() {
 		boolean status;
+		int auditRecordId;
 		CodeAudit codeAudit;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(id);
-		status = codeAudit != null && (!codeAudit.isDraftMode() || super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor()));
+		auditRecordId = super.getRequest().getData("id", int.class);
+		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(auditRecordId);
+		status = codeAudit != null && codeAudit.isDraftMode() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
 	public void load() {
 		AuditRecord object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditRecordById(id);
 		super.getBuffer().addData(object);
 	}
 
 	@Override
-	public void unbind(final AuditRecord object) {
+	public void bind(final AuditRecord object) {
 		assert object != null;
-		Dataset dataset;
-		SelectChoices markChoices;
-		markChoices = SelectChoices.from(Mark.class, object.getMark());
-
-		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
-		dataset.put("masterId", object.getCodeAudit().getId());
-		dataset.put("marks", markChoices);
-		dataset.put("mark", markChoices.getSelected().getKey());
-		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
-		dataset.put("readOnly", true);
-
-		super.getResponse().addData(dataset);
+		super.bind(object, "code", "startPeriod", "endPeriod", "mark", "link");
 	}
 
+	@Override
+	public void validate(final AuditRecord object) {
+		assert object != null;
+		//FALTA INTRODUCIR LAS VALIDACIONES PERTINENTES
+	}
+
+	@Override
+	public void perform(final AuditRecord object) {
+		assert object != null;
+		this.repository.save(object);
+	}
+
+	@Override
+	public void unbind(final AuditRecord object) {
+		assert object != null;
+		SelectChoices markChoices;
+		markChoices = SelectChoices.from(Mark.class, object.getMark());
+		Dataset dataset;
+		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
+		dataset.put("marks", markChoices);
+		dataset.put("mark", markChoices.getSelected().getKey());
+		dataset.put("masterId", object.getCodeAudit().getId());
+		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
+		super.getResponse().addData(dataset);
+	}
 }
