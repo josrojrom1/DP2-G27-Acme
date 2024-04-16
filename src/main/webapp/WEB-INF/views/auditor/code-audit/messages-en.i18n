@@ -1,0 +1,36 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# List labels ####################################################
+auditor.code-audit.list.label = List audits
+auditor.code-audit.list.title = List of my audits
+auditor.code-audit.list.label.code= Code
+auditor.code-audit.list.label.mark = Mark
+auditor.code-audit.list.label.execution = Execution time
+auditor.code-audit.list.button.create = Create new code audit
+auditor.code-audit.list.label.draftMode = Published
+
+# Form labels ####################################################
+auditor.code-audit.form.title = Code audit form
+auditor.code-audit.form.label.code = code
+auditor.code-audit.form.label.execution = Execution time
+auditor.code-audit.form.label.type = Type
+auditor.code-audit.form.label.correctiveActions = Corrective actions
+auditor.code-audit.form.label.mark = Mark
+auditor.code-audit.form.label.project = Project
+auditor.code-audit.form.label.link = Link
+auditor.code-audit.form.button.audit-records = Show audit records
+auditor.code-audit.form.button.update = Update
+auditor.code-audit.form.button.delete = Delete
+auditor.code-audit.form.button.publish = Publish
+auditor.code-audit.form.button.create = Create
+
+# Validation form errors #########################################
+auditor.code-audit.form.error.duplicated = The inserted code already exists, please try another one
