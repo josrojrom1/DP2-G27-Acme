@@ -25,7 +25,11 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-benji" action="https://chat.openai.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-agus" action="https://loldle.net/"/>
 		</acme:menu-option>
-
+		
+		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.anonymous.all-claims" action="/any/claim/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
