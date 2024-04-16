@@ -33,4 +33,4 @@ auditor.code-audit.form.button.publish = Publish
 auditor.code-audit.form.button.create = Create
 
 # Validation form errors #########################################
-auditor.code-audit.form.error.duplicated = The inserted code already exists, please try another one
+auditor.code-audit.form.error.code.duplicated = The inserted code already exists, please try another one

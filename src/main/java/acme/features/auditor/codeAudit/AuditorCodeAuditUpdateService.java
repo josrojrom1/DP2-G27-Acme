@@ -15,7 +15,7 @@ import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditCreateService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, CodeAudit> {
 
 	@Autowired
 	private AuditorCodeAuditRepository repository;
@@ -24,21 +24,27 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
-		super.getResponse().setAuthorised(status);
+		int masterId;
+		CodeAudit codeAudit;
+		Auditor auditor;
 
+		masterId = super.getRequest().getData("id", int.class);
+		codeAudit = this.repository.findOneCodeAuditById(masterId);
+		auditor = codeAudit == null ? null : codeAudit.getAuditor();
+		status = codeAudit != null && codeAudit.isDraftMode() && super.getRequest().getPrincipal().hasRole(auditor);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		CodeAudit codeAudit;
-		Auditor auditor;
-		auditor = this.repository.findAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
+		CodeAudit object;
+		int id;
 
-		codeAudit = new CodeAudit();
-		codeAudit.setDraftMode(true);
-		codeAudit.setAuditor(auditor);
-		super.getBuffer().addData(codeAudit);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneCodeAuditById(id);
+
+		super.getBuffer().addData(object);
 	}
 
 	@Override
@@ -47,8 +53,8 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 
 		int projectId;
 		Project project;
-		projectId = super.getRequest().getData("project", int.class);
 
+		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
 		super.bind(object, "code", "execution", "correctiveActions", "type", "link");
@@ -61,15 +67,16 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			CodeAudit existing;
-
 			existing = this.repository.findOneCodeAuditByCode(object.getCode());
-			super.state(existing == null, "code", "auditor.code-audit.form.error.code.duplicated");
+			super.state(existing == null || existing.getId() == object.getId(), "code", "auditor.code-audit.form.error.code.duplicated");
 		}
+
 	}
 
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
+
 		this.repository.save(object);
 	}
 
@@ -91,4 +98,5 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		dataset.put("types", typeChoices);
 		super.getResponse().addData(dataset);
 	}
+
 }
