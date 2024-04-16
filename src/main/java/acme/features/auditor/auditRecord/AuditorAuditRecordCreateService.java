@@ -37,7 +37,6 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		int masterId;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		System.out.println("#### " + masterId + "\n");
 		codeAudit = this.repository.findOneCodeAuditById(masterId);
 		object = new AuditRecord();
 		object.setCodeAudit(codeAudit);
@@ -72,6 +71,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		masterId = super.getRequest().getData("masterId", int.class);
 		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
 		dataset.put("marks", markChoices);
+		dataset.put("mark", markChoices.getSelected().getKey());
 		dataset.put("masterId", masterId);
 		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
 		super.getResponse().addData(dataset);

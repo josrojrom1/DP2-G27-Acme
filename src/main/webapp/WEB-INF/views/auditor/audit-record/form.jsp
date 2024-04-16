@@ -19,7 +19,7 @@
 	<acme:input-textbox code="auditor.audit-record.form.label.code" path="code"/>
 	<acme:input-moment code="auditor.audit-record.form.label.startPeriod" path="startPeriod"/>
 	<acme:input-moment code="auditor.audit-record.form.label.endPeriod" path="endPeriod"/>	
-	<acme:input-select code="auditor.audit-record.form.label.mark" path="mark" choices="${mark}"/>
+	<acme:input-select code="auditor.audit-record.form.label.mark" path="mark" choices="${marks}"/>
 	<acme:input-url code="auditor.audit-record.form.label.link" path="link"/>
 
 	<jstl:choose>	 
@@ -29,7 +29,7 @@
 			<acme:submit code="auditor.audit-record.form.button.publish" action="/auditor/audit-record/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="auditor.audit-record.form.button.create" action="/auditor/audit-record/create?id=${masterId}"/>
+			<acme:submit code="auditor.audit-record.form.button.create" action="/auditor/audit-record/create?masterId=${masterId}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
