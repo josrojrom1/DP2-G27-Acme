@@ -24,6 +24,6 @@ client.contract.form.button.update = Actualizar
 client.contract.form.button.delete = Borrar
 client.contract.form.button.publish = Publicar
 
-client.contract.form.error.duplicated = Ya existe un contrato con ese código.
-client.contract.form.error.incorrect-budget = El presupuesto debe ser menor que el coste del proyecto correspondiente .
-client.contract.form.error.not-published = La suma de todos los presupuestos no puede excederse al coste total del proyecto correspondiente. 
+client.contract.form.error.duplicated = Ya existe un contrato con ese código
+client.contract.form.error.incorrect-budget = El presupuesto debe ser menor que el coste del proyecto correspondiente
+client.contract.form.error.not-published = La suma de todos los presupuestos no puede excederse al coste total del proyecto correspondiente
