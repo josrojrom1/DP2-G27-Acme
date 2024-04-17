@@ -44,7 +44,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCodeAuditById(id);
-		object.setDraftMode(false);
+		//object.setDraftMode(false);
 		super.getBuffer().addData(object);
 	}
 
@@ -55,7 +55,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		int projectId;
 		Project project;
 
-		projectId = super.getRequest().getData("contractor", int.class);
+		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
 		super.bind(object, "code", "execution", "correctiveActions", "type", "mark", "link");
@@ -92,12 +92,12 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		projects = this.repository.findPublishedProjects();
 		projectChoices = SelectChoices.from(projects, "title", object.getProject());
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "execution", "correctiveActions", "type", "mark", "link");
+		dataset = super.unbind(object, "code", "execution", "correctiveActions", "type", "mark", "link", "draftMode");
 		dataset.put("project", projectChoices.getSelected().getKey());
 		dataset.put("projects", projectChoices);
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
-		dataset.put("draftMode", false);
+		//dataset.put("draftMode", false);
 
 		boolean auditRecordsDraftModeState = true;
 		auditRecords = this.repository.findAuditRecordsById(object.getId());
