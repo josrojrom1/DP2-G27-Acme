@@ -26,3 +26,6 @@ auditor.audit-record.form.button.update = Actualizar
 auditor.audit-record.form.button.delete = Borrar
 auditor.audit-record.form.button.publish = Publicar
 auditor.audit-record.form.button.create = Crear nuevo registro de auditoría
+
+# Validation form errors #########################################
+auditor.audit-record.form.error.code.duplicated = El código insertado ya existe, por favor pruebe con otro

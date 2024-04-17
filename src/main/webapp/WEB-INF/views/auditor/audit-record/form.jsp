@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-textbox code="auditor.audit-record.form.label.code" path="code" readonly="readOnly"/>
+	<acme:input-textbox code="auditor.audit-record.form.label.code" path="code" readonly="${readOnly}"/>
 	<acme:input-moment code="auditor.audit-record.form.label.startPeriod" path="startPeriod"/>
 	<acme:input-moment code="auditor.audit-record.form.label.endPeriod" path="endPeriod"/>	
 	<acme:input-select code="auditor.audit-record.form.label.mark" path="mark" choices="${marks}"/>
