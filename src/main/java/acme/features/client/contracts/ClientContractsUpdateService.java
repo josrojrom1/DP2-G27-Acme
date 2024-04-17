@@ -14,7 +14,7 @@ import acme.entities.projects.Project;
 import acme.roles.Client;
 
 @Service
-public class ClientContractsCreateService extends AbstractService<Client, Contract> {
+public class ClientContractsUpdateService extends AbstractService<Client, Contract> {
 
 	@Autowired
 	ClientContractsRepository repository;
@@ -22,18 +22,26 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int contractId;
+		Contract contract;
+		Client client;
+
+		contractId = super.getRequest().getData("id", int.class);
+		contract = this.repository.findContractById(contractId);
+		client = contract == null ? null : contract.getClient();
+		status = contract != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Contract object;
-		Client client;
+		int contractId;
 
-		client = this.repository.findClientById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new Contract();
-		object.setPublished(false);
-		object.setClient(client);
+		contractId = super.getRequest().getData("id", int.class);
+		object = this.repository.findContractById(contractId);
 
 		super.getBuffer().addData(object);
 	}
@@ -45,7 +53,7 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 		int projectId;
 		Project project;
 
-		projectId = super.getRequest().getData("project", int.class);
+		projectId = object.getProject().getId();
 		project = this.repository.findProjectById(projectId);
 
 		super.bind(object, "code", "instantiationMoment", "provider", "customer", "goals", "budget", "project");
@@ -56,13 +64,6 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 	public void validate(final Contract object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Contract existing;
-
-			existing = this.repository.findContractByCode(object.getCode());
-			super.state(existing == null, "code", "client.contract.form.error.duplicated");
-		}
-
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			double projectCost;
 			double budget;
@@ -71,7 +72,6 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 			projectCost = object.getProject().getCost().getAmount();
 			super.state(budget <= projectCost, "budget", "client.contract.form.error.incorrect-budget");
 		}
-
 	}
 
 	@Override

@@ -2,6 +2,7 @@ client.contract.list.title = My contracts
 client.contract.list.label.code = Code
 client.contract.list.label.instantiationMoment = Instantiation moment
 client.contract.list.label.provider = Provider
+client.contract.list.label.project = Project
 
 client.contract.form.placeholder.code = CON-XXX
 client.contract.form.placeholder.instantiationMoment = yyyy/MM/dd HH:mm
@@ -14,6 +15,7 @@ client.contract.form.label.provider = Provider
 client.contract.form.label.customer = Customer
 client.contract.form.label.goals = Goals
 client.contract.form.label.budget = Budget
+client.contract.form.label.project = Project
 
 client.contract.list.button.create = Create
 
@@ -21,3 +23,7 @@ client.contract.form.button.create = Create
 client.contract.form.button.update = Update
 client.contract.form.button.delete = Delete
 client.contract.form.button.publish = Publish
+
+client.contract.form.error.duplicated = There is an existing contract with that code.
+client.contract.form.error.incorrect-budget = Budget must be less than the corresponding project cost.
+client.contract.form.error.not-published = The sum of all budgets cannot exceed the total cost of the corresponding project.

@@ -1,4 +1,4 @@
-key,code,instantiationMoment,provider,customer,goals,budget,draftMode,key:project,key:client
+key,code,instantiationMoment,provider,customer,goals,budget,published,key:project,key:client
 contract-01,"CON-001",2021/03/06 20:00,"prov1","cust1","Exprimir el maximo dinero posible","EUR 8.00",false,project-01,client-01
 contract-02,"CON-002",2021/04/06 04:30,"prov2","cust1","Exprimir el maximo dinero posible y estafar","USD 50.00",false,project-02,client-01
 contract-03,"CON-003",2021/11/26 21:59,"estoesunstringde75caracteres...............................................","cust2","1","EUR 1000.00",false,project-01,client-02

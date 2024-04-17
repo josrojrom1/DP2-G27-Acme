@@ -2,6 +2,7 @@ client.contract.list.title = Mis contratos
 client.contract.list.label.code = Código
 client.contract.list.label.instantiationMoment = Momento de creación
 client.contract.list.label.provider = Proveedor
+client.contract.list.label.project = Proyecto
 
 client.contract.form.placeholder.code = CON-XXX
 client.contract.form.placeholder.instantiationMoment = yyyy/MM/dd HH:mm
@@ -14,6 +15,7 @@ client.contract.form.label.provider = Proveedor
 client.contract.form.label.customer = Cliente
 client.contract.form.label.goals = Objetivos
 client.contract.form.label.budget = Presupuesto
+client.contract.form.label.project = Proyecto
 
 client.contract.list.button.create = Crear
 
@@ -21,3 +23,7 @@ client.contract.form.button.create = Crear
 client.contract.form.button.update = Actualizar
 client.contract.form.button.delete = Borrar
 client.contract.form.button.publish = Publicar
+
+client.contract.form.error.duplicated = Ya existe un contrato con ese código.
+client.contract.form.error.incorrect-budget = El presupuesto debe ser menor que el coste del proyecto correspondiente .
+client.contract.form.error.not-published = La suma de todos los presupuestos no puede excederse al coste total del proyecto correspondiente. 
