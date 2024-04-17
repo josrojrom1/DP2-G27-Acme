@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Type;
 import acme.entities.projects.Project;
@@ -85,6 +86,8 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		assert object != null;
 
 		Collection<Project> projects;
+		Collection<AuditRecord> auditRecords;
+
 		SelectChoices projectChoices;
 		SelectChoices typeChoices;
 		typeChoices = SelectChoices.from(Type.class, object.getType());
@@ -96,6 +99,16 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		dataset.put("projects", projectChoices);
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
+		super.getResponse().addData(dataset);
+
+		boolean auditRecordsDraftModeState = true;
+		auditRecords = this.repository.findAuditRecordsById(object.getId());
+		for (AuditRecord a : auditRecords)
+			if (auditRecords.isEmpty() || a.isDraftMode())
+				break;
+			else
+				auditRecordsDraftModeState = false;
+		dataset.put("auditRecordsDraftModeState", auditRecordsDraftModeState);
 		super.getResponse().addData(dataset);
 	}
 

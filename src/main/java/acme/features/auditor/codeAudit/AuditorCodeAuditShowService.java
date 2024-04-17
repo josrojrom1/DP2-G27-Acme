@@ -56,6 +56,7 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 	@Override
 	public void unbind(final CodeAudit object) {
 		assert object != null;
+		Collection<AuditRecord> auditRecords;
 
 		Dataset dataset;
 		Mark auditMark;
@@ -79,6 +80,15 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
 		dataset.put("readOnly", true);
+
+		boolean auditRecordsDraftModeState = true;
+		auditRecords = this.repository.findAuditRecordsById(object.getId());
+		for (AuditRecord a : auditRecords)
+			if (auditRecords.isEmpty() || a.isDraftMode())
+				auditRecordsDraftModeState = true;
+			else
+				auditRecordsDraftModeState = false;
+		dataset.put("auditRecordsDraftModeState", auditRecordsDraftModeState);
 
 		super.getResponse().addData(dataset);
 	}

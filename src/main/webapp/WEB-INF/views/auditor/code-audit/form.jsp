@@ -32,7 +32,9 @@
 			<acme:button code="auditor.code-audit.form.button.audit-records" action="/auditor/audit-record/list?masterId=${id}"/>
 			<acme:submit code="auditor.code-audit.form.button.update" action="/auditor/code-audit/update"/>
 			<acme:submit code="auditor.code-audit.form.button.delete" action="/auditor/code-audit/delete"/>
-			<acme:submit code="auditor.code-audit.form.button.publish" action="/auditor/code-audit/publish"/>
+			<jstl:if test="${auditRecordsDraftModeState == false}">
+				<acme:submit code="auditor.code-audit.form.button.publish" action="/auditor/code-audit/publish"/>
+			</jstl:if>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.code-audit.form.button.create" action="/auditor/code-audit/create"/>

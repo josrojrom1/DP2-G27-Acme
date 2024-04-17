@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Type;
 import acme.entities.projects.Project;
@@ -43,7 +44,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCodeAuditById(id);
-
+		object.setDraftMode(false);
 		super.getBuffer().addData(object);
 	}
 
@@ -84,6 +85,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		assert object != null;
 
 		Collection<Project> projects;
+		Collection<AuditRecord> auditRecords;
 		SelectChoices projectChoices;
 		SelectChoices typeChoices;
 		typeChoices = SelectChoices.from(Type.class, object.getType());
@@ -95,6 +97,16 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		dataset.put("projects", projectChoices);
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
+		dataset.put("draftMode", false);
+
+		boolean auditRecordsDraftModeState = true;
+		auditRecords = this.repository.findAuditRecordsById(object.getId());
+		for (AuditRecord a : auditRecords)
+			if (auditRecords.isEmpty() || a.isDraftMode())
+				break;
+			else
+				auditRecordsDraftModeState = false;
+		dataset.put("auditRecordsDraftModeState", auditRecordsDraftModeState);
 		super.getResponse().addData(dataset);
 	}
 
