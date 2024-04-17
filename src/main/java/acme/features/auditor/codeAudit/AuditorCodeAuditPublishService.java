@@ -11,6 +11,7 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
+import acme.entities.audits.Mark;
 import acme.entities.audits.Type;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
@@ -70,8 +71,10 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 			existing = this.repository.findOneCodeAuditByCode(object.getCode());
 			super.state(existing == null || existing.getId() == object.getId(), "code", "auditor.code-audit.form.error.code.duplicated");
 		}
-	}
 
+		if (!super.getBuffer().getErrors().hasErrors("mark"))
+			super.state(object.getMark() != Mark.F && object.getMark() != Mark.F_MINUS, "mark", "auditor.code-audit.form.error.mark.minimumMark");
+	}
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
