@@ -1,6 +1,9 @@
 
 package acme.features.auditor.auditRecord;
 
+import java.time.Duration;
+import java.time.ZoneId;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +58,13 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 			existing = this.repository.findOneAuditRecordByCode(object.getCode());
 			super.state(existing == null || existing.getId() == object.getId(), "code", "auditor.audit-record.form.error.code.duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
+			super.state(object.getStartPeriod().before(object.getEndPeriod()), "startPeriod", "auditor.audit-record.form.error.startPeriod_before_endPeriod");
+
+		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
+			super.state(Duration.between(object.getStartPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(), object.getEndPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()).toHours() >= 1, "startPeriod",
+				"auditor.audit-record.form.error.one_hour_period");
 
 	}
 

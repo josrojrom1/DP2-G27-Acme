@@ -29,3 +29,5 @@ auditor.audit-record.form.button.create = Crear nuevo registro de auditoría
 
 # Validation form errors #########################################
 auditor.audit-record.form.error.code.duplicated = El código insertado ya existe, por favor pruebe con otro
+auditor.audit-record.form.error.startPeriod_before_endPeriod = La fecha de inicio debe ser anterior a la fecha de fin
+auditor.audit-record.form.error.one_hour_period = La diferencia entre la fecha de inicio y la de fin debe ser al menos de una hora
