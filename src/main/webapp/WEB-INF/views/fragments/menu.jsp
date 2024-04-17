@@ -46,6 +46,10 @@
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">			
 			<acme:menu-suboption code="master.menu.auditor.my-code-audits" action="/auditor/code-audit/list-mine"/>	
 		</acme:menu-option>
+		<!-- DEVELOPER SECTION -->
+		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">			
+			<acme:menu-suboption code="master.menu.developer.my-training-modules" action="/developer/training-module/list"/>	
+		</acme:menu-option>
 	</acme:menu-left>
 	<!-- RIGHT MENU -->
 	<acme:menu-right>
@@ -53,6 +57,7 @@
 		<acme:menu-option code="master.menu.sign-in" action="/anonymous/system/sign-in" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
+			<acme:menu-suboption code="master.menu.authenticated.objective" action="/authenticated/objective/list"/>
 			<!-- BECOME AUDITOR -->
 			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
