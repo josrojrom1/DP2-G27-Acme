@@ -68,7 +68,7 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		dataset.put("marks", markChoices);
 		dataset.put("mark", markChoices.getSelected().getKey());
 		dataset.put("masterId", object.getCodeAudit().getId());
-		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
+		dataset.put("draftMode", object.isDraftMode());
 		super.getResponse().addData(dataset);
 	}
 }

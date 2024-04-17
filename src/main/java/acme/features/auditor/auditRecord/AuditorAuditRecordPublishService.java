@@ -13,7 +13,7 @@ import acme.entities.audits.Mark;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditRecordCreateService extends AbstractService<Auditor, AuditRecord> {
+public class AuditorAuditRecordPublishService extends AbstractService<Auditor, AuditRecord> {
 
 	@Autowired
 	private AuditorAuditRecordRepository repository;
@@ -22,10 +22,10 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int auditRecordId;
 		CodeAudit codeAudit;
-		masterId = super.getRequest().getData("masterId", int.class);
-		codeAudit = this.repository.findOneCodeAuditById(masterId);
+		auditRecordId = super.getRequest().getData("id", int.class);
+		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(auditRecordId);
 		status = codeAudit != null && codeAudit.isDraftMode() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 		super.getResponse().setAuthorised(status);
 	}
@@ -33,15 +33,11 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	@Override
 	public void load() {
 		AuditRecord object;
-		CodeAudit codeAudit;
-		int masterId;
+		int id;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		codeAudit = this.repository.findOneCodeAuditById(masterId);
-		object = new AuditRecord();
-		object.setCodeAudit(codeAudit);
-		object.setDraftMode(true);
-
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneAuditRecordById(id);
+		object.setDraftMode(false);
 		super.getBuffer().addData(object);
 	}
 
@@ -60,6 +56,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	@Override
 	public void perform(final AuditRecord object) {
 		assert object != null;
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
@@ -69,13 +66,11 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		SelectChoices markChoices;
 		markChoices = SelectChoices.from(Mark.class, object.getMark());
 		Dataset dataset;
-		int masterId;
-		masterId = super.getRequest().getData("masterId", int.class);
 		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
 		dataset.put("marks", markChoices);
 		dataset.put("mark", markChoices.getSelected().getKey());
-		dataset.put("masterId", masterId);
-		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
+		dataset.put("masterId", object.getCodeAudit().getId());
+		dataset.put("draftMode", false);
 		super.getResponse().addData(dataset);
 	}
 
