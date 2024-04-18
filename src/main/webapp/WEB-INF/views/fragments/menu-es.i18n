@@ -38,6 +38,7 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.auditor = Auditor
 master.menu.auditor.my-code-audits = Listar mis auditorías de código
 master.menu.auditor.my-audit-records = Listar mis registros de auditorías
+master.menu.auditor.dashboard = Panel de control del auditor
 
 # master.menu.any ########################################################
 

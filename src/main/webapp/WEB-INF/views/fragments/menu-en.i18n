@@ -38,6 +38,7 @@ master.menu.administrator.shut-down = Shut down
 master.menu.auditor = Auditor
 master.menu.auditor.my-code-audits = List my code audits
 master.menu.auditor.my-audit-records = List my audit records
+master.menu.auditor.dashboard = Auditor dashboard
 
 # master.menu.any ########################################################
 

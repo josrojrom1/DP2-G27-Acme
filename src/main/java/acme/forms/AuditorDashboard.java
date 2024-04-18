@@ -2,7 +2,11 @@
 package acme.forms;
 
 import acme.client.data.AbstractForm;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class AuditorDashboard extends AbstractForm {
 
 	private static final long	serialVersionUID	= 1L;
@@ -12,15 +16,15 @@ public class AuditorDashboard extends AbstractForm {
 	private int					totalNumberOfDynamicCodeAudits;
 
 	//average, deviation, minimum, and maximum number of audit records in their audits
-	private double				codeAuditAverage;
-	private double				codeAuditDeviation;
-	private double				codeAuditMinimum;
-	private double				codeAuditMaximum;
+	private double				AverageOfAuditRecords;
+	private double				DeviationOfAuditRecords;
+	private int					MinimumOfAuditRecords;
+	private int					MaximumOfAuditRecords;
 
 	//average, deviation, minimum, and maximum time of the period lengths in their audit records
-	private double				codeAuditPeriodLengthAverage;
-	private double				codeAuditPeriodLengthDeviation;
-	private double				codeAuditPeriodLengthMinimum;
-	private double				codeAuditPeriodLengthMaximum;
+	private double				AuditRecordsPeriodLengthAverage;
+	private double				AuditRecordsPeriodLengthDeviation;
+	private double				AuditRecordsPeriodLengthMinimum;
+	private double				AuditRecordsPeriodLengthMaximum;
 
 }
