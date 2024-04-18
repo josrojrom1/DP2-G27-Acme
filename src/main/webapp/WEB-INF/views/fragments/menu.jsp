@@ -48,7 +48,7 @@
 		</acme:menu-option>
 		<!-- DEVELOPER SECTION -->
 		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">			
-			<acme:menu-suboption code="master.menu.developer.my-training-modules" action="/developer/training-module/list"/>	
+			<acme:menu-suboption code="master.menu.developer.my-training-modules" action="/developer/training-module/list-mine"/>	
 		</acme:menu-option>
 	</acme:menu-left>
 	<!-- RIGHT MENU -->

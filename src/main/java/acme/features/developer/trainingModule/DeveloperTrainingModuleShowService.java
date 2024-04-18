@@ -45,16 +45,17 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 
 		super.getBuffer().addData(object);
 	}
+
 	@Override
 	public void unbind(final TrainingModule object) {
 		assert object != null;
 
 		Dataset dataset;
 
-		SelectChoices typeChoices;
+		SelectChoices difficultyLevelChoices;
 		SelectChoices projectChoices;
 		Collection<Project> projects = this.repository.findPublishedProjects();
-		typeChoices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
+		difficultyLevelChoices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 		projectChoices = SelectChoices.from(projects, "title", object.getProject());
 
 		dataset = super.unbind(object, "code", "creationMoment", "details", "totalTime", "link");
@@ -62,8 +63,8 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 		dataset.put("project", projectChoices.getSelected().getKey());
 		dataset.put("projects", projectChoices);
 		dataset.put("draftMode", object.isDraftMode());
-		dataset.put("type", typeChoices.getSelected().getKey());
-		dataset.put("types", typeChoices);
+		dataset.put("difficultyLevel", difficultyLevelChoices.getSelected().getKey());
+		dataset.put("difficultyLevels", difficultyLevelChoices);
 
 		super.getResponse().addData(dataset);
 	}
