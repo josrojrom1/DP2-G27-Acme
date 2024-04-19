@@ -21,4 +21,5 @@ sponsor.invoice.form.label.registration = Fecha de registro
 sponsor.invoice.form.label.dueDate = Fecha de vencimiento
 sponsor.invoice.form.label.quantity = Cantidad
 sponsor.invoice.form.label.tax = Impuesto
+sponsor.invoice.form.label.totalAmount = Total
 sponsor.invoice.form.label.link = Link

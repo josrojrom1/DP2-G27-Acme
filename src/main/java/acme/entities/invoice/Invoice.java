@@ -71,8 +71,8 @@ public class Invoice extends AbstractEntity {
 	@Transient
 	// The sum of the amount of invoices (including taxes) must add up 
 	// and never exceed the the amount of money to be paid in the corresponding sponsorship
-	private Double totalAmount() {
-		return this.tax * this.quantity.getAmount() + this.quantity.getAmount();
+	public Double totalAmount() {
+		return this.tax * this.quantity.getAmount() / 100 + this.quantity.getAmount();
 	}
 
 	// Relations
