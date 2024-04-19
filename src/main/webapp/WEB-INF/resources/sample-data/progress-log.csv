@@ -1,7 +1,7 @@
-key,recordId,completeness,comment,registrationMoment,responsiblePerson,key:contract
-progress-log-01,"PG-A-0001",0.0,"prueba",2021/12/06 20:00,"person1",contract-01
-progress-log-02,"PG-A-0002",0.9,"estoesunstringde100caracteres.......................................................................",2019/10/23 15:14,"1",contract-02
-progress-log-03,"PG-B-0001",0.01,"1",2010/01/01 00:00,"estoesunstringde75caracteres...............................................",contract-03
-progress-log-04,"PG-C-0021",0.99,"1",2021/12/07 21:46,"1",contract-04
-progress-log-05,"PG-Z-0001",0.51,"1",2000/01/01 00:00,"1",contract-01
-progress-log-06,"PG-M-9999",1.00,"1",2021/12/31 23:59,"1",contract-03
+key,recordId,completeness,comment,registrationMoment,responsiblePerson,published,key:contract
+progress-log-01,"PG-A-0001",0.0,"prueba",2021/12/06 20:00,"person1",false,contract-01
+progress-log-02,"PG-A-0002",0.9,"estoesunstringde100caracteres.......................................................................",2019/10/23 15:14,"1",false,contract-02
+progress-log-03,"PG-B-0001",0.01,"1",2010/01/01 00:00,"estoesunstringde75caracteres...............................................",false,contract-03
+progress-log-04,"PG-C-0021",0.99,"1",2021/12/07 21:46,"1",false,contract-04
+progress-log-05,"PG-Z-0001",0.51,"1",2000/01/01 00:00,"1",false,contract-01
+progress-log-06,"PG-M-9999",1.00,"1",2021/12/31 23:59,"1",false,contract-03

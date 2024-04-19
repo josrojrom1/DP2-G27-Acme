@@ -5,8 +5,6 @@ client.contract.list.label.provider = Proveedor
 client.contract.list.label.project = Proyecto
 
 client.contract.form.placeholder.code = CON-XXX
-client.contract.form.placeholder.instantiationMoment = yyyy/MM/dd HH:mm
-client.contract.form.placeholder.budget = 0.00 EUR/USD/GBP
 
 client.contract.form.title = Formulario de contrato
 client.contract.form.label.code = Código
@@ -19,6 +17,7 @@ client.contract.form.label.project = Proyecto
 
 client.contract.list.button.create = Crear
 
+client.contract.form.button.progress-log = Progress Logs
 client.contract.form.button.create = Crear
 client.contract.form.button.update = Actualizar
 client.contract.form.button.delete = Borrar
