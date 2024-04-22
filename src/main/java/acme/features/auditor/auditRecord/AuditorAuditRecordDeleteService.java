@@ -22,10 +22,12 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 		boolean status;
 		int auditRecordId;
 		CodeAudit codeAudit;
-
+		//AuditRecord auditRecord;
 		auditRecordId = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(auditRecordId);
-		status = codeAudit != null && codeAudit.isDraftMode() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
+		//auditRecord = this.repository.findOneAuditRecordById(auditRecordId);
+
+		status = codeAudit != null && codeAudit.isDraftMode() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor()) && codeAudit.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}

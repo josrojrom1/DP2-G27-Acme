@@ -32,7 +32,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		masterId = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditById(masterId);
 		auditor = codeAudit == null ? null : codeAudit.getAuditor();
-		status = codeAudit != null && codeAudit.isDraftMode() && super.getRequest().getPrincipal().hasRole(auditor);
+		status = codeAudit != null && codeAudit.isDraftMode() && super.getRequest().getPrincipal().hasRole(auditor) && codeAudit.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}

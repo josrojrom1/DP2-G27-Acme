@@ -29,6 +29,7 @@ public class AuditorCodeAuditListMineService extends AbstractService<Auditor, Co
 	@Override
 	public void authorise() {
 		boolean status;
+
 		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
 		super.getResponse().setAuthorised(status);
 	}
