@@ -19,7 +19,7 @@
 	<acme:input-textbox code="authenticated.auditor.form.label.firm" path="firm"/>
 	<acme:input-textbox code="authenticated.auditor.form.label.professionalId" path="professionalId"/>
 	<acme:input-textbox code="authenticated.auditor.form.label.certifications" path="certifications"/>
-	<acme:input-email code="authenticated.auditor.form.label.link" path="link"/>
+	<acme:input-url code="authenticated.auditor.form.label.link" path="link"/>
 	
 	
 	<acme:submit test="${_command == 'create'}" code="authenticated.auditor.form.button.create" action="/authenticated/auditor/create"/>
