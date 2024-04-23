@@ -1,0 +1,13 @@
+client.client-dashboard.form.title = Panel de estadísticas del cliente
+
+client.client-dasboard.form.title.progress-log = Indicadores de registros de progreso
+client.client-dasboard.form.label.total-number-pl-completeness-25 = Número total de registros de progreso con completitud menor al 25%
+client.client-dasboard.form.label.total-number-pl-completeness-25-50 = Número total de registros de progreso con completitud comprendida entre el 25 y 50%
+client.client-dasboard.form.label.total-number-pl-completeness-50-75 = Número total de registros de progreso con completitud comprendida entre el 50 y 75%
+client.client-dasboard.form.label.total-number-pl-completeness-75 = Número total de registros de progreso con completitud mayor al 75%
+
+client.client-dasboard.form.title.contract = Indicadores de contratos
+client.client-dasboard.form.label.contract.budget-average = Presupuesto medio
+client.client-dasboard.form.label.contract.budget-deviation = Desviación de los presupuestos
+client.client-dasboard.form.label.contract.budget-minimum = Presupuesto mínimo
+client.client-dasboard.form.label.contract.budget-maximum = Presupuesto máximo

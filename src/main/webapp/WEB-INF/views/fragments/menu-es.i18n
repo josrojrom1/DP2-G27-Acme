@@ -43,6 +43,7 @@ master.menu.provider.favourite-link = Enlace favorito
 
 master.menu.client = Cliente
 master.menu.client.contract.list = Listar mis contratos
+master.menu.client.dashboard = Panel de estadísticas
 
 # master.menu.consumer ##########################################################
 

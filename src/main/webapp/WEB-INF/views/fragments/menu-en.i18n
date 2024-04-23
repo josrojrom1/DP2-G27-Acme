@@ -43,6 +43,7 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.client = Client
 master.menu.client.contract.list = List my contracts
+master.menu.client.dashboard = Show client dashboard
 
 # master.menu.consumer ##########################################################
 

@@ -38,6 +38,8 @@
 		
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
 			<acme:menu-suboption code="master.menu.client.contract.list" action="/client/contract/list-mine"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.client.dashboard" action="/client/client-dashboard/show"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
