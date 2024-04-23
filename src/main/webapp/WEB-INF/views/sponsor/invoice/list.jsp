@@ -20,3 +20,5 @@
 	<acme:list-column code="sponsor.invoice.list.label.registration" path="registration" width="30%"/>
 	<acme:list-column code="sponsor.invoice.list.label.quantity" path="quantity" width="50%"/>
 </acme:list>
+
+<acme:button test="${showCreate}" code="sponsor.invoice.list.button.create" action="/sponsor/invoice/create?masterId=${masterId}"/>

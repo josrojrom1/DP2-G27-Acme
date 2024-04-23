@@ -23,3 +23,11 @@ sponsor.invoice.form.label.quantity = Quantity
 sponsor.invoice.form.label.tax = Tax
 sponsor.invoice.form.label.totalAmount = Total
 sponsor.invoice.form.label.link = Link
+
+sponsor.invoice.list.button.create = Create
+
+sponsor.invoice.form.button.create = Create
+
+sponsor.invoice.form.error.code.duplicated = Invoice already exists with this code
+sponsor.invoice.form.error.too-close = Due date must be at least one month later than its registration time
+sponsor.invoice.form.error.negative-amount = Quantity must be positive

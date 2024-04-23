@@ -23,3 +23,11 @@ sponsor.invoice.form.label.quantity = Cantidad
 sponsor.invoice.form.label.tax = Impuesto
 sponsor.invoice.form.label.totalAmount = Total
 sponsor.invoice.form.label.link = Link
+
+sponsor.invoice.list.button.create = Crear
+
+sponsor.invoice.form.button.create = Crear
+
+sponsor.invoice.form.error.code.duplicated = Ya existe una factura con este código
+sponsor.invoice.form.error.too-close = La fecha de vencimiento debe ser al menos un mes posterior a su hora de registro
+sponsor.invoice.form.error.negative-amount = La cantidad debe ser positiva
