@@ -20,3 +20,6 @@
 	<acme:list-column code="sponsor.sponsorship.list.label.moment" path="moment" width="30%"></acme:list-column>
 	<acme:list-column code="sponsor.sponsorship.list.label.amount" path="amount" width="50%"></acme:list-column>
 </acme:list>
+<jstl:if test="${_command == 'list-mine'}">
+	<acme:button code="sponsor.sponsorship.list.button.create" action="/sponsor/sponsorship/create"/>
+</jstl:if>	

@@ -22,7 +22,18 @@ sponsor.sponsorship.form.label.startDate = Fecha Inicio
 sponsor.sponsorship.form.label.expirationDate = Fecha de caducidad
 sponsor.sponsorship.form.label.amount = Cantidad
 sponsor.sponsorship.form.label.type = Tipo
+sponsor.sponsorship.form.label.project = Projecto
 sponsor.sponsorship.form.label.contact = Contacto
 sponsor.sponsorship.form.label.link = Link
 
 sponsor.sponsorship.form.button.invoices = Facturas
+sponsor.sponsorship.list.button.create = Crear
+sponsor.sponsorship.form.button.create = Crear
+sponsor.sponsorship.form.button.update = Actualizar
+sponsor.sponsorship.form.button.delete = Eliminar
+sponsor.sponsorship.form.button.publish = Publicar
+
+sponsor.sponsorship.form.error.code.duplicated = Ya existe un patrocinio con este código
+sponsor.sponsorship.form.error.inlavid-start-date = Su fecha de inicio debe ser posterior a su fecha de creación
+sponsor.sponsorship.form.error.too-close = Su fecha de vencimiento debe ser al menos un mes posterior a su fecha de inicio
+sponsor.sponsorship.form.error.negative-amount = El coste del patrocinio debe ser positivo

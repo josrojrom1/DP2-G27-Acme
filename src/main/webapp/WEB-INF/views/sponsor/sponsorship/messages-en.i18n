@@ -22,7 +22,18 @@ sponsor.sponsorship.form.label.startDate = Start Date
 sponsor.sponsorship.form.label.expirationDate = Expiration Date
 sponsor.sponsorship.form.label.amount = Amount
 sponsor.sponsorship.form.label.type = Type
+sponsor.sponsorship.form.label.project = Project
 sponsor.sponsorship.form.label.contact = Contact
 sponsor.sponsorship.form.label.link = Link
 
 sponsor.sponsorship.form.button.invoices = Invoices
+sponsor.sponsorship.list.button.create = Create
+sponsor.sponsorship.form.button.create = Create
+sponsor.sponsorship.form.button.update = Update
+sponsor.sponsorship.form.button.delete = Delete
+sponsor.sponsorship.form.button.publish = Publish
+
+sponsor.sponsorship.form.error.code.duplicated = Sponsorship already exists with this code
+sponsor.sponsorship.form.error.inlavid-start-date = Start date must be later than its creation time
+sponsor.sponsorship.form.error.too-close = Expiration date must be at least one month after its start date
+sponsor.sponsorship.form.error.negative-amount = Sponsorship amount must be positive
