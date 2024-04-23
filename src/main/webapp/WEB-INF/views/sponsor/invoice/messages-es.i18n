@@ -12,7 +12,7 @@ sponsor.invoice.list.title = Facturas
 
 sponsor.invoice.list.label.code = Código
 sponsor.invoice.list.label.registration = Fecha de registro
-sponsor.invoice.list.label.quantity = Cantidad
+sponsor.invoice.list.label.totalAmount = Total Amount
 
 sponsor.invoice.form.title = Detalles de Factura
 
@@ -29,6 +29,7 @@ sponsor.invoice.list.button.create = Crear
 sponsor.invoice.form.button.create = Crear
 sponsor.invoice.form.button.update = Actualizar
 sponsor.invoice.form.button.delete = Eliminar
+sponsor.invoice.form.button.publish = Publicar
 
 sponsor.invoice.form.error.code.duplicated = Ya existe una factura con este código
 sponsor.invoice.form.error.too-close = La fecha de vencimiento debe ser al menos un mes posterior a su hora de registro

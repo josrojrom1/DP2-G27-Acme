@@ -12,7 +12,7 @@ sponsor.invoice.list.title = Invoices
 
 sponsor.invoice.list.label.code = Code
 sponsor.invoice.list.label.registration = Registration Date
-sponsor.invoice.list.label.quantity = Quantity
+sponsor.invoice.list.label.totalAmount = Total Amount
 
 sponsor.invoice.form.title = Invoice Details
 
@@ -29,6 +29,7 @@ sponsor.invoice.list.button.create = Create
 sponsor.invoice.form.button.create = Create
 sponsor.invoice.form.button.update = Update
 sponsor.invoice.form.button.delete = Delete
+sponsor.invoice.form.button.publish = Publish
 
 sponsor.invoice.form.error.code.duplicated = Invoice already exists with this code
 sponsor.invoice.form.error.too-close = Due date must be at least one month later than its registration time
