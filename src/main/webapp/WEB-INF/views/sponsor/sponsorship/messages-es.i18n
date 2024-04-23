@@ -37,3 +37,4 @@ sponsor.sponsorship.form.error.code.duplicated = Ya existe un patrocinio con est
 sponsor.sponsorship.form.error.inlavid-start-date = Su fecha de inicio debe ser posterior a su fecha de creación
 sponsor.sponsorship.form.error.too-close = Su fecha de vencimiento debe ser al menos un mes posterior a su fecha de inicio
 sponsor.sponsorship.form.error.negative-amount = El coste del patrocinio debe ser positivo
+sponsor.invoice.form.error.too-big = El coste del patrocinio debe ser menor de 1000000
