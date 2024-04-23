@@ -1,0 +1,26 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+sponsor.sponsor-dashboard.form.title = Estadísticas de patrocinador
+sponsor.sponsor-dasboard.form.title.invoice.general-indicators = Estadísticas sobre el impuesto en facturas
+sponsor.sponsor-dasboard.form.label.total-number-tax-invoices = Número total de facturas con un impuesto menor a 21.00
+
+sponsor.sponsor-dasboard.form.title.sponsorship.general-indicators = Estadísitcas sobre el link en patrocinios
+sponsor.sponsor-dasboard.form.label.total-number-link-sponsorships = Número total de patrocinios con un link
+
+sponsor.sponsor-dasboard.form.title.sponsorships = Estadísticas de la cantidad asociada a los patrocinios
+sponsor.sponsor-dasboard.form.label.sponsorship.average = Media
+sponsor.sponsor-dasboard.form.label.sponsorship.minimum = Valor mínimo
+sponsor.sponsor-dasboard.form.label.sponsorship.maximum = Valor máximo
+
+sponsor.sponsor-dasboard.form.title.invoices = Estadísticas de la cantidad asociada a las facturas
+sponsor.sponsor-dasboard.form.label.invoice.average = Media
+sponsor.sponsor-dasboard.form.label.invoice.minimum = Valor mínimo
+sponsor.sponsor-dasboard.form.label.invoice.maximum = Valor máximo
