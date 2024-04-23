@@ -72,6 +72,13 @@ public class ClientContractsUpdateService extends AbstractService<Client, Contra
 			projectCost = object.getProject().getCost().getAmount();
 			super.state(budget <= projectCost, "budget", "client.contract.form.error.incorrect-budget");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			double budget;
+
+			budget = object.getBudget().getAmount();
+			super.state(budget > 0, "budget", "client.contract.form.error.negative-budget");
+		}
 	}
 
 	@Override

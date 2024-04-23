@@ -73,6 +73,13 @@ public class ClientContractsPublishService extends AbstractService<Client, Contr
 			super.state(budget <= projectCost, "budget", "client.contract.form.error.incorrect-budget");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			double budget;
+
+			budget = object.getBudget().getAmount();
+			super.state(budget > 0, "budget", "client.contract.form.error.negative-budget");
+		}
+
 		double budgetsSum;
 		double projectCost;
 

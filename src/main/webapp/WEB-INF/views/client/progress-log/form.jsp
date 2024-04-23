@@ -4,10 +4,12 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="client.progress-log.form.label.recordId" path="recordId" placeholder="client.progress-log.form.placeholder.recordId"/>
+	<acme:input-textbox code="client.progress-log.form.label.recordId" path="recordId" placeholder="client.progress-log.form.placeholder.recordId" readonly="${acme:anyOf(_command, 'show|update|delete|publish')}"/>
 	<acme:input-double code="client.progress-log.form.label.completeness" path="completeness"/>
 	<acme:input-textbox code="client.progress-log.form.label.comment" path="comment"/>
-	<acme:input-moment code="client.progress-log.form.label.registrationMoment" path="registrationMoment" placeholder="client.progress-log.form.placeholder.registrationMoment"/>
+	<jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+		<acme:input-moment code="client.progress-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>	
+	</jstl:if>
 	<acme:input-textbox code="client.progress-log.form.label.responsiblePerson" path="responsiblePerson"/>
 	<acme:input-textbox code="client.progress-log.form.label.contract" path="contract.code" readonly="true"/>	
 	

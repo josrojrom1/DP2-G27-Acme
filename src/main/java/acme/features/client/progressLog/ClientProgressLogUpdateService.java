@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.contracts.Contract;
 import acme.entities.contracts.ProgressLog;
 import acme.roles.Client;
 
@@ -22,11 +23,13 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		int objectId;
 		ProgressLog object;
 		Client client;
+		Contract contract;
 
 		objectId = super.getRequest().getData("id", int.class);
 		object = this.repository.findProgressLogById(objectId);
-		client = object == null ? null : object.getContract().getClient();
-		status = object != null && !object.isPublished() && super.getRequest().getPrincipal().hasRole(client);
+		contract = object.getContract();
+		client = object == null ? null : contract.getClient();
+		status = object != null && !object.isPublished() && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
 
 		super.getResponse().setAuthorised(status);
 	}

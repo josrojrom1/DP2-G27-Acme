@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.contracts.Contract;
 import acme.entities.contracts.ProgressLog;
@@ -19,7 +20,17 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Contract object;
+		Client client;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		object = this.repository.findContractById(masterId);
+		client = object == null ? null : object.getClient();
+		status = object != null && !object.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -32,6 +43,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		contract = this.repository.findContractById(masterId);
 		object = new ProgressLog();
 		object.setPublished(false);
+		object.setRegistrationMoment(MomentHelper.getCurrentMoment());
 		object.setContract(contract);
 
 		super.getBuffer().addData(object);
@@ -47,7 +59,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		contractId = super.getRequest().getData("masterId", int.class);
 		contract = this.repository.findContractById(contractId);
 
-		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract");
+		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson", "contract");
 		object.setContract(contract);
 	}
 
