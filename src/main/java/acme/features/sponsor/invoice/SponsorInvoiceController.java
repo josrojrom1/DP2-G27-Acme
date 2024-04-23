@@ -34,7 +34,8 @@ public class SponsorInvoiceController extends AbstractController<Sponsor, Invoic
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.deleteService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }

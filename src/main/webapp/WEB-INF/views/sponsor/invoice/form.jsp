@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="sponsor.invoice.form.label.code" path="code" />
+	<acme:input-textbox code="sponsor.invoice.form.label.code" path="code" readonly="${readOnly}"/>
 	<acme:input-moment code="sponsor.invoice.form.label.registration"
-		path="registration" />
+		path="registration" readonly="${readOnly}"/>
 	<acme:input-moment code="sponsor.invoice.form.label.dueDate"
 		path="dueDate" />
 	<acme:input-money code="sponsor.invoice.form.label.quantity"
