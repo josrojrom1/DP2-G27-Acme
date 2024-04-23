@@ -1,12 +1,15 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.invoice.Invoice;
@@ -16,50 +19,83 @@ import acme.entities.sponsorship.SponsorshipType;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Sponsorship> {
-
-	// Internal state -----------------------------------------------
+public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, Sponsorship> {
 
 	@Autowired
 	private SponsorSponsorshipRepository repository;
 
 
-	// Este metodo deberia mostrar si la consulta es legal o no
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int sponsorshipId;
 		Sponsorship sponsorship;
 		Sponsor sponsor;
 
-		masterId = super.getRequest().getData("id", int.class);
-		sponsorship = this.repository.findOneSponsorshipById(masterId);
+		sponsorshipId = super.getRequest().getData("id", int.class);
+		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
-		status = super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
+		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor) && super.getRequest().getPrincipal().getActiveRoleId() == sponsor.getId();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Sponsorship sponsorship;
+		Sponsorship object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		sponsorship = this.repository.findOneSponsorshipById(id);
+		object = this.repository.findOneSponsorshipById(id);
+		super.getBuffer().addData(object);
+	}
 
-		super.getBuffer().addData(sponsorship);
+	@Override
+	public void bind(final Sponsorship object) {
+		assert object != null;
 
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
+
+		super.bind(object, "code", "moment", "startDate", "expirationDate", "amount", "type", "contact", "link");
+		object.setProject(project);
+	}
+
+	@Override
+	public void validate(final Sponsorship object) {
+		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.inlavid-start-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("expirationDate")) {
+			Date minimumExpirationDate;
+
+			minimumExpirationDate = MomentHelper.deltaFromMoment(object.getStartDate(), 30, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfter(object.getExpirationDate(), minimumExpirationDate), "expirationDate", "sponsor.sponsorship.form.error.too-close");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.form.error.negative-amount");
+
+	}
+	@Override
+	public void perform(final Sponsorship object) {
+		assert object != null;
+
+		object.setDraftMode(false);
+		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Sponsorship object) {
-
 		assert object != null;
 
 		Collection<Project> projects;
 		Collection<Invoice> invoices;
-
 		SelectChoices projectChoices;
 		SelectChoices typeChoices;
 		typeChoices = SelectChoices.from(SponsorshipType.class, object.getType());
@@ -71,7 +107,7 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		dataset.put("projects", projectChoices);
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
-		super.getResponse().addData(dataset);
+		dataset.put("draftMode", false);
 
 		boolean invoicesDraftModeState = true;
 		double total = 0.0;
@@ -84,7 +120,6 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		if (total == object.getAmount().getAmount() && !invoices.isEmpty())
 			invoicesDraftModeState = false;
 		dataset.put("invoicesDraftModeState", invoicesDraftModeState);
-		dataset.put("readOnly", true);
 		super.getResponse().addData(dataset);
 	}
 
