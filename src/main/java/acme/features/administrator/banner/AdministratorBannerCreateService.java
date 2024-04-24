@@ -1,6 +1,7 @@
 
 package acme.features.administrator.banner;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,11 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -37,11 +42,6 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		object = new Banner();
 		object.setInstantiationOrUpdateMoment(moment);
-		object.setDisplayStartDate(null);
-		object.setDisplayEndDate(null);
-		object.setPicture("");
-		object.setSlogan("");
-		object.setWebDocument("");
 
 		super.getBuffer().addData(object);
 	}
@@ -57,10 +57,15 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
-		boolean confirmation;
+		if (!super.getBuffer().getErrors().hasErrors("displayStartDate"))
+			super.state(MomentHelper.isAfter(object.getDisplayStartDate(), object.getInstantiationOrUpdateMoment()), "displayStartDate", "administrator.banner.form.error.invalid-display-start-date");
 
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+		if (!super.getBuffer().getErrors().hasErrors("displayEndDate")) {
+			Date minimumExpirationDate;
+
+			minimumExpirationDate = MomentHelper.deltaFromMoment(object.getDisplayStartDate(), 7, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfter(object.getDisplayEndDate(), minimumExpirationDate), "displayEndDate", "administrator.banner.form.error.too-close");
+		}
 	}
 
 	@Override

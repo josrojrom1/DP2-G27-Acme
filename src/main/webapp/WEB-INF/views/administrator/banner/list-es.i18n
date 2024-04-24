@@ -18,3 +18,7 @@ administrator.banner.form.title = Formulario de Banner
 administrator.banner.delete = Eliminiar
 administrator.banner.update = Actualizar
 administrator.banner.create = Crear
+administrator.banner.form.error.invalid-display-start-date = La fecha de comienzo debe ser posterior a la de Creación/Edición
+administrator.banner.form.error.too-close = La fecha de final de muestra debe ser 1 semana posterior a la de comienzo
+administrator.banner.list.title= Listado de Banners
+administrator.banner.form.title= Detalles de Banner

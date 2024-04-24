@@ -22,15 +22,17 @@
 	<acme:input-textbox code="administrator.banner.list.label.picture" path="picture"/>	
 	<acme:input-textbox code="administrator.banner.list.label.slogan" path="slogan"/>	
 	<acme:input-url code="administrator.banner.list.label.webDocument" path="webDocument"/>	
-</acme:form>
 
-<jstl:choose>	 
-		<jstl:when test="${_command == 'show'}">
-			<acme:submit code="administrator.banner.delete" action="/administrator/banner/delete"/>	
-			<acme:submit code="administrator.banner.update" action="/administrator/banner/update"/>			
-		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="administrator.banner.create" action="/administrator/banner/create"/>
-		</jstl:when>
-</jstl:choose>	
+
+	<jstl:choose>	 
+			<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+				<acme:submit code="administrator.banner.delete" action="/administrator/banner/delete"/>	
+				<acme:submit code="administrator.banner.update" action="/administrator/banner/update"/>			
+			</jstl:when>
+			<jstl:when test="${_command == 'create'}">
+				<acme:submit code="administrator.banner.create" action="/administrator/banner/create"/>
+			</jstl:when>
+	</jstl:choose>	
+
+</acme:form>
 
