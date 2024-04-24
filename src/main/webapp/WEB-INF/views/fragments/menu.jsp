@@ -41,6 +41,7 @@
 		<acme:menu-option code="master.menu.any">
 			<acme:menu-suboption code="master.menu.any.code-audit.list" action="/any/code-audit/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.all-claims" action="/any/claim/list"/>
+			<acme:menu-suboption code="master.menu.any.training-module.list" action="/any/training-module/list"/>
 		</acme:menu-option>
 		<!-- AUDITOR SECTION -->
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">			
@@ -48,7 +49,12 @@
 		</acme:menu-option>
 		<!-- DEVELOPER SECTION -->
 		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">			
-			<acme:menu-suboption code="master.menu.developer.my-training-modules" action="/developer/training-module/list-mine"/>	
+			<acme:menu-suboption code="master.menu.developer.my-training-modules" action="/developer/training-module/list-mine"/>
+			<acme:menu-suboption code="master.menu.developer.dashboard" action="/developer/developer-dashboard/show"/>	
+		</acme:menu-option>
+		<!-- AUTHENTICATED PRINCIPALS SECTION -->
+		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.objective" action="/authenticated/objective/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 	<!-- RIGHT MENU -->
@@ -57,10 +63,12 @@
 		<acme:menu-option code="master.menu.sign-in" action="/anonymous/system/sign-in" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
-			<acme:menu-suboption code="master.menu.authenticated.objective" action="/authenticated/objective/list"/>
 			<!-- BECOME AUDITOR -->
 			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
+			<!-- BECOME DEVELOPER -->
+			<acme:menu-suboption code="master.menu.user-account.become-developer" action="/authenticated/developer/create" access="!hasRole('Developer')"/>
+			<acme:menu-suboption code="master.menu.user-account.developer" action="/authenticated/developer/update" access="hasRole('Developer')"/>
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.sign-out" action="/authenticated/system/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>

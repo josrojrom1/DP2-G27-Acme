@@ -12,10 +12,11 @@ import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
 import acme.entities.training.DifficultyLevel;
 import acme.entities.training.TrainingModule;
+import acme.entities.training.TrainingSessions;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleCreateService extends AbstractService<Developer, TrainingModule> {
+public class DeveloperTrainingModulePublishService extends AbstractService<Developer, TrainingModule> {
 
 	@Autowired
 	private DeveloperTrainingModuleRepository repository;
@@ -24,19 +25,26 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Developer.class);
+		int trainingModuleId;
+		TrainingModule trainingModule;
+		Developer developer;
+
+		trainingModuleId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(trainingModuleId);
+		developer = trainingModule == null ? null : trainingModule.getDeveloper();
+		status = trainingModule != null && trainingModule.isDraftMode() && super.getRequest().getPrincipal().hasRole(developer);
+
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		TrainingModule object;
-		Developer developer;
+		int id;
 
-		developer = this.repository.findDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new TrainingModule();
-		object.setDraftMode(true);
-		object.setDeveloper(developer);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneTrainingModuleById(id);
+
 		super.getBuffer().addData(object);
 	}
 
@@ -50,7 +58,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findProjectById(projectId);
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "link", "totalTime");
+		super.bind(object, "code", "creationMoment", "updateMoment", "details", "difficultyLevel", "link", "totalTime");
 		object.setProject(project);
 	}
 
@@ -66,11 +74,15 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		}
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
 			super.state(object.getTotalTime() > 0.0, "totalTime", "developer.training-module.form.error.negative-totalTime");
+		if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
+			super.state(object.getUpdateMoment() == null || object.getUpdateMoment().after(object.getCreationMoment()), "updateMoment", "developer.training-module.form.error.updateMoment");
 	}
 
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
+
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
@@ -79,6 +91,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		assert object != null;
 
 		Collection<Project> projects;
+		Collection<TrainingSessions> trainingSession;
 		SelectChoices projectChoices;
 		SelectChoices difficultyLevelChoices;
 
@@ -89,11 +102,19 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "link", "totalTime");
+		dataset = super.unbind(object, "code", "creationMoment", "updateMoment", "details", "difficultyLevel", "link", "totalTime", "draftMode");
 		dataset.put("project", projectChoices.getSelected().getKey());
 		dataset.put("projects", projectChoices);
 		dataset.put("difficultyLevel", difficultyLevelChoices.getSelected().getKey());
 		dataset.put("difficultyLevels", difficultyLevelChoices);
+		boolean trainingSessionsDraft = true;
+		trainingSession = this.repository.findPublishTrainingSessionsByTrainingModuleId(object.getId());
+		for (TrainingSessions a : trainingSession)
+			if (trainingSession.isEmpty() || a.isDraftMode())
+				break;
+			else
+				trainingSessionsDraft = false;
+		dataset.put("trainingSessionsDraft", trainingSessionsDraft);
 
 		super.getResponse().addData(dataset);
 	}

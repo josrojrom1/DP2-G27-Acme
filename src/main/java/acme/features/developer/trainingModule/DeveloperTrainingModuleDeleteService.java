@@ -16,7 +16,7 @@ import acme.entities.training.TrainingSessions;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleShowService extends AbstractService<Developer, TrainingModule> {
+public class DeveloperTrainingModuleDeleteService extends AbstractService<Developer, TrainingModule> {
 
 	@Autowired
 	private DeveloperTrainingModuleRepository repository;
@@ -25,14 +25,15 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
+		int masterId;
 		TrainingModule trainingModule;
 		Developer developer;
 
-		id = super.getRequest().getData("id", int.class);
-		trainingModule = this.repository.findOneTrainingModuleById(id);
+		masterId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(masterId);
 		developer = trainingModule == null ? null : trainingModule.getDeveloper();
-		status = super.getRequest().getPrincipal().hasRole(developer) || trainingModule != null && !trainingModule.isDraftMode();
+		status = trainingModule != null && trainingModule.isDraftMode() && super.getRequest().getPrincipal().hasRole(developer);
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -48,33 +49,55 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 	}
 
 	@Override
+	public void bind(final TrainingModule object) {
+		assert object != null;
+
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findProjectById(projectId);
+
+		super.bind(object, "code", "creationMoment", "updateMoment", "details", "difficultyLevel", "link", "totalTime");
+		object.setProject(project);
+	}
+
+	@Override
+	public void validate(final TrainingModule object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final TrainingModule object) {
+		assert object != null;
+
+		Collection<TrainingSessions> trainingSessions;
+
+		trainingSessions = this.repository.findManyTrainingSesionsByTrainingModuleId(object.getId());
+		this.repository.deleteAll(trainingSessions);
+		this.repository.delete(object);
+	}
+
+	@Override
 	public void unbind(final TrainingModule object) {
 		assert object != null;
 
-		Dataset dataset;
-
-		SelectChoices difficultyLevelChoices;
+		Collection<Project> projects;
 		SelectChoices projectChoices;
-		Collection<TrainingSessions> trainingSession;
-		Collection<Project> projects = this.repository.findPublishedProjects();
+		SelectChoices difficultyLevelChoices;
+
 		difficultyLevelChoices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
+
+		projects = this.repository.findPublishedProjects();
 		projectChoices = SelectChoices.from(projects, "title", object.getProject());
 
-		dataset = super.unbind(object, "code", "creationMoment", "updateMoment", "details", "totalTime", "link");
+		Dataset dataset;
 
+		dataset = super.unbind(object, "code", "creationMoment", "updateMoment", "details", "difficultyLevel", "link", "totalTime", "draftMode");
 		dataset.put("project", projectChoices.getSelected().getKey());
 		dataset.put("projects", projectChoices);
-		dataset.put("draftMode", object.isDraftMode());
 		dataset.put("difficultyLevel", difficultyLevelChoices.getSelected().getKey());
 		dataset.put("difficultyLevels", difficultyLevelChoices);
-		boolean trainingSessionsDraft = true;
-		trainingSession = this.repository.findPublishTrainingSessionsByTrainingModuleId(object.getId());
-		for (TrainingSessions a : trainingSession)
-			if (trainingSession.isEmpty() || a.isDraftMode())
-				break;
-			else
-				trainingSessionsDraft = false;
-		dataset.put("trainingSessionsDraft", trainingSessionsDraft);
 
 		super.getResponse().addData(dataset);
 	}

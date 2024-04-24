@@ -15,7 +15,7 @@ import acme.entities.training.TrainingSessions;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingSessionsCreateService extends AbstractService<Developer, TrainingSessions> {
+public class DeveloperTrainingSessionsPublishService extends AbstractService<Developer, TrainingSessions> {
 
 	@Autowired
 	private DeveloperTrainingSessionsRepository repository;
@@ -24,11 +24,11 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int trainingSessionId;
 		TrainingModule trainingModule;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		trainingModule = this.repository.findOneTrainingModuleById(masterId);
+		trainingSessionId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleByTrainingSessionsId(trainingSessionId);
 		status = trainingModule != null && trainingModule.isDraftMode() && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper()) && trainingModule.getDeveloper().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
@@ -37,15 +37,10 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 	@Override
 	public void load() {
 		TrainingSessions object;
-		TrainingModule trainingModule;
-		int masterId;
+		int id;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		trainingModule = this.repository.findOneTrainingModuleById(masterId);
-
-		object = new TrainingSessions();
-		object.setDraftMode(true);
-		object.setTrainingModule(trainingModule);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneTrainingSessionsById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -66,20 +61,20 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 			existing = this.repository.findTrainingSessionsByCode(object.getCode(), object.getId());
 			super.state(existing == null, "code", "developer.training-sessions.form.error.code.duplicated");
 		}
-
 		if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
-			super.state(object.getPeriodFinish().after(object.getPeriodStart()), "periodFinish", "developer.training-sessions.form.error.periodFinish");
+			super.state(object.getPeriodFinish().after(object.getPeriodStart()), "periodFinish", "developer.training-sessions.form.error.NotperiodFinish");
 
 		if (!super.getBuffer().getErrors().hasErrors("periodFinish")) {
 			Date minimunPeriodFinish;
 			minimunPeriodFinish = MomentHelper.deltaFromMoment(object.getPeriodStart(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getPeriodFinish(), minimunPeriodFinish), "periodFinish", "developer.training-sessions.form.error.too-close");
+			super.state(MomentHelper.isAfter(object.getPeriodFinish(), minimunPeriodFinish), "periodFinish", "developer.training-sessions.form.error.tooooo-close");
 		}
 	}
 
 	@Override
 	public void perform(final TrainingSessions object) {
 		assert object != null;
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
@@ -92,10 +87,9 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "periodStart", "periodFinish", "location", "instructor", "contactEmail", "link");
-		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
-		dataset.put("draftMode", object.getTrainingModule().isDraftMode());
-		dataset.put("draftMode", object.isDraftMode());
+		dataset = super.unbind(object, "code", "periodStart", "periodFinish", "location", "instructor", "contactEmail", "link", "draftMode");
+		dataset.put("masterId", object.getTrainingModule().getId());
+		//dataset.put("draftMode", object.isDraftMode());
 
 		super.getResponse().addData(dataset);
 	}

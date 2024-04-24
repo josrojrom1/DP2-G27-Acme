@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="authenticated.objective.list.label.tittle" path="tittle"/>
+	<acme:input-textbox code="authenticated.objective.list.label.title" path="title"/>
 	<acme:input-textbox code="authenticated.objective.list.label.instantiationMoment" path="instantiationMoment"/>	
 	<acme:input-textbox code="authenticated.objective.list.label.description" path="description"/>	
 	<acme:input-textbox code="authenticated.objective.list.label.priority" path="priority"/>

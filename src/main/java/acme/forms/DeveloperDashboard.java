@@ -2,7 +2,11 @@
 package acme.forms;
 
 import acme.client.data.AbstractForm;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class DeveloperDashboard extends AbstractForm {
 
 	private static final long	serialVersionUID	= 1L;
@@ -11,7 +15,7 @@ public class DeveloperDashboard extends AbstractForm {
 	Integer						totalNumberOfTrainingModuleWithAnUpdateMoment;
 
 	//total number of training sessions with a link
-	Integer						totalNumberOfTrainingModuleWithALink;
+	Integer						totalNumberOfTrainingSessionsWithALink;
 
 	//average, deviation, minimum, and maximum time of the training modules
 	Double						trainingModuleAverageTime;

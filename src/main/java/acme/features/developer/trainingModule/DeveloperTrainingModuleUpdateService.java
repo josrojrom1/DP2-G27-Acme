@@ -15,7 +15,7 @@ import acme.entities.training.TrainingModule;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleCreateService extends AbstractService<Developer, TrainingModule> {
+public class DeveloperTrainingModuleUpdateService extends AbstractService<Developer, TrainingModule> {
 
 	@Autowired
 	private DeveloperTrainingModuleRepository repository;
@@ -24,19 +24,26 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Developer.class);
+		int masterId;
+		TrainingModule trainingModule;
+		Developer developer;
+
+		masterId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(masterId);
+		developer = trainingModule == null ? null : trainingModule.getDeveloper();
+		status = trainingModule != null && trainingModule.isDraftMode() && super.getRequest().getPrincipal().hasRole(developer);
+
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		TrainingModule object;
-		Developer developer;
+		int id;
 
-		developer = this.repository.findDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new TrainingModule();
-		object.setDraftMode(true);
-		object.setDeveloper(developer);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneTrainingModuleById(id);
+
 		super.getBuffer().addData(object);
 	}
 
@@ -50,8 +57,9 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findProjectById(projectId);
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "link", "totalTime");
+		super.bind(object, "code", "creationMoment", "updateMoment", "details", "difficultyLevel", "link", "totalTime");
 		object.setProject(project);
+		//object.setUpdateMoment(MomentHelper.getCurrentMoment());
 	}
 
 	@Override
@@ -66,6 +74,8 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		}
 		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
 			super.state(object.getTotalTime() > 0.0, "totalTime", "developer.training-module.form.error.negative-totalTime");
+		if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
+			super.state(object.getUpdateMoment() == null || object.getUpdateMoment().after(object.getCreationMoment()), "updateMoment", "developer.training-module.form.error.updateMoment");
 	}
 
 	@Override
@@ -89,7 +99,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "link", "totalTime");
+		dataset = super.unbind(object, "code", "creationMoment", "updateMoment", "details", "difficultyLevel", "link", "totalTime", "draftMode");
 		dataset.put("project", projectChoices.getSelected().getKey());
 		dataset.put("projects", projectChoices);
 		dataset.put("difficultyLevel", difficultyLevelChoices.getSelected().getKey());
@@ -97,5 +107,4 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		super.getResponse().addData(dataset);
 	}
-
 }

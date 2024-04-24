@@ -19,7 +19,7 @@
 			<acme:submit code="developer.training-sessions.form.button.publish" action="/developer/training-sessions/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="developer.training-sessions.form.button.create" action="/developer/training-sessions/create?masterId=${masterId}"/>
+			<acme:submit code="developer.training-sessions.form.button.create" action="/developer/training-sessions/create?masterId=${param.masterId}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

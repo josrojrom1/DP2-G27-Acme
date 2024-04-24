@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.projects.Project;
 import acme.entities.training.TrainingModule;
+import acme.entities.training.TrainingSessions;
 import acme.roles.Developer;
 
 @Repository
@@ -29,6 +30,15 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 	@Query("select p from Project p where p.id =:id")
 	Project findProjectById(int id);
 
-	@Query("select t from TrainingModule t where t.code = :code")
-	TrainingModule findTrainingModuleByCode(String code);
+	@Query("select t from TrainingModule t where t.code = :code and t.id != :id")
+	TrainingModule findTrainingModuleByCode(String code, int id);
+
+	@Query("select t from TrainingSessions t where t.trainingModule.id = :trainingModuleId")
+	Collection<TrainingSessions> findManyTrainingSesionsByTrainingModuleId(int trainingModuleId);
+
+	@Query("select count(t) from TrainingSessions t where t.trainingModule.id = :trainingModuleId and t.draftMode = true")
+	Long countTrainingSessionsByTrainingModuleId(int trainingModuleId);
+
+	@Query("select t from TrainingSessions t where t.trainingModule.id = :trainingModuleId and t.draftMode = false")
+	Collection<TrainingSessions> findPublishTrainingSessionsByTrainingModuleId(int trainingModuleId);
 }
