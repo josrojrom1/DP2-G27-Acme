@@ -16,10 +16,10 @@ public interface AuditorDashboardRepository extends AbstractRepository {
 	int totalNumberOfDynamicCodeAudits(int id);
 
 	@Query("select avg(select count(a) from AuditRecord a where a.codeAudit.auditor.id = d.id and a.draftMode = false) from Auditor d")
-	Double averageOfAuditRecords();
+	double averageOfAuditRecords();
 
 	@Query("select stddev(a) from AuditRecord a where a.codeAudit.auditor.id = :id and a.draftMode = false")
-	Double deviationOfAuditRecords(int id);
+	double deviationOfAuditRecords(int id);
 
 	//CORREGIR QUERY LA CUAL DA ERROR AL HACER SHOW DASHBOARD
 	//@Query("select min(count(a)) from AuditRecord a where a.codeAudit.auditor.id = :id and a.draftMode = false")
