@@ -68,6 +68,13 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Sponsorship existing;
+
+			existing = this.repository.findOneSponsorshipByCode(object.getCode());
+			super.state(existing == null || object.getId() == existing.getId(), "code", "sponsor.sponsorship.form.error.code.duplicated");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.inlavid-start-date");
 
@@ -80,7 +87,14 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.form.error.negative-amount");
-			super.state(object.getAmount().getAmount() < 1000000, "amount", "sponsor.sponsorship.form.error.too-big");
+			super.state(object.getAmount().getAmount() <= 1000000, "amount", "sponsor.sponsorship.form.error.too-big");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(object.getId());
+			double total = 0.0;
+			for (Invoice i : invoices)
+				total += i.totalAmount();
+			super.state(object.getAmount().getAmount() == total, "amount", "sponsor.sponsorship.form.error.invoices-inconsistency");
 		}
 	}
 	@Override
@@ -108,7 +122,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		dataset.put("projects", projectChoices);
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
-		dataset.put("draftMode", false);
 
 		boolean invoicesDraftModeState = true;
 		double total = 0.0;

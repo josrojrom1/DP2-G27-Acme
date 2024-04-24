@@ -2,6 +2,7 @@
 package acme.features.sponsor.invoice;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,21 +54,45 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	public void bind(final Invoice object) {
 		assert object != null;
 
-		super.bind(object, "dueDate", "quantity", "tax", "link");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link");
 	}
 
 	@Override
 	public void validate(final Invoice object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+
+			Invoice existing;
+			existing = this.repository.findOneInvoiceByCode(object.getCode());
+			super.state(existing == null || existing.getId() == object.getId(), "code", "sponsor.invoice.form.error.code.duplicated");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date minimumExpirationDate;
 
 			minimumExpirationDate = MomentHelper.deltaFromMoment(object.getRegistration(), 30, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfter(object.getDueDate(), minimumExpirationDate), "dueDate", "sponsor.invoice.form.error.too-close");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+
+		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getAmount() > 0, "quantity", "sponsor.invoice.form.error.negative-amount");
+		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getAmount() < 1000000, "quantity", "sponsor.invoice.form.error.too-big");
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			Sponsorship sponsorship = object.getSponsorship();
+			String currency = sponsorship.getAmount().getCurrency();
+			super.state(object.getQuantity().getCurrency().equals(currency), "quantity", "sponsor.invoice.form.error.invalid-currency");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			Sponsorship sponsorship = object.getSponsorship();
+			Double amount = sponsorship.getAmount().getAmount();
+			Invoice existing;
+			existing = this.repository.findOneInvoiceById(object.getId());
+			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(sponsorship.getId());
+			double invoicesTotal = 0.0;
+			for (Invoice i : invoices)
+				invoicesTotal += i.totalAmount();
+			super.state(amount >= invoicesTotal + object.totalAmount() - existing.getQuantity().getAmount(), "quantity", "sponsor.invoice.form.error.quantity-invalid");
 		}
 	}
 

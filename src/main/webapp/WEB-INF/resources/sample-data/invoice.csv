@@ -14,7 +14,7 @@ invoice-12,"INV-012",2022/07/05 20:50,2022/08/06 00:01,"EUR 150.00",10.0,"http:/
 invoice-13,"INV-013",2022/05/05 06:40,2022/10/13 14:00,"EUR 0.01",10.0,"http://www.example.com",false,sponsorship-04
 invoice-14,"INV-014",2022/05/05 06:40,2022/10/13 14:00,"USD 2.50",10.0,"http://www.example.com",false,sponsorship-14
 invoice-15,"INV-015",2022/05/05 06:40,2022/10/13 14:00,"GBP 1234.05",10.0,"http://www.example.com",false,sponsorship-15
-invoice-16,"INV-016",2022/05/05 06:40,2022/10/13 14:00,"JPY 999000.00",10.0,"http://www.example.com",false,sponsorship-16
+invoice-16,"INV-016",2022/05/05 06:40,2022/10/13 14:00,"USD 999000.00",10.0,"http://www.example.com",false,sponsorship-16
 invoice-17,"INV-017",2022/05/05 06:40,2022/10/13 14:00,"BTC 567890.00",10.0,"http://www.example.com",false,sponsorship-17
 invoice-18,"INV-018",2022/05/05 06:40,2022/10/13 14:00,"EUR 250.00",0.05,"http://www.example.com",false,sponsorship-04
 invoice-19,"INV-019",2022/05/05 06:40,2022/10/13 14:00,"EUR 250.00",10.3,"http://www.example.com",false,sponsorship-05

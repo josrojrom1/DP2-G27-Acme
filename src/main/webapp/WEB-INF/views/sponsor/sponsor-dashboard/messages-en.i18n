@@ -16,13 +16,35 @@ sponsor.sponsor-dasboard.form.title.sponsorship.general-indicators = Sponsorship
 sponsor.sponsor-dasboard.form.label.total-number-link-sponsorships = Total number of invoices with a link
 
 sponsor.sponsor-dasboard.form.title.sponsorships = Sponsorships amount statitics
-sponsor.sponsor-dasboard.form.label.sponsorship.average = Average
-sponsor.sponsor-dasboard.form.label.sponsorship.deviation = Deviation
-sponsor.sponsor-dasboard.form.label.sponsorship.minimum = Minimum
-sponsor.sponsor-dasboard.form.label.sponsorship.maximum = Maximum
+sponsor.sponsor-dasboard.form.label.sponsorship.averageEUR = Average (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.averageUSD = Average (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.averageGBP = Average (GBP)
+
+sponsor.sponsor-dasboard.form.label.sponsorship.deviationEUR = Deviation (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.deviationUSD = Deviation (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.deviationGBP = Deviation (GBP)
+
+sponsor.sponsor-dasboard.form.label.sponsorship.minimumEUR = Minimum (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.minimumUSD = Minimum (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.minimumGBP = Minimum (GBP)
+
+sponsor.sponsor-dasboard.form.label.sponsorship.maximumEUR = Maximum (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.maximumUSD = Maximum (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.maximumGBP = Maximum (GBP)
 
 sponsor.sponsor-dasboard.form.title.invoices = Invoices quantity statitics
-sponsor.sponsor-dasboard.form.label.invoice.average = Average
-sponsor.sponsor-dasboard.form.label.invoice.deviation = Deviation
-sponsor.sponsor-dasboard.form.label.invoice.minimum = Minimum
-sponsor.sponsor-dasboard.form.label.invoice.maximum = Maximum
+sponsor.sponsor-dasboard.form.label.invoice.averageEUR = Average (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.averageUSD = Average (USD)
+sponsor.sponsor-dasboard.form.label.invoice.averageGBP = Average (GBP)
+
+sponsor.sponsor-dasboard.form.label.invoice.deviationEUR = Deviation (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.deviationUSD = Deviation (USD)
+sponsor.sponsor-dasboard.form.label.invoice.deviationGBP = Deviation (GBP)
+
+sponsor.sponsor-dasboard.form.label.invoice.minimumEUR = Minimum (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.minimumUSD = Minimum (USD)
+sponsor.sponsor-dasboard.form.label.invoice.minimumGBP = Minimum (GBP)
+
+sponsor.sponsor-dasboard.form.label.invoice.maximumEUR = Maximum (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.maximumUSD = Maximum (USD)
+sponsor.sponsor-dasboard.form.label.invoice.maximumGBP = Maximum (GBP)

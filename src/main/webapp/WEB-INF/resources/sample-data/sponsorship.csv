@@ -14,8 +14,8 @@ sponsorship-12,"SPO-012",2021/12/31 00:00,2022/03/01 23:59,2022/04/10 02:33,"EUR
 sponsorship-13,"SPO-013",2021/12/31 00:00,2022/03/01 05:50,2022/04/10 02:33,"EUR 950.00",FINANCIAL,"example@gmail.com","https://www.example.com",true,project-02,sponsor-02
 sponsorship-14,"SPO-014",2021/12/31 00:00,2022/03/01 05:50,2022/04/10 02:33,"USD 150.00",IN_KIND,"example@gmail.com","https://www.example.com",true,project-03,sponsor-01
 sponsorship-15,"SPO-015",2021/12/31 00:00,2022/03/01 05:50,2022/04/10 02:33,"GBP 2000.00",IN_KIND,"example@gmail.com","https://www.example.com",true,project-03,sponsor-01
-sponsorship-16,"SPO-016",2021/12/31 00:00,2022/03/01 05:50,2022/04/10 02:33,"JPY 1000000.00",IN_KIND,"example@gmail.com","https://www.example.com",true,project-03,sponsor-02
-sponsorship-17,"SPO-017",2022/01/01 17:30,2022/01/15 17:30,2022/04/01 17:30,"BTC 700000.00",FINANCIAL,,"https://www.example.com",true,project-03,sponsor-01
+sponsorship-16,"SPO-016",2021/12/31 00:00,2022/03/01 05:50,2022/04/10 02:33,"EUR 1000000.00",IN_KIND,"example@gmail.com","https://www.example.com",true,project-03,sponsor-02
+sponsorship-17,"SPO-017",2022/01/01 17:30,2022/01/15 17:30,2022/04/01 17:30,"USD 700000.00",FINANCIAL,,"https://www.example.com",true,project-03,sponsor-01
 sponsorship-18,"SPO-018",2022/01/01 17:30,2022/01/15 17:30,2022/04/01 17:30,"EUR 340.00",IN_KIND,,"https://www.example.com",true,project-03,sponsor-01
 sponsorship-19,"SPO-019",2022/01/01 17:30,2022/01/15 17:30,2022/04/01 17:30,"EUR 1000.00",FINANCIAL,"john.doe@example.com","https://www.example.com",true,project-03,sponsor-02
 sponsorship-20,"SPO-020",2022/01/01 17:30,2022/01/15 17:30,2022/04/01 17:30,"EUR 1020.00",IN_KIND,"contacto@empresa.com","https://www.example.com",true,project-04,sponsor-02

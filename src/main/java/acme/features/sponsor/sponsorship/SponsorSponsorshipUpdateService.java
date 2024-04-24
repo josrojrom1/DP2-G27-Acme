@@ -61,13 +61,20 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "startDate", "expirationDate", "amount", "type", "contact", "link");
+		super.bind(object, "code", "startDate", "expirationDate", "amount", "type", "contact", "link", "draftMode");
 		object.setProject(project);
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Sponsorship existing;
+
+			existing = this.repository.findOneSponsorshipByCode(object.getCode());
+			super.state(existing == null || object.getId() == existing.getId(), "code", "sponsor.sponsorship.form.error.code.duplicated");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.inlavid-start-date");
@@ -81,7 +88,14 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.form.error.negative-amount");
-			super.state(object.getAmount().getAmount() < 1000000, "amount", "sponsor.sponsorship.form.error.too-big");
+			super.state(object.getAmount().getAmount() <= 1000000, "amount", "sponsor.sponsorship.form.error.too-big");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(object.getId());
+			double total = 0.0;
+			for (Invoice i : invoices)
+				total += i.totalAmount();
+			super.state(object.getAmount().getAmount() >= total, "amount", "sponsor.sponsorship.form.error.invoices-inconsistency");
 		}
 	}
 

@@ -50,38 +50,126 @@
 </h2>
 
 <table class="table table-sm">
+	<jstl:if test="${sponsorshipAmountAverageEUR != 0}">
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.average"/>
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.averageEUR"/>
 		</th>
 		<td>
-			<acme:print value="${sponsorshipAmountAverage}"/>
+		<acme:print value="${sponsorshipAmountAverageEUR}"/>	
 		</td>
 	</tr>
+	</jstl:if>
+	<jstl:if test="${sponsorshipAmountAverageUSD != 0}">
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.deviation"/>
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.averageUSD"/>
 		</th>
 		<td>
-			<acme:print value="${sponsorshipAmountDeviation}"/>
+		<acme:print value="${sponsorshipAmountAverageUSD}"/>	
 		</td>
 	</tr>
+	</jstl:if>
+	<jstl:if test="${sponsorshipAmountAverageGBP != 0}">
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.minimum"/>
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.averageGBP"/>
 		</th>
 		<td>
-			<acme:print value="${minimumSponsorshipAmount}"/>
+		<acme:print value="${sponsorshipAmountAverageGBP}"/>
 		</td>
 	</tr>
+	</jstl:if>	
+	<jstl:if test="${sponsorshipAmountDeviationEUR != 0}">
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.maximum"/>
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.deviationEUR"/>
 		</th>
 		<td>
-			<acme:print value="${maximumSponsorshipAmount}"/>
+		<acme:print value="${sponsorshipAmountDeviationEUR}"/>
 		</td>
 	</tr>
+	</jstl:if>
+	<jstl:if test="${sponsorshipAmountDeviationUSD != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.deviationUSD"/>
+		</th>
+		<td>
+		<acme:print value="${sponsorshipAmountDeviationUSD}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${sponsorshipAmountDeviationGBP != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.deviationGBP"/>
+		</th>
+		<td>
+		<acme:print value="${sponsorshipAmountDeviationGBP}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${minimumSponsorshipAmountEUR != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.minimumEUR"/>
+		</th>
+		<td>
+		<acme:print value="${minimumSponsorshipAmountEUR}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${minimumSponsorshipAmountUSD != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.minimumUSD"/>
+		</th>
+		<td>
+		<acme:print value="${minimumSponsorshipAmountUSD}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${minimumSponsorshipAmountGBP != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.minimumGBP"/>
+		</th>
+		<td>
+		<acme:print value="${minimumSponsorshipAmountGBP}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${maximumSponsorshipAmountEUR != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.maximumEUR"/>
+		</th>
+		<td>
+		<acme:print value="${maximumSponsorshipAmountEUR}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${maximumSponsorshipAmountUSD != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.maximumUSD"/>
+		</th>
+		<td>
+		<acme:print value="${maximumSponsorshipAmountUSD}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${maximumSponsorshipAmountGBP != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.maximumGBP"/>
+		</th>
+		<td>
+		<acme:print value="${maximumSponsorshipAmountGBP}"/>
+		</td>
+	</tr>
+	</jstl:if>
 </table>
 
 <h2>
@@ -89,38 +177,126 @@
 </h2>
 
 <table class="table table-sm">
+	<jstl:if test="${invoiceQuantityAverageEUR != 0}">
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.average"/>
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.averageEUR"/>
 		</th>
 		<td>
-			<acme:print value="${invoiceQuantityAverage}"/>
+		<acme:print value="${invoiceQuantityAverageEUR}"/>
 		</td>
 	</tr>
+	</jstl:if>
+	<jstl:if test="${invoiceQuantityAverageUSD != 0}">
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.deviation"/>
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.averageUSD"/>
 		</th>
 		<td>
-			<acme:print value="${invoiceQuantityDeviation}"/>
+		<acme:print value="${invoiceQuantityAverageUSD}"/>
 		</td>
 	</tr>
+	</jstl:if>
+	<jstl:if test="${invoiceQuantityAverageGBP != 0}">
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.minimum"/>
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.averageGBP"/>
 		</th>
 		<td>
-			<acme:print value="${minimumInvoiceQuantity}"/>
+		<acme:print value="${invoiceQuantityAverageGBP}"/>
 		</td>
 	</tr>
+	</jstl:if>
+	<jstl:if test="${invoiceQuantityDeviationEUR != 0}">
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.maximum"/>
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.deviationEUR"/>
 		</th>
 		<td>
-			<acme:print value="${maximumInvoiceQuantity}"/>
+		<acme:print value="${invoiceQuantityDeviationEUR}"/>
 		</td>
 	</tr>
+	</jstl:if>
+	<jstl:if test="${invoiceQuantityDeviationUSD != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.deviationUSD"/>
+		</th>
+		<td>
+		<acme:print value="${invoiceQuantityDeviationUSD}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${invoiceQuantityDeviationGBP != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.deviationGBP"/>
+		</th>
+		<td>
+		<acme:print value="${invoiceQuantityDeviationGBP}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${minimumInvoiceQuantityEUR != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.minimumEUR"/>
+		</th>
+		<td>
+		<acme:print value="${minimumInvoiceQuantityEUR}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${minimumInvoiceQuantityUSD != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.minimumUSD"/>
+		</th>
+		<td>
+		<acme:print value="${minimumInvoiceQuantityUSD}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${minimumInvoiceQuantityGBP != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.minimumGBP"/>
+		</th>
+		<td>
+		<acme:print value="${minimumInvoiceQuantityGBP}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${maximumInvoiceQuantityEUR != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.maximumEUR"/>
+		</th>
+		<td>
+		<acme:print value="${maximumInvoiceQuantityEUR}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${maximumInvoiceQuantityUSD != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.maximumUSD"/>
+		</th>
+		<td>
+		<acme:print value="${maximumInvoiceQuantityUSD}"/>
+		</td>
+	</tr>
+	</jstl:if>
+	<jstl:if test="${maximumInvoiceQuantityGBP != 0}">
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.maximumGBP"/>
+		</th>
+		<td>
+		<acme:print value="${maximumInvoiceQuantityGBP}"/>
+		</td>
+	</tr>
+	</jstl:if>
 </table>
 
 <acme:return/>

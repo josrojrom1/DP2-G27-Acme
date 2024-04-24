@@ -35,7 +35,9 @@ public class AuthenticatedSponsorUpdateService extends AbstractService<Authentic
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Sponsor.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

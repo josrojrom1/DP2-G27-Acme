@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-textbox code="sponsor.sponsorship.form.label.code" path="code" readonly="${readOnly}"/>	
+	<acme:input-textbox code="sponsor.sponsorship.form.label.code" path="code"/>	
 	<acme:input-moment code="sponsor.sponsorship.form.label.moment" path="moment" readonly="${readOnly}"/>
 	<acme:input-moment code="sponsor.sponsorship.form.label.startDate" path="startDate"/>
 	<acme:input-moment code="sponsor.sponsorship.form.label.expirationDate" path="expirationDate"/>

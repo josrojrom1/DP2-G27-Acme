@@ -15,14 +15,37 @@ sponsor.sponsor-dasboard.form.label.total-number-tax-invoices = Número total de
 sponsor.sponsor-dasboard.form.title.sponsorship.general-indicators = Estadísitcas sobre el link en patrocinios
 sponsor.sponsor-dasboard.form.label.total-number-link-sponsorships = Número total de patrocinios con un link
 
-sponsor.sponsor-dasboard.form.title.sponsorships = Estadísticas de la cantidad asociada a los patrocinios
-sponsor.sponsor-dasboard.form.label.sponsorship.average = Media
-sponsor.sponsor-dasboard.form.label.sponsorship.deviation = Desviación
-sponsor.sponsor-dasboard.form.label.sponsorship.minimum = Valor mínimo
-sponsor.sponsor-dasboard.form.label.sponsorship.maximum = Valor máximo
 
-sponsor.sponsor-dasboard.form.title.invoices = Estadísticas de la cantidad asociada a las facturas
-sponsor.sponsor-dasboard.form.label.invoice.average = Media
-sponsor.sponsor-dasboard.form.label.invoice.deviation = Desviacion
-sponsor.sponsor-dasboard.form.label.invoice.minimum = Valor mínimo
-sponsor.sponsor-dasboard.form.label.invoice.maximum = Valor máximo
+sponsor.sponsor-dasboard.form.title.sponsorships = Estadísticas del presupuesto de los patrocinios
+sponsor.sponsor-dasboard.form.label.sponsorship.averageEUR = Media (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.averageUSD = Media (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.averageGBP = Media (GBP)
+
+sponsor.sponsor-dasboard.form.label.sponsorship.deviationEUR = Desviación (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.deviationUSD = Desviación (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.deviationGBP = Desviación (GBP)
+
+sponsor.sponsor-dasboard.form.label.sponsorship.minimumEUR = Mínimo (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.minimumUSD = Mínimo (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.minimumGBP = Mínimo (GBP)
+
+sponsor.sponsor-dasboard.form.label.sponsorship.maximumEUR = Máximo (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.maximumUSD = Máximo (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.maximumGBP = Máximo (GBP)
+
+sponsor.sponsor-dasboard.form.title.invoices = Estadísticas de la cantidad de las facturas
+sponsor.sponsor-dasboard.form.label.invoice.averageEUR = Media (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.averageUSD = Media (USD)
+sponsor.sponsor-dasboard.form.label.invoice.averageGBP = Media (GBP)
+
+sponsor.sponsor-dasboard.form.label.invoice.deviationEUR = Desviación (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.deviationUSD = Desviación (USD)
+sponsor.sponsor-dasboard.form.label.invoice.deviationGBP = Desviación (GBP)
+
+sponsor.sponsor-dasboard.form.label.invoice.minimumEUR = Mínimo (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.minimumUSD = Mínimo (USD)
+sponsor.sponsor-dasboard.form.label.invoice.minimumGBP = Mínimo (GBP)
+
+sponsor.sponsor-dasboard.form.label.invoice.maximumEUR = Máximo (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.maximumUSD = Máximo (USD)
+sponsor.sponsor-dasboard.form.label.invoice.maximumGBP = Máximo (GBP)

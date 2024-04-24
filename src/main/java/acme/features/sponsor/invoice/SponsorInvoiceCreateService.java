@@ -2,6 +2,7 @@
 package acme.features.sponsor.invoice;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +48,11 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		masterId = super.getRequest().getData("masterId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(masterId);
 
+		Date registration = MomentHelper.getCurrentMoment();
+
 		object = new Invoice();
 		object.setSponsorship(sponsorship);
+		object.setRegistration(registration);
 		object.setDraftMode(true);
 
 		super.getBuffer().addData(object);
@@ -58,7 +62,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	public void bind(final Invoice object) {
 		assert object != null;
 
-		super.bind(object, "code", "registration", "dueDate", "quantity", "tax", "link");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link");
 	}
 
 	@Override
@@ -78,10 +82,23 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			minimumExpirationDate = MomentHelper.deltaFromMoment(object.getRegistration(), 30, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfter(object.getDueDate(), minimumExpirationDate), "dueDate", "sponsor.invoice.form.error.too-close");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getAmount() > 0, "quantity", "sponsor.invoice.form.error.negative-amount");
+		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getAmount() < 1000000, "quantity", "sponsor.invoice.form.error.too-big");
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			Sponsorship sponsorship = object.getSponsorship();
+			String currency = sponsorship.getAmount().getCurrency();
+			super.state(object.getQuantity().getCurrency().equals(currency), "quantity", "sponsor.invoice.form.error.invalid-currency");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			Sponsorship sponsorship = object.getSponsorship();
+			Double amount = sponsorship.getAmount().getAmount();
+			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(sponsorship.getId());
+			double invoicesTotal = 0.0;
+			for (Invoice i : invoices)
+				invoicesTotal += i.totalAmount();
+			super.state(amount >= invoicesTotal + object.totalAmount(), "quantity", "sponsor.invoice.form.error.quantity-invalid");
 		}
 	}
 

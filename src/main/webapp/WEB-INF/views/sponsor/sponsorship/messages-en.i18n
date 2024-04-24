@@ -37,4 +37,5 @@ sponsor.sponsorship.form.error.code.duplicated = Sponsorship already exists with
 sponsor.sponsorship.form.error.inlavid-start-date = Start date must be later than its creation time
 sponsor.sponsorship.form.error.too-close = Expiration date must be at least one month after its start date
 sponsor.sponsorship.form.error.negative-amount = Sponsorship amount must be positive
-sponsor.invoice.form.error.too-big = Sponsorship amount must be less than 1000000
+sponsor.sponsorship.form.error.too-big = Sponsorship amount must be less than 1000000
+sponsor.sponsorship.form.error.invoices-inconsistency = Invoices' total amount do not match Sponsorship's amount
