@@ -6,7 +6,7 @@
 <acme:list>
 	<acme:list-column code="client.contract.list.label.code" path="code" width="10%"/>
 	<acme:list-column code="client.contract.list.label.instantiationMoment" path="instantiationMoment" width="10%"/>
-	<acme:list-column code="client.contract.list.label.provider" path="provider" width="10%"/>
+	<acme:list-column code="client.contract.list.label.budget" path="budget" width="10%"/>
 	<acme:list-column code="client.contract.list.label.project" path="project.code" width="10%"/>
 </acme:list>
 

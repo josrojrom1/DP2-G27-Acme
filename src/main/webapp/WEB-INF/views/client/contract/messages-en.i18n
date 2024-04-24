@@ -24,6 +24,9 @@ client.contract.form.button.delete = Delete
 client.contract.form.button.publish = Publish
 
 client.contract.form.error.duplicated = There is an existing contract with that code
+client.contract.form.error.incorrect-currency = Currency must be the same of the corresponding project currency
 client.contract.form.error.incorrect-budget = Budget must be less than the corresponding project cost
 client.contract.form.error.negative-budget = Budget must be positive
 client.contract.form.error.not-published = The sum of all budgets cannot exceed the total cost of the corresponding project
+client.contract.form.error.no-progress-logs = This contract does not have progress logs
+client.contract.form.error.not-published-progress-logs = There is not published progress logs

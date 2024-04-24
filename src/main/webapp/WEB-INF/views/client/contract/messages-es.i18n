@@ -17,13 +17,16 @@ client.contract.form.label.project = Proyecto
 
 client.contract.list.button.create = Crear
 
-client.contract.form.button.progress-log = Progress Logs
+client.contract.form.button.progress-log = Informes de progreso
 client.contract.form.button.create = Crear
 client.contract.form.button.update = Actualizar
 client.contract.form.button.delete = Borrar
 client.contract.form.button.publish = Publicar
 
 client.contract.form.error.duplicated = Ya existe un contrato con ese código
+client.contract.form.error.incorrect-currency = La divisa debe ser la misma que la del proyecto correspondiente
 client.contract.form.error.incorrect-budget = El presupuesto debe ser menor que el coste del proyecto correspondiente
 client.contract.form.error.negative-budget = El presupuesto debe ser positivo
 client.contract.form.error.not-published = La suma de todos los presupuestos no puede excederse al coste total del proyecto correspondiente
+client.contract.form.error.no-progress-logs = Este contrato no tiene informes de progreso
+client.contract.form.error.not-published-progress-logs = Hay informes de progreso no publicados

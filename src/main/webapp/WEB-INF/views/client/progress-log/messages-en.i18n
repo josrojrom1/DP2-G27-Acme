@@ -21,6 +21,5 @@ client.progress-log.form.button.update = Update
 client.progress-log.form.button.delete = Delete
 client.progress-log.form.button.publish = Publish
 
-client.progress-log.form.error.duplicated = There is an existing contract with that code
-client.progress-log.form.error.incorrect-budget = Budget must be less than the corresponding project cost
-client.progress-log.form.error.not-published = The sum of all budgets cannot exceed the total cost of the corresponding project
+client.progress-log.form.error.duplicated = There is an existing progress log with that code
+client.progress-log.form.error.published = This progress log is already published

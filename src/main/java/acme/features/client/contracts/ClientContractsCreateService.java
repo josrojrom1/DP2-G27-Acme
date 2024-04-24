@@ -69,6 +69,15 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			String projectCurrency;
+			String budgetCurrency;
+
+			budgetCurrency = object.getBudget().getCurrency();
+			projectCurrency = object.getProject().getCost().getCurrency();
+			super.state(budgetCurrency.equals(projectCurrency), "budget", "client.contract.form.error.incorrect-currency");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			double projectCost;
 			double budget;
 

@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="client.contract.form.label.code" path="code" placeholder="client.contract.form.placeholder.code" readonly="${acme:anyOf(_command, 'show|update|delete|publish')}"/>
+	<acme:input-textbox code="client.contract.form.label.code" path="code" placeholder="client.contract.form.placeholder.code" />
 	<jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish')}">
 		<acme:input-moment code="client.contract.form.label.instantiationMoment" path="instantiationMoment" readonly="true"/>	
 	</jstl:if>

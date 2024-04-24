@@ -56,13 +56,31 @@ public class ClientContractsUpdateService extends AbstractService<Client, Contra
 		projectId = object.getProject().getId();
 		project = this.repository.findProjectById(projectId);
 
-		super.bind(object, "code", "instantiationMoment", "provider", "customer", "goals", "budget", "project");
+		super.bind(object, "code", "instantiationMoment", "provider", "customer", "goals", "budget");
 		object.setProject(project);
 	}
 
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			String code;
+			Contract existing;
+
+			code = object.getCode();
+			existing = this.repository.findContractByCode(code);
+			super.state(existing == null || object.getId() == existing.getId(), "code", "client.contract.form.error.code");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			String projectCurrency;
+			String budgetCurrency;
+
+			budgetCurrency = object.getBudget().getCurrency();
+			projectCurrency = object.getProject().getCost().getCurrency();
+			super.state(budgetCurrency.equals(projectCurrency), "budget", "client.contract.form.error.incorrect-currency");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			double projectCost;
@@ -101,7 +119,7 @@ public class ClientContractsUpdateService extends AbstractService<Client, Contra
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "provider", "customer", "goals", "budget", "published");
 		dataset.put("client", object.getClient().getIdentification());
-		dataset.put("project", choices.getSelected());
+		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);

@@ -10,6 +10,7 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.contracts.Contract;
+import acme.entities.contracts.ProgressLog;
 import acme.entities.projects.Project;
 import acme.roles.Client;
 
@@ -64,6 +65,24 @@ public class ClientContractsPublishService extends AbstractService<Client, Contr
 	public void validate(final Contract object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			String code;
+			Contract existing;
+
+			code = object.getCode();
+			existing = this.repository.findContractByCode(code);
+			super.state(existing == null || object.getId() == existing.getId(), "code", "client.contract.form.error.code");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			String projectCurrency;
+			String budgetCurrency;
+
+			budgetCurrency = object.getBudget().getCurrency();
+			projectCurrency = object.getProject().getCost().getCurrency();
+			super.state(budgetCurrency.equals(projectCurrency), "budget", "client.contract.form.error.incorrect-currency");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			double projectCost;
 			double budget;
@@ -86,6 +105,17 @@ public class ClientContractsPublishService extends AbstractService<Client, Contr
 		projectCost = object.getProject().getCost().getAmount();
 		budgetsSum = this.repository.findManyContractsByProjectId(object.getProject().getId()).stream().mapToDouble(c -> c.getBudget().getAmount()).sum();
 		super.state(budgetsSum <= projectCost, "*", "client.contract.form.error.not-published");
+
+		Collection<ProgressLog> pLogsNotPublished;
+		Collection<ProgressLog> pLogs;
+
+		pLogsNotPublished = this.repository.findAnyNotPublishedProgressLogByContractId(object.getId());
+		pLogs = this.repository.findProgressLogsByContractId(object.getId());
+		if (pLogs.isEmpty())
+			super.state(false, "*", "client.contract.form.error.no-progress-logs");
+		else if (!pLogsNotPublished.isEmpty())
+			super.state(false, "*", "client.contract.form.error.not-published-progress-logs");
+
 	}
 
 	@Override
@@ -113,7 +143,7 @@ public class ClientContractsPublishService extends AbstractService<Client, Contr
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "provider", "customer", "goals", "budget", "published");
 		dataset.put("client", object.getClient().getIdentification());
-		dataset.put("project", choices.getSelected());
+		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);

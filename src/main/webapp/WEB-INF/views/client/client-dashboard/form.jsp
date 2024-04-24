@@ -49,34 +49,124 @@
 <table class="table table-sm">
 	<tr>
 		<th scope="row">
-			<acme:message code="client.client-dasboard.form.label.contract.budget-average"/>
+			<acme:message code="client.client-dasboard.form.label.contract.budget-average-USD"/>
 		</th>
 		<td>
-			<acme:print value="${contractsBudgetAverage}"/>
+			<jstl:if test="${contractsBudgetAverageUSD != 0}">
+				<acme:print value="${contractsBudgetAverageUSD}"/>
+			</jstl:if>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="client.client-dasboard.form.label.contract.budget-deviation"/>
+			<acme:message code="client.client-dasboard.form.label.contract.budget-deviation-USD"/>
 		</th>
 		<td>
-			<acme:print value="${contractsBudgetDeviation}"/>
+			<jstl:if test="${contractsBudgetDeviationUSD != 0}">
+				<acme:print value="${contractsBudgetDeviationUSD}"/>
+			</jstl:if>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="client.client-dasboard.form.label.contract.budget-minimum"/>
+			<acme:message code="client.client-dasboard.form.label.contract.budget-minimum-USD"/>
 		</th>
 		<td>
-			<acme:print value="${contractsBudgetMinimum}"/>
+			<jstl:if test="${contractsBudgetMinimumUSD != 0}">
+				<acme:print value="${contractsBudgetMinimumUSD}"/>
+			</jstl:if>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="client.client-dasboard.form.label.contract.budget-maximum"/>
+			<acme:message code="client.client-dasboard.form.label.contract.budget-maximum-USD"/>
 		</th>
 		<td>
-			<acme:print value="${contractsBudgetMaximum}"/>
+			<jstl:if test="${contractsBudgetMaximumUSD != 0}">
+				<acme:print value="${contractsBudgetMaximumUSD}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	
+	<tr>
+		<th scope="row">
+			<acme:message code="client.client-dasboard.form.label.contract.budget-average-EUR"/>
+		</th>
+		<td>
+			<jstl:if test="${contractsBudgetAverageEUR != 0}">
+				<acme:print value="${contractsBudgetAverageEUR}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="client.client-dasboard.form.label.contract.budget-deviation-EUR"/>
+		</th>
+		<td>
+			<jstl:if test="${contractsBudgetDeviationEUR != 0}">
+				<acme:print value="${contractsBudgetDeviationEUR}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="client.client-dasboard.form.label.contract.budget-minimum-EUR"/>
+		</th>
+		<td>
+			<jstl:if test="${contractsBudgetMinimumEUR != 0}">
+				<acme:print value="${contractsBudgetMinimumEUR}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="client.client-dasboard.form.label.contract.budget-maximum-EUR"/>
+		</th>
+		<td>
+			<jstl:if test="${contractsBudgetMaximumEUR != 0}">
+				<acme:print value="${contractsBudgetMaximumEUR}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	
+	<tr>
+		<th scope="row">
+			<acme:message code="client.client-dasboard.form.label.contract.budget-average-GBP"/>
+		</th>
+		<td>
+			<jstl:if test="${contractsBudgetAverageGBP != 0}">
+				<acme:print value="${contractsBudgetAverageGBP}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="client.client-dasboard.form.label.contract.budget-deviation-GBP"/>
+		</th>
+		<td>
+			<jstl:if test="${contractsBudgetDeviationGBP != 0}">
+				<acme:print value="${contractsBudgetDeviationGBP}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="client.client-dasboard.form.label.contract.budget-minimum-GBP"/>
+		</th>
+		<td>
+			<jstl:if test="${contractsBudgetMinimumGBP != 0}">
+				<acme:print value="${contractsBudgetMinimumGBP}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="client.client-dasboard.form.label.contract.budget-maximum-GBP"/>
+		</th>
+		<td>
+			<jstl:if test="${contractsBudgetMaximumGBP != 0}">
+				<acme:print value="${contractsBudgetMaximumGBP}"/>
+			</jstl:if>
 		</td>
 	</tr>
 </table>

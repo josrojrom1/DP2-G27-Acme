@@ -63,6 +63,15 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	public void validate(final ProgressLog object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			String code;
+			ProgressLog existing;
+
+			code = object.getRecordId();
+			existing = this.repository.findProgressLogByRecordId(code);
+			super.state(existing == null || object.getId() == existing.getId(), "recordId", "client.progress-log.form.error.recordId");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("published")) {
 			ProgressLog existing;
 
