@@ -94,11 +94,12 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		projects = this.repository.findPublishedProjects();
 		projectChoices = SelectChoices.from(projects, "title", object.getProject());
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "execution", "correctiveActions", "type", "link");
+		dataset = super.unbind(object, "code", "execution", "correctiveActions", "type", "link", "draftMode");
 		dataset.put("project", projectChoices.getSelected().getKey());
 		dataset.put("projects", projectChoices);
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
+		dataset.put("drafMode", true);
 		super.getResponse().addData(dataset);
 
 		boolean auditRecordsDraftModeState = true;

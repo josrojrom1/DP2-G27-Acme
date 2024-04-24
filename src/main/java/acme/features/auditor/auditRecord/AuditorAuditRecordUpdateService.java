@@ -82,7 +82,7 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		SelectChoices markChoices;
 		markChoices = SelectChoices.from(Mark.class, object.getMark());
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
+		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link", "draftMode");
 		dataset.put("marks", markChoices);
 		dataset.put("mark", markChoices.getSelected().getKey());
 		dataset.put("masterId", object.getCodeAudit().getId());
