@@ -42,15 +42,28 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		totalNumOfInvoicesWithTaxLessOrEqualToTwentyOne = this.repository.totalNumOfInvoicesWithTaxLessOrEqualToTwentyOne(id);
 		totalNumOfSponsorshipsWithLink = this.repository.totalNumOfSponsorshipsWithLink(id);
 
-		sponsorshipAmountAverage = this.repository.sponsorshipAmountAverage(id);
-		sponsorshipAmountDeviation = this.repository.sponsorshipAmountDeviation(id);
-		minimumSponsorshipAmount = this.repository.minimumSponsorshipAmount(id);
-		maximumSponsorshipAmount = this.repository.maximumSponsorshipAmount(id);
+		try {
+			sponsorshipAmountAverage = this.repository.sponsorshipAmountAverage(id);
+			sponsorshipAmountDeviation = this.repository.sponsorshipAmountDeviation(id);
+			minimumSponsorshipAmount = this.repository.minimumSponsorshipAmount(id);
+			maximumSponsorshipAmount = this.repository.maximumSponsorshipAmount(id);
 
-		invoiceQuantityAverage = this.repository.invoiceQuantityAverage(id);
-		invoiceQuantityDeviation = this.repository.invoiceQuantityDeviation(id);
-		minimumInvoiceQuantity = this.repository.minimumInvoiceQuantity(id);
-		maximumInvoiceQuantity = this.repository.maximumInvoiceQuantity(id);
+			invoiceQuantityAverage = this.repository.invoiceQuantityAverage(id);
+			invoiceQuantityDeviation = this.repository.invoiceQuantityDeviation(id);
+			minimumInvoiceQuantity = this.repository.minimumInvoiceQuantity(id);
+			maximumInvoiceQuantity = this.repository.maximumInvoiceQuantity(id);
+		} catch (Exception e) {
+			sponsorshipAmountAverage = 0;
+			sponsorshipAmountDeviation = 0;
+			minimumSponsorshipAmount = 0;
+			maximumSponsorshipAmount = 0;
+
+			invoiceQuantityAverage = 0;
+			invoiceQuantityDeviation = 0;
+			minimumInvoiceQuantity = 0;
+			maximumInvoiceQuantity = 0;
+
+		}
 
 		dashboard = new SponsorDashboard();
 
