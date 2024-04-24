@@ -60,6 +60,14 @@
 	</tr>
 	<tr>
 		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.deviation"/>
+		</th>
+		<td>
+			<acme:print value="${sponsorshipAmountDeviation}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.minimum"/>
 		</th>
 		<td>
@@ -87,6 +95,14 @@
 		</th>
 		<td>
 			<acme:print value="${invoiceQuantityAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.deviation"/>
+		</th>
+		<td>
+			<acme:print value="${invoiceQuantityDeviation}"/>
 		</td>
 	</tr>
 	<tr>

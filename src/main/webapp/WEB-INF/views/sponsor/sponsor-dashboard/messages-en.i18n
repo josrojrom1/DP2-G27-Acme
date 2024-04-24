@@ -17,10 +17,12 @@ sponsor.sponsor-dasboard.form.label.total-number-link-sponsorships = Total numbe
 
 sponsor.sponsor-dasboard.form.title.sponsorships = Sponsorships amount statitics
 sponsor.sponsor-dasboard.form.label.sponsorship.average = Average
+sponsor.sponsor-dasboard.form.label.sponsorship.deviation = Deviation
 sponsor.sponsor-dasboard.form.label.sponsorship.minimum = Minimum
 sponsor.sponsor-dasboard.form.label.sponsorship.maximum = Maximum
 
 sponsor.sponsor-dasboard.form.title.invoices = Invoices quantity statitics
 sponsor.sponsor-dasboard.form.label.invoice.average = Average
+sponsor.sponsor-dasboard.form.label.invoice.deviation = Deviation
 sponsor.sponsor-dasboard.form.label.invoice.minimum = Minimum
 sponsor.sponsor-dasboard.form.label.invoice.maximum = Maximum

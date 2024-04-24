@@ -17,10 +17,12 @@ sponsor.sponsor-dasboard.form.label.total-number-link-sponsorships = Número tot
 
 sponsor.sponsor-dasboard.form.title.sponsorships = Estadísticas de la cantidad asociada a los patrocinios
 sponsor.sponsor-dasboard.form.label.sponsorship.average = Media
+sponsor.sponsor-dasboard.form.label.sponsorship.deviation = Desviación
 sponsor.sponsor-dasboard.form.label.sponsorship.minimum = Valor mínimo
 sponsor.sponsor-dasboard.form.label.sponsorship.maximum = Valor máximo
 
 sponsor.sponsor-dasboard.form.title.invoices = Estadísticas de la cantidad asociada a las facturas
 sponsor.sponsor-dasboard.form.label.invoice.average = Media
+sponsor.sponsor-dasboard.form.label.invoice.deviation = Desviacion
 sponsor.sponsor-dasboard.form.label.invoice.minimum = Valor mínimo
 sponsor.sponsor-dasboard.form.label.invoice.maximum = Valor máximo

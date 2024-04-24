@@ -30,12 +30,12 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		int totalNumOfSponsorshipsWithLink;
 
 		double sponsorshipAmountAverage;
-		// double sponsorshipAmountDeviation;
+		double sponsorshipAmountDeviation;
 		double minimumSponsorshipAmount;
 		double maximumSponsorshipAmount;
 
 		double invoiceQuantityAverage;
-		// double invoiceQuantityDeviation;
+		double invoiceQuantityDeviation;
 		double minimumInvoiceQuantity;
 		double maximumInvoiceQuantity;
 
@@ -43,10 +43,12 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		totalNumOfSponsorshipsWithLink = this.repository.totalNumOfSponsorshipsWithLink(id);
 
 		sponsorshipAmountAverage = this.repository.sponsorshipAmountAverage(id);
+		sponsorshipAmountDeviation = this.repository.sponsorshipAmountDeviation(id);
 		minimumSponsorshipAmount = this.repository.minimumSponsorshipAmount(id);
 		maximumSponsorshipAmount = this.repository.maximumSponsorshipAmount(id);
 
 		invoiceQuantityAverage = this.repository.invoiceQuantityAverage(id);
+		invoiceQuantityDeviation = this.repository.invoiceQuantityDeviation(id);
 		minimumInvoiceQuantity = this.repository.minimumInvoiceQuantity(id);
 		maximumInvoiceQuantity = this.repository.maximumInvoiceQuantity(id);
 
@@ -56,10 +58,12 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		dashboard.setTotalNumOfSponsorshipsWithLink(totalNumOfSponsorshipsWithLink);
 
 		dashboard.setSponsorshipAmountAverage(sponsorshipAmountAverage);
+		dashboard.setSponsorshipAmountDeviation(sponsorshipAmountDeviation);
 		dashboard.setMinimumSponsorshipAmount(minimumSponsorshipAmount);
 		dashboard.setMaximumSponsorshipAmount(maximumSponsorshipAmount);
 
 		dashboard.setInvoiceQuantityAverage(invoiceQuantityAverage);
+		dashboard.setInvoiceQuantityDeviation(invoiceQuantityDeviation);
 		dashboard.setMinimumInvoiceQuantity(minimumInvoiceQuantity);
 		dashboard.setMaximumInvoiceQuantity(maximumInvoiceQuantity);
 
@@ -70,8 +74,8 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 	public void unbind(final SponsorDashboard object) {
 		Dataset dataset;
 
-		dataset = super.unbind(object, "totalNumOfInvoicesWithTaxLessOrEqualToTwentyOne", "totalNumOfSponsorshipsWithLink", "sponsorshipAmountAverage", "minimumSponsorshipAmount", "maximumSponsorshipAmount", "invoiceQuantityAverage",
-			"minimumInvoiceQuantity", "maximumInvoiceQuantity");
+		dataset = super.unbind(object, "totalNumOfInvoicesWithTaxLessOrEqualToTwentyOne", "totalNumOfSponsorshipsWithLink", "sponsorshipAmountAverage", "sponsorshipAmountDeviation", "minimumSponsorshipAmount", "maximumSponsorshipAmount",
+			"invoiceQuantityAverage", "invoiceQuantityDeviation", "minimumInvoiceQuantity", "maximumInvoiceQuantity");
 
 		super.getResponse().addData(dataset);
 	}

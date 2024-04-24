@@ -18,6 +18,9 @@ public interface SponsorDashboardRepository extends AbstractRepository {
 	@Query("select avg(s.amount.amount) from Sponsorship s where s.sponsor.id =:id and s.draftMode = false")
 	double sponsorshipAmountAverage(int id);
 
+	@Query("select stddev(s.amount.amount) from Sponsorship s where s.sponsor.id = :id and s.draftMode = false")
+	double sponsorshipAmountDeviation(int id);
+
 	@Query("select min(s.amount.amount) from Sponsorship s where s.sponsor.id =:id and s.draftMode = false")
 	double minimumSponsorshipAmount(int id);
 
@@ -26,6 +29,9 @@ public interface SponsorDashboardRepository extends AbstractRepository {
 
 	@Query("select avg(i.quantity.amount) from Invoice i where i.sponsorship.sponsor.id =:id and i.sponsorship.draftMode = false")
 	double invoiceQuantityAverage(int id);
+
+	@Query("select stddev(i.quantity.amount) from Invoice i where i.sponsorship.sponsor.id =:id and i.sponsorship.draftMode = false")
+	double invoiceQuantityDeviation(int id);
 
 	@Query("select min(i.quantity.amount) from Invoice i where i.sponsorship.sponsor.id =:id and i.sponsorship.draftMode = false")
 	double minimumInvoiceQuantity(int id);
