@@ -16,15 +16,15 @@ public class AuditorDashboard extends AbstractForm {
 	private int					totalNumberOfDynamicCodeAudits;
 
 	//average, deviation, minimum, and maximum number of audit records in their audits
-	private double				AverageOfAuditRecords;
-	private double				DeviationOfAuditRecords;
-	private int					MinimumOfAuditRecords;
-	private int					MaximumOfAuditRecords;
+	private double				averageOfAuditRecords;
+	private double				deviationOfAuditRecords;
+	private int					minimumOfAuditRecords;
+	private int					maximumOfAuditRecords;
 
 	//average, deviation, minimum, and maximum time of the period lengths in their audit records
-	private double				AuditRecordsPeriodLengthAverage;
-	private double				AuditRecordsPeriodLengthDeviation;
-	private double				AuditRecordsPeriodLengthMinimum;
-	private double				AuditRecordsPeriodLengthMaximum;
+	private double				auditRecordsPeriodLengthAverage;
+	private double				auditRecordsPeriodLengthDeviation;
+	private double				auditRecordsPeriodLengthMinimum;
+	private double				auditRecordsPeriodLengthMaximum;
 
 }
