@@ -17,7 +17,7 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 
 
 	@Override
-	public void authorise() {//REPASAR AUTHORISE!!!!!!!!!!!!!!!!!!
+	public void authorise() {
 		boolean status;
 		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
 
@@ -32,10 +32,6 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 
 		int totalNumberOfStaticCodeAudits;
 		int totalNumberOfDynamicCodeAudits;
-		//double averageOfAuditRecords;
-		//double deviationOfAuditRecords;
-		//int minimumOfAuditRecords;
-		//int maximumOfAuditRecords;
 
 		double auditRecordsPeriodLengthAverage;
 		double auditRecordsPeriodLengthDeviation;

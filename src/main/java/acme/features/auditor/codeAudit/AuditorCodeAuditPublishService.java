@@ -45,7 +45,6 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCodeAuditById(id);
-		//object.setDraftMode(false);
 		super.getBuffer().addData(object);
 	}
 
@@ -100,7 +99,6 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		dataset.put("projects", projectChoices);
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
-		//dataset.put("draftMode", false);
 
 		boolean auditRecordsDraftModeState = true;
 		auditRecords = this.repository.findAuditRecordsById(object.getId());
