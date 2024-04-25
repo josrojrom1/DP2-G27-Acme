@@ -75,6 +75,12 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 			minimunPeriodFinish = MomentHelper.deltaFromMoment(object.getPeriodStart(), 7, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfter(object.getPeriodFinish(), minimunPeriodFinish), "periodFinish", "developer.training-sessions.form.error.too-close");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
+			Date minimunPeriodStart;
+			minimunPeriodStart = MomentHelper.deltaFromMoment(object.getTrainingModule().getCreationMoment(), 7, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfter(object.getPeriodStart(), minimunPeriodStart), "periodStart", "developer.training-sessions.form.error.nomore");
+		}
 	}
 
 	@Override

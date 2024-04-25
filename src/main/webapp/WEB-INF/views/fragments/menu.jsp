@@ -53,7 +53,7 @@
 			<acme:menu-suboption code="master.menu.developer.dashboard" action="/developer/developer-dashboard/show"/>	
 		</acme:menu-option>
 		<!-- AUTHENTICATED PRINCIPALS SECTION -->
-		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
+		<acme:menu-option code="master.menu.principal-authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.objective" action="/authenticated/objective/list"/>
 		</acme:menu-option>
 	</acme:menu-left>

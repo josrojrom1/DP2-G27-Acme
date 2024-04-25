@@ -39,10 +39,18 @@ master.menu.auditor = Auditor
 master.menu.auditor.my-code-audits = Listar mis auditorías de código
 master.menu.auditor.my-audit-records = Listar mis registros de auditorías
 
+# master.menu.developer ##########################################################
+
+master.menu.developer = Desarrollador
+master.menu.developer.my-training-modules = Lista de mis módulos de formación
+master.menu.developer.dashboard = Panel de desarrollador
+
 # master.menu.any ########################################################
 
 master.menu.any = Cualquier principal
 master.menu.any.code-audit.list = Listar auditorías de código publicadas 
+master.menu.anonymous.all-claims = Lista de Reclamos publicados
+master.menu.any.training-module.list = Lista de Módulos de formación publicados
 
 # master.menu.user-account ####################################################
 
@@ -50,3 +58,11 @@ master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-auditor = Hazte auditor
+
+master.menu.user-account.become-developer = Hazte desarrollador
+master.menu.user-account.developer = Datos de desarrollador
+
+# master.menu.principal-authenticated ####################################################
+
+master.menu.principal-authenticated = Principal Autentificado
+master.menu.authenticated.objective = Lista de objetivos

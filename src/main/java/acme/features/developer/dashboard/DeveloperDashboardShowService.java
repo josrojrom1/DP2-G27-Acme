@@ -78,8 +78,8 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		dashboard.setTotalNumberOfTrainingSessionsWithALink(totalNumberOfTrainingSessionsWithALink);
 		dashboard.setTrainingModuleAverageTime(trainingModuleAverageTime);
 		dashboard.setTrainingModuleDeviationTime(trainingModuleDeviationTime);
-		dashboard.setTrainingModuleMaximumTime(trainingModuleMinimumTime);
-		dashboard.setTrainingModuleMinimumTime(trainingModuleMaximumTime);
+		dashboard.setTrainingModuleMaximumTime(trainingModuleMaximumTime);
+		dashboard.setTrainingModuleMinimumTime(trainingModuleMinimumTime);
 
 		super.getBuffer().addData(dashboard);
 	}

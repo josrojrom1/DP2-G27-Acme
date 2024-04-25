@@ -1,0 +1,38 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# List labels ####################################################
+developer.training-sessions.list.title = Training Sessions list
+developer.training-sessions.list.label.code = Code
+developer.training-sessions.list.label.draftMode = Already Publish
+developer.training-sessions.list.label.periodStart = Period Start
+developer.training-sessions.list.label.periodFinish = Period Finish
+
+# Form labels ####################################################
+developer.training-sessions.form.title = Training Sessions Form
+developer.training-sessions.form.label.code = Code
+developer.training-sessions.form.label.periodStart = Period Start
+developer.training-sessions.form.label.periodFinish = Period Finish
+developer.training-sessions.form.label.location = Location
+developer.training-sessions.form.label.instructor = Instructor
+developer.training-sessions.form.label.contactEmail = Email
+developer.training-sessions.form.label.link = Link
+
+developer.training-sessions.list.button.create = Create New Training Sessions
+developer.training-sessions.form.button.update = Update
+developer.training-sessions.form.button.delete = Delete
+developer.training-sessions.form.button.publish = Publish
+developer.training-sessions.form.button.create = Create
+
+developer.training-sessions.form.error.code.duplicated = Code Duplicated
+developer.training-sessions.form.error.periodFinish = Start Period must be before Finish Period
+developer.training-sessions.form.error.NotperiodFinish = Start Period must be before Finish Period
+developer.training-sessions.form.error.tooooo-close = Start Period must be 7 days before Finish Period
+developer.training-sessions.form.error.nomore = Start Period must be 7 days after Creation Moment of the training Module
