@@ -1,0 +1,25 @@
+client.progress-log.list.title = Informes de progreso del contrato
+client.progress-log.list.label.recordId = Record Id
+client.progress-log.list.label.completeness = Completado
+client.progress-log.list.label.registrationMoment = Momento de Registro
+
+client.progress-log.form.placeholder.recordId = PG-A-0000
+client.progress-log.form.placeholder.registrationMoment = yyyy/MM/dd HH:mm
+
+client.progress-log.form.title = Formulario de informe de progreso
+client.progress-log.form.label.recordId = Record Id
+client.progress-log.form.label.completeness = Completado
+client.progress-log.form.label.comment = Comentario
+client.progress-log.form.label.registrationMoment = Momento de Registro
+client.progress-log.form.label.responsiblePerson = Persona Responsable
+client.progress-log.form.label.contract = Contrato
+
+client.progress-log.list.button.create = Crear
+
+client.progress-log.form.button.create = Crear
+client.progress-log.form.button.update = Actualizar
+client.progress-log.form.button.delete = Borrar
+client.progress-log.form.button.publish = Publicar
+
+client.progress-log.form.error.duplicated = Hay un informe de progreso con ese codigo
+client.progress-log.form.error.published = Este informe de progreso ya se ha publicado
