@@ -33,6 +33,8 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/system/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.create.objective" action="/administrator/objective/create"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any">

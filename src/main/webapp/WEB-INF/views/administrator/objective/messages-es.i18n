@@ -1,0 +1,28 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.objective.form.title = Formulario de objetivo
+
+administrator.objective.form.label.instantiationMoment = Fecha de instanciación
+administrator.objective.form.label.title = Título
+administrator.objective.form.label.description = Descripción
+administrator.objective.form.label.priority = Prioridad
+administrator.objective.form.label.critical = Crítico
+administrator.objective.form.label.executionPeriodStart = Fecha de comienzo de ejecución
+administrator.objective.form.label.executionPeriodFinish = Fecha de fin de ejecución
+administrator.objective.form.label.link = Link
+
+administrator.objective.form.label.accept = Aceptar
+
+administrator.objective.form.button.create = Crear
+
+administrator.objective.form.error.must-accept = Esta operación requiere confirmación
+administrator.objective.form.error.inlavid-period-start-date = La fecha de comienzo de ejecución debe comenzar en cualquier momento después de la fecha de instanciación
+administrator.objective.form.error.inlavid-period-finish-date = La fecha de fin de ejecución debe ser posterior a la de comienzo
