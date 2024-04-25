@@ -20,3 +20,7 @@ auditor.auditor-dasboard.form.label.average-auditRecords = Media de registros de
 auditor.auditor-dasboard.form.label.deviation-auditRecords = Desviación de registros de auditoría
 auditor.auditor-dasboard.form.label.minimum-auditRecords = Mínimo de registros de auditoría
 auditor.auditor-dasboard.form.label.maximum-auditRecords = Máximo de registros de auditoría
+auditor.auditor-dasboard.form.label.average-auditRecords-periodLength = Media de periodos por registros de auditoría (segundos)
+auditor.auditor-dasboard.form.label.deviation-auditRecords-periodLength = Desviación típica de periodos por registro de auditoría (segundos)
+auditor.auditor-dasboard.form.label.min-auditRecords-periodLength = Periodo mínimo de los registros de auditoría (segundos)
+auditor.auditor-dasboard.form.label.max-auditRecords-periodLength = Periodo máximo de los registros de auditoría (segundos)

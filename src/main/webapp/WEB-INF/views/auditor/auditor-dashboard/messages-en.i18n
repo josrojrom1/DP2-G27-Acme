@@ -18,3 +18,7 @@ auditor.auditor-dasboard.form.label.average-auditRecords = Average of audit reco
 auditor.auditor-dasboard.form.label.deviation-auditRecords = Deviation of audit records
 auditor.auditor-dasboard.form.label.minimum-auditRecords = Mínimum of audit records
 auditor.auditor-dasboard.form.label.maximum-auditRecords = Máximum of audit records
+auditor.auditor-dasboard.form.label.average-auditRecords-periodLength = Average of audit record period lengths (seconds)
+auditor.auditor-dasboard.form.label.deviation-auditRecords-periodLength = Deviation of audit record period lengths (seconds)
+auditor.auditor-dasboard.form.label.min-auditRecords-periodLength = Minimum period of audit records (seconds)
+auditor.auditor-dasboard.form.label.max-auditRecords-periodLength = Maximum period of audit records (seconds)

@@ -18,7 +18,10 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 
 	@Override
 	public void authorise() {//REPASAR AUTHORISE!!!!!!!!!!!!!!!!!!
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -26,34 +29,69 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		AuditorDashboard dashboard;
 		int id;
 		id = super.getRequest().getPrincipal().getActiveRoleId();
+
 		int totalNumberOfStaticCodeAudits;
 		int totalNumberOfDynamicCodeAudits;
-
-		double averageOfAuditRecords;
-		double deviationOfAuditRecords;
+		//double averageOfAuditRecords;
+		//double deviationOfAuditRecords;
 		//int minimumOfAuditRecords;
 		//int maximumOfAuditRecords;
 
-		//Double auditRecordsPeriodLengthAverage;
-		//Double auditRecordsPeriodLengthDeviation;
-		//Double auditRecordsPeriodLengthMinimum;
-		//Double auditRecordsPeriodLengthMaximum;
+		double auditRecordsPeriodLengthAverage;
+		double auditRecordsPeriodLengthDeviation;
+		double auditRecordsPeriodLengthMinimum;
+		double auditRecordsPeriodLengthMaximum;
 
-		totalNumberOfStaticCodeAudits = this.repository.totalNumberOfStaticCodeAudits(id);
-		totalNumberOfDynamicCodeAudits = this.repository.totalNumberOfDynamicCodeAudits(id);
-		averageOfAuditRecords = this.repository.averageOfAuditRecords();
-		deviationOfAuditRecords = this.repository.deviationOfAuditRecords(id);
-		//minimumOfAuditRecords = this.repository.minimumOfAuditRecords(id);
-		//maximumOfAuditRecords = this.repository.maximumOfAuditRecords(id);
+		try {
+			totalNumberOfStaticCodeAudits = this.repository.totalNumberOfStaticCodeAudits(id);
+		} catch (Exception e) {
+			System.out.println("Es por culpa del totalNumberOfStaticCodeAudits");
+			totalNumberOfStaticCodeAudits = 0;
+		}
+
+		try {
+			totalNumberOfDynamicCodeAudits = this.repository.totalNumberOfDynamicCodeAudits(id);
+		} catch (Exception e) {
+			System.out.println("Es por culpa del totalNumberOfDynamicCodeAudits");
+			totalNumberOfDynamicCodeAudits = 0;
+		}
+
+		try {
+			auditRecordsPeriodLengthAverage = this.repository.auditRecordsPeriodLengthAverage(id);
+		} catch (Exception e) {
+			System.out.println("Es por culpa del auditRecordsPeriodLengthAverage");
+			auditRecordsPeriodLengthAverage = 0;
+		}
+
+		try {
+			auditRecordsPeriodLengthDeviation = this.repository.auditRecordsPeriodLengthDeviation(id);
+		} catch (Exception e) {
+			System.out.println("Es por culpa del auditRecordsPeriodLengthDeviation");
+			auditRecordsPeriodLengthDeviation = 0;
+		}
+
+		try {
+			auditRecordsPeriodLengthMinimum = this.repository.auditRecordsPeriodLengthMinimum(id);
+		} catch (Exception e) {
+			System.out.println("Es por culpa del auditRecordsPeriodLengthDeviation");
+			auditRecordsPeriodLengthMinimum = 0;
+		}
+
+		try {
+			auditRecordsPeriodLengthMaximum = this.repository.auditRecordsPeriodLengthMaximum(id);
+		} catch (Exception e) {
+			System.out.println("Es por culpa del auditRecordsPeriodLengthDeviation");
+			auditRecordsPeriodLengthMaximum = 0;
+		}
 
 		dashboard = new AuditorDashboard();
 
 		dashboard.setTotalNumberOfStaticCodeAudits(totalNumberOfStaticCodeAudits);
 		dashboard.setTotalNumberOfDynamicCodeAudits(totalNumberOfDynamicCodeAudits);
-		dashboard.setAverageOfAuditRecords(averageOfAuditRecords);
-		dashboard.setDeviationOfAuditRecords(deviationOfAuditRecords);
-		//dashboard.setMinimumOfAuditRecords(0);//CORREGIR QUERY CORRESPONDIENTE
-		//dashboard.setMaximumOfAuditRecords(0);//CORREGIR QUERY CORRESPONDIENTE
+		dashboard.setAuditRecordsPeriodLengthAverage(auditRecordsPeriodLengthAverage);
+		dashboard.setAuditRecordsPeriodLengthDeviation(auditRecordsPeriodLengthDeviation);
+		dashboard.setAuditRecordsPeriodLengthMinimum(auditRecordsPeriodLengthMinimum);
+		dashboard.setAuditRecordsPeriodLengthMaximum(auditRecordsPeriodLengthMaximum);
 		super.getBuffer().addData(dashboard);
 	}
 
@@ -62,7 +100,7 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		Dataset dataset;
 
 		dataset = super.unbind(object, //
-			"totalNumberOfStaticCodeAudits", "totalNumberOfDynamicCodeAudits", "averageOfAuditRecords", "deviationOfAuditRecords"/* , "minimumOfAuditRecords", "maximumOfAuditRecords" */);
+			"totalNumberOfStaticCodeAudits", "totalNumberOfDynamicCodeAudits", "auditRecordsPeriodLengthAverage", "auditRecordsPeriodLengthDeviation", "auditRecordsPeriodLengthMinimum", "auditRecordsPeriodLengthMaximum");
 
 		super.getResponse().addData(dataset);
 	}

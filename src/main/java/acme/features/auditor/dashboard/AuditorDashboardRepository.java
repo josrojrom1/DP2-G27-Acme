@@ -9,24 +9,26 @@ import acme.client.repositories.AbstractRepository;
 @Repository
 public interface AuditorDashboardRepository extends AbstractRepository {
 
+	//Code Audits
+	//------- Static type
 	@Query("select count(c) from CodeAudit c where c.type = acme.entities.audits.Type.STATIC and c.auditor.id = :id and c.draftMode = false")
 	int totalNumberOfStaticCodeAudits(int id);
-
+	//------- Dynamic type
 	@Query("select count(c) from CodeAudit c where c.type = acme.entities.audits.Type.DYNAMIC and c.auditor.id = :id and c.draftMode = false")
 	int totalNumberOfDynamicCodeAudits(int id);
 
-	@Query("select avg(select count(a) from AuditRecord a where a.codeAudit.auditor.id = d.id and a.draftMode = false) from Auditor d")
-	double averageOfAuditRecords();
-
-	@Query("select stddev(a) from AuditRecord a where a.codeAudit.auditor.id = :id and a.draftMode = false")
-	double deviationOfAuditRecords(int id);
-
-	//CORREGIR QUERY LA CUAL DA ERROR AL HACER SHOW DASHBOARD
-	//@Query("select min(count(a)) from AuditRecord a where a.codeAudit.auditor.id = :id and a.draftMode = false")
-	//int minimumOfAuditRecords(int id);
-
-	//CORREGIR QUERY LA CUAL DA ERROR AL HACER SHOW DASHBOARD
-	//@Query("select max(count(a)) from AuditRecord a where a.codeAudit.auditor.id = :id and a.draftMode = false")
-	//int maximumOfAuditRecords(int id);
+	//Audit Records
+	//------- Average
+	@Query("select ABS(avg(TIME_TO_SEC(TIMEDIFF(au.startPeriod, au.endPeriod))) / 3600) from AuditRecord au where au.codeAudit.auditor.id = :id")
+	double auditRecordsPeriodLengthAverage(int id);
+	//------- Deviation
+	@Query("select ABS(stddev(TIME_TO_SEC(TIMEDIFF(au.startPeriod, au.endPeriod))) / 3600) from AuditRecord au where au.codeAudit.auditor.id = :id")
+	double auditRecordsPeriodLengthDeviation(int id);
+	//------- Minimum
+	@Query("select ABS(min(TIME_TO_SEC(TIMEDIFF(au.startPeriod, au.endPeriod))) / 3600) from AuditRecord au where au.codeAudit.auditor.id = :id")
+	double auditRecordsPeriodLengthMinimum(int id);
+	//------- Maximum
+	@Query("select ABS(max(TIME_TO_SEC(TIMEDIFF(au.startPeriod, au.endPeriod))) / 3600) from AuditRecord au where au.codeAudit.auditor.id = :id")
+	double auditRecordsPeriodLengthMaximum(int id);
 
 }
