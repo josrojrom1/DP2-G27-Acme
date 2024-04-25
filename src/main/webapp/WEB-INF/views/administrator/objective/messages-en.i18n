@@ -1,0 +1,28 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.objective.form.title = Objective form
+
+administrator.objective.form.label.instantiationMoment = Instantiation moment
+administrator.objective.form.label.title = Title
+administrator.objective.form.label.description = Description
+administrator.objective.form.label.priority = Priority
+administrator.objective.form.label.critical = Is Critical
+administrator.objective.form.label.executionPeriodStart = Execution start date
+administrator.objective.form.label.executionPeriodFinish = Execution end date
+administrator.objective.form.label.link = Link
+
+administrator.objective.form.label.accept = Accept
+
+administrator.objective.form.button.create = Create
+
+administrator.objective.form.error.must-accept = This operation requires confirmation
+administrator.objective.form.error.inlavid-period-start-date = Execution start date must start at any moment after the instantiation moment
+administrator.objective.form.error.inlavid-period-finish-date = Execution end date must be after the execution start date

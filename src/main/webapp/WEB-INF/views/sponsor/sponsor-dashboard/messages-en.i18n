@@ -1,0 +1,50 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+sponsor.sponsor-dashboard.form.title = Sponsors' statitics
+sponsor.sponsor-dasboard.form.title.invoice.general-indicators = Invoices' tax statitics
+sponsor.sponsor-dasboard.form.label.total-number-tax-invoices = Total number of invoices with tax less or equal to 21.00
+
+sponsor.sponsor-dasboard.form.title.sponsorship.general-indicators = Sponsorships' link statitics
+sponsor.sponsor-dasboard.form.label.total-number-link-sponsorships = Total number of invoices with a link
+
+sponsor.sponsor-dasboard.form.title.sponsorships = Sponsorships amount statitics
+sponsor.sponsor-dasboard.form.label.sponsorship.averageEUR = Average (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.averageUSD = Average (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.averageGBP = Average (GBP)
+
+sponsor.sponsor-dasboard.form.label.sponsorship.deviationEUR = Deviation (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.deviationUSD = Deviation (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.deviationGBP = Deviation (GBP)
+
+sponsor.sponsor-dasboard.form.label.sponsorship.minimumEUR = Minimum (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.minimumUSD = Minimum (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.minimumGBP = Minimum (GBP)
+
+sponsor.sponsor-dasboard.form.label.sponsorship.maximumEUR = Maximum (EUR)
+sponsor.sponsor-dasboard.form.label.sponsorship.maximumUSD = Maximum (USD)
+sponsor.sponsor-dasboard.form.label.sponsorship.maximumGBP = Maximum (GBP)
+
+sponsor.sponsor-dasboard.form.title.invoices = Invoices quantity statitics
+sponsor.sponsor-dasboard.form.label.invoice.averageEUR = Average (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.averageUSD = Average (USD)
+sponsor.sponsor-dasboard.form.label.invoice.averageGBP = Average (GBP)
+
+sponsor.sponsor-dasboard.form.label.invoice.deviationEUR = Deviation (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.deviationUSD = Deviation (USD)
+sponsor.sponsor-dasboard.form.label.invoice.deviationGBP = Deviation (GBP)
+
+sponsor.sponsor-dasboard.form.label.invoice.minimumEUR = Minimum (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.minimumUSD = Minimum (USD)
+sponsor.sponsor-dasboard.form.label.invoice.minimumGBP = Minimum (GBP)
+
+sponsor.sponsor-dasboard.form.label.invoice.maximumEUR = Maximum (EUR)
+sponsor.sponsor-dasboard.form.label.invoice.maximumUSD = Maximum (USD)
+sponsor.sponsor-dasboard.form.label.invoice.maximumGBP = Maximum (GBP)
