@@ -1,0 +1,41 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+sponsor.sponsorship.list.title = Lista de patrocinios
+
+sponsor.sponsorship.list.label.code = Código
+sponsor.sponsorship.list.label.moment = Fecha
+sponsor.sponsorship.list.label.amount = Cantidad
+
+sponsor.sponsorship.form.title = Detalles del Patrocinio
+
+sponsor.sponsorship.form.label.code = Código
+sponsor.sponsorship.form.label.moment = Fecha
+sponsor.sponsorship.form.label.startDate = Fecha Inicio
+sponsor.sponsorship.form.label.expirationDate = Fecha de caducidad
+sponsor.sponsorship.form.label.amount = Cantidad
+sponsor.sponsorship.form.label.type = Tipo
+sponsor.sponsorship.form.label.project = Projecto
+sponsor.sponsorship.form.label.contact = Contacto
+sponsor.sponsorship.form.label.link = Enlace
+
+sponsor.sponsorship.form.button.invoices = Facturas
+sponsor.sponsorship.list.button.create = Crear
+sponsor.sponsorship.form.button.create = Crear
+sponsor.sponsorship.form.button.update = Actualizar
+sponsor.sponsorship.form.button.delete = Eliminar
+sponsor.sponsorship.form.button.publish = Publicar
+
+sponsor.sponsorship.form.error.code.duplicated = Ya existe un patrocinio con este código
+sponsor.sponsorship.form.error.inlavid-start-date = Su fecha de inicio debe ser posterior a su fecha de creación
+sponsor.sponsorship.form.error.too-close = Su fecha de vencimiento debe ser al menos un mes posterior a su fecha de inicio
+sponsor.sponsorship.form.error.negative-amount = El coste del patrocinio debe ser positivo
+sponsor.sponsorship.form.error.too-big = El coste del patrocinio debe ser menor de 1000000
+sponsor.sponsorship.form.error.invoices-inconsistency = El total de las facturas no coincide con el coste del patrocinio

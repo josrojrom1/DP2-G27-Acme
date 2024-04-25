@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
@@ -29,9 +29,17 @@ master.menu.anonymous.favourite-link-agus = 29565167R: Devós Bono, Agustín
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.configuration.show = Mostrar configuración del sistema
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.create.objective = Crear objetivo
+
+master.menu.any ###############################################################
+
+master.menu.any = Cualquiera
+master.menu.any.sponsorship.list = Patrocinios
+master.menu.any.code-audit.list = Listar auditorías de código publicadas 
 
 # master.menu.auditor ##########################################################
 
@@ -40,10 +48,11 @@ master.menu.auditor.my-code-audits = Listar mis auditorías de código
 master.menu.auditor.my-audit-records = Listar mis registros de auditorías
 master.menu.auditor.dashboard = Panel de control del auditor
 
-# master.menu.any ########################################################
+# master.menu.client ########################################################
 
-master.menu.any = Cualquier principal
-master.menu.any.code-audit.list = Listar auditorías de código publicadas 
+master.menu.client = Cliente
+master.menu.client.contract.list = Listar mis contratos
+master.menu.client.dashboard = Panel de estadísticas
 
 # master.menu.user-account ####################################################
 
@@ -51,3 +60,13 @@ master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-auditor = Hazte auditor
+master.menu.notice.list = Notificaciones
+master.menu.user-account.sponsor = Datos de patrocinador
+master.menu.user-account.become-sponsor = Hazte patrocinador
+
+# master.menu.sponsor #########################################################
+
+master.menu.soponsor = Patrocinador
+master.menu.sponsor.sponsorship = Mis patrocinios
+master.menu.sponsor.dashboard = Estadísitcas
+
