@@ -39,11 +39,14 @@ master.menu.administrator.create.objective = Create objective
 
 master.menu.any = Any
 master.menu.any.sponsorship.list = Sponsorships
+master.menu.any.code-audit.list = List published code audits
 
-# master.menu.provider ########################################################
+# master.menu.auditor ##########################################################
 
-master.menu.provider = Provider
-master.menu.provider.favourite-link = Favourite link
+master.menu.auditor = Auditor
+master.menu.auditor.my-code-audits = List my code audits
+master.menu.auditor.my-audit-records = List my audit records
+master.menu.auditor.dashboard = Auditor dashboard
 
 # master.menu.client ########################################################
 
@@ -51,20 +54,13 @@ master.menu.client = Client
 master.menu.client.contract.list = List my contracts
 master.menu.client.dashboard = Show client dashboard
 
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumer
-master.menu.consumer.favourite-link = Favourite link
-
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
 master.menu.notice.list = Notices
-master.menu.user-account.provider = Provider data
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.consumer = Consumer data
-master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.sponsor = Sponsor data
 master.menu.user-account.become-sponsor = Become a sponsor
 

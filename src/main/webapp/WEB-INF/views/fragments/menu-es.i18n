@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
@@ -39,11 +39,14 @@ master.menu.any ###############################################################
 
 master.menu.any = Cualquiera
 master.menu.any.sponsorship.list = Patrocinios
+master.menu.any.code-audit.list = Listar auditorías de código publicadas 
 
-# master.menu.provider ########################################################
+# master.menu.auditor ##########################################################
 
-master.menu.provider = Proveedor
-master.menu.provider.favourite-link = Enlace favorito
+master.menu.auditor = Auditor
+master.menu.auditor.my-code-audits = Listar mis auditorías de código
+master.menu.auditor.my-audit-records = Listar mis registros de auditorías
+master.menu.auditor.dashboard = Panel de control del auditor
 
 # master.menu.client ########################################################
 
@@ -51,20 +54,13 @@ master.menu.client = Cliente
 master.menu.client.contract.list = Listar mis contratos
 master.menu.client.dashboard = Panel de estadísticas
 
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumidor
-master.menu.consumer.favourite-link = Enlace favorito
-
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-auditor = Hazte auditor
 master.menu.notice.list = Notificaciones
-master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
-master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.sponsor = Datos de patrocinador
 master.menu.user-account.become-sponsor = Hazte patrocinador
 
@@ -73,3 +69,4 @@ master.menu.user-account.become-sponsor = Hazte patrocinador
 master.menu.soponsor = Patrocinador
 master.menu.sponsor.sponsorship = Mis patrocinios
 master.menu.sponsor.dashboard = Estadísitcas
+
