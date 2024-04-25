@@ -1,7 +1,7 @@
 client.contract.list.title = Mis contratos
 client.contract.list.label.code = Código
 client.contract.list.label.instantiationMoment = Momento de creación
-client.contract.list.label.provider = Proveedor
+client.contract.list.label.budget = Presupuesto
 client.contract.list.label.project = Proyecto
 
 client.contract.form.placeholder.code = CON-XXX

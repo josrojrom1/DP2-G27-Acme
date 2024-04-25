@@ -18,7 +18,16 @@ public class ClientProgressLogShowService extends AbstractService<Client, Progre
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		ProgressLog pLog;
+		Client client;
+
+		id = super.getRequest().getData("id", int.class);
+		pLog = this.repository.findProgressLogById(id);
+		client = pLog == null ? null : pLog.getContract().getClient();
+		status = super.getRequest().getPrincipal().hasRole(client) && pLog != null && client.getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

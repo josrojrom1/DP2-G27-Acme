@@ -1,7 +1,7 @@
 client.contract.list.title = My contracts
 client.contract.list.label.code = Code
 client.contract.list.label.instantiationMoment = Instantiation moment
-client.contract.list.label.provider = Provider
+client.contract.list.label.budget = Budget
 client.contract.list.label.project = Project
 
 client.contract.form.placeholder.code = CON-XXX
