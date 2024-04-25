@@ -17,9 +17,9 @@ administrator.objective.form.label.priority = Prioridad
 administrator.objective.form.label.critical = Crítico
 administrator.objective.form.label.executionPeriodStart = Fecha de comienzo de ejecución
 administrator.objective.form.label.executionPeriodFinish = Fecha de fin de ejecución
-administrator.objective.form.label.link = Link
+administrator.objective.form.label.link = Enlace
 
-administrator.objective.form.label.accept = Aceptar
+administrator.objective.form.label.accept = Acepto
 
 administrator.objective.form.button.create = Crear
 

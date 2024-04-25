@@ -24,7 +24,7 @@ sponsor.sponsorship.form.label.amount = Cantidad
 sponsor.sponsorship.form.label.type = Tipo
 sponsor.sponsorship.form.label.project = Projecto
 sponsor.sponsorship.form.label.contact = Contacto
-sponsor.sponsorship.form.label.link = Link
+sponsor.sponsorship.form.label.link = Enlace
 
 sponsor.sponsorship.form.button.invoices = Facturas
 sponsor.sponsorship.list.button.create = Crear
