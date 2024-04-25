@@ -45,42 +45,36 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		try {
 			totalNumberOfStaticCodeAudits = this.repository.totalNumberOfStaticCodeAudits(id);
 		} catch (Exception e) {
-			System.out.println("Es por culpa del totalNumberOfStaticCodeAudits");
 			totalNumberOfStaticCodeAudits = 0;
 		}
 
 		try {
 			totalNumberOfDynamicCodeAudits = this.repository.totalNumberOfDynamicCodeAudits(id);
 		} catch (Exception e) {
-			System.out.println("Es por culpa del totalNumberOfDynamicCodeAudits");
 			totalNumberOfDynamicCodeAudits = 0;
 		}
 
 		try {
 			auditRecordsPeriodLengthAverage = this.repository.auditRecordsPeriodLengthAverage(id);
 		} catch (Exception e) {
-			System.out.println("Es por culpa del auditRecordsPeriodLengthAverage");
 			auditRecordsPeriodLengthAverage = 0;
 		}
 
 		try {
 			auditRecordsPeriodLengthDeviation = this.repository.auditRecordsPeriodLengthDeviation(id);
 		} catch (Exception e) {
-			System.out.println("Es por culpa del auditRecordsPeriodLengthDeviation");
 			auditRecordsPeriodLengthDeviation = 0;
 		}
 
 		try {
 			auditRecordsPeriodLengthMinimum = this.repository.auditRecordsPeriodLengthMinimum(id);
 		} catch (Exception e) {
-			System.out.println("Es por culpa del auditRecordsPeriodLengthDeviation");
 			auditRecordsPeriodLengthMinimum = 0;
 		}
 
 		try {
 			auditRecordsPeriodLengthMaximum = this.repository.auditRecordsPeriodLengthMaximum(id);
 		} catch (Exception e) {
-			System.out.println("Es por culpa del auditRecordsPeriodLengthDeviation");
 			auditRecordsPeriodLengthMaximum = 0;
 		}
 
