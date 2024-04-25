@@ -41,10 +41,6 @@
 			<acme:menu-suboption code="master.menu.administrator.create.objective" action="/administrator/objective/create"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.any">
-			<acme:menu-suboption code="master.menu.any.sponsorship.list" action="/any/sponsorship/list"/>
-		</acme:menu-option>
-		
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
 			<acme:menu-suboption code="master.menu.client.contract.list" action="/client/contract/list-mine"/>
 			<acme:menu-separator/>
@@ -55,6 +51,7 @@
 			<acme:menu-suboption code="master.menu.any.code-audit.list" action="/any/code-audit/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.all-claims" action="/any/claim/list"/>
 			<acme:menu-suboption code="master.menu.any.training-module.list" action="/any/training-module/list"/>
+			<acme:menu-suboption code="master.menu.any.sponsorship.list" action="/any/sponsorship/list"/>
 		</acme:menu-option>
 		<!-- AUDITOR SECTION -->
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">			
