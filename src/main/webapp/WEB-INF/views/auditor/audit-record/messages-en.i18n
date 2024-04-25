@@ -26,3 +26,9 @@ auditor.audit-record.form.button.update = Update
 auditor.audit-record.form.button.delete = Delete
 auditor.audit-record.form.button.publish = Publish
 auditor.audit-record.form.button.create = Create new audit record
+
+# Validation form errors #########################################
+auditor.audit-record.form.error.code.duplicated = The inserted code already exists, please try another one
+auditor.audit-record.form.error.startPeriod_before_endPeriod = The start date must be before the end date
+auditor.audit-record.form.error.one_hour_period = The difference between the start and end date must be at least one hour
+auditor.audit-record.form.error.min.valid.date = The base date is 31/12/2200 23:59

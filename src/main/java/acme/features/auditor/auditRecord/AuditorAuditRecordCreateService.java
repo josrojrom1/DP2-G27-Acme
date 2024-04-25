@@ -1,6 +1,9 @@
 
 package acme.features.auditor.auditRecord;
 
+import java.time.Duration;
+import java.time.ZoneId;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,10 +40,11 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		int masterId;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		System.out.println("#### " + masterId + "\n");
 		codeAudit = this.repository.findOneCodeAuditById(masterId);
 		object = new AuditRecord();
 		object.setCodeAudit(codeAudit);
+		object.setDraftMode(true);
+
 		super.getBuffer().addData(object);
 	}
 
@@ -53,7 +57,20 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	@Override
 	public void validate(final AuditRecord object) {
 		assert object != null;
-		//FALTA INTRODUCIR LAS VALIDACIONES PERTINENTES
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			AuditRecord existing;
+			existing = this.repository.findOneAuditRecordByCode(object.getCode());
+			super.state(existing == null, "code", "auditor.audit-record.form.error.code.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
+			super.state(object.getStartPeriod().before(object.getEndPeriod()), "startPeriod", "auditor.audit-record.form.error.startPeriod_before_endPeriod");
+
+		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
+			super.state(Duration.between(object.getStartPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(), object.getEndPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()).toHours() >= 1, "startPeriod",
+				"auditor.audit-record.form.error.one_hour_period");
+
 	}
 
 	@Override
@@ -72,6 +89,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		masterId = super.getRequest().getData("masterId", int.class);
 		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
 		dataset.put("marks", markChoices);
+		dataset.put("mark", markChoices.getSelected().getKey());
 		dataset.put("masterId", masterId);
 		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
 		super.getResponse().addData(dataset);

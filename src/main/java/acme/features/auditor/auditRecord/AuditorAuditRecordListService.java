@@ -24,12 +24,9 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		boolean status;
 		int masterId;
 		CodeAudit codeAudit;
-		//Auditor auditor;
-
 		masterId = super.getRequest().getData("masterId", int.class);
 		codeAudit = this.repository.findOneCodeAuditById(masterId);
-		//auditor = this.repository.findOneAuditorByUsername(super.getRequest().getPrincipal().getUsername());
-		status = codeAudit != null && (!codeAudit.isDraftMode() || super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor()));
+		status = codeAudit != null && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor()) && codeAudit.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -48,6 +45,17 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 	public void unbind(final AuditRecord object) {
 		assert object != null;
 
+		Dataset dataset;
+
+		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
+
+		super.getResponse().addData(dataset);
+	}
+
+	@Override
+	public void unbind(final Collection<AuditRecord> objects) {
+		assert objects != null;
+
 		int masterId;
 		CodeAudit codeAudit;
 		final boolean showCreate;
@@ -56,13 +64,8 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		codeAudit = this.repository.findOneCodeAuditById(masterId);
 		showCreate = codeAudit.isDraftMode() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 
-		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
-
 		super.getResponse().addGlobal("masterId", masterId);
 		super.getResponse().addGlobal("showCreate", showCreate);
-		super.getResponse().addData(dataset);
 
 	}
 

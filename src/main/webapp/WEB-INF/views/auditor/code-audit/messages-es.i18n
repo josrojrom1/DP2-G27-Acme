@@ -33,4 +33,5 @@ auditor.code-audit.form.button.publish = Publicar
 auditor.code-audit.form.button.create = Crear
 
 # Validation form errors #########################################
-auditor.code-audit.form.error.duplicated = El código insertado ya existe, por favor pruebe con otro
+auditor.code-audit.form.error.code.duplicated = El código insertado ya existe, por favor pruebe con otro
+auditor.code-audit.form.error.mark.minimumMark = La nota mínima para publicar la auditoría debe ser igual o mayor a C

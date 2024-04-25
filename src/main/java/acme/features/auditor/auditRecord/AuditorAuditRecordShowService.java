@@ -26,7 +26,7 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 		int id;
 		id = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(id);
-		status = codeAudit != null && (!codeAudit.isDraftMode() || super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor()));
+		status = codeAudit != null && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor()) && codeAudit.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 		super.getResponse().setAuthorised(status);
 
 	}
@@ -49,8 +49,11 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 
 		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
 		dataset.put("masterId", object.getCodeAudit().getId());
-		dataset.put("mark", markChoices);
-		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
+		dataset.put("marks", markChoices);
+		dataset.put("mark", markChoices.getSelected().getKey());
+		dataset.put("draftMode", object.isDraftMode());
+		dataset.put("readOnly", true);
+
 		super.getResponse().addData(dataset);
 	}
 
