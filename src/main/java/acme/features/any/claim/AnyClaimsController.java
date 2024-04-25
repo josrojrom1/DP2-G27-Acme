@@ -19,10 +19,14 @@ public class AnyClaimsController extends AbstractController<Any, Claim> {
 	@Autowired
 	private AnyClaimsShowService	showService;
 
+	@Autowired
+	private AnyClaimsCreateService	createService;
+
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 	}
 }
