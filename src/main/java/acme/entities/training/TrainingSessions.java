@@ -59,6 +59,8 @@ public class TrainingSessions extends AbstractEntity {
 	@URL
 	private String				link;
 
+	private boolean				draftMode;
+
 	//Relationships
 	@NotNull
 	@Valid

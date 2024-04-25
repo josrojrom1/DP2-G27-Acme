@@ -1,12 +1,12 @@
-key,code,periodStart,periodFinish,location,instructor,contactEmail,link,key:trainingModule
-training-session-01-01,"TS-ABC-123",2021/04/30 16:18,2022/04/30 16:18,"Soy location","Lorem ipsum dolor sit amet, consectetur adipiscing elit.","user_19@domain.co.jp",ftp://sitioftp.ejemplo,developer-01-01
-training-session-01-02,"TS-ZYX-987",2021/04/30 20:33,2021/11/22 11:11,"123! location","Soy location","user24@[192.168.0.1]",https://www.ejemplo.com,developer-01-01
-training-session-02-01,"TS-X-789",2021/04/30 03:11,2021/11/21 11:58,"Descripción con líneas múltiples. \n Segunda línea.","1234 5678 9012 3456","user_27@company+department.org",https://www.ejemplo.com/página#sección,developer-02-01
-training-session-03-01,"TS-ABC-111",2021/04/30 11:45,2022/01/13 16:18,"1234 5678 9012 3456","Soy location","weird.email_23@strange.domain",https://[::1],developer-01-02
-training-session-05-01,"TS-ABQ-123",2021/04/30 20:33,2022/03/14 16:18,"Esta descripción contiene caracteres especiales: #@!$%^&*()","Soy location","email20@sample.us",https://www.ejemplo.com/página#sección,developer-03-01
-training-session-06-01,"TS-VW-001",2022/01/01 01:00,2022/01/22 16:18,"123! location","Descripción con líneas múltiples. \n Segunda línea.","info.10@domain.io",https://www.ejemplo.com/%20espacios%20en%20ruta,developer-05-01
-training-session-07-01,"TS-ZZZ-992",2021/07/30 16:18,2022/04/30 11:22,"我是细节","Esta descripción contiene caracteres especiales: #@!$%^&*()","support_13@company.net",,developer-03-02
-training-session-02-02,"TS-AAA-789",2019/04/30 13:18,2022/04/30 17:33,"Descripción con un link: https://www.ejemplo.com","我是细节","user_19@domain.co.jp",,developer-04-01
-training-session-03-02,"TS-CCQ-789",2013/09/03 18:18,2022/04/30 23:18,"|123456789|","Descripción con un link: https://www.ejemplo.com","user_19@domain.co.jp",https://www.ejemplo.com,developer-02-02
-training-session-04-02,"TS-ABC-222",2005/04/30 20:33,2021/05/22 16:18,"Привет, мир!","|123456789|","user_19@domain.co.jp",https://www.ejemplo.com,developer-01-01
-training-session-05-02,"TS-ZYX-988",2015/03/12 20:33,2022/04/30 16:18,"123! location","Привет, мир!","user_19@domain.co.jp",https://www.ejemplo.com,developer-01-01
+key,code,periodStart,periodFinish,location,instructor,contactEmail,link,key:trainingModule,draftMode
+training-session-01-01,"TS-ABC-123",2021/04/30 16:18,2022/04/30 16:18,"Soy location","Lorem ipsum dolor sit amet, consectetur adipiscing elit.","user_19@domain.co.jp",ftp://sitioftp.ejemplo,developer-01-01,false
+training-session-01-02,"TS-ZYX-987",2021/04/30 20:33,2021/11/22 11:11,"123! location","Soy location","user24@[192.168.0.1]",https://www.ejemplo.com,developer-01-01,false
+training-session-02-01,"TS-X-789",2021/04/30 03:11,2021/11/21 11:58,"Descripción con líneas múltiples. \n Segunda línea.","1234 5678 9012 3456","user_27@company+department.org",https://www.ejemplo.com/página#sección,developer-02-01,true
+training-session-03-01,"TS-ABC-111",2021/04/30 11:45,2022/01/13 16:18,"1234 5678 9012 3456","Soy location","weird.email_23@strange.domain",https://[::1],developer-01-02,false
+training-session-05-01,"TS-ABQ-123",2021/04/30 20:33,2022/03/14 16:18,"Esta descripción contiene caracteres especiales: #@!$%^&*()","Soy location","email20@sample.us",https://www.ejemplo.com/página#sección,developer-03-01,true
+training-session-06-01,"TS-VW-001",2022/01/01 01:00,2022/01/22 16:18,"123! location","Descripción con líneas múltiples. \n Segunda línea.","info.10@domain.io",https://www.ejemplo.com/%20espacios%20en%20ruta,developer-05-01,true
+training-session-07-01,"TS-ZZZ-992",2021/07/30 16:18,2022/04/30 11:22,"我是细节","Esta descripción contiene caracteres especiales: #@!$%^&*()","support_13@company.net",,developer-03-02,false
+training-session-02-02,"TS-AAA-789",2019/04/30 13:18,2022/04/30 17:33,"Descripción con un link: https://www.ejemplo.com","我是细节","user_19@domain.co.jp",,developer-04-01,false
+training-session-03-02,"TS-CCQ-789",2013/09/03 18:18,2022/04/30 23:18,"|123456789|","Descripción con un link: https://www.ejemplo.com","user_19@domain.co.jp",https://www.ejemplo.com,developer-02-02,true
+training-session-04-02,"TS-ABC-222",2005/04/30 20:33,2021/05/22 16:18,"Привет, мир!","|123456789|","user_19@domain.co.jp",https://www.ejemplo.com,developer-01-01,false
+training-session-05-02,"TS-ZYX-988",2015/03/12 20:33,2022/04/30 16:18,"123! location","Привет, мир!","user_19@domain.co.jp",https://www.ejemplo.com,developer-01-01,false

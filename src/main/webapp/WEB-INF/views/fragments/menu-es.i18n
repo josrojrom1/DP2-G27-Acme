@@ -40,6 +40,8 @@ master.menu.any ###############################################################
 master.menu.any = Cualquiera
 master.menu.any.sponsorship.list = Patrocinios
 master.menu.any.code-audit.list = Listar auditorías de código publicadas 
+master.menu.anonymous.all-claims = Lista de Reclamos publicados
+master.menu.any.training-module.list = Lista de Módulos de formación publicados
 
 # master.menu.auditor ##########################################################
 
@@ -54,12 +56,20 @@ master.menu.client = Cliente
 master.menu.client.contract.list = Listar mis contratos
 master.menu.client.dashboard = Panel de estadísticas
 
+# master.menu.developer ##########################################################
+
+master.menu.developer = Desarrollador
+master.menu.developer.my-training-modules = Lista de mis módulos de formación
+master.menu.developer.dashboard = Panel de desarrollador
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.become-developer = Hazte desarrollador
+master.menu.user-account.developer = Datos de desarrollador
 master.menu.notice.list = Notificaciones
 master.menu.user-account.sponsor = Datos de patrocinador
 master.menu.user-account.become-sponsor = Hazte patrocinador
@@ -70,3 +80,7 @@ master.menu.soponsor = Patrocinador
 master.menu.sponsor.sponsorship = Mis patrocinios
 master.menu.sponsor.dashboard = Estadísitcas
 
+# master.menu.principal-authenticated ####################################################
+
+master.menu.principal-authenticated = Principal Autentificado
+master.menu.authenticated.objective = Lista de objetivos
