@@ -1,24 +1,24 @@
 key,key:manager,code,title,description,indication,draftMode,cost,link
-project-01,manager-01,"ABC-1234","titulo del proyecto 1","descripcion del proyecto 1",true,false,34,"https://linkopcional.com"
-project-02,manager-01,"ZZZ-0000","titulo del proyecto 1","descripcion del proyecto 1",true,false,34,"https://linkopcional.com"
-project-03,manager-01,"XLM-1234","titulo del proyecto 1","descripcion del proyecto 1",true,false,34,"https://linkopcional.com"
-project-04,manager-01,"LUP-9846","012345678910111213141516171819202122232425262728293031323334353637383940414","descripcion del proyecto 3",true,false,34,"https://linkopcional.com"
-project-05,manager-02,"BBC-1234",".","descripcion del proyecto 1",true,false,34,"http://linkopcional.com"
-project-06,manager-01,"CBC-1234","*","descripcion del proyecto 1",true,false,34,"https://linkopcional.com"
-project-07,manager-02,"DBC-1234","ㅤ","descripcion del proyecto 1",true,true,0,null
-project-08,manager-02,"EBC-1234","titulo del proyecto 7","Desarrollo de app móvil para seguimiento de actividad. Integración con wearables y análisis de datos",true,true,0,null
-project-09,manager-02,"FBC-1234","titulo del proyecto 8",".",true,false,34,"http://linkopcional.com"
-project-010,manager-02,"GBC-1234","titulo del proyecto 9","ㅤ",true,false,34,"http://linkopcional.com"
-project-011,manager-01,"HBC-1234","titulo del proyecto 1","descripcion del proyecto 1",false,false,34,"https://linkopcional.com"
-project-012,manager-01,"IBC-1234","titulo del proyecto 1","descripcion del proyecto 1",true,true,34,"https://linkopcional.com"
-project-013,manager-01,"JBC-1234","titulo del proyecto 1","descripcion del proyecto 1",true,false,0,"https://linkopcional.com"
-project-014,manager-01,"KBC-1234","titulo del proyecto 1","descripcion del proyecto 1",true,false,123453,"https://linkopcional.com"
-project-015,manager-01,"KBC-2234","titulo del proyecto 1","descripcion del proyecto 1",true,false,34,"http://linkopcional.com"
-project-016,manager-01,"KBC-3234","titulo del proyecto 1","descripcion del proyecto 1",true,false,34,
-project-017,manager-01,"KBC-4234","titulo del proyecto 1","descripcion del proyecto 1",true,false,34,null
-project-018,manager-01,"KBC-5234","titulo del proyecto 1","descripcion del proyecto 1",true,false,34,"https://*****.com"
-project-019,manager-01,"KBC-6234","titulo del proyecto 1","descripcion del proyecto 1",true,false,34,"https://ㅤㅤㅤㅤ.com"
-project-020,manager-01,"ABC-2234","Собака","descripcion del proyecto 1",true,false,34,"https://linkopcional.com"
-project-021,manager-01,"ABC-3234","龙","descripcion del proyecto 1",true,false,34,"https://linkopcional.com"
-project-022,manager-01,"ABC-4234","titulo del proyecto 1","Книга",true,false,34,"https://linkopcional.com"
-project-023,manager-01,"ABC-5234","titulo del proyecto 1","茶 ",true,false,34,"https://linkopcional.com"
+project-01,manager-01,"ABC-1234","titulo del proyecto 1","descripcion del proyecto 1",true,false,"EUR 200.00","https://linkopcional.com"
+project-02,manager-01,"ZZZ-0000","titulo del proyecto 1","descripcion del proyecto 1",true,false,"EUR 200.00","https://linkopcional.com"
+project-03,manager-01,"XLM-1234","titulo del proyecto 1","descripcion del proyecto 1",true,false,"EUR 500.00","https://linkopcional.com"
+project-04,manager-01,"LUP-9846","012345678910111213141516171819202122232425262728293031323334353637383940414","descripcion del proyecto 3",true,false,"USD 500.00","https://linkopcional.com"
+project-05,manager-02,"BBC-1234",".","descripcion del proyecto 1",true,false,"USD 800.99","http://linkopcional.com"
+project-06,manager-01,"CBC-1234","*","descripcion del proyecto 1",true,false,"GBP 100.10","https://linkopcional.com"
+project-07,manager-02,"DBC-1234","ㅤ","descripcion del proyecto 1",true,true,"GBP 0.00",null
+project-08,manager-02,"EBC-1234","titulo del proyecto 7","Desarrollo de app móvil para seguimiento de actividad. Integración con wearables y análisis de datos",true,true,"EUR 0.00",null
+project-09,manager-02,"FBC-1234","titulo del proyecto 8",".",true,false,"GBP 600.50","http://linkopcional.com"
+project-010,manager-02,"GBC-1234","titulo del proyecto 9","ㅤ",true,false,"EUR 199.99","http://linkopcional.com"
+project-011,manager-01,"HBC-1234","titulo del proyecto 1","descripcion del proyecto 1",false,false,"USD 99.99","https://linkopcional.com"
+project-012,manager-01,"IBC-1234","titulo del proyecto 1","descripcion del proyecto 1",true,true,"GBP 1909.54","https://linkopcional.com"
+project-013,manager-01,"JBC-1234","titulo del proyecto 1","descripcion del proyecto 1",true,false,"EUR 0.00","https://linkopcional.com"
+project-014,manager-01,"KBC-1234","titulo del proyecto 1","descripcion del proyecto 1",true,false,"USD 12345.37","https://linkopcional.com"
+project-015,manager-01,"KBC-2234","titulo del proyecto 1","descripcion del proyecto 1",true,false,"GBP 90987.23","http://linkopcional.com"
+project-016,manager-01,"KBC-3234","titulo del proyecto 1","descripcion del proyecto 1",true,false,"EUR 780.00",
+project-017,manager-01,"KBC-4234","titulo del proyecto 1","descripcion del proyecto 1",true,false,"USD 12356.00",null
+project-018,manager-01,"KBC-5234","titulo del proyecto 1","descripcion del proyecto 1",true,false,"GBP 541.00","https://*****.com"
+project-019,manager-01,"KBC-6234","titulo del proyecto 1","descripcion del proyecto 1",true,false,"EUR 10000.00","https://ㅤㅤㅤㅤ.com"
+project-020,manager-01,"ABC-2234","Собака","descripcion del proyecto 1",true,false,"USD 10000.00","https://linkopcional.com"
+project-021,manager-01,"ABC-3234","龙","descripcion del proyecto 1",true,false,"GBP 10000.00","https://linkopcional.com"
+project-022,manager-01,"ABC-4234","titulo del proyecto 1","Книга",true,false,"EUR 11111.00","https://linkopcional.com"
+project-023,manager-01,"ABC-5234","titulo del proyecto 1","茶 ",true,false,"USD 11111.00","https://linkopcional.com"

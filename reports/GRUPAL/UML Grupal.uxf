@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>416</x>
+      <y>360</y>
+      <w>344</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Claim
+--
++ code: String {Unique, NotBlank, Pattern("C-[0-9]{4}")}
++ instalationMoment: Date {Past, Temporal(TIMESTAMP), NotNull}
++ heading: String {NotBlank, Length(75)}
++ description: String {NotBlank, Length(100)}
++ department: String {NotBlank, Length(100)}
++ email: String {Email}
++ link: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>288</y>
+      <w>352</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Objective
+--
++ instantiationMoment: Date {Past, Temporal(TIMESTAMP), NotNull}
++ title: String {NotBlank, Length(75)}
++ description: String {NotBlank, Length(100)}
++ priority: PriorityType {NotNull}
++ critical: boolean
++ executionPeriodStart: Date {Temporal(TIMESTAMP), NotNull}
++ executionPeriodFinish: Date {Temporal(TIMESTAMP), NotNull}
++ link: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>208</x>
+      <y>480</y>
+      <w>184</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>executionPeriodStart 
+must start at any
+moment after the
+instantiationMoment and
+executionPeriodFinish must
+be later than executionPeriodStart
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>432</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>480</y>
+      <w>112</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+PriorityType
+--
+LOW
+MEDIUM
+HIGH</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>416</x>
+      <y>56</y>
+      <w>408</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Banner
+--
++ instantiationOrUpdateMoment: Date {Past, Temporal(TIMESTAMP), NotNull}
++ displayStartDate: {Temporal(TIMESTAMP), NotNull}
++ displayEndDate: {Temporal(TIMESTAMP), NotNull}
++ picture: String {URL, NotBlank}
++ slogan: String {NotBlank, Length(75)}
++ webDocument: String {URL, NotBlank}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>120</x>
+      <y>0</y>
+      <w>232</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>The author must be computed as follows: 
+“〈username〉 - 〈surname, name〉”, 
+where “〈username〉” denotes the username 
+of the principal who has posted the note 
+and “〈surname, name〉” denotes 
+his or her full name.
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>120</y>
+      <w>352</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Notice
+--
++ instantiationMoment: Date {Past, Temporal(TIMESTAMP), NotNull}
++ title: String {NotBlank, Length(75)}
++ author: String {NotBlank, Length(75)}
++ message: String {NotBlank, Length(100)}
++ email: String {Email}
++ link: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>848</x>
+      <y>56</y>
+      <w>160</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>displayStartDate must start 
+at any moment after the 
+instantiation/update moment
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>416</x>
+      <y>200</y>
+      <w>352</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Risk
+--
++ reference: String {Unique, Pattern("R-[0-9]{3}"), NotBlank}
++ identificationDate: Date {Temporal(DATE), Past, NotNull}
++ impact: double {Digits(3,2), DecimalMin(0.00), DecimalMax(100.00)}
++ probability: double {Digits(3,2), DecimalMin(0.00), DecimalMax(100.00)}
++ description: String {NotBlank, Length(100)}
++ link: String {URL}
++ /value: double {Transient}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>80</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>80</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>848</x>
+      <y>120</y>
+      <w>160</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>displayEndDate must be 
+at least one week after 
+displayStartDate
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>136</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

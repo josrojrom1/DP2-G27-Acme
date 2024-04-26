@@ -73,7 +73,7 @@ public class Invoice extends AbstractEntity {
 	// and never exceed the the amount of money to be paid in the corresponding sponsorship
 	private Double totalAmount() {
 		return this.tax * this.quantity.getAmount() + this.quantity.getAmount();
-	};
+	}
 
 	// Relations
 

@@ -46,6 +46,9 @@ public class UserStory extends AbstractEntity {
 	@NotNull
 	private PriorityEnum		priority;
 
+	@NotNull
+	private Boolean				draftMode;
+
 	@URL
 	private String				link;
 
