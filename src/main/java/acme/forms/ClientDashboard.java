@@ -16,9 +16,19 @@ public class ClientDashboard extends AbstractForm {
 	int							totalNumberOfProgLogsWithCompletenessBetween50and75;
 	int							totalNumberOfProgLogsWithCompletenessAbove75;
 
-	Double						contractsBudgetAverage;
-	Double						contractsBudgetDeviation;
-	double						contractsBudgetMinimum;
-	double						contractsBudgetMaximum;
+	double						contractsBudgetAverageUSD;
+	double						contractsBudgetDeviationUSD;
+	double						contractsBudgetMinimumUSD;
+	double						contractsBudgetMaximumUSD;
+
+	double						contractsBudgetAverageEUR;
+	double						contractsBudgetDeviationEUR;
+	double						contractsBudgetMinimumEUR;
+	double						contractsBudgetMaximumEUR;
+
+	double						contractsBudgetAverageGBP;
+	double						contractsBudgetDeviationGBP;
+	double						contractsBudgetMinimumGBP;
+	double						contractsBudgetMaximumGBP;
 
 }

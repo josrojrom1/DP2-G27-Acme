@@ -1,9 +1,6 @@
 
 package acme.forms;
 
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Min;
-
 import acme.client.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,25 +15,39 @@ public class SponsorDashboard extends AbstractForm {
 
 	// Attributes
 
-	@Min(0)
 	int							totalNumOfInvoicesWithTaxLessOrEqualToTwentyOne;
-	@Min(0)
 	int							totalNumOfSponsorshipsWithLink;
 
-	@DecimalMin("0.0")
-	double						sponsorshipAmountAverage;
-	@DecimalMin("0.0")
-	double						sponsorshipAmountDeviation;
+	double						sponsorshipAmountAverageEUR;
+	double						sponsorshipAmountAverageUSD;
+	double						sponsorshipAmountAverageGBP;
 
-	double						minimumSponsorshipAmount;
-	double						maximumSponsorshipAmount;
+	double						sponsorshipAmountDeviationEUR;
+	double						sponsorshipAmountDeviationUSD;
+	double						sponsorshipAmountDeviationGBP;
 
-	@DecimalMin("0.0")
-	double						invoiceQuantityAverage;
-	@DecimalMin("0.0")
-	double						invoiceQuantityDeviation;
+	double						minimumSponsorshipAmountEUR;
+	double						minimumSponsorshipAmountUSD;
+	double						minimumSponsorshipAmountGBP;
 
-	double						minimumInvoiceQuantity;
-	double						maximumInvoiceQuantity;
+	double						maximumSponsorshipAmountEUR;
+	double						maximumSponsorshipAmountUSD;
+	double						maximumSponsorshipAmountGBP;
+
+	double						invoiceQuantityAverageEUR;
+	double						invoiceQuantityAverageUSD;
+	double						invoiceQuantityAverageGBP;
+
+	double						invoiceQuantityDeviationEUR;
+	double						invoiceQuantityDeviationUSD;
+	double						invoiceQuantityDeviationGBP;
+
+	double						minimumInvoiceQuantityEUR;
+	double						minimumInvoiceQuantityUSD;
+	double						minimumInvoiceQuantityGBP;
+
+	double						maximumInvoiceQuantityEUR;
+	double						maximumInvoiceQuantityUSD;
+	double						maximumInvoiceQuantityGBP;
 
 }
