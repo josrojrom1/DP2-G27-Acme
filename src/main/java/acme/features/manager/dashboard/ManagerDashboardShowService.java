@@ -68,109 +68,112 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 			totalNumOfWontUserStories = 0;
 		}
 
-		try {
-			averageEstimatedCostOfUSUSD = this.repository.averageEstimatedCostOfUSUSD(managerId);
-			deviationOfEstimatedCostUSUSD = this.repository.deviationOfEstimatedCostUSUSD(managerId);
-			minimumEstimatedCostOfUSUSD = this.repository.minimumEstimatedCostOfUSUSD(managerId);
-			maximumEstimatedCostOfUSUSD = this.repository.maximumEstimatedCostOfUSUSD(managerId);
-		} catch (Exception e) {
-			averageEstimatedCostOfUSUSD = 0.0;
-			deviationOfEstimatedCostUSUSD = 0;
-			minimumEstimatedCostOfUSUSD = 0;
-			maximumEstimatedCostOfUSUSD = 0;
-		}
-
-		try {
-			averageEstimatedCostOfUSEUR = this.repository.averageEstimatedCostOfUSEUR(managerId);
-			deviationOfEstimatedCostUSEUR = this.repository.deviationOfEstimatedCostUSEUR(managerId);
-			minimumEstimatedCostOfUSEUR = this.repository.minimumEstimatedCostOfUSEUR(managerId);
-			maximumEstimatedCostOfUSEUR = this.repository.maximumEstimatedCostOfUSEUR(managerId);
-		} catch (Exception e) {
-			averageEstimatedCostOfUSEUR = 0.0;
-			deviationOfEstimatedCostUSEUR = 0;
-			minimumEstimatedCostOfUSEUR = 0;
-			maximumEstimatedCostOfUSEUR = 0;
-		}
-
-		try {
-			averageEstimatedCostOfUSGBP = this.repository.averageEstimatedCostOfUSGBP(managerId);
-			deviationOfEstimatedCostUSGBP = this.repository.deviationOfEstimatedCostUSGBP(managerId);
-			minimumEstimatedCostOfUSGBP = this.repository.minimumEstimatedCostOfUSGBP(managerId);
-			maximumEstimatedCostOfUSGBP = this.repository.maximumEstimatedCostOfUSGBP(managerId);
-		} catch (Exception e) {
-			averageEstimatedCostOfUSGBP = 0.0;
-			deviationOfEstimatedCostUSGBP = 0;
-			minimumEstimatedCostOfUSGBP = 0;
-			maximumEstimatedCostOfUSGBP = 0;
-		}
-
-		try {
-			averageProjectCostUSD = this.repository.averageProjectCostUSD(managerId);
-			deviationOfProjectCostUSD = this.repository.deviationOfProjectCostUSD(managerId);
-			minimumProjectCostUSD = this.repository.minimumProjectCostUSD(managerId);
-			maximumProjectCostUSD = this.repository.maximumProjectCostUSD(managerId);
-		} catch (Exception e) {
-			averageProjectCostUSD = 0.0;
-			deviationOfProjectCostUSD = 0;
-			minimumProjectCostUSD = 0;
-			maximumProjectCostUSD = 0;
-		}
-
-		try {
-			averageProjectCostEUR = this.repository.averageProjectCostEUR(managerId);
-			deviationOfProjectCostEUR = this.repository.deviationOfProjectCostEUR(managerId);
-			minimumProjectCostEUR = this.repository.minimumProjectCostEUR(managerId);
-			maximumProjectCostEUR = this.repository.maximumProjectCostEUR(managerId);
-		} catch (Exception e) {
-			averageProjectCostEUR = 0.0;
-			deviationOfProjectCostEUR = 0;
-			minimumProjectCostEUR = 0;
-			maximumProjectCostEUR = 0;
-		}
-
-		try {
-			averageProjectCostGBP = this.repository.averageProjectCostGBP(managerId);
-			deviationOfProjectCostGBP = this.repository.deviationOfProjectCostGBP(managerId);
-			minimumProjectCostGBP = this.repository.minimumProjectCostGBP(managerId);
-			maximumProjectCostGBP = this.repository.maximumProjectCostGBP(managerId);
-		} catch (Exception e) {
-			averageProjectCostGBP = 0.0;
-			deviationOfProjectCostGBP = 0;
-			minimumProjectCostGBP = 0;
-			maximumProjectCostGBP = 0;
-		}
-
+		/*
+		 * try {
+		 * averageEstimatedCostOfUSUSD = this.repository.averageEstimatedCostOfUSUSD(managerId);
+		 * deviationOfEstimatedCostUSUSD = this.repository.deviationOfEstimatedCostUSUSD(managerId);
+		 * minimumEstimatedCostOfUSUSD = this.repository.minimumEstimatedCostOfUSUSD(managerId);
+		 * maximumEstimatedCostOfUSUSD = this.repository.maximumEstimatedCostOfUSUSD(managerId);
+		 * } catch (Exception e) {
+		 * averageEstimatedCostOfUSUSD = 0.0;
+		 * deviationOfEstimatedCostUSUSD = 0;
+		 * minimumEstimatedCostOfUSUSD = 0;
+		 * maximumEstimatedCostOfUSUSD = 0;
+		 * }
+		 * 
+		 * try {
+		 * averageEstimatedCostOfUSEUR = this.repository.averageEstimatedCostOfUSEUR(managerId);
+		 * deviationOfEstimatedCostUSEUR = this.repository.deviationOfEstimatedCostUSEUR(managerId);
+		 * minimumEstimatedCostOfUSEUR = this.repository.minimumEstimatedCostOfUSEUR(managerId);
+		 * maximumEstimatedCostOfUSEUR = this.repository.maximumEstimatedCostOfUSEUR(managerId);
+		 * } catch (Exception e) {
+		 * averageEstimatedCostOfUSEUR = 0.0;
+		 * deviationOfEstimatedCostUSEUR = 0;
+		 * minimumEstimatedCostOfUSEUR = 0;
+		 * maximumEstimatedCostOfUSEUR = 0;
+		 * }
+		 * 
+		 * try {
+		 * averageEstimatedCostOfUSGBP = this.repository.averageEstimatedCostOfUSGBP(managerId);
+		 * deviationOfEstimatedCostUSGBP = this.repository.deviationOfEstimatedCostUSGBP(managerId);
+		 * minimumEstimatedCostOfUSGBP = this.repository.minimumEstimatedCostOfUSGBP(managerId);
+		 * maximumEstimatedCostOfUSGBP = this.repository.maximumEstimatedCostOfUSGBP(managerId);
+		 * } catch (Exception e) {
+		 * averageEstimatedCostOfUSGBP = 0.0;
+		 * deviationOfEstimatedCostUSGBP = 0;
+		 * minimumEstimatedCostOfUSGBP = 0;
+		 * maximumEstimatedCostOfUSGBP = 0;
+		 * }
+		 * 
+		 * try {
+		 * averageProjectCostUSD = this.repository.averageProjectCostUSD(managerId);
+		 * deviationOfProjectCostUSD = this.repository.deviationOfProjectCostUSD(managerId);
+		 * minimumProjectCostUSD = this.repository.minimumProjectCostUSD(managerId);
+		 * maximumProjectCostUSD = this.repository.maximumProjectCostUSD(managerId);
+		 * } catch (Exception e) {
+		 * averageProjectCostUSD = 0.0;
+		 * deviationOfProjectCostUSD = 0;
+		 * minimumProjectCostUSD = 0;
+		 * maximumProjectCostUSD = 0;
+		 * }
+		 * 
+		 * try {
+		 * averageProjectCostEUR = this.repository.averageProjectCostEUR(managerId);
+		 * deviationOfProjectCostEUR = this.repository.deviationOfProjectCostEUR(managerId);
+		 * minimumProjectCostEUR = this.repository.minimumProjectCostEUR(managerId);
+		 * maximumProjectCostEUR = this.repository.maximumProjectCostEUR(managerId);
+		 * } catch (Exception e) {
+		 * averageProjectCostEUR = 0.0;
+		 * deviationOfProjectCostEUR = 0;
+		 * minimumProjectCostEUR = 0;
+		 * maximumProjectCostEUR = 0;
+		 * }
+		 * 
+		 * try {
+		 * averageProjectCostGBP = this.repository.averageProjectCostGBP(managerId);
+		 * deviationOfProjectCostGBP = this.repository.deviationOfProjectCostGBP(managerId);
+		 * minimumProjectCostGBP = this.repository.minimumProjectCostGBP(managerId);
+		 * maximumProjectCostGBP = this.repository.maximumProjectCostGBP(managerId);
+		 * } catch (Exception e) {
+		 * averageProjectCostGBP = 0.0;
+		 * deviationOfProjectCostGBP = 0;
+		 * minimumProjectCostGBP = 0;
+		 * maximumProjectCostGBP = 0;
+		 * }
+		 */
 		dashboard.setTotalNumOfMustUserStories(totalNumOfMustUserStories);
 		dashboard.setTotalNumOfShouldUserStories(totalNumOfShouldUserStories);
 		dashboard.setTotalNumOfCouldUserStories(totalNumOfCouldUserStories);
 		dashboard.setTotalNumOfWontUserStories(totalNumOfWontUserStories);
 
-		dashboard.setAverageEstimatedCostOfUSUSD(averageEstimatedCostOfUSUSD);
-		dashboard.setDeviationOfEstimatedCostUSUSD(deviationOfEstimatedCostUSEUR);
-		dashboard.setMinimumEstimatedCostOfUSUSD(minimumEstimatedCostOfUSUSD);
-		dashboard.setMaximumEstimatedCostOfUSUSD(maximumEstimatedCostOfUSUSD);
-		dashboard.setAverageProjectCostUSD(averageProjectCostUSD);
-		dashboard.setDeviationOfProjectCostUSD(deviationOfProjectCostUSD);
-		dashboard.setMinimumProjectCostUSD(minimumProjectCostUSD);
-		dashboard.setMaximumProjectCostUSD(maximumProjectCostUSD);
-
-		dashboard.setAverageEstimatedCostOfUSEUR(averageEstimatedCostOfUSEUR);
-		dashboard.setDeviationOfEstimatedCostUSEUR(deviationOfEstimatedCostUSEUR);
-		dashboard.setMinimumEstimatedCostOfUSEUR(minimumEstimatedCostOfUSEUR);
-		dashboard.setMaximumEstimatedCostOfUSEUR(maximumEstimatedCostOfUSEUR);
-		dashboard.setAverageProjectCostEUR(averageProjectCostEUR);
-		dashboard.setDeviationOfProjectCostEUR(deviationOfProjectCostEUR);
-		dashboard.setMinimumProjectCostEUR(minimumProjectCostEUR);
-		dashboard.setMaximumProjectCostEUR(maximumProjectCostEUR);
-
-		dashboard.setAverageEstimatedCostOfUSGBP(averageEstimatedCostOfUSGBP);
-		dashboard.setDeviationOfEstimatedCostUSGBP(deviationOfEstimatedCostUSGBP);
-		dashboard.setMinimumEstimatedCostOfUSGBP(minimumEstimatedCostOfUSGBP);
-		dashboard.setMaximumEstimatedCostOfUSGBP(maximumEstimatedCostOfUSGBP);
-		dashboard.setAverageProjectCostGBP(averageProjectCostGBP);
-		dashboard.setDeviationOfProjectCostGBP(deviationOfProjectCostGBP);
-		dashboard.setMinimumProjectCostGBP(minimumProjectCostGBP);
-		dashboard.setMaximumProjectCostGBP(maximumProjectCostGBP);
+		/*
+		 * dashboard.setAverageEstimatedCostOfUSUSD(averageEstimatedCostOfUSUSD);
+		 * dashboard.setDeviationOfEstimatedCostUSUSD(deviationOfEstimatedCostUSEUR);
+		 * dashboard.setMinimumEstimatedCostOfUSUSD(minimumEstimatedCostOfUSUSD);
+		 * dashboard.setMaximumEstimatedCostOfUSUSD(maximumEstimatedCostOfUSUSD);
+		 * dashboard.setAverageProjectCostUSD(averageProjectCostUSD);
+		 * dashboard.setDeviationOfProjectCostUSD(deviationOfProjectCostUSD);
+		 * dashboard.setMinimumProjectCostUSD(minimumProjectCostUSD);
+		 * dashboard.setMaximumProjectCostUSD(maximumProjectCostUSD);
+		 * 
+		 * dashboard.setAverageEstimatedCostOfUSEUR(averageEstimatedCostOfUSEUR);
+		 * dashboard.setDeviationOfEstimatedCostUSEUR(deviationOfEstimatedCostUSEUR);
+		 * dashboard.setMinimumEstimatedCostOfUSEUR(minimumEstimatedCostOfUSEUR);
+		 * dashboard.setMaximumEstimatedCostOfUSEUR(maximumEstimatedCostOfUSEUR);
+		 * dashboard.setAverageProjectCostEUR(averageProjectCostEUR);
+		 * dashboard.setDeviationOfProjectCostEUR(deviationOfProjectCostEUR);
+		 * dashboard.setMinimumProjectCostEUR(minimumProjectCostEUR);
+		 * dashboard.setMaximumProjectCostEUR(maximumProjectCostEUR);
+		 * 
+		 * dashboard.setAverageEstimatedCostOfUSGBP(averageEstimatedCostOfUSGBP);
+		 * dashboard.setDeviationOfEstimatedCostUSGBP(deviationOfEstimatedCostUSGBP);
+		 * dashboard.setMinimumEstimatedCostOfUSGBP(minimumEstimatedCostOfUSGBP);
+		 * dashboard.setMaximumEstimatedCostOfUSGBP(maximumEstimatedCostOfUSGBP);
+		 * dashboard.setAverageProjectCostGBP(averageProjectCostGBP);
+		 * dashboard.setDeviationOfProjectCostGBP(deviationOfProjectCostGBP);
+		 * dashboard.setMinimumProjectCostGBP(minimumProjectCostGBP);
+		 * dashboard.setMaximumProjectCostGBP(maximumProjectCostGBP);
+		 */
 	}
 
 	@Override
