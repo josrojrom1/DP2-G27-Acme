@@ -4,7 +4,11 @@ package acme.forms;
 import javax.validation.constraints.Min;
 
 import acme.client.data.AbstractForm;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class ManagerDashboard extends AbstractForm {
 
 	private static final long	serialVersionUID	= 1L;
@@ -26,26 +30,74 @@ public class ManagerDashboard extends AbstractForm {
 
 	//User Story Cost 
 	@Min(0)
-	Double						averageEstimatedCostOfUS;
+	Double						averageEstimatedCostOfUSUSD;
 
-	double						deviationOfEstimatedCostUS;
-
-	@Min(0)
-	double						minimumEstimatedCostOfUS;
+	double						deviationOfEstimatedCostUSUSD;
 
 	@Min(0)
-	double						maximumEstimatedCostOfUS;
+	double						minimumEstimatedCostOfUSUSD;
+
+	@Min(0)
+	double						maximumEstimatedCostOfUSUSD;
 
 	//Project Cost
 	@Min(0)
-	Double						averageProjectCost;
+	Double						averageProjectCostUSD;
 
-	double						deviationOfProjectCost;
-
-	@Min(0)
-	double						minimumProjectCost;
+	double						deviationOfProjectCostUSD;
 
 	@Min(0)
-	double						maximumProjectCost;
+	double						minimumProjectCostUSD;
+
+	@Min(0)
+	double						maximumProjectCostUSD;
+
+	//User Story Cost 
+	@Min(0)
+	Double						averageEstimatedCostOfUSEUR;
+
+	double						deviationOfEstimatedCostUSEUR;
+
+	@Min(0)
+	double						minimumEstimatedCostOfUSEUR;
+
+	@Min(0)
+	double						maximumEstimatedCostOfUSEUR;
+
+	//Project Cost
+	@Min(0)
+	Double						averageProjectCostEUR;
+
+	double						deviationOfProjectCostEUR;
+
+	@Min(0)
+	double						minimumProjectCostEUR;
+
+	@Min(0)
+	double						maximumProjectCostEUR;
+
+	//User Story Cost 
+	@Min(0)
+	Double						averageEstimatedCostOfUSGBP;
+
+	double						deviationOfEstimatedCostUSGBP;
+
+	@Min(0)
+	double						minimumEstimatedCostOfUSGBP;
+
+	@Min(0)
+	double						maximumEstimatedCostOfUSGBP;
+
+	//Project Cost
+	@Min(0)
+	Double						averageProjectCostGBP;
+
+	double						deviationOfProjectCostGBP;
+
+	@Min(0)
+	double						minimumProjectCostGBP;
+
+	@Min(0)
+	double						maximumProjectCostGBP;
 
 }
