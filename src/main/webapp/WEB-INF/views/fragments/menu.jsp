@@ -44,6 +44,13 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
+			<acme:menu-suboption code="master.menu.manager.project.list" action="/manager/project/list-mine"/>
+			<acme:menu-suboption code="master.menu.manager.user-story.list" action="/manager/user-story/list-mine"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption  code="master.menu.manager.dashboard" action="manager/manager-dashboard/show"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
