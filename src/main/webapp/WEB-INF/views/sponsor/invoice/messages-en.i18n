@@ -1,0 +1,39 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+sponsor.invoice.list.title = Invoices
+
+sponsor.invoice.list.label.code = Code
+sponsor.invoice.list.label.registration = Registration Date
+sponsor.invoice.list.label.totalAmount = Total Amount
+
+sponsor.invoice.form.title = Invoice Details
+
+sponsor.invoice.form.label.code = Code
+sponsor.invoice.form.label.registration = Registration Date
+sponsor.invoice.form.label.dueDate = Due Date
+sponsor.invoice.form.label.quantity = Quantity
+sponsor.invoice.form.label.tax = Tax
+sponsor.invoice.form.label.totalAmount = Total
+sponsor.invoice.form.label.link = Link
+
+sponsor.invoice.list.button.create = Create
+
+sponsor.invoice.form.button.create = Create
+sponsor.invoice.form.button.update = Update
+sponsor.invoice.form.button.delete = Delete
+sponsor.invoice.form.button.publish = Publish
+
+sponsor.invoice.form.error.code.duplicated = Invoice already exists with this code
+sponsor.invoice.form.error.too-close = Due date must be at least one month later than its registration time
+sponsor.invoice.form.error.negative-amount = Quantity must be positive
+sponsor.invoice.form.error.invalid-currency = Invalid currency. It must match Sponsorship's currency
+sponsor.invoice.form.error.quantity-invalid = Total must be less or equal to Sponsorship amount
+sponsor.invoice.form.error.too-big = Quantity must be less than 1000000

@@ -29,25 +29,58 @@ master.menu.anonymous.favourite-link-agus = 29565167R: Devós Bono, Agustín
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.configuration.show = Show system configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.create.objective = Create objective
 
-# master.menu.provider ########################################################
+# master.menu.any ###############################################################
 
-master.menu.provider = Provider
-master.menu.provider.favourite-link = Favourite link
+master.menu.any = Any
+master.menu.any.sponsorship.list = Sponsorships
+master.menu.any.code-audit.list = List published code audits
+master.menu.anonymous.all-claims = List published claims
+master.menu.any.training-module.list = List published training module
 
-# master.menu.consumer ##########################################################
+# master.menu.auditor ##########################################################
 
-master.menu.consumer = Consumer
-master.menu.consumer.favourite-link = Favourite link
+master.menu.auditor = Auditor
+master.menu.auditor.my-code-audits = List my code audits
+master.menu.auditor.my-audit-records = List my audit records
+master.menu.auditor.dashboard = Auditor dashboard
+
+# master.menu.client ########################################################
+
+master.menu.client = Client
+master.menu.client.contract.list = List my contracts
+master.menu.client.dashboard = Show client dashboard
+
+# master.menu.developer ##########################################################
+
+master.menu.developer = Developer
+master.menu.developer.my-training-modules = List my training modules
+master.menu.developer.dashboard = Developer Dashboard
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
-master.menu.user-account.provider = Provider data
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.consumer = Consumer data
-master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.become-developer = Become an developer
+master.menu.user-account.developer = Developer data
+master.menu.notice.list = Notices
+master.menu.user-account.sponsor = Sponsor data
+master.menu.user-account.become-sponsor = Become a sponsor
+
+# master.menu.sponsor ########################################################
+
+master.menu.sponsor = Sponsor
+master.menu.sponsor.sponsorship = My Sponsorships
+master.menu.sponsor.dashboard = Statitics
+
+# master.menu.principal-authenticated ####################################################
+
+master.menu.principal-authenticated = Authenticated Principal
+master.menu.authenticated.objective = List of Objective

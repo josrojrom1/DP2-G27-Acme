@@ -1,0 +1,25 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# List labels ####################################################
+authenticated.objective.list.title = Objective list
+authenticated.objective.list.label.title = Title
+authenticated.objective.list.label.instantiationMoment = Instantiation Moment
+authenticated.objective.list.label.critical = Critical
+
+# Form labels ####################################################
+authenticated.objective.form.title = Objective form
+authenticated.objective.form.label.title = Title
+authenticated.objective.form.label.instantiationMoment = Instantiation Moment
+authenticated.objective.form.label.description = Description
+authenticated.objective.form.label.priority = Priority
+authenticated.objective.form.label.executionPeriodStart = Execution Period Start
+authenticated.objective.form.label.executionPeriodFinish = Execution Period Finish
+authenticated.objective.form.label.link = Link

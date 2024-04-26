@@ -1,0 +1,21 @@
+client.client-dashboard.form.title = Client dashboard
+
+client.client-dasboard.form.title.progress-log = Progress log indicators
+client.client-dasboard.form.label.total-number-pl-completeness-25 = Total number of progress logs with completeness below 25%
+client.client-dasboard.form.label.total-number-pl-completeness-25-50 = Total number of progress logs with completeness between 25 and 50%
+client.client-dasboard.form.label.total-number-pl-completeness-50-75 = Total number of progress logs with completeness between 50 and 75%
+client.client-dasboard.form.label.total-number-pl-completeness-75 = Total number of progress logs with completeness above 75%
+
+client.client-dasboard.form.title.contract = Contract indicators
+client.client-dasboard.form.label.contract.budget-average-USD = USD Average contract budget
+client.client-dasboard.form.label.contract.budget-deviation-USD = USD Deviation from contract budget
+client.client-dasboard.form.label.contract.budget-minimum-USD = USD Minimum contract budget
+client.client-dasboard.form.label.contract.budget-maximum-USD = USD Maximum contract budget
+client.client-dasboard.form.label.contract.budget-average-EUR = EUR Average contract budget
+client.client-dasboard.form.label.contract.budget-deviation-EUR = EUR Deviation from contract budget
+client.client-dasboard.form.label.contract.budget-minimum-EUR = EUR Minimum contract budget
+client.client-dasboard.form.label.contract.budget-maximum-EUR = EUR Maximum contract budget
+client.client-dasboard.form.label.contract.budget-average-GBP = GBP Average contract budget
+client.client-dasboard.form.label.contract.budget-deviation-GBP = GBP Deviation from contract budget
+client.client-dasboard.form.label.contract.budget-minimum-GBP = GBP Minimum contract budget
+client.client-dasboard.form.label.contract.budget-maximum-GBP = GBP Maximum contract budget
