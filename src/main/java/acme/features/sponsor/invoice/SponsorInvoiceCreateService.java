@@ -76,6 +76,9 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			super.state(existing == null, "code", "sponsor.invoice.form.error.code.duplicated");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+			super.state(object.getRegistration() != null, "dueDate", "sponsor.invoice.form.error.invalid-registration");
+
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date minimumExpirationDate;
 

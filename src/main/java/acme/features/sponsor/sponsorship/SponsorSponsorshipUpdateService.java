@@ -77,7 +77,13 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(object.getMoment() != null, "startDate", "sponsor.sponsorship.form.error.inlavid-moment-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.inlavid-start-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("expirationDate"))
+			super.state(object.getStartDate() != null, "expirationDate", "sponsor.sponsorship.form.error.start-date-not-null");
 
 		if (!super.getBuffer().getErrors().hasErrors("expirationDate")) {
 			Date minimumExpirationDate;
