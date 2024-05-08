@@ -110,7 +110,7 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 		Collection<Project> projects;
 		SelectChoices choices;
 
-		projects = this.repository.findAllProjects();
+		projects = this.repository.findAllPublishedProjects();
 		choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "provider", "customer", "goals", "budget", "published");
