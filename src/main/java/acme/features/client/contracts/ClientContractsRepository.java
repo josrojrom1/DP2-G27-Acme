@@ -31,6 +31,9 @@ public interface ClientContractsRepository extends AbstractRepository {
 	@Query("select c from Contract c where c.code = :code")
 	Contract findContractByCode(String code);
 
+	@Query("select p from Project p where p.draftMode = false")
+	Collection<Project> findAllPublishedProjects();
+
 	@Query("select p from Project p")
 	Collection<Project> findAllProjects();
 

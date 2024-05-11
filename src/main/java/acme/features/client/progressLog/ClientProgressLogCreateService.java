@@ -22,13 +22,13 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	public void authorise() {
 		boolean status;
 		int masterId;
-		Contract object;
+		Contract contract;
 		Client client;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		object = this.repository.findContractById(masterId);
-		client = object == null ? null : object.getClient();
-		status = object != null && !object.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
+		contract = this.repository.findContractById(masterId);
+		client = contract == null ? null : contract.getClient();
+		status = contract != null && contract.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
 
 		super.getResponse().setAuthorised(status);
 	}

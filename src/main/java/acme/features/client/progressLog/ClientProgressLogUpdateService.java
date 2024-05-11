@@ -29,7 +29,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		object = this.repository.findProgressLogById(objectId);
 		contract = object.getContract();
 		client = object == null ? null : contract.getClient();
-		status = object != null && !object.isPublished() && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
+		status = object != null && !object.isPublished() && contract.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -55,7 +55,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		objectId = super.getRequest().getData("id", int.class);
 		pLog = this.repository.findProgressLogById(objectId);
 
-		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract");
+		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
 		object.setContract(pLog.getContract());
 	}
 
@@ -75,7 +75,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		if (!super.getBuffer().getErrors().hasErrors("published")) {
 			ProgressLog existing;
 
-			existing = this.repository.findProgressLogByRecordId(object.getRecordId());
+			existing = this.repository.findProgressLogById(object.getId());
 			super.state(!existing.isPublished(), "published", "client.progress-log.form.error.published");
 		}
 
@@ -95,7 +95,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		Dataset dataset;
 
 		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
-		dataset.put("contract", object.getContract());
+		dataset.put("contract.code", object.getContract().getCode());
 
 		super.getResponse().addData(dataset);
 	}

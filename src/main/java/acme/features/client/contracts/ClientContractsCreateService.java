@@ -68,29 +68,34 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 			super.state(existing == null, "code", "client.contract.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-			String projectCurrency;
-			String budgetCurrency;
-
-			budgetCurrency = object.getBudget().getCurrency();
-			projectCurrency = object.getProject().getCost().getCurrency();
-			super.state(budgetCurrency.equals(projectCurrency), "budget", "client.contract.form.error.incorrect-currency");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-			double projectCost;
-			double budget;
-
-			budget = object.getBudget().getAmount();
-			projectCost = object.getProject().getCost().getAmount();
-			super.state(budget <= projectCost, "budget", "client.contract.form.error.incorrect-budget");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(object.getBudget() != null, "budget", "client.contract.form.error.null-budget");
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			double budget;
 
 			budget = object.getBudget().getAmount();
 			super.state(budget > 0, "budget", "client.contract.form.error.negative-budget");
+		}
+
+		if (object.getProject() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("budget")) {
+				String projectCurrency;
+				String budgetCurrency;
+
+				budgetCurrency = object.getBudget().getCurrency();
+				projectCurrency = object.getProject().getCost().getCurrency();
+				super.state(budgetCurrency.equals(projectCurrency), "budget", "client.contract.form.error.incorrect-currency");
+			}
+
+			if (!super.getBuffer().getErrors().hasErrors("budget")) {
+				double projectCost;
+				double budget;
+
+				budget = object.getBudget().getAmount();
+				projectCost = object.getProject().getCost().getAmount();
+				super.state(budget <= projectCost, "budget", "client.contract.form.error.incorrect-budget");
+			}
 		}
 
 	}
@@ -110,7 +115,7 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 		Collection<Project> projects;
 		SelectChoices choices;
 
-		projects = this.repository.findAllProjects();
+		projects = this.repository.findAllPublishedProjects();
 		choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "provider", "customer", "goals", "budget", "published");

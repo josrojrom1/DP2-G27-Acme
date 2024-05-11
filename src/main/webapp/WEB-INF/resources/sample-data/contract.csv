@@ -1,7 +1,9 @@
 key,code,instantiationMoment,provider,customer,goals,budget,published,key:project,key:client
-contract-01,"CON-001",2021/03/06 20:00,"prov1","cust1","Exprimir el maximo dinero posible","EUR 8.00",false,project-01,client-01
-contract-02,"CON-002",2021/04/06 04:30,"prov2","cust1","Exprimir el maximo dinero posible y estafar","USD 50.00",false,project-02,client-01
-contract-03,"CON-003",2021/11/26 21:59,"estoesunstringde75caracteres...............................................","cust2","1","EUR 1000.00",false,project-01,client-02
-contract-04,"CON-004",2020/01/06 10:30,"1","estoesunstringde75caracteres...............................................","1","USD 2356.61",false,project-02,client-02
-contract-05,"CON-005",2016/07/30 12:10,"1","1","estoesunstringde100caracteres.......................................................................","GBP 100.01",false,project-02,client-02
-contract-06,"CON-006",2010/09/01 01:00,"1","1","1","GBP 1000.91",false,project-01,client-01
+contract-01,"CON-001",2021/03/06 20:00,"prov1","cust1","Exprimir el maximo dinero posible","EUR 8.00",true,project-01,client-01
+contract-02,"CON-002",2021/04/06 04:30,"prov2","cust1","Exprimir el maximo dinero posible y estafar","EUR 50.00",true,project-02,client-01
+contract-03,"CON-003",2021/11/26 21:59,"estoesunstringde75caracteres...............................................","cust2","1","EUR 200.00",true,project-03,client-02
+contract-04,"CON-004",2020/01/06 10:30,"1","estoesunstringde75caracteres...............................................","1","GBP 30.61",true,project-06,client-02
+contract-05,"CON-005",2016/07/30 12:10,"1","1","estoesunstringde100caracteres.......................................................................","USD 100.01",false,project-05,client-02
+contract-06,"CON-006",2010/09/01 01:00,"1","1","1","EUR 100.91",false,project-010,client-01
+contract-07,"CON-007",2022/03/06 20:00,"x","1234","aaaaaaaaaaaaaaaaaaaaaaaaaaaa","GBP 10.67",false,project-015,client-01
+contract-08,"CON-008",2022/04/06 04:30,"y","1234","bbbbbbbbbbbbbbbbbbbbbbbbbbbb","USD 23.65",false,project-017,client-01

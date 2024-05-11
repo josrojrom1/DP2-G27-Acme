@@ -2,6 +2,7 @@ client.progress-log.list.title = Informes de progreso del contrato
 client.progress-log.list.label.recordId = Record Id
 client.progress-log.list.label.completeness = Completado
 client.progress-log.list.label.registrationMoment = Momento de Registro
+client.progress-log.list.label.published = Publicado
 
 client.progress-log.form.placeholder.recordId = PG-A-0000
 client.progress-log.form.placeholder.registrationMoment = yyyy/MM/dd HH:mm
