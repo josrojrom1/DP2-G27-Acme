@@ -65,11 +65,16 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
-			super.state(object.getStartPeriod().before(object.getEndPeriod()), "startPeriod", "auditor.audit-record.form.error.startPeriod_before_endPeriod");
-
+			if (object.getEndPeriod() != null)
+				super.state(object.getStartPeriod().before(object.getEndPeriod()), "startPeriod", "auditor.audit-record.form.error.startPeriod_before_endPeriod");
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
-			super.state(Duration.between(object.getStartPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(), object.getEndPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()).toHours() >= 1, "startPeriod",
-				"auditor.audit-record.form.error.one_hour_period");
+			if (object.getEndPeriod() != null)
+
+				super.state(Duration.between(object.getStartPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(), object.getEndPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()).toHours() >= 1, "startPeriod",
+					"auditor.audit-record.form.error.one_hour_period");
+
+		//if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
+		//	super.state(object.getStartPeriod().before(object.getEndPeriod()), "startPeriod", "auditor.audit-record.form.error.startPeriod_before_endPeriod");
 
 	}
 

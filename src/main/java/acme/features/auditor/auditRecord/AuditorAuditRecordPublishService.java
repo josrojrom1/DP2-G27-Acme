@@ -61,11 +61,15 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
-			super.state(object.getStartPeriod().before(object.getEndPeriod()), "startPeriod", "auditor.audit-record.form.error.startPeriod_before_endPeriod");
+			if (object.getEndPeriod() != null)
+
+				super.state(object.getStartPeriod().before(object.getEndPeriod()), "startPeriod", "auditor.audit-record.form.error.startPeriod_before_endPeriod");
 
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
-			super.state(Duration.between(object.getStartPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(), object.getEndPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()).toHours() >= 1, "startPeriod",
-				"auditor.audit-record.form.error.one_hour_period");
+			if (object.getEndPeriod() != null)
+
+				super.state(Duration.between(object.getStartPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(), object.getEndPeriod().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()).toHours() >= 1, "startPeriod",
+					"auditor.audit-record.form.error.one_hour_period");
 	}
 
 	@Override
@@ -81,11 +85,11 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 		SelectChoices markChoices;
 		markChoices = SelectChoices.from(Mark.class, object.getMark());
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link");
+		dataset = super.unbind(object, "code", "startPeriod", "endPeriod", "mark", "link", "draftMode");
 		dataset.put("marks", markChoices);
 		dataset.put("mark", markChoices.getSelected().getKey());
 		dataset.put("masterId", object.getCodeAudit().getId());
-		dataset.put("draftMode", false);
+		dataset.put("draftMode", object.getCodeAudit().isDraftMode());
 		super.getResponse().addData(dataset);
 	}
 
