@@ -46,6 +46,65 @@
 </h2>
 
 <table class="table table-sm">
+
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.auditor-dasboard.form.label.average-auditRecords"/>
+		</th>
+		<td>			
+			<jstl:if test="${averageOfAuditRecords != 0 }">
+		
+				<acme:print value="${averageOfAuditRecords}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.auditor-dasboard.form.label.deviation-auditRecords"/>
+		</th>
+		<td>			
+			<jstl:if test="${deviationOfAuditRecords != 0 }">
+		
+				<acme:print value="${deviationOfAuditRecords}"/>
+			</jstl:if>
+		</td>
+	</tr>
+	
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.auditor-dasboard.form.label.minimum-auditRecords"/>
+		</th>
+		<td>			
+		
+				<acme:print value="${minimumOfAuditRecords}"/>
+		</td>
+	</tr>
+	
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.auditor-dasboard.form.label.maximum-auditRecords"/>
+		</th>
+		<td>			
+		
+				<acme:print value="${maximumOfAuditRecords}"/>
+		</td>
+	</tr>
+	
+	
+	
+	
+</table>
+	
+
+<h2>
+	<acme:message code="auditor.auditor-dasboard.form.title.auditRecords.period-indicators"/>
+</h2>
+
+<table class="table table-sm">
+
+
+
 	<tr>
 		<th scope="row">
 			<acme:message code="auditor.auditor-dasboard.form.label.average-auditRecords-periodLength"/>
@@ -75,10 +134,8 @@
 			<acme:message code="auditor.auditor-dasboard.form.label.min-auditRecords-periodLength"/>
 		</th>
 		<td>			
-			<jstl:if test="${auditRecordsPeriodLengthMinimum != 0 }">
 		
 				<acme:print value="${auditRecordsPeriodLengthMinimum}"/>
-			</jstl:if>
 		</td>
 	</tr>
 	
@@ -87,10 +144,8 @@
 			<acme:message code="auditor.auditor-dasboard.form.label.max-auditRecords-periodLength"/>
 		</th>
 		<td>			
-			<jstl:if test="${auditRecordsPeriodLengthMaximum != 0 }">
 		
 				<acme:print value="${auditRecordsPeriodLengthMaximum}"/>
-			</jstl:if>
 		</td>
 	</tr>
 	

@@ -13,6 +13,7 @@ auditor.auditor-dashboard.form.title = Panel de control del auditor
 
 auditor.auditor-dasboard.form.title.audits.general-indicators = Indicadores de auditorías
 auditor.auditor-dasboard.form.title.auditRecords.general-indicators = Indicadores de registros de auditoría
+auditor.auditor-dasboard.form.title.auditRecords.period-indicators = Indicadores de periodos de registros de auditoría
 
 auditor.auditor-dasboard.form.label.total-number-static-type-codeAudits = Número total de auditorías estáticas
 auditor.auditor-dasboard.form.label.total-number-dynamic-type-codeAudits = Número total de auditorías dinámicas
