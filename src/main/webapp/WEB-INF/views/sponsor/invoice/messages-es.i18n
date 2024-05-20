@@ -31,6 +31,8 @@ sponsor.invoice.form.button.update = Actualizar
 sponsor.invoice.form.button.delete = Eliminar
 sponsor.invoice.form.button.publish = Publicar
 
+sponsor.invoice.form.error.too-soon = La fecha debe ser posterior a 2000/01/01 00:00
+sponsor.invoice.form.error.too-late = La fecha debe ser anterior a 2200/12/31 23:59
 sponsor.invoice.form.error.code.duplicated = Ya existe una factura con este código
 sponsor.invoice.form.error.invalid-registration = Debe existir una fecha de registro
 sponsor.invoice.form.error.too-close = La fecha de vencimiento debe ser al menos un mes posterior a su hora de registro

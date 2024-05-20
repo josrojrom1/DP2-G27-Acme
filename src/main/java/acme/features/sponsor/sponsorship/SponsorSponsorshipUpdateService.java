@@ -69,6 +69,9 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
+		final Date baseDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
+		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship existing;
 
@@ -76,11 +79,24 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			super.state(existing == null || object.getId() == existing.getId(), "code", "sponsor.sponsorship.form.error.code.duplicated");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("moment"))
+			super.state(MomentHelper.isAfter(object.getMoment(), baseDate), "moment", "sponsor.sponsorship.form.error.too-soon");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			super.state(MomentHelper.isAfter(object.getStartDate(), baseDate), "startDate", "sponsor.sponsorship.form.error.too-soon");
+			super.state(MomentHelper.isBefore(object.getStartDate(), topDate), "startDate", "sponsor.sponsorship.form.error.too-late");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(object.getMoment() != null, "startDate", "sponsor.sponsorship.form.error.inlavid-moment-date");
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.inlavid-start-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("expirationDate")) {
+			super.state(MomentHelper.isAfter(object.getExpirationDate(), baseDate), "expirationDate", "sponsor.sponsorship.form.error.too-soon");
+			super.state(MomentHelper.isBefore(object.getExpirationDate(), topDate), "expirationDate", "sponsor.sponsorship.form.error.too-late");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("expirationDate"))
 			super.state(object.getStartDate() != null, "expirationDate", "sponsor.sponsorship.form.error.start-date-not-null");

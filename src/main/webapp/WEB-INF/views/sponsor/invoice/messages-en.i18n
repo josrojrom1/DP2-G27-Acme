@@ -31,6 +31,8 @@ sponsor.invoice.form.button.update = Update
 sponsor.invoice.form.button.delete = Delete
 sponsor.invoice.form.button.publish = Publish
 
+sponsor.invoice.form.error.too-soon = Date must be after 2000/01/01 00:00
+sponsor.invoice.form.error.too-late = Date must be before 2200/12/31 23:59
 sponsor.invoice.form.error.code.duplicated = Invoice already exists with this code
 sponsor.invoice.form.error.invalid-registration = Registration may not be null
 sponsor.invoice.form.error.too-close = Due date must be at least one month later than its registration time
