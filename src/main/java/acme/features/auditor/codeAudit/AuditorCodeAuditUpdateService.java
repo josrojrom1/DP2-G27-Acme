@@ -3,6 +3,7 @@ package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditRecord;
@@ -77,6 +79,16 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			existing = this.repository.findOneCodeAuditByCode(object.getCode());
 			super.state(existing == null || existing.getId() == object.getId(), "code", "auditor.code-audit.form.error.code.duplicated");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("execution"))
+			if (object.getExecution() != null) {
+
+				Date fechaMin = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
+				Date fechaMax = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
+
+				super.state(object.getExecution().before(fechaMax), "execution", "auditor-code-audit.form.error.execution-max-date");
+				super.state(object.getExecution().after(fechaMin), "execution", "auditor-code-audit.form.error.execution-min-date");
+
+			}
 
 	}
 

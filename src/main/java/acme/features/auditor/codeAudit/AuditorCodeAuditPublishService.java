@@ -3,6 +3,7 @@ package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditRecord;
@@ -78,6 +80,17 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		if (!super.getBuffer().getErrors().hasErrors("mark"))
 			super.state(object.getMark() != Mark.F && object.getMark() != Mark.F_MINUS, "mark", "auditor.code-audit.form.error.mark.minimumMark");
+
+		if (!super.getBuffer().getErrors().hasErrors("execution"))
+			if (object.getExecution() != null) {
+
+				Date fechaMin = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
+				Date fechaMax = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
+
+				super.state(object.getExecution().before(fechaMax), "execution", "auditor-code-audit.form.error.execution-max-date");
+				super.state(object.getExecution().after(fechaMin), "execution", "auditor-code-audit.form.error.execution-min-date");
+
+			}
 	}
 	@Override
 	public void perform(final CodeAudit object) {

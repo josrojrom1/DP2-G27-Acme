@@ -35,3 +35,5 @@ auditor.code-audit.form.button.create = Crear
 # Validation form errors #########################################
 auditor.code-audit.form.error.code.duplicated = El código insertado ya existe, por favor pruebe con otro
 auditor.code-audit.form.error.mark.minimumMark = La nota mínima para publicar la auditoría debe ser igual o mayor a C
+auditor-code-audit.form.error.execution-min-date = La fecha debe ser posterior a 01/01/2000/ 00:00
+auditor-code-audit.form.error.execution-max-date = La fecha máxima es 31/12/2200 23:59
