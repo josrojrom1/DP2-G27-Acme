@@ -31,4 +31,5 @@ auditor.audit-record.form.button.create = Create new audit record
 auditor.audit-record.form.error.code.duplicated = The inserted code already exists, please try another one
 auditor.audit-record.form.error.startPeriod_before_endPeriod = The start date must be before the end date
 auditor.audit-record.form.error.one_hour_period = The difference between the start and end date must be at least one hour
-auditor.audit-record.form.error.min.valid.date = The base date is 31/12/2200 23:59
+auditor-audit-record.form.error.execution-min-date = Minimum date is 2000/01/01 00:00
+auditor-audit-record.form.error.execution-max-date = Maximum date is 2200/12/31 23:59

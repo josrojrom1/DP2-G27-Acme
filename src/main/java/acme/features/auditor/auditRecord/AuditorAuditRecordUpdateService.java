@@ -77,8 +77,8 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 				Date fechaMin = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
 				Date fechaMax = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
 
-				super.state(object.getStartPeriod().before(fechaMax), "startPeriod", "auditor-code-audit.form.error.execution-max-date");
-				super.state(object.getStartPeriod().after(fechaMin), "startPeriod", "auditor-code-audit.form.error.execution-min-date");
+				super.state(object.getStartPeriod().before(fechaMax), "startPeriod", "auditor-audit-record.form.error.execution-max-date");
+				super.state(object.getStartPeriod().after(fechaMin), "startPeriod", "auditor-audit-record.form.error.execution-min-date");
 
 			}
 
@@ -88,8 +88,8 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 				Date fechaMin = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
 				Date fechaMax = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
 
-				super.state(object.getEndPeriod().before(fechaMax), "endPeriod", "auditor-code-audit.form.error.execution-max-date");
-				super.state(object.getEndPeriod().after(fechaMin), "endPeriod", "auditor-code-audit.form.error.execution-min-date");
+				super.state(object.getEndPeriod().before(fechaMax), "endPeriod", "auditor-audit-record.form.error.execution-max-date");
+				super.state(object.getEndPeriod().after(fechaMin), "endPeriod", "auditor-audit-record.form.error.execution-min-date");
 
 			}
 	}
