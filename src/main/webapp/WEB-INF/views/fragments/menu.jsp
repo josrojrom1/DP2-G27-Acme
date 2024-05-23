@@ -81,7 +81,7 @@
 			<acme:menu-suboption code="master.menu.manager.project.list" action="/manager/project/list-mine"/>
 			<acme:menu-suboption code="master.menu.manager.user-story.list" action="/manager/user-story/list-mine"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption  code="master.menu.manager.dashboard" action="manager/manager-dashboard/show"/>
+			<acme:menu-suboption  code="master.menu.manager.dashboard" action="/manager/manager-dashboard/show"/>
 		</acme:menu-option>
 	</acme:menu-left>
 	<!-- RIGHT MENU -->
