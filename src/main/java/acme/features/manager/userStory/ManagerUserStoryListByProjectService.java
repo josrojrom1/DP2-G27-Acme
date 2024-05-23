@@ -10,19 +10,13 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
-import acme.features.manager.project.ManagerProjectRepository;
-import acme.features.manager.projectUserStory.ManagerProjectUserStoryRepository;
 import acme.roles.Manager;
 
 @Service
 public class ManagerUserStoryListByProjectService extends AbstractService<Manager, UserStory> {
 
 	@Autowired
-	protected ManagerUserStoryRepository		repository;
-	@Autowired
-	private ManagerProjectUserStoryRepository	pUSRepository;
-	@Autowired
-	private ManagerProjectRepository			pRepository;
+	protected ManagerUserStoryRepository repository;
 
 
 	@Override
@@ -30,10 +24,12 @@ public class ManagerUserStoryListByProjectService extends AbstractService<Manage
 		Boolean status;
 		int masterId;
 		Project project;
+		Manager manager;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		project = this.pRepository.findProjectById(masterId);
-		status = project != null && super.getRequest().getPrincipal().hasRole(Manager.class) && super.getRequest().getPrincipal().getActiveRoleId() == project.getManager().getId();
+		project = this.repository.findProjectById(masterId);
+		manager = project == null ? null : project.getManager();
+		status = project != null && super.getRequest().getPrincipal().hasRole(manager);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -44,7 +40,7 @@ public class ManagerUserStoryListByProjectService extends AbstractService<Manage
 		int projectId;
 
 		projectId = super.getRequest().getData("masterId", int.class);
-		objects = this.pUSRepository.getUserStoryByProject(projectId);
+		objects = this.repository.getUserStoryByProject(projectId);
 
 		super.getBuffer().addData(objects);
 	}
@@ -69,7 +65,7 @@ public class ManagerUserStoryListByProjectService extends AbstractService<Manage
 		final boolean showCreate;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		project = this.pRepository.findProjectById(masterId);
+		project = this.repository.findProjectById(masterId);
 		showCreate = project.isDraftMode() && super.getRequest().getPrincipal().getActiveRoleId() == project.getManager().getId();
 
 		super.getResponse().addGlobal("masterId", masterId);

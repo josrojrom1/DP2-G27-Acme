@@ -17,13 +17,12 @@
 
 <acme:form>
 
-		<acme:input-textbox code="manager.project.list.label.code" path="code"/>
-		<acme:input-textbox code="manager.project.list.label.title" path="title"/>
-		<acme:input-textbox code="manager.project.list.label.description" path="description"/>
-		<acme:input-checkbox code="manager.project.list.label.draftMode" path="draftMode"/>
-		<acme:input-checkbox code="manager.project.list.label.indication" path="indication"/>
-		<acme:input-integer code="manager.project.list.label.cost" path="cost"/>
-		<acme:input-url code="manager.project.list.label.link" path="link"/>
+		<acme:input-textbox code="manager.project.list.label.code" path="code" readonly="${draftMode == false}"/>
+		<acme:input-textbox code="manager.project.list.label.title" path="title" readonly="${draftMode == false}"/>
+		<acme:input-textbox code="manager.project.list.label.description" path="description" readonly="${draftMode == false}"/>
+		<acme:input-checkbox code="manager.project.list.label.indication" path="indication" readonly="${draftMode == false}"/>
+		<acme:input-integer code="manager.project.list.label.cost" path="cost" readonly="${draftMode == false}"/>
+		<acme:input-url code="manager.project.list.label.link" path="link" readonly="${draftMode == false}"/>
 
 	<jstl:choose>	 
 			<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
