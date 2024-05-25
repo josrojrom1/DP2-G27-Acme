@@ -43,3 +43,4 @@ sponsor.sponsorship.form.error.too-close = Su fecha de vencimiento debe ser al m
 sponsor.sponsorship.form.error.negative-amount = El coste del patrocinio debe ser positivo
 sponsor.sponsorship.form.error.too-big = El coste del patrocinio debe ser menor de 1000000
 sponsor.sponsorship.form.error.invoices-inconsistency = El total de las facturas no coincide con el coste del patrocinio
+sponsor.sponsorship.form.error.project.published = El proyecto seleccionado debe estar publicado

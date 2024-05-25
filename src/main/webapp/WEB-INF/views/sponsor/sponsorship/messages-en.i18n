@@ -43,3 +43,4 @@ sponsor.sponsorship.form.error.too-close = Expiration date must be at least one 
 sponsor.sponsorship.form.error.negative-amount = Sponsorship amount must be positive
 sponsor.sponsorship.form.error.too-big = Sponsorship amount must be less than 1000000
 sponsor.sponsorship.form.error.invoices-inconsistency = Invoices' total amount do not match Sponsorship's amount
+sponsor.sponsorship.form.error.project.published = Selected project must be published
