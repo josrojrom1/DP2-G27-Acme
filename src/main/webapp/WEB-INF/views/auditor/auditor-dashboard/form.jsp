@@ -76,8 +76,10 @@
 			<acme:message code="auditor.auditor-dasboard.form.label.minimum-auditRecords"/>
 		</th>
 		<td>			
-		
+			<jstl:if test="${minimumOfAuditRecords > -1 }">
 				<acme:print value="${minimumOfAuditRecords}"/>
+			</jstl:if>
+				
 		</td>
 	</tr>
 	
@@ -86,8 +88,10 @@
 			<acme:message code="auditor.auditor-dasboard.form.label.maximum-auditRecords"/>
 		</th>
 		<td>			
-		
+			<jstl:if test="${maximumOfAuditRecords > -1 }">
 				<acme:print value="${maximumOfAuditRecords}"/>
+			</jstl:if>
+				
 		</td>
 	</tr>
 	
@@ -134,8 +138,10 @@
 			<acme:message code="auditor.auditor-dasboard.form.label.min-auditRecords-periodLength"/>
 		</th>
 		<td>			
-		
+			<jstl:if test="${auditRecordsPeriodLengthMinimum > -1 }">
 				<acme:print value="${auditRecordsPeriodLengthMinimum}"/>
+			</jstl:if>
+			
 		</td>
 	</tr>
 	
@@ -144,8 +150,10 @@
 			<acme:message code="auditor.auditor-dasboard.form.label.max-auditRecords-periodLength"/>
 		</th>
 		<td>			
-		
+			<jstl:if test="${auditRecordsPeriodLengthMaximum > -1 }">
 				<acme:print value="${auditRecordsPeriodLengthMaximum}"/>
+			</jstl:if>
+				
 		</td>
 	</tr>
 	

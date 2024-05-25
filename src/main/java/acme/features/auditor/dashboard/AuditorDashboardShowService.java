@@ -72,13 +72,13 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		try {
 			auditRecordsPeriodLengthMinimum = this.repository.auditRecordsPeriodLengthMinimum(id);
 		} catch (Exception e) {
-			auditRecordsPeriodLengthMinimum = 0;
+			auditRecordsPeriodLengthMinimum = -1;
 		}
 
 		try {
 			auditRecordsPeriodLengthMaximum = this.repository.auditRecordsPeriodLengthMaximum(id);
 		} catch (Exception e) {
-			auditRecordsPeriodLengthMaximum = 0;
+			auditRecordsPeriodLengthMaximum = -1;
 		}
 
 		try {
@@ -96,13 +96,13 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		try {
 			minimumOfAuditRecords = this.repository.minimumAuditRecords(id);
 		} catch (Exception e) {
-			minimumOfAuditRecords = 0;
+			minimumOfAuditRecords = -1;
 		}
 
 		try {
 			maximumOfAuditRecords = this.repository.maximumAuditRecords(id);
 		} catch (Exception e) {
-			maximumOfAuditRecords = 0;
+			maximumOfAuditRecords = -1;
 		}
 
 		dashboard = new AuditorDashboard();
