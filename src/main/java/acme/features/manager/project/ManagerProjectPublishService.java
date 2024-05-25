@@ -10,7 +10,6 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
-import acme.features.manager.projectUserStory.ManagerProjectUserStoryRepository;
 import acme.roles.Manager;
 
 @Service
@@ -19,9 +18,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository			repository;
-	@Autowired
-	private ManagerProjectUserStoryRepository	pUSRepository;
+	private ManagerProjectRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -30,9 +27,13 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	public void authorise() {
 		boolean status;
 		Project project;
+		Manager manager;
+
 		int id = super.getRequest().getData("id", int.class);
 		project = this.repository.findProjectById(id);
-		status = project != null && super.getRequest().getPrincipal().hasRole(Manager.class) && super.getRequest().getPrincipal().getActiveRoleId() == project.getManager().getId() && project.isDraftMode();
+		manager = project == null ? null : project.getManager();
+		status = project != null && super.getRequest().getPrincipal().hasRole(manager) && project.isDraftMode();
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -44,8 +45,6 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findProjectById(id);
 
-		object.setDraftMode(false);
-
 		super.getBuffer().addData(object);
 	}
 
@@ -53,20 +52,20 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	public void bind(final Project object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "description", "indication", "draftMode", "cost", "link");
+		super.bind(object, "code", "title", "description", "indication", "cost", "link");
 	}
 
 	@Override
 	public void validate(final Project object) {
 		assert object != null;
 
-		Collection<UserStory> userStories = this.pUSRepository.getUserStoryByProject(object.getId());
+		Collection<UserStory> userStories = this.repository.getUserStoryByProject(object.getId());
 
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
-			super.state(userStories.stream().allMatch(x -> !x.getDraftMode()), "draftMode", "manager.user-story.publish.error.no-publisheds");
+			super.state(userStories.stream().allMatch(x -> !x.isDraftMode()), "*", "manager.user-story.publish.error.no-publisheds");
 
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
-			super.state(userStories.size() >= 1, "draftMode", "manager.user-story.publish.error.no-userStories");
+			super.state(!userStories.isEmpty(), "*", "manager.user-story.publish.error.no-userStories");
 
 		if (!super.getBuffer().getErrors().hasErrors("indication"))
 			super.state(!object.isIndication(), "indication", "manager.user-story.publish.error.no-errors");
@@ -76,8 +75,12 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	public void perform(final Project object) {
 		assert object != null;
 
-		object.setDraftMode(false);
-		this.repository.save(object);
+		Project project;
+
+		project = this.repository.findProjectById(object.getId());
+		project.setDraftMode(false);
+
+		this.repository.save(project);
 	}
 
 	@Override
@@ -87,5 +90,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		Dataset dataset;
 
 		dataset = super.unbind(object, "code", "title", "description", "indication", "draftMode", "cost", "link");
+
+		super.getResponse().addData(dataset);
 	}
 }

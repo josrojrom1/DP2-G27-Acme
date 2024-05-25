@@ -17,32 +17,32 @@ public class ManagerDashboard extends AbstractForm {
 
 	//User Story Priorities
 	@Min(0)
-	int							totalNumOfMustUserStories;
+	int							totalMustUserStories;
 
 	@Min(0)
-	int							totalNumOfShouldUserStories;
+	int							totalShouldUserStories;
 
 	@Min(0)
-	int							totalNumOfCouldUserStories;
+	int							totalCouldUserStories;
 
 	@Min(0)
-	int							totalNumOfWontUserStories;
+	int							totalWontUserStories;
 
 	//User Story Cost 
 	@Min(0)
-	Double						averageEstimatedCostOfUSUSD;
+	double						averageUserStoryCost;
 
-	double						deviationOfEstimatedCostUSUSD;
-
-	@Min(0)
-	double						minimumEstimatedCostOfUSUSD;
+	double						deviationUserStoryCost;
 
 	@Min(0)
-	double						maximumEstimatedCostOfUSUSD;
+	double						minimumUserStoryCost;
 
-	//Project Cost
 	@Min(0)
-	Double						averageProjectCostUSD;
+	double						maximumUserStoryCost;
+
+	//Project Cost (USD)
+	@Min(0)
+	double						averageProjectCostUSD;
 
 	double						deviationOfProjectCostUSD;
 
@@ -52,21 +52,9 @@ public class ManagerDashboard extends AbstractForm {
 	@Min(0)
 	double						maximumProjectCostUSD;
 
-	//User Story Cost 
+	//Project Cost (EUR)
 	@Min(0)
-	Double						averageEstimatedCostOfUSEUR;
-
-	double						deviationOfEstimatedCostUSEUR;
-
-	@Min(0)
-	double						minimumEstimatedCostOfUSEUR;
-
-	@Min(0)
-	double						maximumEstimatedCostOfUSEUR;
-
-	//Project Cost
-	@Min(0)
-	Double						averageProjectCostEUR;
+	double						averageProjectCostEUR;
 
 	double						deviationOfProjectCostEUR;
 
@@ -76,21 +64,9 @@ public class ManagerDashboard extends AbstractForm {
 	@Min(0)
 	double						maximumProjectCostEUR;
 
-	//User Story Cost 
+	//Project Cost (GBP)
 	@Min(0)
-	Double						averageEstimatedCostOfUSGBP;
-
-	double						deviationOfEstimatedCostUSGBP;
-
-	@Min(0)
-	double						minimumEstimatedCostOfUSGBP;
-
-	@Min(0)
-	double						maximumEstimatedCostOfUSGBP;
-
-	//Project Cost
-	@Min(0)
-	Double						averageProjectCostGBP;
+	double						averageProjectCostGBP;
 
 	double						deviationOfProjectCostGBP;
 

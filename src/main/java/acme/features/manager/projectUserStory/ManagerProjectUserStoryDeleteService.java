@@ -1,7 +1,5 @@
 
-package acme.features.manager.project;
-
-import java.util.Collection;
+package acme.features.manager.projectUserStory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,12 +11,12 @@ import acme.entities.projects.ProjectUserStory;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectDeleteService extends AbstractService<Manager, Project> {
+public class ManagerProjectUserStoryDeleteService extends AbstractService<Manager, ProjectUserStory> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private ManagerProjectUserStoryRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -26,13 +24,13 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	@Override
 	public void authorise() {
 		boolean status;
-		Project project;
+		ProjectUserStory projectUserStory;
 		Manager manager;
 
 		int id = super.getRequest().getData("id", int.class);
-		project = this.repository.findProjectById(id);
-		manager = project == null ? null : project.getManager();
-		status = project != null && super.getRequest().getPrincipal().hasRole(manager) && project.isDraftMode();
+		projectUserStory = this.repository.findProjectUserStoryById(id);
+		manager = projectUserStory == null ? null : projectUserStory.getProject().getManager();
+		status = projectUserStory != null && super.getRequest().getPrincipal().hasRole(manager) && projectUserStory.getProject().isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,38 +47,31 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	}
 
 	@Override
-	public void bind(final Project object) {
+	public void bind(final ProjectUserStory object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "description", "indication", "cost", "link");
+		super.bind(object, "project", "userStory");
 	}
 
 	@Override
-	public void validate(final Project object) {
+	public void validate(final ProjectUserStory object) {
 		assert object != null;
 	}
 
 	@Override
-	public void perform(final Project object) {
+	public void perform(final ProjectUserStory object) {
 		assert object != null;
-
-		Collection<ProjectUserStory> projectUserStory;
-
-		projectUserStory = this.repository.getRelationsByProject(object.getId());
-
-		if (projectUserStory != null && !projectUserStory.isEmpty())
-			this.repository.deleteAll(projectUserStory);
 
 		this.repository.delete(object);
 	}
 
 	@Override
-	public void unbind(final Project object) {
+	public void unbind(final ProjectUserStory object) {
 		assert object != null;
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "title", "description", "indication", "draftMode", "cost", "link");
+		dataset = super.unbind(object, "project", "userStory");
 
 		super.getResponse().addData(dataset);
 	}

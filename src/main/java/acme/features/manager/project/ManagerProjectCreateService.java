@@ -1,9 +1,14 @@
 
 package acme.features.manager.project;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
@@ -39,7 +44,6 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 		object = new Project();
 		object.setManager(manager);
 		object.setDraftMode(true);
-		object.setIndication(false);
 
 		super.getBuffer().addData(object);
 	}
@@ -48,24 +52,32 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	public void bind(final Project object) {
 		assert object != null;
 
-		super.bind(object, "manager", "code", "title", "description", "indication", "draftMode", "cost", "link");
+		super.bind(object, "code", "title", "description", "indication", "cost", "link");
 	}
 
 	@Override
 	public void validate(final Project object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Project existing = this.repository.findProjectByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "manager.project.form.error.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("cost")) {
+			final Money cost = object.getCost();
+
+			super.state(cost.getAmount() >= 0, "cost", "manager.project.form.error.cost.negative-amount");
+			super.state(cost.getAmount() <= 1000000, "cost", "manager.project.form.error.cost.too-big");
+
+			final List<String> acceptedCurrencies = Arrays.asList(this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",")).stream().map(String::trim).collect(Collectors.toList());
+			super.state(acceptedCurrencies.contains(cost.getCurrency()), "cost", "manager.project.form.error.cost.currency");
+		}
 	}
 
 	@Override
 	public void perform(final Project object) {
 		assert object != null;
-
-		int id = super.getRequest().getPrincipal().getActiveRoleId();
-		Manager manager = this.repository.findManagerById(id);
-
-		object.setManager(manager);
-		object.setDraftMode(true);
-		object.setIndication(false);
 
 		this.repository.save(object);
 	}
@@ -76,9 +88,7 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "manager", "code", "title", "description", "indication", "draftMode", "cost", "link");
-		dataset.put("confirmation", false);
-		dataset.put("readonly", false);
+		dataset = super.unbind(object, "code", "title", "description", "indication", "cost", "link");
 
 		super.getResponse().addData(dataset);
 	}

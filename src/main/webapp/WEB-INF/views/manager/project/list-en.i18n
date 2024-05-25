@@ -1,0 +1,33 @@
+<%--
+- list-es.i18n
+-
+- Copyright (C) 2012-2024 Rafael Corchuelo.
+-
+- In keeping with the traditional purpose of furthering education and research, it is
+- the policy of the copyright owner to permit non-commercial use and redistribution of
+- this software. It has been tested carefully, but it is not guaranteed for any particular
+- purposes.  The copyright owner does not offer any warranties or representations, nor do
+- they accept any liabilities with respect to them.
+--%>
+
+manager.project.list.label.code = Code
+manager.project.list.label.title = Title
+manager.project.list.label.description = Description
+manager.project.list.label.indication = Fatal Errors
+manager.project.list.label.draftMode = Draft Mode
+manager.project.list.label.cost = Cost
+manager.project.list.label.link = Link
+manager.project.list.title = Project List
+manager.project.form.title = Project Details
+manager.project.update = Update
+manager.project.delete = Delete
+manager.project.create = Create
+manager.project.publish = Publish
+
+manager.project.form.error.duplicated = The project code already exists
+manager.project.form.error.negative-total-cost = Project cost must be positive
+manager.project.form.error.exceed-limit-total-cost = Project cost is too big
+manager.project.form.error.cost.currency = This currency is not valid in our system
+manager.user-story.publish.error.no-errors = The project can't be published with fatal errors
+manager.user-story.publish.error.no-publisheds = All user story in the project must be published
+manager.user-story.publish.error.no-userStories = The project must have at least one associated user story 
