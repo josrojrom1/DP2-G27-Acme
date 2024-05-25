@@ -48,7 +48,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 	public void bind(final UserStory object) {
 		assert object != null;
 
-		super.bind(object, "manager", "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
+		super.bind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 		SelectChoices priorityChoices;
 		priorityChoices = SelectChoices.from(PriorityEnum.class, object.getPriority());
 
-		dataset = super.unbind(object, "manager", "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
+		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
 		dataset.put("priorities", priorityChoices);
 		dataset.put("draftMode", true);
 

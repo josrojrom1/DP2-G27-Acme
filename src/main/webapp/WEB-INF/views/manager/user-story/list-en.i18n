@@ -23,5 +23,5 @@ manager.user-story.update = Update
 manager.user-story.delete = Delete
 manager.user-story.create = Create
 manager.user-story.publish = Publish
-manager.user-story.create-project = Create a US for this Project
+manager.project-user-story.create = Add a US to this Project
 manager.user-story.list-project = USs in this project

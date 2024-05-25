@@ -54,6 +54,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.all-claims" action="/any/claim/list"/>
 			<acme:menu-suboption code="master.menu.any.training-module.list" action="/any/training-module/list"/>
 			<acme:menu-suboption code="master.menu.any.sponsorship.list" action="/any/sponsorship/list"/>
+			<acme:menu-suboption code="master.menu.any.project.list" action="/any/project/list"/>
 		</acme:menu-option>
 		<!-- AUDITOR SECTION -->
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">			
@@ -99,6 +100,9 @@
 			<!-- BECOME DEVELOPER -->
 			<acme:menu-suboption code="master.menu.user-account.become-developer" action="/authenticated/developer/create" access="!hasRole('Developer')"/>
 			<acme:menu-suboption code="master.menu.user-account.developer" action="/authenticated/developer/update" access="hasRole('Developer')"/>
+			<!-- BECOME MANAGER -->
+			<acme:menu-suboption code="master.menu.user-account.become-manager" action="/authenticated/manager/create" access="!hasRole('Manager')"/>
+			<acme:menu-suboption code="master.menu.user-account.manager" action="/authenticated/manager/update" access="hasRole('Manager')"/>
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.sign-out" action="/authenticated/system/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>

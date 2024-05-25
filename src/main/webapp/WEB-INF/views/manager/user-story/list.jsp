@@ -23,7 +23,7 @@
 
 <jstl:choose> 
 		<jstl:when test="${showCreate}">
-			<acme:button code="manager.user-story.create-project" action="/manager/user-story/create-project?masterId=${masterId}"/>		
+			<acme:button code="manager.project-user-story.create" action="/manager/project-user-story/create?masterId=${param.masterId}"/>		
 		</jstl:when>
 		<jstl:when test="${_command == 'list-mine'}">
 			<acme:button code="manager.user-story.create" action="/manager/user-story/create"/>		

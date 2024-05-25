@@ -43,6 +43,7 @@ master.menu.any.sponsorship.list = Patrocinios
 master.menu.any.code-audit.list = Listar auditorías de código publicadas 
 master.menu.anonymous.all-claims = Lista de Reclamos publicados
 master.menu.any.training-module.list = Lista de Módulos de formación publicados
+master.menu.any.project.list = Lista de Proyectos publicados
 
 # master.menu.auditor ##########################################################
 
@@ -65,7 +66,7 @@ master.menu.developer.dashboard = Panel de desarrollador
 
 # master.menu.manager ##########################################################
 
-master.menu.manager = Manager
+master.menu.manager = Gerente
 master.menu.manager.project.list = Listado de Proyectos
 master.menu.manager.user-story.list = Listado de HUs
 
@@ -80,6 +81,9 @@ master.menu.user-account.developer = Datos de desarrollador
 master.menu.notice.list = Notificaciones
 master.menu.user-account.sponsor = Datos de patrocinador
 master.menu.user-account.become-sponsor = Hazte patrocinador
+master.menu.user-account.manager = Datos de gerente
+master.menu.user-account.become-manager = Hazte gerente
+
 
 # master.menu.sponsor #########################################################
 

@@ -85,7 +85,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.user-stories-minimum"/>
 		</th>
 		<td>
-			<jstl:if test="${minimumUserStoryCost != 0}">
+			<jstl:if test="${averageUserStoryCost != 0}">
 				<acme:print value = "${minimumUserStoryCost}"/>
 			</jstl:if>
 		</td>
@@ -132,7 +132,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-minimum"/>
 		</th>
 		<td>
-			<jstl:if test="${minimumProjectCostUSD != 0}">
+			<jstl:if test="${minimumProjectCostUSD >= 0}">
 				<acme:print value = "${minimumProjectCostUSD}"/>
 			</jstl:if>
 		</td>
@@ -179,7 +179,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-minimum"/>
 		</th>
 		<td>
-			<jstl:if test="${minimumProjectCostEUR != 0}">
+			<jstl:if test="${minimumProjectCostEUR >= 0}">
 				<acme:print value = "${minimumProjectCostEUR}"/>
 			</jstl:if>
 		</td>
@@ -226,7 +226,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-minimum"/>
 		</th>
 		<td>
-			<jstl:if test="${minimumProjectCostGBP != 0}">
+			<jstl:if test="${minimumProjectCostGBP >= 0}">
 				<acme:print value = "${minimumProjectCostGBP}"/>
 			</jstl:if>
 		</td>

@@ -23,5 +23,5 @@ manager.user-story.update = Actualizar
 manager.user-story.delete = Eliminar
 manager.user-story.create = Crear
 manager.user-story.publish = Publicar
-manager.user-story.create-project = Crear HU para este Proyecto
+manager.project-user-story.create = Añadir HU a este Proyecto
 manager.user-story.list-project = HUs de este Proyecto

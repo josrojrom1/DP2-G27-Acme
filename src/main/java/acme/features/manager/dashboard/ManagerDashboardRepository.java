@@ -29,7 +29,7 @@ public interface ManagerDashboardRepository extends AbstractRepository {
 	@Query("select min(us.estimatedCost) FROM UserStory us WHERE us.draftMode = false and us.manager.id = :managerId")
 	double findMinimumUserStoryCost(int managerId);
 
-	@Query("select avg(p.cost.amount) FROM Project p WHERE p.manager.userAccount.id = :managerId and p.draftMode = false and p.cost.currency = :currency")
+	@Query("select avg(p.cost.amount) FROM Project p WHERE p.manager.id = :managerId and p.draftMode = false and p.cost.currency = :currency")
 	double findAverageProjectCost(int managerId, String currency);
 
 	@Query("select stddev(p.cost.amount) FROM Project p WHERE p.manager.id = :managerId and p.draftMode = false and p.cost.currency = :currency")

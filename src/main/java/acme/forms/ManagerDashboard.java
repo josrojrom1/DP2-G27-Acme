@@ -42,7 +42,7 @@ public class ManagerDashboard extends AbstractForm {
 
 	//Project Cost (USD)
 	@Min(0)
-	Double						averageProjectCostUSD;
+	double						averageProjectCostUSD;
 
 	double						deviationOfProjectCostUSD;
 
@@ -54,7 +54,7 @@ public class ManagerDashboard extends AbstractForm {
 
 	//Project Cost (EUR)
 	@Min(0)
-	Double						averageProjectCostEUR;
+	double						averageProjectCostEUR;
 
 	double						deviationOfProjectCostEUR;
 
@@ -66,7 +66,7 @@ public class ManagerDashboard extends AbstractForm {
 
 	//Project Cost (GBP)
 	@Min(0)
-	Double						averageProjectCostGBP;
+	double						averageProjectCostGBP;
 
 	double						deviationOfProjectCostGBP;
 

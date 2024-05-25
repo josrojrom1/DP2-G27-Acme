@@ -3,6 +3,7 @@ package acme.features.manager.project;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,15 +67,10 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 		if (!super.getBuffer().getErrors().hasErrors("cost")) {
 			final Money cost = object.getCost();
 
-			final boolean negative = cost.getAmount() < 0;
+			super.state(cost.getAmount() >= 0, "cost", "manager.project.form.error.cost.negative-amount");
+			super.state(cost.getAmount() <= 1000000, "cost", "manager.project.form.error.cost.too-big");
 
-			super.state(!negative, "totalCost", "manager.project.form.error.negative-total-cost");
-
-			final boolean tooBig = cost.getAmount() > 9999999999.99;
-
-			super.state(!tooBig, "totalCost", "manager.project.form.error.exceed-limit-total-cost");
-
-			final List<String> acceptedCurrencies = Arrays.asList(this.repository.findSystemConfiguration().getAcceptedCurrencies().split(","));
+			final List<String> acceptedCurrencies = Arrays.asList(this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",")).stream().map(String::trim).collect(Collectors.toList());
 			super.state(acceptedCurrencies.contains(cost.getCurrency()), "cost", "manager.project.form.error.cost.currency");
 		}
 	}
