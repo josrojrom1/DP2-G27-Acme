@@ -56,6 +56,7 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 		SelectChoices difficultyLevelChoices;
 		SelectChoices projectChoices;
 		Collection<TrainingSessions> trainingSession;
+		Collection<TrainingSessions> trainingSessionNotPublish;
 		Collection<Project> projects = this.repository.findPublishedProjects();
 		difficultyLevelChoices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 		projectChoices = SelectChoices.from(projects, "title", object.getProject());
@@ -68,13 +69,15 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 		dataset.put("difficultyLevel", difficultyLevelChoices.getSelected().getKey());
 		dataset.put("difficultyLevels", difficultyLevelChoices);
 		boolean trainingSessionsDraft = true;
-		trainingSession = this.repository.findPublishTrainingSessionsByTrainingModuleId(object.getId());
-		for (TrainingSessions a : trainingSession)
-			if (trainingSession.isEmpty() || a.isDraftMode())
-				break;
-			else
-				trainingSessionsDraft = false;
+		trainingSessionNotPublish = this.repository.findNotPublishTrainingSessionsByTrainingModuleId(object.getId());
+		trainingSession = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
+		if (!trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty())
+			trainingSessionsDraft = true;
+		if (trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty())
+			trainingSessionsDraft = false;
 		dataset.put("trainingSessionsDraft", trainingSessionsDraft);
+		boolean trainningModuleUpDa = false;
+		dataset.put("trainningModuleUpDa", trainningModuleUpDa);
 
 		super.getResponse().addData(dataset);
 	}

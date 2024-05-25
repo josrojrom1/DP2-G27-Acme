@@ -4,10 +4,10 @@ developer-02-01,"ZYX-987",2021/04/30 20:33,"Lorem ipsum dolor sit amet, consecte
 developer-03-01,"X-789",2021/04/30 03:11,"Descripción 123!",ADVANCED,2021/11/22 11:11,https://www.ejemplo.com,0.000001,developer-01,project-02,true
 developer-04-01,"ABC-111",2021/04/30 11:45,"Esta descripción contiene caracteres especiales: #@!$%^&*()",INTERMEDIATE,2022/06/11 23:18,,1.,developer-01,project-01,false
 developer-05-01,"ABQ-123",2021/04/30 16:18,"我是细节",INTERMEDIATE,2021/12/12 12:12,https://[::1],123456789.00,developer-01,project-01,true
-developer-06-01,"VW-001",2022/01/01 01:00,"1234 5678 9012 3456",BASIC,2022/01/13 16:18,file:///ruta/archivo.txt,3.0E8,developer-01,project-01,false
-developer-07-01,"ZZZ-992",2021/07/30 16:18,"Descripción con líneas múltiples. \n Segunda línea.",BASIC,2022/03/03 15:08,https://www.ejemplo.com/página#sección,22.22,developer-01,project-02,false
-developer-08-01,"AAA-789",2019/04/30 16:18,"Descripción con un link: https://www.ejemplo.com",ADVANCED,2021/12/22 16:18,,3.3,developer-01,project-01,false
-developer-09-01,"CCQ-789",2021/04/11 16:18,"|123456789|",ADVANCED,2022/04/30 16:18,https://www.ejemplo.com/%20espacios%20en%20ruta,11.11,developer-01,project-02,false
+developer-06-01,"VW-001",2022/01/01 01:00,"1234 5678 9012 3456",BASIC,2022/01/13 16:18,file:///ruta/archivo.txt,3.0E8,developer-01,project-01,true
+developer-07-01,"ZZZ-992",2021/07/30 16:18,"Descripción con líneas múltiples. \n Segunda línea.",BASIC,2022/03/03 15:08,https://www.ejemplo.com/página#sección,22.22,developer-01,project-02,true
+developer-08-01,"AAA-789",2019/04/30 16:18,"Descripción con un link: https://www.ejemplo.com",ADVANCED,2021/12/22 16:18,,3.3,developer-01,project-01,true
+developer-09-01,"CCQ-789",2021/04/11 16:18,"|123456789|",ADVANCED,2022/04/30 16:18,https://www.ejemplo.com/%20espacios%20en%20ruta,11.11,developer-01,project-02,true
 developer-01-02,"ABC-222",2013/09/03 16:18,"Привет, мир!",ADVANCED,2021/11/21 11:58,,1120.00,developer-02,project-01,false
 developer-02-02,"XWW-987",2021/11/22 16:18,"こんにちは世界",INTERMEDIATE,2022/06/08 17:48,,010.00,developer-02,project-01,false
 developer-03-02,"ABZ-233",2021/04/30 01:18,"Descripción con código HTML: <p>Este es un párrafo HTML.</p>",BASIC,,https://www.ejemplo.com/ruta?parámetro=valor,1120.11200,developer-02,project-02,false

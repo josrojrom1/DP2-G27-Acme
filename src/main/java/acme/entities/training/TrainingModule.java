@@ -52,16 +52,17 @@ public class TrainingModule extends AbstractEntity {
 	private DifficultyLevel		difficultyLevel;
 
 	//update moment (in the past, after the creation moment)
-	//TODO: Service
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date				updateMoment;
 
 	//optional link with further information
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	//estimated total time
+	@NotNull
 	private double				totalTime;
 
 	private boolean				draftMode;

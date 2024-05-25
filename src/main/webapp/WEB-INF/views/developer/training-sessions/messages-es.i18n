@@ -35,3 +35,5 @@ developer.training-sessions.form.error.code.duplicated = Código Duplicado
 developer.training-sessions.form.error.NotperiodFinish = El periodo final debe ser posterior al periodo inicial
 developer.training-sessions.form.error.tooooo-close = El periodo final debe ser posterior por 7 días al periodo inicial
 developer.training-sessions.form.error.nomore = El periodo inicial debe ser posterior en 7 días al momento de creación del modulo de formación
+developer.training-sessions.form.error.NotPeriodStart = El periodo inicial no puede ser nulo
+developer.training-sessions.form.error.too-close = El periodo final debe ser posterior en 7 días al periodo inicial

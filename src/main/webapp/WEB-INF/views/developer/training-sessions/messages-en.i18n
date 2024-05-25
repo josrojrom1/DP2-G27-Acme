@@ -36,3 +36,5 @@ developer.training-sessions.form.error.periodFinish = Start Period must be befor
 developer.training-sessions.form.error.NotperiodFinish = Start Period must be before Finish Period
 developer.training-sessions.form.error.tooooo-close = Start Period must be 7 days before Finish Period
 developer.training-sessions.form.error.nomore = Start Period must be 7 days after Creation Moment of the training Module
+developer.training-sessions.form.error.NotPeriodStart = Period Start cant be null
+developer.training-sessions.form.error.too-close = The final period must be 7 days later than the initial period

@@ -24,7 +24,6 @@ public class DeveloperTrainingSessionsListService extends AbstractService<Develo
 		boolean status;
 		int masterId;
 		TrainingModule trainingModule;
-		//Auditor auditor;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		trainingModule = this.repository.findOneTrainingModuleById(masterId);
