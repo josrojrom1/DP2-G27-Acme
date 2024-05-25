@@ -1,0 +1,12 @@
+any.progress-log.list.title = Informes de progreso publicados del contrato
+any.progress-log.list.label.recordId = Record Id
+any.progress-log.list.label.completeness = Completado
+any.progress-log.list.label.registrationMoment = Momento de registro
+
+any.progress-log.form.title = Progress log form
+any.progress-log.form.label.recordId = Record Id
+any.progress-log.form.label.completeness = Completado
+any.progress-log.form.label.comment = Comentario
+any.progress-log.form.label.registrationMoment = Momento de registro
+any.progress-log.form.label.responsiblePerson = Persona responsable
+any.progress-log.form.label.contract = Contrato

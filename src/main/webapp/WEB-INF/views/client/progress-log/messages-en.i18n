@@ -24,3 +24,5 @@ client.progress-log.form.button.publish = Publish
 
 client.progress-log.form.error.duplicated = There is an existing progress log with that code
 client.progress-log.form.error.published = This progress log is already published
+client.progress-log.form.error.completeness = Must be higher than the last published progress log
+client.progress-log.form.error.registration-moment = Registration moment must be nearby than the last published progress log

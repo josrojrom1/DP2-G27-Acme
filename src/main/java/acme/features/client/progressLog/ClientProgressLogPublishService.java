@@ -1,6 +1,8 @@
 
 package acme.features.client.progressLog;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,6 +72,24 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 			code = object.getRecordId();
 			existing = this.repository.findProgressLogByRecordId(code);
 			super.state(existing == null || object.getId() == existing.getId(), "recordId", "client.progress-log.form.error.recordId");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("completeness")) {
+			ProgressLog maxCompleteness;
+
+			maxCompleteness = this.repository.findProgressLogWithMaxCompleteness(object.getContract().getId());
+			if (maxCompleteness != null)
+				super.state(maxCompleteness.getCompleteness() < object.getCompleteness(), "completeness", "client.progress-log.form.error.completeness");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
+			Date maxCompletenessDate;
+			Date objectDate;
+
+			maxCompletenessDate = this.repository.findProgressLogWithMaxCompleteness(object.getContract().getId()).getRegistrationMoment();
+			objectDate = this.repository.findProgressLogById(object.getId()).getRegistrationMoment();
+			if (maxCompletenessDate != null && !maxCompletenessDate.equals(objectDate))
+				super.state(maxCompletenessDate.before(objectDate), "registrationMoment", "client.progress-log.form.error.registration-moment");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("published")) {

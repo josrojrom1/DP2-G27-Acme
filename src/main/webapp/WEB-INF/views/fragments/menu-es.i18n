@@ -43,6 +43,7 @@ master.menu.any.sponsorship.list = Patrocinios
 master.menu.any.code-audit.list = Listar auditorías de código publicadas 
 master.menu.anonymous.all-claims = Lista de Reclamos publicados
 master.menu.any.training-module.list = Lista de Módulos de formación publicados
+master.menu.any.contract.list = Listar contratos publicados
 
 # master.menu.auditor ##########################################################
 
@@ -80,6 +81,8 @@ master.menu.user-account.developer = Datos de desarrollador
 master.menu.notice.list = Notificaciones
 master.menu.user-account.sponsor = Datos de patrocinador
 master.menu.user-account.become-sponsor = Hazte patrocinador
+master.menu.user-account.client = Datos de cliente
+master.menu.user-account.become-client = Hazte cliente
 
 # master.menu.sponsor #########################################################
 

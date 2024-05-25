@@ -24,3 +24,5 @@ client.progress-log.form.button.publish = Publicar
 
 client.progress-log.form.error.duplicated = Hay un informe de progreso con ese codigo
 client.progress-log.form.error.published = Este informe de progreso ya se ha publicado
+client.progress-log.form.error.completeness = Debe ser mayor que la del último informe de progreso publicado
+client.progress-log.form.error.registration-moment = Debe ser más cercano que el momento de registro del último informe de progreso publicado

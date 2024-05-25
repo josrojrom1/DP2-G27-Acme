@@ -72,6 +72,22 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 			super.state(existing == null || object.getId() == existing.getId(), "recordId", "client.progress-log.form.error.recordId");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("completeness")) {
+			ProgressLog maxCompleteness;
+
+			maxCompleteness = this.repository.findProgressLogWithMaxCompleteness(object.getContract().getId());
+			if (maxCompleteness != null)
+				super.state(maxCompleteness.getCompleteness() < object.getCompleteness(), "completeness", "client.progress-log.form.error.completeness");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
+			ProgressLog maxCompleteness;
+
+			maxCompleteness = this.repository.findProgressLogWithMaxCompleteness(object.getContract().getId());
+			if (maxCompleteness != null && maxCompleteness.getRegistrationMoment().equals(object.getRegistrationMoment()))
+				super.state(maxCompleteness.getRegistrationMoment().before(object.getRegistrationMoment()), "completeness", "client.progress-log.form.error.registration-moment");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("published")) {
 			ProgressLog existing;
 
