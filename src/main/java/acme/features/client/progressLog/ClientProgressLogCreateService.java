@@ -1,6 +1,8 @@
 
 package acme.features.client.progressLog;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,12 +40,14 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		ProgressLog object;
 		int masterId;
 		Contract contract;
+		Date date;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		contract = this.repository.findContractById(masterId);
+		date = new Date(MomentHelper.getCurrentMoment().getTime() - 300000);
 		object = new ProgressLog();
 		object.setPublished(false);
-		object.setRegistrationMoment(MomentHelper.getCurrentMoment());
+		object.setRegistrationMoment(date);
 		object.setContract(contract);
 
 		super.getBuffer().addData(object);
@@ -53,33 +57,20 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	public void bind(final ProgressLog object) {
 		assert object != null;
 
-		int contractId;
-		Contract contract;
-
-		contractId = super.getRequest().getData("masterId", int.class);
-		contract = this.repository.findContractById(contractId);
-
-		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson", "contract");
-		object.setContract(contract);
+		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson");
 	}
 
 	@Override
 	public void validate(final ProgressLog object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			String code;
 			ProgressLog existing;
 
-			existing = this.repository.findProgressLogByRecordId(object.getRecordId());
-			super.state(existing == null, "recordId", "client.progress-log.form.error.duplicated");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
-			ProgressLog maxCompleteness;
-
-			maxCompleteness = this.repository.findProgressLogWithMaxCompleteness(object.getContract().getId());
-			if (maxCompleteness != null && maxCompleteness.getRegistrationMoment().equals(object.getRegistrationMoment()))
-				super.state(maxCompleteness.getRegistrationMoment().before(object.getRegistrationMoment()), "completeness", "client.progress-log.form.error.registration-moment");
+			code = object.getRecordId();
+			existing = this.repository.findProgressLogByRecordId(code);
+			super.state(existing == null || object.getId() == existing.getId(), "recordId", "client.progress-log.form.error.recordId");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("completeness")) {
@@ -88,6 +79,16 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 			maxCompleteness = this.repository.findProgressLogWithMaxCompleteness(object.getContract().getId());
 			if (maxCompleteness != null)
 				super.state(maxCompleteness.getCompleteness() < object.getCompleteness(), "completeness", "client.progress-log.form.error.completeness");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
+			ProgressLog maxCompletenessDate;
+			Date objectDate;
+
+			maxCompletenessDate = this.repository.findProgressLogWithMaxCompleteness(object.getContract().getId());
+			objectDate = object.getRegistrationMoment();
+			if (maxCompletenessDate != null && maxCompletenessDate.getRegistrationMoment().getTime() != objectDate.getTime())
+				super.state(maxCompletenessDate.getRegistrationMoment().before(objectDate), "registrationMoment", "client.progress-log.form.error.registration-moment");
 		}
 
 	}
@@ -106,7 +107,6 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		Dataset dataset;
 
 		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
-		dataset.put("contract.code", object.getContract().getCode());
 
 		super.getResponse().addData(dataset);
 	}

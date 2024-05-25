@@ -28,7 +28,7 @@ public class ClientProgressLogShowService extends AbstractService<Client, Progre
 		id = super.getRequest().getData("id", int.class);
 		pLog = this.repository.findProgressLogById(id);
 		contract = pLog.getContract();
-		client = pLog == null ? null : pLog.getContract().getClient();
+		client = pLog.getContract().getClient();
 		status = super.getRequest().getPrincipal().hasRole(client) && contract.isPublished() && pLog != null && client.getId() == super.getRequest().getPrincipal().getActiveRoleId();
 		super.getResponse().setAuthorised(status);
 	}
@@ -50,7 +50,7 @@ public class ClientProgressLogShowService extends AbstractService<Client, Progre
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract.code", "published");
+		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
 
 		super.getResponse().addData(dataset);
 	}

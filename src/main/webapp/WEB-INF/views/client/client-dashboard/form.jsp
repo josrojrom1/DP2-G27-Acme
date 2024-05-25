@@ -62,7 +62,7 @@
 			<acme:message code="client.client-dasboard.form.label.contract.budget-deviation-USD"/>
 		</th>
 		<td>
-			<jstl:if test="${contractsBudgetDeviationUSD != 0}">
+			<jstl:if test="${contractsBudgetDeviationUSD >= 0}">
 				<acme:print value="${contractsBudgetDeviationUSD}"/>
 			</jstl:if>
 		</td>
@@ -103,7 +103,7 @@
 			<acme:message code="client.client-dasboard.form.label.contract.budget-deviation-EUR"/>
 		</th>
 		<td>
-			<jstl:if test="${contractsBudgetDeviationEUR != 0}">
+			<jstl:if test="${contractsBudgetDeviationEUR >= 0}">
 				<acme:print value="${contractsBudgetDeviationEUR}"/>
 			</jstl:if>
 		</td>
@@ -144,7 +144,7 @@
 			<acme:message code="client.client-dasboard.form.label.contract.budget-deviation-GBP"/>
 		</th>
 		<td>
-			<jstl:if test="${contractsBudgetDeviationGBP != 0}">
+			<jstl:if test="${contractsBudgetDeviationGBP >= 0}">
 				<acme:print value="${contractsBudgetDeviationGBP}"/>
 			</jstl:if>
 		</td>

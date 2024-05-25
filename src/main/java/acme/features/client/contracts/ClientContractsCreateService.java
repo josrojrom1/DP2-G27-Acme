@@ -2,6 +2,7 @@
 package acme.features.client.contracts;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,12 +34,14 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 	public void load() {
 		Contract object;
 		Client client;
+		Date date;
 
 		client = this.repository.findClientById(super.getRequest().getPrincipal().getActiveRoleId());
+		date = new Date(MomentHelper.getCurrentMoment().getTime() - 600000);
 		object = new Contract();
 		object.setPublished(false);
 		object.setClient(client);
-		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
+		object.setInstantiationMoment(date);
 
 		super.getBuffer().addData(object);
 	}
