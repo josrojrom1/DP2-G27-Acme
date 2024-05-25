@@ -25,7 +25,7 @@
 		<acme:input-url code="manager.project.list.label.link" path="link" readonly="${draftMode == false}"/>
 
 	<jstl:choose>	 
-			<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode}">
+			<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
 				<jstl:if  test = "${draftMode == true}">
 					<acme:button code="manager.project.list-relations" action="/manager/project-user-story/list-by-project?masterId=${id}"/>
 					<acme:submit code="manager.project.delete" action="/manager/project/delete"/>	

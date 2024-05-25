@@ -41,7 +41,6 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findProjectById(id);
-		System.out.println(object.getCost().getCurrency());
 
 		super.getBuffer().addData(object);
 	}

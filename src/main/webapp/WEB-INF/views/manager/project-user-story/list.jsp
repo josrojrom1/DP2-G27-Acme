@@ -19,3 +19,5 @@
 	<acme:list-column code="manager.project-user-story.list.label.project" path="code" width="33%"/>
 	<acme:list-column code="manager.project-user-story.list.label.user-story" path="title" width="33%"/>
 </acme:list>
+
+<acme:button code="manager.project-user-story.create" action="/manager/project-user-story/create?masterId=${param.masterId}"/>		
