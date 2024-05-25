@@ -49,7 +49,8 @@ public class ManagerProjectUserStoryShowService extends AbstractService<Manager,
 
 		Dataset dataset = super.unbind(object, "userStory", "project");
 		dataset.put("title", object.getUserStory().getTitle());
-		dataset.put("project", object.getProject().getCode());
+		dataset.put("code", object.getProject().getCode());
+		dataset.put("draftMode", object.getProject().isDraftMode());
 
 		super.getResponse().addData(dataset);
 	}

@@ -67,11 +67,11 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 		if (!super.getBuffer().getErrors().hasErrors("cost")) {
 			final Money cost = object.getCost();
 
-			super.state(cost.getAmount() >= 0, "cost", "manager.project.form.error.cost.negative-amount");
-			super.state(cost.getAmount() <= 1000000, "cost", "manager.project.form.error.cost.too-big");
+			super.state(cost.getAmount() >= 0, "cost", "manager.project.form.error.negative-amount");
+			super.state(cost.getAmount() <= 1000000, "cost", "manager.project.form.error.too-big");
 
 			final List<String> acceptedCurrencies = Arrays.asList(this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",")).stream().map(String::trim).collect(Collectors.toList());
-			super.state(acceptedCurrencies.contains(cost.getCurrency()), "cost", "manager.project.form.error.cost.currency");
+			super.state(acceptedCurrencies.contains(cost.getCurrency()), "cost", "manager.project.form.error.currency");
 		}
 	}
 

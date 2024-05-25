@@ -1,5 +1,5 @@
 <%--
-- list-es.i18n
+- list.jsp
 -
 - Copyright (C) 2012-2024 Rafael Corchuelo.
 -
@@ -10,12 +10,12 @@
 - they accept any liabilities with respect to them.
 --%>
 
-any.project.list.label.code = Code
-any.project.list.label.title = Title
-any.project.list.label.description = Description
-any.project.list.label.indication = Fatal Errors
-any.project.list.label.draftMode = Draft Mode
-any.project.list.label.cost = Cost
-any.project.list.label.link = Link
-any.project.list.title = Published Projects List
-any.project.form.title = Project Details
+<%@page%>
+
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="acme" uri="http://acme-framework.org/"%>
+
+<acme:list>
+	<acme:list-column code="manager.project-user-story.list.label.project" path="code" width="33%"/>
+	<acme:list-column code="manager.project-user-story.list.label.user-story" path="title" width="33%"/>
+</acme:list>

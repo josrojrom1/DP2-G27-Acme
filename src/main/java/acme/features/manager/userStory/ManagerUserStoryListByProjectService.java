@@ -52,6 +52,7 @@ public class ManagerUserStoryListByProjectService extends AbstractService<Manage
 		Dataset dataset;
 
 		dataset = super.unbind(object, "title", "estimatedCost", "priority");
+		super.getResponse().addGlobal("childId", object.getId());
 
 		super.getResponse().addData(dataset);
 	}

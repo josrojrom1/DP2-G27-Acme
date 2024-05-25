@@ -10,12 +10,8 @@
 - they accept any liabilities with respect to them.
 --%>
 
-any.project.list.label.code = Code
-any.project.list.label.title = Title
-any.project.list.label.description = Description
-any.project.list.label.indication = Fatal Errors
-any.project.list.label.draftMode = Draft Mode
-any.project.list.label.cost = Cost
-any.project.list.label.link = Link
-any.project.list.title = Published Projects List
-any.project.form.title = Project Details
+manager.project-user-story.list.title = Relation List
+manager.project-user-story.form.title = Relation Detail
+manager.project-user-story.list.label.project = Project Code
+manager.project-user-story.list.label.user-story = User Story Title
+manager.project-user-story.delete = Delete

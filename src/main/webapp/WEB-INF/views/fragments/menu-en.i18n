@@ -22,7 +22,7 @@ master.menu.anonymous.favourite-link-pepe = 20605668Z: Rojas Romero, José Joaqu
 master.menu.anonymous.favourite-link-dani = 20091478N: Alors Romero, Daniel
 master.menu.anonymous.favourite-link-guadalupe = 090921097T: Ridruejo Pineda, Guadalupe
 master.menu.anonymous.favourite-link-benji = Y2643735Z: Maureira Flores
-master.administrator.banner.list = 29565167R: Devós Bono
+master.menu.anonymous.favourite-link-agus = 29565167R: Devós Bono, Agustín
 
 # master.menu.administrator ###################################################
 
@@ -68,7 +68,8 @@ master.menu.developer.dashboard = Developer Dashboard
 
 master.menu.manager = Manager
 master.menu.manager.project.list = Project List
-manager.user-story.list = USs List
+master.menu.manager.user-story.list = User Story List
+master.menu.manager.dashboard = Manager dashboard
 
 # master.menu.user-account ####################################################
 
