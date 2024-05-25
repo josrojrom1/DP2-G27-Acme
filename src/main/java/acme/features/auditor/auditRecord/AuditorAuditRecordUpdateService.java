@@ -92,6 +92,12 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 				super.state(object.getEndPeriod().after(fechaMin), "endPeriod", "auditor-audit-record.form.error.execution-min-date");
 
 			}
+
+		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
+			if (object.getStartPeriod() != null) {
+				Date fechaCodeAudit = object.getCodeAudit().getExecution();
+				super.state(object.getStartPeriod().after(fechaCodeAudit), "startPeriod", "auditor-audit-record.form.error.execution-before-period");
+			}
 	}
 
 	@Override
