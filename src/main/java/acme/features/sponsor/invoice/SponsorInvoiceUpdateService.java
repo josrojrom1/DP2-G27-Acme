@@ -61,7 +61,6 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	public void validate(final Invoice object) {
 		assert object != null;
 
-		final Date baseDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
 		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
@@ -71,10 +70,8 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 			super.state(existing == null || existing.getId() == object.getId(), "code", "sponsor.invoice.form.error.code.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("registration")) {
-			super.state(MomentHelper.isAfterOrEqual(object.getRegistration(), baseDate), "registration", "sponsor.invoice.form.error.too-soon");
+		if (!super.getBuffer().getErrors().hasErrors("registration"))
 			super.state(MomentHelper.isAfter(object.getRegistration(), object.getSponsorship().getMoment()), "registration", "sponsor.invoice.form.error.registration");
-		}
 
 		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
 			super.state(object.getRegistration() != null, "dueDate", "sponsor.invoice.form.error.invalid-registration");

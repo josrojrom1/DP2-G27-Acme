@@ -1,9 +1,9 @@
 key,code,moment,startDate,expirationDate,amount,type,contact,link,draftMode,key:project,key:sponsor
 sponsorship-01,"SPO-001",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",true,project-01,sponsor-01
-sponsorship-02,"A-000",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",false,project-01,sponsor-01
-sponsorship-03,"B-000",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",false,project-01,sponsor-01
-sponsorship-04,"SP-111",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",false,project-01,sponsor-01
-sponsorship-05,"AAA-999",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",false,project-01,sponsor-01
+sponsorship-02,"A-000",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",true,project-01,sponsor-01
+sponsorship-03,"B-000",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",true,project-01,sponsor-01
+sponsorship-04,"SP-111",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",true,project-01,sponsor-01
+sponsorship-05,"AAA-999",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",true,project-01,sponsor-01
 sponsorship-06,"ZZZ-890",2022/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",false,project-01,sponsor-01
 sponsorship-07,"SPO-007",2000/01/01 00:00,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",true,project-01,sponsor-02
 sponsorship-08,"SPO-008",2000/01/01 00:01,2022/01/02 00:00,2022/02/02 12:00,"EUR 100.00",FINANCIAL,"example@gmail.com","https://www.example.com",true,project-01,sponsor-02
