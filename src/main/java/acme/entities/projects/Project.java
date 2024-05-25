@@ -43,8 +43,10 @@ public class Project extends AbstractEntity {
 	@Length(max = 100)
 	private String				description;
 
+	@NotNull
 	private boolean				indication;
 
+	@NotNull
 	private boolean				draftMode;
 
 	@Valid
