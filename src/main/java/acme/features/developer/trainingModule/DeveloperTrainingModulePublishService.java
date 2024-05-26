@@ -69,7 +69,6 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		assert object != null;
 
 		final Date baseDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
-		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingModule existing;
@@ -78,18 +77,14 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 			super.state(existing == null, "code", "developer.training-module.form.error.code.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("creationMoment")) {
+		if (!super.getBuffer().getErrors().hasErrors("creationMoment"))
 			super.state(MomentHelper.isAfterOrEqual(object.getCreationMoment(), baseDate), "creationMoment", "developer.training-module.form.error.tooLittle");
-			super.state(MomentHelper.isBeforeOrEqual(object.getCreationMoment(), topDate), "creationMoment", "developer.training-module.form.error.tooBig");
-		}
 
 		if (object.getUpdateMoment() != null) {
 			if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
 				super.state(object.getCreationMoment() != null, "updateMoment", "developer.training-module.form.error.NotcreationMoment");
-			if (!super.getBuffer().getErrors().hasErrors("updateMoment")) {
+			if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
 				super.state(MomentHelper.isAfterOrEqual(object.getUpdateMoment(), baseDate), "updateMoment", "developer.training-module.form.error.tooLittle");
-				super.state(MomentHelper.isBeforeOrEqual(object.getUpdateMoment(), topDate), "updateMoment", "developer.training-module.form.error.tooBig");
-			}
 			if (object.getCreationMoment() != null)
 				if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
 					super.state(object.getUpdateMoment() == null || object.getUpdateMoment().after(object.getCreationMoment()), "updateMoment", "developer.training-module.form.error.updateMoment");
@@ -101,12 +96,6 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 			trainingSession = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
 			trainingSessionNotPublish = this.repository.findNotPublishTrainingSessionsByTrainingModuleId(object.getId());
 			super.state(trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty(), "*", "developer.training-module.form.error.NotSessions");
-		}
-
-		//Para evitar hacking post desde Postman
-		if (!super.getBuffer().getErrors().hasErrors("project")) {
-			Project objProject = object.getProject();
-			super.state(!objProject.isDraftMode(), "project", "developer.training-module.form.error.code.projectNotPublish");
 		}
 	}
 
