@@ -68,7 +68,7 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 
 		projectUserStory = this.repository.getRelationsByProject(object.getId());
 
-		if (projectUserStory != null && !projectUserStory.isEmpty())
+		if (!projectUserStory.isEmpty())
 			this.repository.deleteAll(projectUserStory);
 
 		this.repository.delete(object);
