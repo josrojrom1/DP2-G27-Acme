@@ -1,15 +1,21 @@
 key,code,creationMoment,details,difficultyLevel,updateMoment,link,totalTime,key:developer,key:project,draftMode
-developer-01-01,"ABC-123",2021/04/30 16:18,"Soy detalles",BASIC,2022/04/30 16:18,ftp://sitioftp.ejemplo,10.00,developer-01,project-01,true
-developer-02-01,"ZYX-987",2021/04/30 20:33,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",INTERMEDIATE,2021/04/30 20:33,,3.141592653589793,developer-01,project-02,true
-developer-03-01,"X-789",2021/04/30 03:11,"Descripción 123!",ADVANCED,2021/11/22 11:11,https://www.ejemplo.com,0.000001,developer-01,project-02,true
-developer-04-01,"ABC-111",2021/04/30 11:45,"Esta descripción contiene caracteres especiales: #@!$%^&*()",INTERMEDIATE,2022/06/11 23:18,,1.,developer-01,project-01,false
-developer-05-01,"ABQ-123",2021/04/30 16:18,"我是细节",INTERMEDIATE,2021/12/12 12:12,https://[::1],123456789.00,developer-01,project-01,true
-developer-06-01,"VW-001",2022/01/01 01:00,"1234 5678 9012 3456",BASIC,2022/01/13 16:18,file:///ruta/archivo.txt,3.0E8,developer-01,project-01,true
-developer-07-01,"ZZZ-992",2021/07/30 16:18,"Descripción con líneas múltiples. \n Segunda línea.",BASIC,2022/03/03 15:08,https://www.ejemplo.com/página#sección,22.22,developer-01,project-02,true
-developer-08-01,"AAA-789",2019/04/30 16:18,"Descripción con un link: https://www.ejemplo.com",ADVANCED,2021/12/22 16:18,,3.3,developer-01,project-01,true
-developer-09-01,"CCQ-789",2021/04/11 16:18,"|123456789|",ADVANCED,2022/04/30 16:18,https://www.ejemplo.com/%20espacios%20en%20ruta,11.11,developer-01,project-02,true
-developer-01-02,"ABC-222",2013/09/03 16:18,"Привет, мир!",ADVANCED,2021/11/21 11:58,,1120.00,developer-02,project-01,false
-developer-02-02,"XWW-987",2021/11/22 16:18,"こんにちは世界",INTERMEDIATE,2022/06/08 17:48,,010.00,developer-02,project-01,false
-developer-03-02,"ABZ-233",2021/04/30 01:18,"Descripción con código HTML: <p>Este es un párrafo HTML.</p>",BASIC,,https://www.ejemplo.com/ruta?parámetro=valor,1120.11200,developer-02,project-02,false
-developer-04-02,"ABA-789",2021/04/30 11:18,"Descripción con símbolos matemáticos: √2 + ∑i=1n Xi",ADVANCED,,,555.00,developer-02,project-02,false
-developer-05-02,"AB-321",2021/04/30 20:08,"Descripción con fecha: 2024-03-07",INTERMEDIATE,,,10,developer-02,project-01,false
+developer-01-01,"A-100",2022/07/29 23:00,"Lorem ipsum",BASIC,2022/07/29 23:30,http://www.lorem-ipsum.org,150,developer-01,project-01,true
+developer-01-02,"AA-123",2000/01/01 00:00,"L",INTERMEDIATE,2000/01/17 16:00,ftp://a,1950,developer-02,project-02,true
+developer-02-01,"AAA-146",2000/01/01 00:01,"Lo",ADVANCED,2000/01/18 15:01,ftp://a.b,2100,developer-01,project-02,true
+developer-02-02,"BC-169",2022/07/29 23:59,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",INTERMEDIATE,,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/,2250,developer-02,project-02,true
+developer-03-01,"BBC-192",2022/07/30 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore*",ADVANCED,,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X,1,developer-01,project-02,true
+developer-03-02,"CAA-215",2020/02/28 00:00,"국민경제의 발전을",INTERMEDIATE,2020/03/17 00:00,https://www.lorem-ipsum.org,2550,developer-02,project-02,true
+developer-04-01,"CAA-238",2022/07/29 23:00,"العظمى واعتلاء",ADVANCED,2022/07/29 23:45,ftp://www.lorem-ipsum.org,2,developer-01,project-02,true
+developer-04-02,"BBC-261",2000/01/01 00:00,"Lorem ipsum",INTERMEDIATE,2000/01/10 06:00,http://www.lorem-ipsum.org/dolor/sit.html,2850,developer-02,project-02,true
+developer-05-01,"BBC-284",2000/01/01 00:01,"L",BASIC,2000/01/05 15:01,http://www.lorem-ipsum.org/dolor/sit.html#dolor,1350,developer-01,project-02,true
+developer-05-02,"CAA-307",2022/07/29 23:59,"Lo",INTERMEDIATE,,http://example.org?a=1&b=2,1500,developer-02,project-02,true
+developer-06-01,"CAA-330",2022/07/30 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",ADVANCED,,http://example.org?,9999,developer-01,project-02,true
+developer-06-02,"BBC-353",2020/02/28 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore*",INTERMEDIATE,2020/03/21 15:00,http://example.org?a,10000,developer-02,project-02,true
+developer-07-01,"BBC-376",2022/07/29 23:00,"국민경제의 발전을",INTERMEDIATE,,http://example.org?a&b,1950,developer-01,project-02,true
+developer-08-02,"CAA-399",2000/01/01 00:00,"العظمى واعتلاء",INTERMEDIATE,2000/01/14 19:00,http://example.org/,2100,developer-02,project-02,true
+developer-09-01,"CAA-422",2000/01/01 00:01,"Lorem ipsum",INTERMEDIATE,2000/01/26 00:01,http://example.org/a,2250,developer-01,project-02,true
+developer-09-02,"BBC-445",2022/07/29 23:59,"L",BASIC,,http://example.org/a/b,2400,developer-02,project-01,true
+developer-10-01,"BBC-468",2022/07/30 00:00,"Lo",INTERMEDIATE,,http://example.org/a/b?,2550,developer-01,project-01,true
+developer-10-02,"CAA-491",2020/02/28 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",ADVANCED,2020/03/17 00:00,http://example.org/a/b?a&b,2700,developer-02,project-01,false
+developer-11-01,"CAA-514",2021/05/29 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore*",ADVANCED,2021/05/29 05:00,http://universidad.org/test,2850,developer-01,project-01,false
+developer-11-02,"BBC-537",2021/05/01 00:00,"العظمى واعتلاء",ADVANCED,2021/05/01 07:00,http://universidad.org/test_2,3000,developer-02,project-01,false

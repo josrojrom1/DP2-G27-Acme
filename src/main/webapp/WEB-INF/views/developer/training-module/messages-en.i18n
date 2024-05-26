@@ -35,3 +35,7 @@ developer.training-module.form.button.create = Create
 developer.training-module.form.error.code.duplicated = Duplicated code
 developer.training-module.form.error.negative-totalTime = Total time can't be negative
 developer.training-module.form.error.updateMoment = The update moment must be after the create moment
+developer.training-module.form.error.tooLittle = The date cant be less than 2000/01/01 00:00 
+developer.training-module.form.error.tooBig = The date cant be more than 2200/12/31 23:59
+developer.training-module.form.error.code.projectNotPublish = The project must be published
+developer.training-module.form.error.NotSessions = The training module must have at least one Training Sessions published

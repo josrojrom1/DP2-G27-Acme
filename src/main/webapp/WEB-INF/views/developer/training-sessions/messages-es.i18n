@@ -37,3 +37,5 @@ developer.training-sessions.form.error.tooooo-close = El periodo final debe ser 
 developer.training-sessions.form.error.nomore = El periodo inicial debe ser posterior en 7 días al momento de creación del modulo de formación
 developer.training-sessions.form.error.NotPeriodStart = El periodo inicial no puede ser nulo
 developer.training-sessions.form.error.too-close = El periodo final debe ser posterior en 7 días al periodo inicial
+developer.training-sessions.form.error.tooLittle = La fecha no puede ser inferior a 2000/01/01 00:00
+developer.training-sessions.form.error.tooBig = La fecha no puede ser superior a 2200/12/31 23:59

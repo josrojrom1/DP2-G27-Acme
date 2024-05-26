@@ -79,12 +79,12 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 
 		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
 			super.state(MomentHelper.isAfterOrEqual(object.getPeriodStart(), baseDate), "periodStart", "developer.training-sessions.form.error.tooLittle");
-			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodStart(), topDate), "periodStart", "developer.training-module.form.error.tooBig");
+			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodStart(), topDate), "periodStart", "developer.training-sessions.form.error.tooBig");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("periodFinish")) {
 			super.state(MomentHelper.isAfterOrEqual(object.getPeriodFinish(), baseDate), "periodFinish", "developer.training-sessions.form.error.tooLittle");
-			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodFinish(), topDate), "periodFinish", "developer.training-module.form.error.tooBig");
+			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodFinish(), topDate), "periodFinish", "developer.training-sessions.form.error.tooBig");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("periodFinish")) {
