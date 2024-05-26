@@ -30,11 +30,13 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	public void authorise() {
 		boolean status;
 		int invoiceId;
+		Invoice object;
 		Sponsorship sponsorship;
 
 		invoiceId = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneInvoiceById(invoiceId);
 		sponsorship = this.repository.findOneSponsorshipByInvoiceId(invoiceId);
-		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor()) && super.getRequest().getPrincipal().getActiveRoleId() == sponsorship.getSponsor().getId();
+		status = sponsorship != null && sponsorship.isDraftMode() && object.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor()) && super.getRequest().getPrincipal().getActiveRoleId() == sponsorship.getSponsor().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
