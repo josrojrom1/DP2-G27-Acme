@@ -70,7 +70,7 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 		try {
 			contractsBudgetDeviationUSD = this.repository.contractsBudgetDeviationUSD(clientId);
 		} catch (Exception e) {
-			contractsBudgetDeviationUSD = 0;
+			contractsBudgetDeviationUSD = -1;
 		}
 
 		try {
@@ -94,7 +94,7 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 		try {
 			contractsBudgetDeviationEUR = this.repository.contractsBudgetDeviationEUR(clientId);
 		} catch (Exception e) {
-			contractsBudgetDeviationEUR = 0;
+			contractsBudgetDeviationEUR = -1;
 		}
 
 		try {
@@ -118,7 +118,7 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 		try {
 			contractsBudgetDeviationGBP = this.repository.contractsBudgetDeviationGBP(clientId);
 		} catch (Exception e) {
-			contractsBudgetDeviationGBP = 0;
+			contractsBudgetDeviationGBP = -1;
 		}
 
 		try {

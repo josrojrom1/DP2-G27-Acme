@@ -29,7 +29,7 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 		object = this.repository.findProgressLogById(objectId);
 		contract = object.getContract();
 		client = object == null ? null : contract.getClient();
-		status = object != null && !object.isPublished() && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
+		status = object != null && !object.isPublished() && contract.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
 
 		super.getResponse().setAuthorised(status);
 	}

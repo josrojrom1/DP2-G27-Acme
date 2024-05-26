@@ -1,17 +1,18 @@
 
-package acme.features.client.progressLog;
+package acme.features.any.progressLog;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.contracts.Contract;
 import acme.entities.contracts.ProgressLog;
-import acme.roles.Client;
+import acme.features.client.progressLog.ClientProgressLogRepository;
 
 @Service
-public class ClientProgressLogShowService extends AbstractService<Client, ProgressLog> {
+public class AnyProgressLogShowService extends AbstractService<Any, ProgressLog> {
 
 	@Autowired
 	ClientProgressLogRepository repository;
@@ -21,15 +22,12 @@ public class ClientProgressLogShowService extends AbstractService<Client, Progre
 	public void authorise() {
 		boolean status;
 		int id;
-		ProgressLog pLog;
-		Client client;
 		Contract contract;
 
 		id = super.getRequest().getData("id", int.class);
-		pLog = this.repository.findProgressLogById(id);
-		contract = pLog.getContract();
-		client = pLog.getContract().getClient();
-		status = super.getRequest().getPrincipal().hasRole(client) && contract.isPublished() && pLog != null && client.getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		contract = this.repository.findContractById(id);
+		status = contract != null && contract.isPublished();
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -50,7 +48,7 @@ public class ClientProgressLogShowService extends AbstractService<Client, Progre
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
+		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract.code", "published");
 
 		super.getResponse().addData(dataset);
 	}
