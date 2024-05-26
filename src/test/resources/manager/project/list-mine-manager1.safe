@@ -1,3 +1,4 @@
+
 request-id,request-method,request-path,request-query,request-payload,response-status,response-content-type,response-payload,response-oops,pre-handle-timestamp,post-handle-timestamp,"after-completion-timestamp"
 "ea69b925-6ca5-e22f-bacc-6cea5afa0013",GET,/,"debug=true&language=en",,302,,,,594822281355700,594822315028400,594822319702600
 "14554ec2-4b64-9905-a32e-4ed4be59590f",GET,/any/system/welcome,,,200,text/html;charset=utf-8,,,594822354268800,594822357256900,594827341955300
@@ -82,3 +83,4 @@ request-id,request-method,request-path,request-query,request-payload,response-st
 "4a06f9b0-8843-cee6-bc18-d3e4205106d9",GET,"/libraries/acme/js/acme.js",,,200,application/javascript,,,594867335396800,594867338523400,594867339482000
 "c46bf31d-52a1-06ec-fa0d-c6eaedc6f72e",GET,/images/banner.png,,,200,image/png,,,594867369571300,594867372073500,594867373026700
 "eec6e669-f458-3ae3-bb47-ffc47798601c",GET,/images/logo.png,,,200,image/png,,,594867379807700,594867383128000,594867383926700
+
