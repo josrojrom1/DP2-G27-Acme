@@ -25,6 +25,7 @@ client.contract.form.button.delete = Delete
 client.contract.form.button.publish = Publish
 
 client.contract.form.error.duplicated = There is an existing contract with that code
+client.contract.form.error.code = There is an existing contract with that code
 client.contract.form.error.null-budget = Must not be blank
 client.contract.form.error.incorrect-currency = Currency must be the same of the corresponding project currency
 client.contract.form.error.incorrect-budget = Budget must be less than the corresponding project cost

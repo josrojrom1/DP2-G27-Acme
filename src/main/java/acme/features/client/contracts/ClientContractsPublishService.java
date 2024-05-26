@@ -106,8 +106,10 @@ public class ClientContractsPublishService extends AbstractService<Client, Contr
 
 		projectCost = object.getProject().getCost().getAmount();
 		budgetsSum = this.repository.findManyContractsByProjectId(object.getProject().getId()).stream().mapToDouble(c -> c.getBudget().getAmount()).sum();
-		currentBudget = object.getBudget().getAmount();
-		super.state(budgetsSum + currentBudget <= projectCost, "*", "client.contract.form.error.not-published");
+		if (object.getBudget() != null) {
+			currentBudget = object.getBudget().getAmount();
+			super.state(budgetsSum + currentBudget <= projectCost, "*", "client.contract.form.error.not-published");
+		}
 
 	}
 
