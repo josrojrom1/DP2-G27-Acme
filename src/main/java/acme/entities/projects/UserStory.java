@@ -3,6 +3,7 @@ package acme.entities.projects;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -23,7 +24,9 @@ public class UserStory extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
+	@Valid
 	@ManyToOne(optional = false)
+	@NotNull
 	private Manager				manager;
 
 	@NotBlank
@@ -45,6 +48,7 @@ public class UserStory extends AbstractEntity {
 	@NotNull
 	private PriorityEnum		priority;
 
+	@NotNull
 	private boolean				draftMode;
 
 	@URL

@@ -78,6 +78,7 @@
 			<acme:menu-suboption code="master.menu.authenticated.objective" action="/authenticated/objective/list"/>
 		</acme:menu-option>
 		
+		<!-- MANAGER SECTION -->
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
 			<acme:menu-suboption code="master.menu.manager.project.list" action="/manager/project/list-mine"/>
 			<acme:menu-suboption code="master.menu.manager.user-story.list" action="/manager/user-story/list-mine"/>

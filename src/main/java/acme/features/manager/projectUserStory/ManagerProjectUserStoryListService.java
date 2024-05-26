@@ -30,7 +30,7 @@ public class ManagerProjectUserStoryListService extends AbstractService<Manager,
 		Project project;
 		Manager manager;
 
-		projectId = super.getRequest().getData("id", int.class);
+		projectId = super.getRequest().getData("masterId", int.class);
 		project = this.repository.findProjectById(projectId);
 		manager = project == null ? null : project.getManager();
 
@@ -41,7 +41,7 @@ public class ManagerProjectUserStoryListService extends AbstractService<Manager,
 
 	@Override
 	public void load() {
-		int projectId = super.getRequest().getData("id", int.class);
+		int projectId = super.getRequest().getData("masterId", int.class);
 		Collection<ProjectUserStory> objects = this.repository.getRelationsByProject(projectId);
 
 		super.getBuffer().addData(objects);
@@ -52,6 +52,7 @@ public class ManagerProjectUserStoryListService extends AbstractService<Manager,
 		assert object != null;
 
 		Dataset dataset = new Dataset();
+		dataset = super.unbind(object, "userStory");
 		dataset.put("code", object.getProject().getCode());
 		dataset.put("title", object.getUserStory().getTitle());
 

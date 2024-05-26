@@ -10,12 +10,12 @@
 - they accept any liabilities with respect to them.
 --%>
 
-manager.project.list.label.code = Código
-manager.project.list.label.title = Título
-manager.project.list.label.description = Descripción
-manager.project.list.label.indication = Errores Fatales
-manager.project.list.label.draftMode = Modo Borrador
-manager.project.list.label.cost = Coste
-manager.project.list.label.link = Enlace
-manager.project.list.title = Listado de Proyectos
-manager.project.form.title = Detalles de Proyecto
+any.project.list.label.code = Código
+any.project.list.label.title = Título
+any.project.list.label.description = Descripción
+any.project.list.label.indication = Errores Fatales
+any.project.list.label.draftMode = Modo Borrador
+any.project.list.label.cost = Coste
+any.project.list.label.link = Enlace
+any.project.list.title = Listado de Proyectos Publicados
+any.project.form.title = Detalles de Proyecto

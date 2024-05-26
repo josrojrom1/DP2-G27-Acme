@@ -23,11 +23,12 @@ manager.project.update = Update
 manager.project.delete = Delete
 manager.project.create = Create
 manager.project.publish = Publish
+manager.project.list-relations = US Relation List
 
 manager.project.form.error.duplicated = The project code already exists
-manager.project.form.error.negative-total-cost = Project cost must be positive
-manager.project.form.error.exceed-limit-total-cost = Project cost is too big
-manager.project.form.error.cost.currency = This currency is not valid in our system
+manager.project.form.error.negative-amount = Project cost must be positive
+manager.project.form.error.too-big = Project cost is too big
+manager.project.form.error.currency = This currency is not valid in our system
 manager.user-story.publish.error.no-errors = The project can't be published with fatal errors
 manager.user-story.publish.error.no-publisheds = All user story in the project must be published
 manager.user-story.publish.error.no-userStories = The project must have at least one associated user story 

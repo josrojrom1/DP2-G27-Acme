@@ -27,6 +27,7 @@ public class Project extends AbstractEntity {
 
 	@Valid
 	@ManyToOne(optional = false)
+	@NotNull
 	private Manager				manager;
 
 	@NotBlank
@@ -42,8 +43,10 @@ public class Project extends AbstractEntity {
 	@Length(max = 100)
 	private String				description;
 
+	@NotNull
 	private boolean				indication;
 
+	@NotNull
 	private boolean				draftMode;
 
 	@Valid

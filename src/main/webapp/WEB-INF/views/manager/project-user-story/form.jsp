@@ -17,9 +17,22 @@
 
 <acme:form>
 
-	<acme:input-select code="manager.project-user-story.list.label.user-story" path="userStory" choices="${userStories}"/>
+	<jstl:choose>
+		<jstl:when test="${_command == 'create'}">
+			<acme:input-select code="manager.project-user-story.list.label.user-story" path="userStory" choices="${userStories}"/>
+		</jstl:when>
+		
+		<jstl:when test="${acme:anyOf(_command, 'show|delete')}">
+			<acme:input-textbox code="manager.project-user-story.list.label.project" path="code" readonly="${true}"/>
+			<acme:input-textbox code="manager.project-user-story.list.label.user-story" path="title" readonly="${true}"/>
+			
+		</jstl:when>
+	</jstl:choose>
 
 	<jstl:choose>
+			<jstl:when test="${_command == 'show' && draftMode}">
+				<acme:submit code="manager.project-user-story.delete" action="/manager/project-user-story/delete"/>
+			</jstl:when>
 			<jstl:when test="${_command == 'create'}">
 				<acme:submit code="manager.project-user-story.create" action="/manager/project-user-story/create?masterId=${param.masterId}"/>
 			</jstl:when>

@@ -75,7 +75,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.user-stories-deviation"/>
 		</th>
 		<td>
-			<jstl:if test="${deviationUserStoryCost != 0}">
+			<jstl:if test="${deviationUserStoryCost >= 0}">
 				<acme:print value = "${deviationUserStoryCost}"/>
 			</jstl:if>
 		</td>
@@ -112,7 +112,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-average"/>
 		</th>
 		<td>
-			<jstl:if test="${averageProjectCostUSD != 0}">
+			<jstl:if test="${averageProjectCostUSD >= 0}">
 				<acme:print value = "${averageProjectCostUSD}"/>
 			</jstl:if>
 		</td>
@@ -122,7 +122,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-deviation"/>
 		</th>
 		<td>
-			<jstl:if test="${deviationOfProjectCostUSD != 0}">
+			<jstl:if test="${deviationOfProjectCostUSD >= 0}">
 				<acme:print value = "${deviationOfProjectCostUSD}"/>
 			</jstl:if>
 		</td>
@@ -142,7 +142,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-maximum"/>
 		</th>
 		<td>
-			<jstl:if test="${maximumProjectCostUSD != 0}">
+			<jstl:if test="${maximumProjectCostUSD >= 0}">
 				<acme:print value = "${maximumProjectCostUSD}"/>
 			</jstl:if>
 		</td>
@@ -159,7 +159,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-average"/>
 		</th>
 		<td>
-			<jstl:if test="${averageProjectCostEUR != 0}">
+			<jstl:if test="${averageProjectCostEUR >= 0}">
 				<acme:print value = "${averageProjectCostEUR}"/>
 			</jstl:if>
 		</td>
@@ -169,7 +169,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-deviation"/>
 		</th>
 		<td>
-			<jstl:if test="${deviationOfProjectCostEUR != 0}">
+			<jstl:if test="${deviationOfProjectCostEUR >= 0}">
 				<acme:print value = "${deviationOfProjectCostEUR}"/>
 			</jstl:if>
 		</td>
@@ -189,7 +189,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-maximum"/>
 		</th>
 		<td>
-			<jstl:if test="${maximumProjectCostEUR != 0}">
+			<jstl:if test="${maximumProjectCostEUR >= 0}">
 				<acme:print value = "${maximumProjectCostEUR}"/>
 			</jstl:if>
 		</td>
@@ -206,7 +206,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-average"/>
 		</th>
 		<td>
-			<jstl:if test="${averageProjectCostGBP != 0}">
+			<jstl:if test="${averageProjectCostGBP >= 0}">
 				<acme:print value = "${averageProjectCostGBP}"/>
 			</jstl:if>
 		</td>
@@ -216,7 +216,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-deviation"/>
 		</th>
 		<td>
-			<jstl:if test="${deviationOfProjectCostGBP != 0}">
+			<jstl:if test="${deviationOfProjectCostGBP >= 0}">
 				<acme:print value = "${deviationOfProjectCostGBP}"/>
 			</jstl:if>
 		</td>
@@ -236,7 +236,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.project-maximum"/>
 		</th>
 		<td>
-			<jstl:if test="${maximumProjectCostGBP != 0}">
+			<jstl:if test="${maximumProjectCostGBP >= 0}">
 				<acme:print value = "${maximumProjectCostGBP}"/>
 			</jstl:if>
 		</td>

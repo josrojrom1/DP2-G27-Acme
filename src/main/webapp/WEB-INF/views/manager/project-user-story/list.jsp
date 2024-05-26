@@ -16,13 +16,8 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="manager.user-story.list.label.title" path="title" width="33%"/>
-	<acme:list-column code="manager.user-story.list.label.estimatedCost" path="estimatedCost" width="33%"/>
-	<acme:list-column code="manager.user-story.list.label.priority" path="priority" width="33%"/>
+	<acme:list-column code="manager.project-user-story.list.label.project" path="code" width="33%"/>
+	<acme:list-column code="manager.project-user-story.list.label.user-story" path="title" width="33%"/>
 </acme:list>
 
-<jstl:choose> 
-		<jstl:when test="${_command == 'list-mine'}">
-			<acme:button code="manager.user-story.create" action="/manager/user-story/create"/>		
-		</jstl:when>
-</jstl:choose>	
+<acme:button code="manager.project-user-story.create" action="/manager/project-user-story/create?masterId=${param.masterId}"/>		

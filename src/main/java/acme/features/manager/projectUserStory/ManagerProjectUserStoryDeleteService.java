@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.projects.Project;
 import acme.entities.projects.ProjectUserStory;
 import acme.roles.Manager;
 
@@ -37,11 +36,11 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 
 	@Override
 	public void load() {
-		Project object;
+		ProjectUserStory object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findProjectById(id);
+		object = this.repository.findProjectUserStoryById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -69,9 +68,10 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 	public void unbind(final ProjectUserStory object) {
 		assert object != null;
 
-		Dataset dataset;
-
-		dataset = super.unbind(object, "project", "userStory");
+		Dataset dataset = super.unbind(object, "userStory", "project");
+		dataset.put("title", object.getUserStory().getTitle());
+		dataset.put("code", object.getProject().getCode());
+		dataset.put("draftMode", object.getProject().isDraftMode());
 
 		super.getResponse().addData(dataset);
 	}
