@@ -1,7 +1,7 @@
 key,key:manager,code,title,description,indication,draftMode,cost,link
 project-01,manager-01,ABC-1234,Valid Title,Valid description,false,false,EUR 100,https://example.com
-project-02,manager-02,AAA-1234,Valid Title,Valid description,false,true,EUR 100,https://example.com
-project-03,manager-02,ZZZ-1234,Valid Title,Valid description,false,true,EUR 100,https://example.com
+project-02,manager-02,AAA-1234,Valid Title,Valid description,false,false,EUR 100,https://example.com
+project-03,manager-02,ZZZ-1234,Valid Title,Valid description,false,false,EUR 100,https://example.com
 project-04,manager-02,ABC-0000,Valid Title,Valid description,false,true,EUR 100,https://example.com
 project-05,manager-01,ABC-9999,Valid Title,Valid description,false,false,EUR 100,https://example.com
 project-06,manager-01,BBC-1234,V,Valid description,false,false,EUR 100,https://example.com

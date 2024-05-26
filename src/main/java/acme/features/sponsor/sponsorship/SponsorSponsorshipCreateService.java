@@ -107,11 +107,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			super.state(object.getAmount().getAmount() <= 1000000, "amount", "sponsor.sponsorship.form.error.too-big");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("project")) {
-			Project objProject = object.getProject();
-			super.state(!objProject.isDraftMode(), "project", "sponsor.sponsorship.form.error.project.published");
-		}
-
 	}
 
 	@Override

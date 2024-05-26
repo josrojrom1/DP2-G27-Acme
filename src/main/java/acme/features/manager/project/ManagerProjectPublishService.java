@@ -4,6 +4,7 @@ package acme.features.manager.project;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,16 +70,12 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 
 		if (!super.getBuffer().getErrors().hasErrors("cost")) {
 			final Money cost = object.getCost();
-			final boolean negative = cost.getAmount() < 0;
 
-			super.state(!negative, "totalCost", "manager.project.form.error.negative-total-cost");
+			super.state(cost.getAmount() >= 0, "cost", "manager.project.form.error.negative-amount");
+			super.state(cost.getAmount() <= 1000000, "cost", "manager.project.form.error.too-big");
 
-			final boolean tooBig = cost.getAmount() > 9999999999.99;
-
-			super.state(!tooBig, "totalCost", "manager.project.form.error.exceed-limit-total-cost");
-
-			final List<String> acceptedCurrencies = Arrays.asList(this.repository.findSystemConfiguration().getAcceptedCurrencies().split(","));
-			super.state(acceptedCurrencies.contains(cost.getCurrency()), "cost", "manager.project.form.error.cost.currency");
+			final List<String> acceptedCurrencies = Arrays.asList(this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",")).stream().map(String::trim).collect(Collectors.toList());
+			super.state(acceptedCurrencies.contains(cost.getCurrency()), "cost", "manager.project.form.error.currency");
 		}
 
 		Collection<UserStory> userStories = this.repository.getUserStoryByProject(object.getId());
