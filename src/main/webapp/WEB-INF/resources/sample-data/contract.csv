@@ -1,21 +1,21 @@
 key,code,instantiationMoment,provider,customer,goals,budget,published,key:project,key:client
 contract-01,CON-001,2010/03/06 20:00,prov1,cust1,Exprimir el maximo dinero posible,EUR 8.00,true,project-01,client-01
-contract-02,CON-002,2000/01/01 00:00,prov2,cust1,Exprimir el maximo dinero posible y estafar,EUR 50.00,true,project-02,client-01
-contract-03,CON-003,2021/11/26 21:59,estoesunstringde75caracteres...............................................,cust2,1,EUR 200.00,true,project-03,client-02
-contract-04,CON-004,2020/01/06 10:30,1,estoesunstringde75caracteres...............................................,1,GBP 30.61,true,project-06,client-02
-contract-05,CON-005,2016/07/30 12:10,1,1,estoesunstringde100caracteres.......................................................................,USD 100.01,false,project-05,client-02
-contract-06,CON-006,2010/09/01 01:00,1,1,1,EUR 100.91,false,project-10,client-01
-contract-07,CON-007,2022/03/06 20:00,x,1234,aaaaaaaaaaaaaaaaaaaaaaaaaaaa,GBP 10.67,false,project-15,client-01
-contract-08,CON-008,2022/04/06 04:30,y,1234,bbbbbbbbbbbbbbbbbbbbbbbbbbbb,USD 23.65,false,project-17,client-01
+contract-02,CON-002,2000/01/01 00:00,prov2,cust1,Exprimir el maximo dinero posible y estafar,USD 50.00,true,project-22,client-01
+contract-03,CON-003,2021/11/26 21:59,estoesunstringde75caracteres...............................................,cust2,1,GBP 5.00,true,project-23,client-02
+contract-04,CON-004,2020/01/06 10:30,1,estoesunstringde75caracteres...............................................,1,EUR 30.61,true,project-06,client-02
+contract-05,CON-005,2016/07/30 12:10,1,1,estoesunstringde100caracteres.......................................................................,EUR 10.01,false,project-05,client-02
+contract-06,CON-006,2010/09/01 01:00,1,1,1,EUR 90.91,false,project-10,client-01
+contract-07,CON-007,2022/03/06 20:00,x,1234,aaaaaaaaaaaaaaaaaaaaaaaaaaaa,EUR 10.67,false,project-15,client-01
+contract-08,CON-008,2022/04/06 04:30,y,1234,bbbbbbbbbbbbbbbbbbbbbbbbbbbb,EUR 23.65,false,project-17,client-01
 contract-09,CON-009,2019/05/20 14:45,providerA,customerA,Expandir el mercado en nuevas regiones,EUR 25.00,true,project-01,client-01
-contract-10,CON-010,2018/12/12 08:30,providerB,customerB,Mejorar la calidad del servicio al cliente,EUR 45.50,true,project-02,client-01
-contract-11,CON-011,2020/07/15 11:00,providerC,customerC,Reducir los costos operativos en un 10%,EUR 60.00,true,project-03,client-02
-contract-12,CON-012,2021/02/27 13:20,providerD,customerD,Aumentar la satisfacción del cliente en un 20%,GBP 30.00,true,project-06,client-02
-contract-13,CON-013,2017/08/23 09:40,providerE,customerE,Implementar un nuevo sistema de gestión,USD 75.00,true,project-05,client-02
-contract-14,CON-014,2015/03/14 16:10,providerF,customerF,Lanzar una campaña de marketing,EUR 10.00,false,project-10,client-01
-contract-15,CON-015,2016/11/19 18:30,providerG,customerG,Desarrollar un nuevo producto,GBP 85.00,false,project-15,client-01
-contract-16,CON-016,2013/05/04 22:50,providerH,customerH,Incrementar la cuota de mercado,USD 95.00,false,project-17,client-01
+contract-10,CON-010,2018/12/12 08:30,providerB,customerB,Mejorar la calidad del servicio al cliente,USD 15.50,true,project-22,client-01
+contract-11,CON-011,2020/07/15 11:00,providerC,customerC,Reducir los costos operativos en un 10%,GBP 60.00,true,project-23,client-02
+contract-12,CON-012,2021/02/27 13:20,providerD,customerD,Aumentar la satisfacción del cliente en un 20%,EUR 30.00,true,project-06,client-02
+contract-13,CON-013,2017/08/23 09:40,providerE,customerE,Implementar un nuevo sistema de gestión,EUR 75.00,true,project-05,client-02
+contract-14,CON-014,2015/03/14 16:10,providerF,customerF,Lanzar una campaña de marketing,EUR 10.00,true,project-10,client-01
+contract-15,CON-015,2016/11/19 18:30,providerG,customerG,Desarrollar un nuevo producto,EUR 85.00,false,project-15,client-01
+contract-16,CON-016,2013/05/04 22:50,providerH,customerH,Incrementar la cuota de mercado,EUR 25.00,false,project-17,client-01
 contract-17,CON-017,2017/07/11 12:00,providerI,customerI,Optimizar la cadena de suministro,EUR 60.00,true,project-01,client-01
-contract-18,CON-018,2014/06/30 17:15,providerJ,customerJ,Fomentar la innovación y creatividad,EUR 20.00,true,project-02,client-01
-contract-19,CON-019,2012/09/25 19:45,providerK,customerK,Aumentar la eficiencia operativa,EUR 55.00,true,project-03,client-02
-contract-20,CON-020,2011/01/10 10:00,providerL,customerL,Mejorar la tecnología de la empresa,GBP 10.00,false,project-06,client-02
+contract-18,CON-018,2014/06/30 17:15,providerJ,customerJ,Fomentar la innovación y creatividad,USD 20.00,true,project-22,client-01
+contract-19,CON-019,2012/09/25 19:45,providerK,customerK,Aumentar la eficiencia operativa,GBP 15.00,true,project-23,client-02
+contract-20,CON-020,2011/01/10 10:00,providerL,customerL,Mejorar la tecnología de la empresa,EUR 10.00,false,project-06,client-02
