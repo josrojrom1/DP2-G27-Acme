@@ -22,7 +22,7 @@
 	<acme:input-moment code="sponsor.sponsorship.form.label.expirationDate" path="expirationDate"/>
 	<acme:input-money code="sponsor.sponsorship.form.label.amount" path="amount"/>
 	<acme:input-select code="sponsor.sponsorship.form.label.type" path="type" choices="${types}"/>	
-	<acme:input-select code="sponsor.sponsorship.form.label.project" path="project" choices="${projects}" readonly="${readOnly}"/>
+	<acme:input-select code="sponsor.sponsorship.form.label.project" path="project" choices="${projects}"/>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.contact" path="contact"/>	
 	<acme:input-url code="sponsor.sponsorship.form.label.link" path="link"/>
 
