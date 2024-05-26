@@ -33,9 +33,14 @@ sponsor.sponsorship.form.button.update = Actualizar
 sponsor.sponsorship.form.button.delete = Eliminar
 sponsor.sponsorship.form.button.publish = Publicar
 
+sponsor.sponsorship.form.error.too-soon = La fecha debe ser posterior a 2000/01/01 00:00
+sponsor.sponsorship.form.error.too-late = La fecha debe ser anterior a 2200/12/31 23:59
 sponsor.sponsorship.form.error.code.duplicated = Ya existe un patrocinio con este código
+sponsor.sponsorship.form.error.inlavid-moment-date = El momento de creación debe existir
 sponsor.sponsorship.form.error.inlavid-start-date = Su fecha de inicio debe ser posterior a su fecha de creación
+sponsor.sponsorship.form.error.start-date-not-null = Debe existir una fecha de inicio
 sponsor.sponsorship.form.error.too-close = Su fecha de vencimiento debe ser al menos un mes posterior a su fecha de inicio
 sponsor.sponsorship.form.error.negative-amount = El coste del patrocinio debe ser positivo
 sponsor.sponsorship.form.error.too-big = El coste del patrocinio debe ser menor de 1000000
 sponsor.sponsorship.form.error.invoices-inconsistency = El total de las facturas no coincide con el coste del patrocinio
+sponsor.sponsorship.form.error.project.published = El proyecto seleccionado debe estar publicado

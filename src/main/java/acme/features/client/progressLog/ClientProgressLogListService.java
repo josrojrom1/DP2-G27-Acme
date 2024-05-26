@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.contracts.Contract;
 import acme.entities.contracts.ProgressLog;
 import acme.roles.Client;
 
@@ -20,7 +21,12 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int masterId;
+		Contract contract;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		contract = this.repository.findContractById(masterId);
+		super.getResponse().setAuthorised(contract.isPublished());
 	}
 
 	@Override
@@ -41,6 +47,11 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 		Dataset dataset;
 
 		dataset = super.unbind(object, "recordId", "completeness", "registrationMoment");
+
+		if (this.repository.findProgressLogById(object.getId()).isPublished())
+			dataset.put("published", "✔");
+		else
+			dataset.put("published", "✖");
 
 		super.getResponse().addData(dataset);
 	}

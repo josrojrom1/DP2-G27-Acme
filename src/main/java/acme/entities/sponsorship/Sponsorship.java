@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
@@ -56,18 +57,21 @@ public class Sponsorship extends AbstractEntity {
 	private Date				expirationDate;
 
 	@NotNull
-	// Must be positive (must be implemented in the service)
+	// Must be positive
 	private Money				amount;
 
 	@NotNull
 	private SponsorshipType		type;
 
 	@Email
+	@Length(max = 255)
 	private String				contact;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
+	@NotNull
 	private boolean				draftMode;
 
 	// Relations

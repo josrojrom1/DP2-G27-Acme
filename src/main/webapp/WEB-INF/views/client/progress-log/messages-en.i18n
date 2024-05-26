@@ -2,6 +2,7 @@ client.progress-log.list.title = Contract's progress logs
 client.progress-log.list.label.recordId = Record Id
 client.progress-log.list.label.completeness = Completeness
 client.progress-log.list.label.registrationMoment = Registration Moment
+client.progress-log.list.label.published = Published
 
 client.progress-log.form.placeholder.recordId = PG-A-0000
 client.progress-log.form.placeholder.registrationMoment = yyyy/MM/dd HH:mm
@@ -23,3 +24,5 @@ client.progress-log.form.button.publish = Publish
 
 client.progress-log.form.error.duplicated = There is an existing progress log with that code
 client.progress-log.form.error.published = This progress log is already published
+client.progress-log.form.error.completeness = Must be higher than the last published progress log
+client.progress-log.form.error.registration-moment = Registration moment must be nearby than the last published progress log

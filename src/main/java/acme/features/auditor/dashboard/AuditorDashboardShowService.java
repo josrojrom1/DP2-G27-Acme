@@ -1,6 +1,8 @@
 
 package acme.features.auditor.dashboard;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +31,14 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		AuditorDashboard dashboard;
 		int id;
 		id = super.getRequest().getPrincipal().getActiveRoleId();
-
 		int totalNumberOfStaticCodeAudits;
 		int totalNumberOfDynamicCodeAudits;
+
+		double averageOfAuditRecords;
+		Collection<Double> auditRecordPerCodeAudit = this.repository.getAuditRecordsPerAudit(id);
+		double deviationOfAuditRecords;
+		int minimumOfAuditRecords;
+		int maximumOfAuditRecords;
 
 		double auditRecordsPeriodLengthAverage;
 		double auditRecordsPeriodLengthDeviation;
@@ -65,19 +72,49 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		try {
 			auditRecordsPeriodLengthMinimum = this.repository.auditRecordsPeriodLengthMinimum(id);
 		} catch (Exception e) {
-			auditRecordsPeriodLengthMinimum = 0;
+			auditRecordsPeriodLengthMinimum = -1;
 		}
 
 		try {
 			auditRecordsPeriodLengthMaximum = this.repository.auditRecordsPeriodLengthMaximum(id);
 		} catch (Exception e) {
-			auditRecordsPeriodLengthMaximum = 0;
+			auditRecordsPeriodLengthMaximum = -1;
+		}
+
+		try {
+			averageOfAuditRecords = this.repository.averageAuditRecordsPerCodeAudit(id);
+		} catch (Exception e) {
+			averageOfAuditRecords = 0;
+		}
+
+		try {
+			deviationOfAuditRecords = this.deviation(auditRecordPerCodeAudit);
+		} catch (Exception e) {
+			deviationOfAuditRecords = 0;
+		}
+
+		try {
+			minimumOfAuditRecords = this.repository.minimumAuditRecords(id);
+		} catch (Exception e) {
+			minimumOfAuditRecords = -1;
+		}
+
+		try {
+			maximumOfAuditRecords = this.repository.maximumAuditRecords(id);
+		} catch (Exception e) {
+			maximumOfAuditRecords = -1;
 		}
 
 		dashboard = new AuditorDashboard();
 
 		dashboard.setTotalNumberOfStaticCodeAudits(totalNumberOfStaticCodeAudits);
 		dashboard.setTotalNumberOfDynamicCodeAudits(totalNumberOfDynamicCodeAudits);
+
+		dashboard.setAverageOfAuditRecords(averageOfAuditRecords);
+		dashboard.setDeviationOfAuditRecords(deviationOfAuditRecords);
+		dashboard.setMinimumOfAuditRecords(minimumOfAuditRecords);
+		dashboard.setMaximumOfAuditRecords(maximumOfAuditRecords);
+
 		dashboard.setAuditRecordsPeriodLengthAverage(auditRecordsPeriodLengthAverage);
 		dashboard.setAuditRecordsPeriodLengthDeviation(auditRecordsPeriodLengthDeviation);
 		dashboard.setAuditRecordsPeriodLengthMinimum(auditRecordsPeriodLengthMinimum);
@@ -90,9 +127,20 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		Dataset dataset;
 
 		dataset = super.unbind(object, //
-			"totalNumberOfStaticCodeAudits", "totalNumberOfDynamicCodeAudits", "auditRecordsPeriodLengthAverage", "auditRecordsPeriodLengthDeviation", "auditRecordsPeriodLengthMinimum", "auditRecordsPeriodLengthMaximum");
+			"totalNumberOfStaticCodeAudits", "totalNumberOfDynamicCodeAudits", "averageOfAuditRecords", "deviationOfAuditRecords", "minimumOfAuditRecords", "maximumOfAuditRecords", "auditRecordsPeriodLengthAverage", "auditRecordsPeriodLengthDeviation",
+			"auditRecordsPeriodLengthMinimum", "auditRecordsPeriodLengthMaximum");
 
 		super.getResponse().addData(dataset);
+	}
+
+	public Double deviation(final Collection<Double> values) {
+		if (values.isEmpty())
+			return 1.0 * 0;
+		return values.stream().reduce(0.0, (sum, value) -> sum + Math.pow(value - this.average(values), 2), Double::sum) / values.size();
+	}
+
+	private Double average(final Collection<Double> values) {
+		return values.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
 	}
 
 }

@@ -1,6 +1,8 @@
 
 package acme.features.client.progressLog;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +30,8 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 		objectId = super.getRequest().getData("id", int.class);
 		object = this.repository.findProgressLogById(objectId);
 		contract = object.getContract();
-		client = object == null ? null : object.getContract().getClient();
-		status = object != null && !object.isPublished() && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
+		client = object.getContract().getClient();
+		status = !object.isPublished() && contract.isPublished() && super.getRequest().getPrincipal().hasRole(client) && super.getRequest().getPrincipal().getActiveRoleId() == client.getId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,14 +51,7 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 	public void bind(final ProgressLog object) {
 		assert object != null;
 
-		ProgressLog pLog;
-		int objectId;
-
-		objectId = super.getRequest().getData("id", int.class);
-		pLog = this.repository.findProgressLogById(objectId);
-
-		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract");
-		object.setContract(pLog.getContract());
+		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
 	}
 
 	@Override
@@ -70,6 +65,28 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 			code = object.getRecordId();
 			existing = this.repository.findProgressLogByRecordId(code);
 			super.state(existing == null || object.getId() == existing.getId(), "recordId", "client.progress-log.form.error.recordId");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("completeness")) {
+			ProgressLog maxCompleteness;
+			ProgressLog existing;
+
+			existing = this.repository.findProgressLogById(object.getId());
+			maxCompleteness = this.repository.findProgressLogWithMaxCompleteness(existing.getContract().getId());
+			if (maxCompleteness != null)
+				super.state(maxCompleteness.getCompleteness() < object.getCompleteness(), "completeness", "client.progress-log.form.error.completeness");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
+			ProgressLog maxCompleteness;
+			Date objectDate;
+			ProgressLog existing;
+
+			existing = this.repository.findProgressLogById(object.getId());
+			maxCompleteness = this.repository.findProgressLogWithMaxCompleteness(existing.getContract().getId());
+			objectDate = this.repository.findProgressLogById(object.getId()).getRegistrationMoment();
+			if (maxCompleteness != null && !maxCompleteness.getRegistrationMoment().equals(objectDate))
+				super.state(maxCompleteness.getRegistrationMoment().before(objectDate), "registrationMoment", "client.progress-log.form.error.registration-moment");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("published")) {
@@ -100,7 +117,6 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 		Dataset dataset;
 
 		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
-		dataset.put("contract", object.getContract());
 
 		super.getResponse().addData(dataset);
 	}

@@ -34,15 +34,17 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.banner.list = Listado de Banners
+master.menu.administrator.risk.list = Listado de Riesgos
 master.menu.administrator.create.objective = Crear objetivo
 
 master.menu.any ###############################################################
 
 master.menu.any = Cualquiera
-master.menu.any.sponsorship.list = Patrocinios
+master.menu.any.sponsorship.list = Listar patrocinios publicados
 master.menu.any.code-audit.list = Listar auditorías de código publicadas 
 master.menu.anonymous.all-claims = Lista de Reclamos publicados
 master.menu.any.training-module.list = Lista de Módulos de formación publicados
+master.menu.any.contract.list = Listar contratos publicados
 master.menu.any.project.list = Lista de Proyectos publicados
 
 # master.menu.auditor ##########################################################
@@ -82,6 +84,8 @@ master.menu.user-account.developer = Datos de desarrollador
 master.menu.notice.list = Notificaciones
 master.menu.user-account.sponsor = Datos de patrocinador
 master.menu.user-account.become-sponsor = Hazte patrocinador
+master.menu.user-account.client = Datos de cliente
+master.menu.user-account.become-client = Hazte cliente
 master.menu.user-account.manager = Datos de gerente
 master.menu.user-account.become-manager = Hazte gerente
 
