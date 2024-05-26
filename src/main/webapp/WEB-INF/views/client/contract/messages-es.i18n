@@ -3,6 +3,7 @@ client.contract.list.label.code = Código
 client.contract.list.label.instantiationMoment = Momento de creación
 client.contract.list.label.budget = Presupuesto
 client.contract.list.label.project = Proyecto
+client.contract.list.label.published = Publicado
 
 client.contract.form.placeholder.code = CON-XXX
 
@@ -24,6 +25,7 @@ client.contract.form.button.delete = Borrar
 client.contract.form.button.publish = Publicar
 
 client.contract.form.error.duplicated = Ya existe un contrato con ese código
+client.contract.form.error.null-budget = No puede estar vacío
 client.contract.form.error.incorrect-currency = La divisa debe ser la misma que la del proyecto correspondiente
 client.contract.form.error.incorrect-budget = El presupuesto debe ser menor que el coste del proyecto correspondiente
 client.contract.form.error.negative-budget = El presupuesto debe ser positivo

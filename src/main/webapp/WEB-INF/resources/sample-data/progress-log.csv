@@ -1,7 +1,27 @@
 key,recordId,completeness,comment,registrationMoment,responsiblePerson,published,key:contract
-progress-log-01,"PG-A-0001",0.0,"prueba",2021/12/06 20:00,"person1",false,contract-01
-progress-log-02,"PG-A-0002",0.9,"estoesunstringde100caracteres.......................................................................",2019/10/23 15:14,"1",false,contract-02
-progress-log-03,"PG-B-0001",0.01,"1",2010/01/01 00:00,"estoesunstringde75caracteres...............................................",false,contract-03
-progress-log-04,"PG-C-0021",0.99,"1",2021/12/07 21:46,"1",false,contract-04
-progress-log-05,"PG-Z-0001",0.51,"1",2000/01/01 00:00,"1",false,contract-01
-progress-log-06,"PG-M-9999",1.00,"1",2021/12/31 23:59,"1",false,contract-03
+progress-log-01,"PG-A-0001",0.0,"prueba",2010/04/01 00:00,"person1",true,contract-01
+progress-log-02,"PG-A-0002",0.11,"estoesunstringde100caracteres.......................................................................",2001/01/01 00:00,"person2",true,contract-02
+progress-log-03,"PG-B-0001",0.01,"avance inicial",2022/01/01 00:00,"person3",true,contract-03
+progress-log-04,"PG-C-0021",0.99,"avance significativo",2021/12/07 21:46,"person4",false,contract-04
+progress-log-05,"PG-Z-9999",0.51,"progreso intermedio",2010/05/01 00:00,"person5",false,contract-01
+progress-log-06,"PG-M-9999",1.00,"progreso completo",2021/12/31 23:59,"person6",false,contract-03
+progress-log-07,"PG-A-0003",0.20,"avances significativos",2011/01/01 10:00,"person7",true,contract-01
+progress-log-08,"PG-A-0004",0.30,"más progreso",2012/01/01 10:00,"person8",true,contract-01
+progress-log-09,"PG-B-0002",0.15,"avance menor",2022/01/01 12:00,"person9",true,contract-03
+progress-log-10,"PG-B-0003",0.40,"avance mayor",2022/01/02 12:00,"person10",true,contract-03
+progress-log-11,"PG-C-0002",0.05,"inicio",2020/01/07 14:00,"person11",true,contract-04
+progress-log-12,"PG-C-0003",0.10,"progreso lento",2020/02/07 14:00,"person12",true,contract-04
+progress-log-13,"PG-D-0001",0.60,"progreso sostenido",2017/02/01 14:00,"person13",true,contract-05
+progress-log-14,"PG-D-0002",0.80,"cerca del objetivo",2017/02/10 14:00,"person14",true,contract-05
+progress-log-15,"PG-E-0001",0.25,"avance inicial",2017/08/24 14:00,"person15",true,contract-13
+progress-log-16,"PG-E-0002",0.50,"avance intermedio",2018/08/24 14:00,"person16",true,contract-13
+progress-log-17,"PG-F-0001",0.10,"progreso inicial",2010/10/01 14:00,"person17",true,contract-06
+progress-log-18,"PG-F-0002",0.35,"progreso moderado",2011/10/01 14:00,"person18",false,contract-06
+progress-log-19,"PG-G-0001",0.20,"avance pequeño",2022/03/07 14:00,"person19",true,contract-07
+progress-log-20,"PG-G-0002",0.45,"avance significativo",2022/04/07 14:00,"person20",true,contract-07
+progress-log-21,"PG-H-0001",0.30,"inicio del proyecto",2022/04/07 14:00,"person21",true,contract-08
+progress-log-22,"PG-H-0002",0.70,"avance considerable",2022/05/07 14:00,"person22",true,contract-08
+progress-log-23,"PG-I-0001",0.25,"primer avance",2019/05/21 14:00,"person23",true,contract-09
+progress-log-24,"PG-I-0002",0.55,"progreso continuo",2020/05/21 14:00,"person24",true,contract-09
+progress-log-25,"PG-J-0001",0.45,"avance inicial",2018/12/13 14:00,"person25",true,contract-10
+progress-log-26,"PG-J-0002",0.75,"progreso importante",2019/12/13 14:00,"person26",true,contract-10

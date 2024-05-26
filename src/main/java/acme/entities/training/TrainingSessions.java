@@ -52,11 +52,13 @@ public class TrainingSessions extends AbstractEntity {
 
 	//mandatory contact email
 	@Email
-	@NotNull
+	@NotBlank
+	@Length(max = 255)
 	private String				contactEmail;
 
 	//optional link with further information
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	private boolean				draftMode;

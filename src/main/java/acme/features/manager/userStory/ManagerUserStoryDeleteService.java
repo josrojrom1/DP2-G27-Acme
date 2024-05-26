@@ -10,7 +10,6 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.ProjectUserStory;
 import acme.entities.projects.UserStory;
-import acme.features.manager.projectUserStory.ManagerProjectUserStoryRepository;
 import acme.roles.Manager;
 
 @Service
@@ -19,9 +18,7 @@ public class ManagerUserStoryDeleteService extends AbstractService<Manager, User
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerUserStoryRepository			repository;
-	@Autowired
-	private ManagerProjectUserStoryRepository	pUSRepository;
+	private ManagerUserStoryRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -30,9 +27,13 @@ public class ManagerUserStoryDeleteService extends AbstractService<Manager, User
 	public void authorise() {
 		boolean status;
 		UserStory userStory;
+		Manager manager;
+
 		int id = super.getRequest().getData("id", int.class);
 		userStory = this.repository.findUserStoryById(id);
-		status = userStory != null && super.getRequest().getPrincipal().hasRole(Manager.class) && super.getRequest().getPrincipal().getActiveRoleId() == userStory.getManager().getId() && userStory.getDraftMode() == true;
+		manager = userStory == null ? null : userStory.getManager();
+		status = userStory != null && super.getRequest().getPrincipal().hasRole(manager) && userStory.isDraftMode() == true;
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -51,7 +52,7 @@ public class ManagerUserStoryDeleteService extends AbstractService<Manager, User
 	public void bind(final UserStory object) {
 		assert object != null;
 
-		super.bind(object, "manager", "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "draftMode", "link");
+		super.bind(object, "manager", "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
 	}
 
 	@Override
@@ -65,9 +66,9 @@ public class ManagerUserStoryDeleteService extends AbstractService<Manager, User
 
 		Collection<ProjectUserStory> projectUserStory;
 
-		projectUserStory = this.pUSRepository.getRelationsByUserStory(object.getId());
+		projectUserStory = this.repository.getRelationsByUserStory(object.getId());
 
-		this.pUSRepository.deleteAll(projectUserStory);
+		this.repository.deleteAll(projectUserStory);
 		this.repository.delete(object);
 	}
 
@@ -78,5 +79,7 @@ public class ManagerUserStoryDeleteService extends AbstractService<Manager, User
 		Dataset dataset;
 
 		dataset = super.unbind(object, "manager", "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "draftMode", "link");
+
+		super.getResponse().addData(dataset);
 	}
 }

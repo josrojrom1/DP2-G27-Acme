@@ -6,11 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
-import acme.entities.projects.PriorityEnum;
 import acme.entities.projects.UserStory;
-import acme.features.manager.project.ManagerProjectRepository;
-import acme.features.manager.projectUserStory.ManagerProjectUserStoryRepository;
 import acme.roles.Manager;
 
 @Service
@@ -19,11 +15,7 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerUserStoryRepository			repository;
-	@Autowired
-	private ManagerProjectUserStoryRepository	pUSRepository;
-	@Autowired
-	private ManagerProjectRepository			pRepository;
+	private ManagerUserStoryRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -31,8 +23,14 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	@Override
 	public void authorise() {
 		Boolean status;
+		UserStory userStory;
+		Manager manager;
 
-		status = super.getRequest().getPrincipal().hasRole(Manager.class);
+		int id = super.getRequest().getData("id", int.class);
+		userStory = this.repository.findUserStoryById(id);
+		manager = userStory == null ? null : userStory.getManager();
+		status = userStory != null && super.getRequest().getPrincipal().hasRole(manager) && userStory.isDraftMode();
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -43,7 +41,6 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findUserStoryById(id);
-		object.setDraftMode(false);
 
 		super.getBuffer().addData(object);
 	}
@@ -52,7 +49,7 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	public void bind(final UserStory object) {
 		assert object != null;
 
-		super.bind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "draftMode", "link");
+		super.bind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
 	}
 
 	@Override
@@ -74,18 +71,9 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	public void unbind(final UserStory object) {
 		assert object != null;
 
-		int masterId = super.getRequest().getData("masterId", int.class);
-
 		Dataset dataset;
-		SelectChoices priorityChoices;
-		priorityChoices = SelectChoices.from(PriorityEnum.class, object.getPriority());
 
 		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
-		dataset.put("confirmation", false);
-		dataset.put("readonly", false);
-		dataset.put("priorities", priorityChoices);
-		dataset.put("masterId", masterId);
-		dataset.put("draftMode", true);
 
 		super.getResponse().addData(dataset);
 	}

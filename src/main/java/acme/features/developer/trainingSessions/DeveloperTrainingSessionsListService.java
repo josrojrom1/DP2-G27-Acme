@@ -24,11 +24,10 @@ public class DeveloperTrainingSessionsListService extends AbstractService<Develo
 		boolean status;
 		int masterId;
 		TrainingModule trainingModule;
-		//Auditor auditor;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		trainingModule = this.repository.findOneTrainingModuleById(masterId);
-		status = trainingModule != null && (!trainingModule.isDraftMode() || super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper()));
+		status = trainingModule != null && super.getRequest().getPrincipal().hasRole(trainingModule.getDeveloper()) && trainingModule.getDeveloper().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}

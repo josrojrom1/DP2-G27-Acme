@@ -58,6 +58,7 @@ public class Contract extends AbstractEntity {
 
 	private boolean				published;
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;

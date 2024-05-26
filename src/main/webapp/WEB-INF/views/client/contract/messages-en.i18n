@@ -3,6 +3,7 @@ client.contract.list.label.code = Code
 client.contract.list.label.instantiationMoment = Instantiation moment
 client.contract.list.label.budget = Budget
 client.contract.list.label.project = Project
+client.contract.list.label.published = Published
 
 client.contract.form.placeholder.code = CON-XXX
 
@@ -24,6 +25,7 @@ client.contract.form.button.delete = Delete
 client.contract.form.button.publish = Publish
 
 client.contract.form.error.duplicated = There is an existing contract with that code
+client.contract.form.error.null-budget = Must not be blank
 client.contract.form.error.incorrect-currency = Currency must be the same of the corresponding project currency
 client.contract.form.error.incorrect-budget = Budget must be less than the corresponding project cost
 client.contract.form.error.negative-budget = Budget must be positive

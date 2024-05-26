@@ -1,0 +1,16 @@
+any.contract.list.title = Contratos publicados
+any.contract.list.label.code = Código
+any.contract.list.label.instantiationMoment = Momento de creación
+any.contract.list.label.budget = Presupuesto
+any.contract.list.label.project = Proyecto
+
+any.contract.form.title = Formulario de contrato
+any.contract.form.label.code = Código
+any.contract.form.label.instantiationMoment = Momento de creación
+any.contract.form.label.provider = Proveedor
+any.contract.form.label.customer = Cliente
+any.contract.form.label.goals = Objetivos
+any.contract.form.label.budget = Presupuesto
+any.contract.form.label.project = Proyecto
+
+any.contract.form.button.progress-log = Informes de progreso
