@@ -43,6 +43,11 @@ public class ClientContractsListMineService extends AbstractService<Client, Cont
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "budget", "project.code");
 
+		if (this.repository.findContractById(object.getId()).isPublished())
+			dataset.put("published", "✔");
+		else
+			dataset.put("published", "✖");
+
 		super.getResponse().addData(dataset);
 	}
 

@@ -42,6 +42,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Sponsorship();
+		object.setMoment(MomentHelper.getCurrentMoment());
 		object.setDraftMode(true);
 		object.setSponsor(sponsor);
 
@@ -66,6 +67,9 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
+		final Date baseDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
+		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship existing;
 
@@ -73,8 +77,20 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			super.state(existing == null, "code", "sponsor.sponsorship.form.error.code.duplicated");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("moment"))
+			super.state(MomentHelper.isAfterOrEqual(object.getMoment(), baseDate), "moment", "sponsor.sponsorship.form.error.too-soon");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(object.getMoment() != null, "startDate", "sponsor.sponsorship.form.error.inlavid-moment-date");
+
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.inlavid-start-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(MomentHelper.isBeforeOrEqual(object.getStartDate(), topDate), "startDate", "sponsor.sponsorship.form.error.too-late");
+
+		if (!super.getBuffer().getErrors().hasErrors("expirationDate"))
+			super.state(object.getStartDate() != null, "expirationDate", "sponsor.sponsorship.form.error.start-date-not-null");
 
 		if (!super.getBuffer().getErrors().hasErrors("expirationDate")) {
 			Date minimumExpirationDate;
@@ -83,9 +99,17 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			super.state(MomentHelper.isAfter(object.getExpirationDate(), minimumExpirationDate), "expirationDate", "sponsor.sponsorship.form.error.too-close");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("expirationDate"))
+			super.state(MomentHelper.isBeforeOrEqual(object.getExpirationDate(), topDate), "expirationDate", "sponsor.sponsorship.form.error.too-late");
+
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.form.error.negative-amount");
 			super.state(object.getAmount().getAmount() <= 1000000, "amount", "sponsor.sponsorship.form.error.too-big");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("project")) {
+			Project objProject = object.getProject();
+			super.state(!objProject.isDraftMode(), "project", "sponsor.sponsorship.form.error.project.published");
 		}
 
 	}

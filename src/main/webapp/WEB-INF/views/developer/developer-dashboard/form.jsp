@@ -9,7 +9,6 @@
 
 <table class="table table-sm">
 	
-	<jstl:if test="${totalNumberOfTrainingModuleWithAnUpdateMoment != 0}">
 	<tr>
 	<th scope="row">
 			<acme:message code="developer.developer-dashboard.form.label.total-number-training-update"/>
@@ -18,9 +17,7 @@
 			<acme:print value="${totalNumberOfTrainingModuleWithAnUpdateMoment}"/>
 		</td>
 	</tr>
-	</jstl:if>
 		
-		<jstl:if test="${totalNumberOfTrainingSessionsWithALink != 0}">
 	<tr>
 		<th scope="row">
 			<acme:message code="developer.developer-dashboard.form.label.total-number-training-link"/>
@@ -29,9 +26,7 @@
 			<acme:print value="${totalNumberOfTrainingSessionsWithALink}"/>
 		</td>
 	</tr>
-	</jstl:if>
 	
-	<jstl:if test="${trainingModuleAverageTime != 0.0}">
 	<tr>
 		<th scope="row">
 			<acme:message code="developer.developer-dashboard.form.label.training-module-average-time"/>
@@ -40,9 +35,7 @@
 			<acme:print value="${trainingModuleAverageTime}"/>
 		</td>
 	</tr>
-	</jstl:if>
-	
-	<jstl:if test="${trainingModuleDeviationTime != 0.0}">
+
 	<tr>
 		<th scope="row">
 			<acme:message code="developer.developer-dashboard.form.label.training-module-deviation-time"/>
@@ -51,28 +44,47 @@
 			<acme:print value="${trainingModuleDeviationTime}"/>
 		</td>
 	</tr>
-	</jstl:if>
-	
-	<jstl:if test="${trainingModuleMinimumTime != 0.0}">
+
 	<tr>
+	<jstl:if test="${trainingModuleMinimumTime != -1.00}">
 		<th scope="row">
 			<acme:message code="developer.developer-dashboard.form.label.training-module-minimum-time"/>
 		</th>
 		<td>
 			<acme:print value="${trainingModuleMinimumTime}"/>
 		</td>
+		</jstl:if>	
 	</tr>
-	</jstl:if>
-	
-	<jstl:if test="${trainingModuleMaximumTime != 0.0}">
 	<tr>
+	<jstl:if test="${trainingModuleMinimumTime == -1.00}">
 		<th scope="row">
-			<acme:message code="developer.developer-dashboard.form.label.training-module-maximum-time"/>
+			<acme:message code="developer.developer-dashboard.form.label.training-module-minimum-time"/>
+		</th>
+		<td>
+			<acme:print value="${''}"/>
+		</td>
+		</jstl:if>	
+	</tr>
+	
+	<tr>
+	<jstl:if test="${trainingModuleMaximumTime != -1.00}">
+		<th scope="row">
+			<acme:message code="developer.developer-dashboard.form.label.training-module-minimum-time"/>
 		</th>
 		<td>
 			<acme:print value="${trainingModuleMaximumTime}"/>
 		</td>
+		</jstl:if>	
 	</tr>
-	</jstl:if>		
+	<tr>
+	<jstl:if test="${trainingModuleMaximumTime == -1.00}">
+		<th scope="row">
+			<acme:message code="developer.developer-dashboard.form.label.training-module-minimum-time"/>
+		</th>
+		<td>
+			<acme:print value="${''}"/>
+		</td>
+		</jstl:if>	
+	</tr>
 </table>
 <acme:return/>

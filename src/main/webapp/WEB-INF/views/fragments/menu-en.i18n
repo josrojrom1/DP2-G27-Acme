@@ -40,10 +40,11 @@ master.menu.administrator.create.objective = Create objective
 # master.menu.any ###############################################################
 
 master.menu.any = Any
-master.menu.any.sponsorship.list = Sponsorships
+master.menu.any.sponsorship.list = List publised sponsorships
 master.menu.any.code-audit.list = List published code audits
 master.menu.anonymous.all-claims = List published claims
 master.menu.any.training-module.list = List published training module
+master.menu.any.contract.list = List published contracts
 master.menu.any.project.list = List published projects
 
 # master.menu.auditor ##########################################################
@@ -83,6 +84,8 @@ master.menu.user-account.developer = Developer data
 master.menu.notice.list = Notices
 master.menu.user-account.sponsor = Sponsor data
 master.menu.user-account.become-sponsor = Become a sponsor
+master.menu.user-account.client = Client data
+master.menu.user-account.become-client = Become a client
 master.menu.user-account.manager = Manager data
 master.menu.user-account.become-manager = Become an manager
 

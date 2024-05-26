@@ -24,7 +24,6 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	private SponsorSponsorshipRepository repository;
 
 
-	// Este metodo deberia mostrar si la consulta es legal o no
 	@Override
 	public void authorise() {
 		boolean status;

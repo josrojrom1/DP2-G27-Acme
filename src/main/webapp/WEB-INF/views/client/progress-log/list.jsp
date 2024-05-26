@@ -7,6 +7,7 @@
 	<acme:list-column code="client.progress-log.list.label.recordId" path="recordId" width="10%"/>
 	<acme:list-column code="client.progress-log.list.label.completeness" path="completeness" width="10%"/>
 	<acme:list-column code="client.progress-log.list.label.registrationMoment" path="registrationMoment" width="10%"/>
+	<acme:list-column code="client.progress-log.list.label.published" path="published" width="10%"/>
 </acme:list>
 
 <acme:button test="${showCreate}" code="client.progress-log.list.button.create" action="/client/progress-log/create?masterId=${param.masterId}"/>

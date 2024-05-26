@@ -12,6 +12,8 @@
 auditor.auditor-dashboard.form.title = Auditor dashboard
 auditor.auditor-dasboard.form.title.audits.general-indicators = Audit indicators
 auditor.auditor-dasboard.form.title.auditRecords.general-indicators = Audit record indicators
+auditor.auditor-dasboard.form.title.auditRecords.period-indicators = Audit record period indicators
+
 auditor.auditor-dasboard.form.label.total-number-static-type-codeAudits = Total number of static audits
 auditor.auditor-dasboard.form.label.total-number-dynamic-type-codeAudits = Total number of dynamic audits
 auditor.auditor-dasboard.form.label.average-auditRecords = Average of audit records

@@ -60,6 +60,13 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 	@Override
 	public void validate(final TrainingSessions object) {
 		assert object != null;
+
+		final Date baseDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
+		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
+
+		if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
+			super.state(object.getPeriodStart() != null, "periodFinish", "developer.training-sessions.form.error.NotPeriodStart");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingSessions existing;
 
@@ -67,20 +74,32 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 			super.state(existing == null, "code", "developer.training-sessions.form.error.code.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
-			super.state(object.getPeriodFinish().after(object.getPeriodStart()), "periodFinish", "developer.training-sessions.form.error.periodFinish");
+		// if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
+		//	super.state(object.getPeriodFinish().after(object.getPeriodStart()), "periodFinish", "developer.training-sessions.form.error.periodFinish");
+
+		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
+			super.state(MomentHelper.isAfterOrEqual(object.getPeriodStart(), baseDate), "periodStart", "developer.training-sessions.form.error.tooLittle");
+			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodStart(), topDate), "periodStart", "developer.training-sessions.form.error.tooBig");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("periodFinish")) {
+			super.state(MomentHelper.isAfterOrEqual(object.getPeriodFinish(), baseDate), "periodFinish", "developer.training-sessions.form.error.tooLittle");
+			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodFinish(), topDate), "periodFinish", "developer.training-sessions.form.error.tooBig");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("periodFinish")) {
 			Date minimunPeriodFinish;
 			minimunPeriodFinish = MomentHelper.deltaFromMoment(object.getPeriodStart(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getPeriodFinish(), minimunPeriodFinish), "periodFinish", "developer.training-sessions.form.error.too-close");
+			super.state(MomentHelper.isAfterOrEqual(object.getPeriodFinish(), minimunPeriodFinish), "periodFinish", "developer.training-sessions.form.error.too-close");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
-			Date minimunPeriodStart;
-			minimunPeriodStart = MomentHelper.deltaFromMoment(object.getTrainingModule().getCreationMoment(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getPeriodStart(), minimunPeriodStart), "periodStart", "developer.training-sessions.form.error.nomore");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("periodStart"))
+			if (object.getTrainingModule().getCreationMoment() != null) {
+				Date minimunPeriodStart;
+				minimunPeriodStart = MomentHelper.deltaFromMoment(object.getTrainingModule().getCreationMoment(), 7, ChronoUnit.DAYS);
+				super.state(MomentHelper.isAfterOrEqual(object.getPeriodStart(), minimunPeriodStart), "periodStart", "developer.training-sessions.form.error.nomore");
+
+			}
 	}
 
 	@Override

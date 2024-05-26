@@ -20,10 +20,7 @@ public class SponsorSponsorshipListService extends AbstractService<Sponsor, Spon
 	@Autowired
 	private SponsorSponsorshipRepository repository;
 
-	// AbstractService interface ----------------------------------
 
-
-	// Este metodo deberia mostrar si la consulta es legal o no
 	@Override
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
