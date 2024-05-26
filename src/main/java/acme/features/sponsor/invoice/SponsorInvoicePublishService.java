@@ -70,9 +70,6 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			super.state(existing == null || existing.getId() == object.getId(), "code", "sponsor.invoice.form.error.code.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("registration"))
-			super.state(MomentHelper.isAfter(object.getRegistration(), object.getSponsorship().getMoment()), "registration", "sponsor.invoice.form.error.registration");
-
 		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
 			super.state(object.getRegistration() != null, "dueDate", "sponsor.invoice.form.error.invalid-registration");
 
