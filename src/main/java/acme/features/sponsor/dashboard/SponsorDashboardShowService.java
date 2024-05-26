@@ -79,12 +79,12 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		} catch (Exception e) {
 
 			sponsorshipAmountAverageEUR = 0.0;
-			sponsorshipAmountDeviationEUR = 0.0;
+			sponsorshipAmountDeviationEUR = -10.0;
 			minimumSponsorshipAmountEUR = 0.0;
 			maximumSponsorshipAmountEUR = 0.0;
 
 			invoiceQuantityAverageEUR = 0.0;
-			invoiceQuantityDeviationEUR = 0.0;
+			invoiceQuantityDeviationEUR = -10.0;
 			minimumInvoiceQuantityEUR = 0.0;
 			maximumInvoiceQuantityEUR = 0.0;
 		}
@@ -104,12 +104,12 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		} catch (Exception e) {
 
 			sponsorshipAmountAverageUSD = 0.0;
-			sponsorshipAmountDeviationUSD = 0.0;
+			sponsorshipAmountDeviationUSD = -10.0;
 			minimumSponsorshipAmountUSD = 0.0;
 			maximumSponsorshipAmountUSD = 0.0;
 
 			invoiceQuantityAverageUSD = 0.0;
-			invoiceQuantityDeviationUSD = 0.0;
+			invoiceQuantityDeviationUSD = -10.0;
 			minimumInvoiceQuantityUSD = 0.0;
 			maximumInvoiceQuantityUSD = 0.0;
 		}
@@ -129,12 +129,12 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		} catch (Exception e) {
 
 			sponsorshipAmountAverageGBP = 0.0;
-			sponsorshipAmountDeviationGBP = 0.0;
+			sponsorshipAmountDeviationGBP = -10.0;
 			minimumSponsorshipAmountGBP = 0.0;
 			maximumSponsorshipAmountGBP = 0.0;
 
 			invoiceQuantityAverageGBP = 0.0;
-			invoiceQuantityDeviationGBP = 0.0;
+			invoiceQuantityDeviationGBP = -10.0;
 			minimumInvoiceQuantityGBP = 0.0;
 			maximumInvoiceQuantityGBP = 0.0;
 		}

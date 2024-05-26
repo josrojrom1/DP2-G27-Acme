@@ -39,7 +39,7 @@ master.menu.administrator.create.objective = Create objective
 # master.menu.any ###############################################################
 
 master.menu.any = Any
-master.menu.any.sponsorship.list = Sponsorships
+master.menu.any.sponsorship.list = List publised sponsorships
 master.menu.any.code-audit.list = List published code audits
 master.menu.anonymous.all-claims = List published claims
 master.menu.any.training-module.list = List published training module

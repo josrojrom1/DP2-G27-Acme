@@ -30,11 +30,13 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	public void authorise() {
 		boolean status;
 		int invoiceId;
+		Invoice object;
 		Sponsorship sponsorship;
 
 		invoiceId = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneInvoiceById(invoiceId);
 		sponsorship = this.repository.findOneSponsorshipByInvoiceId(invoiceId);
-		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor()) && super.getRequest().getPrincipal().getActiveRoleId() == sponsorship.getSponsor().getId();
+		status = sponsorship != null && sponsorship.isDraftMode() && object.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor()) && super.getRequest().getPrincipal().getActiveRoleId() == sponsorship.getSponsor().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -60,12 +62,21 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void validate(final Invoice object) {
 		assert object != null;
+
+		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 
 			Invoice existing;
 			existing = this.repository.findOneInvoiceByCode(object.getCode());
 			super.state(existing == null || existing.getId() == object.getId(), "code", "sponsor.invoice.form.error.code.duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("registration"))
+			super.state(MomentHelper.isAfter(object.getRegistration(), object.getSponsorship().getMoment()), "registration", "sponsor.invoice.form.error.registration");
+
+		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+			super.state(object.getRegistration() != null, "dueDate", "sponsor.invoice.form.error.invalid-registration");
 
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date minimumExpirationDate;
@@ -74,10 +85,13 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 			super.state(MomentHelper.isAfter(object.getDueDate(), minimumExpirationDate), "dueDate", "sponsor.invoice.form.error.too-close");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+			super.state(MomentHelper.isBeforeOrEqual(object.getDueDate(), topDate), "dueDate", "sponsor.invoice.form.error.too-late");
+
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getAmount() > 0, "quantity", "sponsor.invoice.form.error.negative-amount");
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
-			super.state(object.getQuantity().getAmount() < 1000000, "quantity", "sponsor.invoice.form.error.too-big");
+			super.state(object.getQuantity().getAmount() <= 1000000, "quantity", "sponsor.invoice.form.error.too-big");
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			Sponsorship sponsorship = object.getSponsorship();
 			String currency = sponsorship.getAmount().getCurrency();

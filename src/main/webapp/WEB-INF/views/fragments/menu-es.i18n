@@ -39,7 +39,7 @@ master.menu.administrator.create.objective = Crear objetivo
 master.menu.any ###############################################################
 
 master.menu.any = Cualquiera
-master.menu.any.sponsorship.list = Patrocinios
+master.menu.any.sponsorship.list = Listar patrocinios publicados
 master.menu.any.code-audit.list = Listar auditorías de código publicadas 
 master.menu.anonymous.all-claims = Lista de Reclamos publicados
 master.menu.any.training-module.list = Lista de Módulos de formación publicados
@@ -83,7 +83,7 @@ master.menu.user-account.become-sponsor = Hazte patrocinador
 
 # master.menu.sponsor #########################################################
 
-master.menu.soponsor = Patrocinador
+master.menu.sponsor = Patrocinador
 master.menu.sponsor.sponsorship = Mis patrocinios
 master.menu.sponsor.dashboard = Estadísitcas
 
