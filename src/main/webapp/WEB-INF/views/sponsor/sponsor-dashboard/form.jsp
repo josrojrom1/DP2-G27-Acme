@@ -80,7 +80,7 @@
 		</td>
 	</tr>
 	</jstl:if>	
-	<jstl:if test="${sponsorshipAmountDeviationEUR != 0}">
+	<jstl:if test="${sponsorshipAmountDeviationEUR >= 0}">
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.deviationEUR"/>
@@ -90,7 +90,7 @@
 		</td>
 	</tr>
 	</jstl:if>
-	<jstl:if test="${sponsorshipAmountDeviationUSD != 0}">
+	<jstl:if test="${sponsorshipAmountDeviationUSD >= 0}">
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.deviationUSD"/>
@@ -100,7 +100,7 @@
 		</td>
 	</tr>
 	</jstl:if>
-	<jstl:if test="${sponsorshipAmountDeviationGBP != 0}">
+	<jstl:if test="${sponsorshipAmountDeviationGBP >= 0}">
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.sponsor-dasboard.form.label.sponsorship.deviationGBP"/>
@@ -207,7 +207,7 @@
 		</td>
 	</tr>
 	</jstl:if>
-	<jstl:if test="${invoiceQuantityDeviationEUR != 0}">
+	<jstl:if test="${invoiceQuantityDeviationEUR >= 0}">
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.deviationEUR"/>
@@ -217,7 +217,7 @@
 		</td>
 	</tr>
 	</jstl:if>
-	<jstl:if test="${invoiceQuantityDeviationUSD != 0}">
+	<jstl:if test="${invoiceQuantityDeviationUSD >= 0}">
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.deviationUSD"/>
@@ -227,7 +227,7 @@
 		</td>
 	</tr>
 	</jstl:if>
-	<jstl:if test="${invoiceQuantityDeviationGBP != 0}">
+	<jstl:if test="${invoiceQuantityDeviationGBP >= 0}">
 	<tr>
 		<th scope="row">
 			<acme:message code="sponsor.sponsor-dasboard.form.label.invoice.deviationGBP"/>

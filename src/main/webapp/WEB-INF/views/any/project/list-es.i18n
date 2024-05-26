@@ -1,0 +1,21 @@
+<%--
+- list-es.i18n
+-
+- Copyright (C) 2012-2024 Rafael Corchuelo.
+-
+- In keeping with the traditional purpose of furthering education and research, it is
+- the policy of the copyright owner to permit non-commercial use and redistribution of
+- this software. It has been tested carefully, but it is not guaranteed for any particular
+- purposes.  The copyright owner does not offer any warranties or representations, nor do
+- they accept any liabilities with respect to them.
+--%>
+
+any.project.list.label.code = Código
+any.project.list.label.title = Título
+any.project.list.label.description = Descripción
+any.project.list.label.indication = Errores Fatales
+any.project.list.label.draftMode = Modo Borrador
+any.project.list.label.cost = Coste
+any.project.list.label.link = Enlace
+any.project.list.title = Listado de Proyectos Publicados
+any.project.form.title = Detalles de Proyecto

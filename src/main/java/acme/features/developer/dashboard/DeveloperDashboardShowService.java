@@ -64,13 +64,13 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		try {
 			trainingModuleMinimumTime = this.repository.trainingModuleMinimumTime(id);
 		} catch (Exception e) {
-			trainingModuleMinimumTime = 0.0;
+			trainingModuleMinimumTime = -1.00;
 		}
 
 		try {
 			trainingModuleMaximumTime = this.repository.trainingModuleMaximumTime(id);
 		} catch (Exception e) {
-			trainingModuleMaximumTime = 0.0;
+			trainingModuleMaximumTime = -1.00;
 		}
 
 		dashboard = new DeveloperDashboard();

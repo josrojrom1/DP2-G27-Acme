@@ -54,20 +54,15 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void bind(final Sponsorship object) {
 		assert object != null;
-
-		int projectId;
-		Project project;
-
-		projectId = super.getRequest().getData("project", int.class);
-		project = this.repository.findOneProjectById(projectId);
-
-		super.bind(object, "code", "startDate", "expirationDate", "amount", "type", "contact", "link", "draftMode");
-		object.setProject(project);
+		super.bind(object, "code", "startDate", "expirationDate", "amount", "type", "contact", "link");
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
+
+		final Date baseDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
+		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship existing;
@@ -76,8 +71,20 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			super.state(existing == null || object.getId() == existing.getId(), "code", "sponsor.sponsorship.form.error.code.duplicated");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("moment"))
+			super.state(MomentHelper.isAfterOrEqual(object.getMoment(), baseDate), "moment", "sponsor.sponsorship.form.error.too-soon");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(object.getMoment() != null, "startDate", "sponsor.sponsorship.form.error.inlavid-moment-date");
+
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.inlavid-start-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(MomentHelper.isBeforeOrEqual(object.getStartDate(), topDate), "startDate", "sponsor.sponsorship.form.error.too-late");
+
+		if (!super.getBuffer().getErrors().hasErrors("expirationDate"))
+			super.state(object.getStartDate() != null, "expirationDate", "sponsor.sponsorship.form.error.start-date-not-null");
 
 		if (!super.getBuffer().getErrors().hasErrors("expirationDate")) {
 			Date minimumExpirationDate;
@@ -85,6 +92,9 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			minimumExpirationDate = MomentHelper.deltaFromMoment(object.getStartDate(), 30, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfter(object.getExpirationDate(), minimumExpirationDate), "expirationDate", "sponsor.sponsorship.form.error.too-close");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("expirationDate"))
+			super.state(MomentHelper.isBeforeOrEqual(object.getExpirationDate(), topDate), "expirationDate", "sponsor.sponsorship.form.error.too-late");
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.form.error.negative-amount");
@@ -94,8 +104,16 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(object.getId());
 			double total = 0.0;
 			for (Invoice i : invoices)
-				total += i.totalAmount();
+				if (invoices.isEmpty() || i.isDraftMode())
+					break;
+				else
+					total += i.totalAmount();
 			super.state(object.getAmount().getAmount() >= total, "amount", "sponsor.sponsorship.form.error.invoices-inconsistency");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("project")) {
+			Project objProject = object.getProject();
+			super.state(!objProject.isDraftMode(), "project", "sponsor.sponsorship.form.error.project.published");
 		}
 	}
 

@@ -1,8 +1,6 @@
 
 package acme.forms;
 
-import javax.validation.constraints.Min;
-
 import acme.client.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,88 +14,48 @@ public class ManagerDashboard extends AbstractForm {
 	// Attributes
 
 	//User Story Priorities
-	@Min(0)
-	int							totalNumOfMustUserStories;
+	int							totalMustUserStories;
 
-	@Min(0)
-	int							totalNumOfShouldUserStories;
+	int							totalShouldUserStories;
 
-	@Min(0)
-	int							totalNumOfCouldUserStories;
+	int							totalCouldUserStories;
 
-	@Min(0)
-	int							totalNumOfWontUserStories;
+	int							totalWontUserStories;
 
 	//User Story Cost 
-	@Min(0)
-	Double						averageEstimatedCostOfUSUSD;
+	double						averageUserStoryCost;
 
-	double						deviationOfEstimatedCostUSUSD;
+	double						deviationUserStoryCost;
 
-	@Min(0)
-	double						minimumEstimatedCostOfUSUSD;
+	double						minimumUserStoryCost;
 
-	@Min(0)
-	double						maximumEstimatedCostOfUSUSD;
+	double						maximumUserStoryCost;
 
-	//Project Cost
-	@Min(0)
-	Double						averageProjectCostUSD;
+	//Project Cost (USD)
+	double						averageProjectCostUSD;
 
 	double						deviationOfProjectCostUSD;
 
-	@Min(0)
 	double						minimumProjectCostUSD;
 
-	@Min(0)
 	double						maximumProjectCostUSD;
 
-	//User Story Cost 
-	@Min(0)
-	Double						averageEstimatedCostOfUSEUR;
-
-	double						deviationOfEstimatedCostUSEUR;
-
-	@Min(0)
-	double						minimumEstimatedCostOfUSEUR;
-
-	@Min(0)
-	double						maximumEstimatedCostOfUSEUR;
-
-	//Project Cost
-	@Min(0)
-	Double						averageProjectCostEUR;
+	//Project Cost (EUR)
+	double						averageProjectCostEUR;
 
 	double						deviationOfProjectCostEUR;
 
-	@Min(0)
 	double						minimumProjectCostEUR;
 
-	@Min(0)
 	double						maximumProjectCostEUR;
 
-	//User Story Cost 
-	@Min(0)
-	Double						averageEstimatedCostOfUSGBP;
-
-	double						deviationOfEstimatedCostUSGBP;
-
-	@Min(0)
-	double						minimumEstimatedCostOfUSGBP;
-
-	@Min(0)
-	double						maximumEstimatedCostOfUSGBP;
-
-	//Project Cost
-	@Min(0)
-	Double						averageProjectCostGBP;
+	//Project Cost (GBP)
+	double						averageProjectCostGBP;
 
 	double						deviationOfProjectCostGBP;
 
-	@Min(0)
 	double						minimumProjectCostGBP;
 
-	@Min(0)
 	double						maximumProjectCostGBP;
 
 }

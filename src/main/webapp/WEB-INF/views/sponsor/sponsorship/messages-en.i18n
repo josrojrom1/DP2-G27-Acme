@@ -33,9 +33,14 @@ sponsor.sponsorship.form.button.update = Update
 sponsor.sponsorship.form.button.delete = Delete
 sponsor.sponsorship.form.button.publish = Publish
 
+sponsor.sponsorship.form.error.too-soon = Date must be after 2000/01/01 00:00
+sponsor.sponsorship.form.error.too-late = Date must be before 2200/12/31 23:59
 sponsor.sponsorship.form.error.code.duplicated = Sponsorship already exists with this code
+sponsor.sponsorship.form.error.inlavid-moment-date = Moment may not be null
 sponsor.sponsorship.form.error.inlavid-start-date = Start date must be later than its creation time
+sponsor.sponsorship.form.error.start-date-not-null = Start date may not be null
 sponsor.sponsorship.form.error.too-close = Expiration date must be at least one month after its start date
 sponsor.sponsorship.form.error.negative-amount = Sponsorship amount must be positive
 sponsor.sponsorship.form.error.too-big = Sponsorship amount must be less than 1000000
 sponsor.sponsorship.form.error.invoices-inconsistency = Invoices' total amount do not match Sponsorship's amount
+sponsor.sponsorship.form.error.project.published = Selected project must be published

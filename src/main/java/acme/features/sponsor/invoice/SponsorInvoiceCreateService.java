@@ -62,12 +62,14 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	public void bind(final Invoice object) {
 		assert object != null;
 
-		super.bind(object, "code", "dueDate", "quantity", "tax", "link");
+		super.bind(object, "code", "registration", "dueDate", "quantity", "tax", "link");
 	}
 
 	@Override
 	public void validate(final Invoice object) {
 		assert object != null;
+
+		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Invoice existing;
@@ -76,21 +78,32 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			super.state(existing == null, "code", "sponsor.invoice.form.error.code.duplicated");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("registration"))
+			super.state(MomentHelper.isAfter(object.getRegistration(), object.getSponsorship().getMoment()), "registration", "sponsor.invoice.form.error.registration");
+
+		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+			super.state(object.getRegistration() != null, "dueDate", "sponsor.invoice.form.error.invalid-registration");
+
 		if (!super.getBuffer().getErrors().hasErrors("dueDate")) {
 			Date minimumExpirationDate;
 
 			minimumExpirationDate = MomentHelper.deltaFromMoment(object.getRegistration(), 30, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfter(object.getDueDate(), minimumExpirationDate), "dueDate", "sponsor.invoice.form.error.too-close");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+			super.state(MomentHelper.isBeforeOrEqual(object.getDueDate(), topDate), "dueDate", "sponsor.invoice.form.error.too-late");
+
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getAmount() > 0, "quantity", "sponsor.invoice.form.error.negative-amount");
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
-			super.state(object.getQuantity().getAmount() < 1000000, "quantity", "sponsor.invoice.form.error.too-big");
+			super.state(object.getQuantity().getAmount() <= 1000000, "quantity", "sponsor.invoice.form.error.too-big");
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			Sponsorship sponsorship = object.getSponsorship();
 			String currency = sponsorship.getAmount().getCurrency();
 			super.state(object.getQuantity().getCurrency().equals(currency), "quantity", "sponsor.invoice.form.error.invalid-currency");
 		}
+
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			Sponsorship sponsorship = object.getSponsorship();
 			Double amount = sponsorship.getAmount().getAmount();
@@ -116,6 +129,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		Dataset dataset;
 
 		dataset = super.unbind(object, "code", "registration", "dueDate", "quantity", "tax", "link", "draftMode");
+		dataset.put("totalAmount", object.totalAmount()); // ojo a esta
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().addData(dataset);
