@@ -56,7 +56,6 @@ public class DeveloperTrainingSessionsUpdateService extends AbstractService<Deve
 	public void validate(final TrainingSessions object) {
 		assert object != null;
 
-		final Date baseDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
 		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
@@ -69,15 +68,11 @@ public class DeveloperTrainingSessionsUpdateService extends AbstractService<Deve
 			super.state(existing == null, "code", "developer.training-sessions.form.error.code.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("periodStart")) {
-			super.state(MomentHelper.isAfterOrEqual(object.getPeriodStart(), baseDate), "periodStart", "developer.training-sessions.form.error.tooLittle");
+		if (!super.getBuffer().getErrors().hasErrors("periodStart"))
 			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodStart(), topDate), "periodStart", "developer.training-module.form.error.tooBig");
-		}
 
-		if (!super.getBuffer().getErrors().hasErrors("periodFinish")) {
-			super.state(MomentHelper.isAfterOrEqual(object.getPeriodFinish(), baseDate), "periodFinish", "developer.training-sessions.form.error.tooLittle");
+		if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
 			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodFinish(), topDate), "periodFinish", "developer.training-module.form.error.tooBig");
-		}
 
 		if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
 			super.state(object.getPeriodFinish().after(object.getPeriodStart()), "periodFinish", "developer.training-sessions.form.error.NotperiodFinish");
