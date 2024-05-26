@@ -1,7 +1,7 @@
 key,code,registration,dueDate,quantity,tax,link,draftMode,key:sponsorship
 invoice-01,"IN-0000-0000",2022/04/01 00:00,2022/10/13 14:00,"EUR 100.00",0.0,"http://www.example.com",false,sponsorship-02
 invoice-02,"IN-9999-9999",2022/01/01 00:02,2022/03/13 14:00,"EUR 50.00",0.0,"http://www.example.com",false,sponsorship-03
-invoice-03,"IN-1234-4321",2022/01/10 00:00,2022/03/13 14:00,"EUR 50.00",0.0,"http://www.example.com",false,sponsorship-03
+invoice-03,"IN-1234-4321",2022/07/29 23:59,2022/09/13 14:00,"EUR 50.00",0.0,"http://www.example.com",false,sponsorship-03
 invoice-04,"IN-0000-0004",2000/01/01 00:01,2000/02/01 00:01,"EUR 10.00",0.0,"http://www.example.com",false,sponsorship-07
 invoice-05,"IN-0000-0005",2020/01/01 00:01,2022/10/13 14:00,"EUR 10.00",0.0,"http://www.example.com",false,sponsorship-07
 invoice-06,"IN-0000-0006",2000/11/30 23:59,2200/12/31 23:59,"EUR 10.00",0.0,"http://www.example.com",false,sponsorship-07

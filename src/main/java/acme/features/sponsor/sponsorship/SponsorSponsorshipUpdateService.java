@@ -54,15 +54,7 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void bind(final Sponsorship object) {
 		assert object != null;
-
-		int projectId;
-		Project project;
-
-		projectId = super.getRequest().getData("project", int.class);
-		project = this.repository.findOneProjectById(projectId);
-
-		super.bind(object, "code", "startDate", "expirationDate", "amount", "type", "contact", "link", "draftMode");
-		object.setProject(project);
+		super.bind(object, "code", "startDate", "expirationDate", "amount", "type", "contact", "link");
 	}
 
 	@Override
@@ -110,7 +102,10 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(object.getId());
 			double total = 0.0;
 			for (Invoice i : invoices)
-				total += i.totalAmount();
+				if (invoices.isEmpty() || i.isDraftMode())
+					break;
+				else
+					total += i.totalAmount();
 			super.state(object.getAmount().getAmount() >= total, "amount", "sponsor.sponsorship.form.error.invoices-inconsistency");
 		}
 
