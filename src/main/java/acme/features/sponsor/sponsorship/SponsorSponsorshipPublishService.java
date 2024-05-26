@@ -96,7 +96,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.form.error.negative-amount");
 			super.state(object.getAmount().getAmount() <= 1000000, "amount", "sponsor.sponsorship.form.error.too-big");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+		if (!super.getBuffer().getErrors().hasErrors("amount") && object.getAmount().getAmount() != null) {
 			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(object.getId());
 			double total = 0.0;
 			for (Invoice i : invoices)
@@ -142,7 +142,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 				break;
 			else
 				total += i.totalAmount();
-		if (total == object.getAmount().getAmount() && !invoices.isEmpty())
+		if (total == object.getAmount().getAmount() && !invoices.isEmpty() && object.getAmount().getAmount() != null)
 			invoicesDraftModeState = false;
 		dataset.put("invoicesDraftModeState", invoicesDraftModeState);
 		super.getResponse().addData(dataset);

@@ -144,7 +144,7 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 				break;
 			else
 				total += i.totalAmount();
-		if (total == object.getAmount().getAmount() && !invoices.isEmpty())
+		if (total == object.getAmount().getAmount() && !invoices.isEmpty() && object.getAmount().getAmount() != null)
 			invoicesDraftModeState = false;
 		dataset.put("invoicesDraftModeState", invoicesDraftModeState);
 		dataset.put("readOnly", true);
