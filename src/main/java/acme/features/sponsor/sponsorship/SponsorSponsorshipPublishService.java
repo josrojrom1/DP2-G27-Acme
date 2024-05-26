@@ -83,11 +83,13 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isBeforeOrEqual(object.getStartDate(), topDate), "startDate", "sponsor.sponsorship.form.error.too-late");
 
+		if (!super.getBuffer().getErrors().hasErrors("expirationDate"))
+			super.state(object.getStartDate() != null, "expirationDate", "sponsor.sponsorship.form.error.start-date-not-null");
+
 		if (!super.getBuffer().getErrors().hasErrors("expirationDate")) {
 			Date minimumExpirationDate;
 
 			minimumExpirationDate = MomentHelper.deltaFromMoment(object.getStartDate(), 30, ChronoUnit.DAYS);
-			super.state(object.getStartDate() != null, "expirationDate", "sponsor.sponsorship.form.error.start-date-not-null");
 			super.state(MomentHelper.isAfter(object.getExpirationDate(), minimumExpirationDate), "expirationDate", "sponsor.sponsorship.form.error.too-close");
 		}
 
