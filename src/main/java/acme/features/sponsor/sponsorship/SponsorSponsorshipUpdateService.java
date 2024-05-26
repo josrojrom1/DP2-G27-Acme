@@ -96,7 +96,7 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.form.error.negative-amount");
 			super.state(object.getAmount().getAmount() <= 1000000, "amount", "sponsor.sponsorship.form.error.too-big");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+		if (!super.getBuffer().getErrors().hasErrors("amount") && object.getAmount().getAmount() != null) {
 			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(object.getId());
 			double total = 0.0;
 			for (Invoice i : invoices)
