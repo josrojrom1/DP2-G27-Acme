@@ -70,6 +70,9 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 			super.state(existing == null, "code", "developer.training-module.form.error.code.duplicated");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("creationMoment"))
+			super.state(object.getCreationMoment() != null, "creationMoment", "developer.training-module.form.error.NotcreationMoment");
+
 		if (!super.getBuffer().getErrors().hasErrors("creationMoment")) {
 			super.state(MomentHelper.isAfterOrEqual(object.getCreationMoment(), baseDate), "creationMoment", "developer.training-module.form.error.tooLittle");
 			super.state(MomentHelper.isBeforeOrEqual(object.getCreationMoment(), topDate), "creationMoment", "developer.training-module.form.error.tooBig");
@@ -77,21 +80,13 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		if (object.getUpdateMoment() != null) {
 			if (!super.getBuffer().getErrors().hasErrors("updateMoment")) {
-				super.state(MomentHelper.isAfterOrEqual(object.getCreationMoment(), baseDate), "updateMoment", "developer.training-module.form.error.tooLittle");
-				super.state(MomentHelper.isBeforeOrEqual(object.getCreationMoment(), topDate), "updateMoment", "developer.training-module.form.error.tooBig");
+				super.state(MomentHelper.isAfterOrEqual(object.getUpdateMoment(), baseDate), "updateMoment", "developer.training-module.form.error.tooLittle");
+				super.state(MomentHelper.isBeforeOrEqual(object.getUpdateMoment(), topDate), "updateMoment", "developer.training-module.form.error.tooBig");
 			}
+			if (object.getCreationMoment() != null)
+				if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
+					super.state(object.getUpdateMoment() == null || object.getUpdateMoment().after(object.getCreationMoment()), "updateMoment", "developer.training-module.form.error.updateMoment");
 
-			if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
-				super.state(object.getUpdateMoment() == null || object.getUpdateMoment().after(object.getCreationMoment()), "updateMoment", "developer.training-module.form.error.updateMoment");
-
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("totalTime"))
-			super.state(object.getTotalTime() > 0.0, "totalTime", "developer.training-module.form.error.negative-totalTime");
-
-		if (!super.getBuffer().getErrors().hasErrors("project")) {
-			Project project = object.getProject();
-			super.state(!project.isDraftMode(), "project", "developer.training-module.form.error.code.projectNotPublish");
 		}
 	}
 
@@ -112,7 +107,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		difficultyLevelChoices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 
 		projects = this.repository.findPublishedProjects();
-		projectChoices = SelectChoices.from(projects, "title", object.getProject());
+		projectChoices = SelectChoices.from(projects, "code", object.getProject());
 
 		Dataset dataset;
 

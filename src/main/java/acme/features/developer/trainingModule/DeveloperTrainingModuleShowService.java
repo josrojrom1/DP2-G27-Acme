@@ -59,7 +59,7 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 		Collection<TrainingSessions> trainingSessionNotPublish;
 		Collection<Project> projects = this.repository.findPublishedProjects();
 		difficultyLevelChoices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
-		projectChoices = SelectChoices.from(projects, "title", object.getProject());
+		projectChoices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "creationMoment", "updateMoment", "details", "totalTime", "link");
 
