@@ -78,15 +78,14 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 			super.state(existing == null, "code", "developer.training-module.form.error.code.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("creationMoment"))
-			super.state(object.getCreationMoment() != null, "creationMoment", "developer.training-module.form.error.NotcreationMoment");
-
 		if (!super.getBuffer().getErrors().hasErrors("creationMoment")) {
 			super.state(MomentHelper.isAfterOrEqual(object.getCreationMoment(), baseDate), "creationMoment", "developer.training-module.form.error.tooLittle");
 			super.state(MomentHelper.isBeforeOrEqual(object.getCreationMoment(), topDate), "creationMoment", "developer.training-module.form.error.tooBig");
 		}
 
 		if (object.getUpdateMoment() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
+				super.state(object.getCreationMoment() != null, "updateMoment", "developer.training-module.form.error.NotcreationMoment");
 			if (!super.getBuffer().getErrors().hasErrors("updateMoment")) {
 				super.state(MomentHelper.isAfterOrEqual(object.getUpdateMoment(), baseDate), "updateMoment", "developer.training-module.form.error.tooLittle");
 				super.state(MomentHelper.isBeforeOrEqual(object.getUpdateMoment(), topDate), "updateMoment", "developer.training-module.form.error.tooBig");
@@ -102,6 +101,12 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 			trainingSession = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
 			trainingSessionNotPublish = this.repository.findNotPublishTrainingSessionsByTrainingModuleId(object.getId());
 			super.state(trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty(), "*", "developer.training-module.form.error.NotSessions");
+		}
+
+		//Para evitar hacking post desde Postman
+		if (!super.getBuffer().getErrors().hasErrors("project")) {
+			Project objProject = object.getProject();
+			super.state(!objProject.isDraftMode(), "project", "developer.training-module.form.error.code.projectNotPublish");
 		}
 	}
 
