@@ -2,6 +2,7 @@
 package acme.features.client.contracts;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,12 +34,14 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 	public void load() {
 		Contract object;
 		Client client;
+		Date date;
 
 		client = this.repository.findClientById(super.getRequest().getPrincipal().getActiveRoleId());
+		date = new Date(MomentHelper.getCurrentMoment().getTime() - 600000);
 		object = new Contract();
 		object.setPublished(false);
 		object.setClient(client);
-		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
+		object.setInstantiationMoment(date);
 
 		super.getBuffer().addData(object);
 	}
@@ -68,29 +71,34 @@ public class ClientContractsCreateService extends AbstractService<Client, Contra
 			super.state(existing == null, "code", "client.contract.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-			String projectCurrency;
-			String budgetCurrency;
-
-			budgetCurrency = object.getBudget().getCurrency();
-			projectCurrency = object.getProject().getCost().getCurrency();
-			super.state(budgetCurrency.equals(projectCurrency), "budget", "client.contract.form.error.incorrect-currency");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-			double projectCost;
-			double budget;
-
-			budget = object.getBudget().getAmount();
-			projectCost = object.getProject().getCost().getAmount();
-			super.state(budget <= projectCost, "budget", "client.contract.form.error.incorrect-budget");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(object.getBudget() != null, "budget", "client.contract.form.error.null-budget");
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			double budget;
 
 			budget = object.getBudget().getAmount();
 			super.state(budget > 0, "budget", "client.contract.form.error.negative-budget");
+		}
+
+		if (object.getProject() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("budget")) {
+				String projectCurrency;
+				String budgetCurrency;
+
+				budgetCurrency = object.getBudget().getCurrency();
+				projectCurrency = object.getProject().getCost().getCurrency();
+				super.state(budgetCurrency.equals(projectCurrency), "budget", "client.contract.form.error.incorrect-currency");
+			}
+
+			if (!super.getBuffer().getErrors().hasErrors("budget")) {
+				double projectCost;
+				double budget;
+
+				budget = object.getBudget().getAmount();
+				projectCost = object.getProject().getCost().getAmount();
+				super.state(budget <= projectCost, "budget", "client.contract.form.error.incorrect-budget");
+			}
 		}
 
 	}

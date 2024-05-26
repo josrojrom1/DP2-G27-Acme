@@ -11,7 +11,6 @@
 		<acme:input-moment code="client.progress-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>	
 	</jstl:if>
 	<acme:input-textbox code="client.progress-log.form.label.responsiblePerson" path="responsiblePerson"/>
-	<acme:input-textbox code="client.progress-log.form.label.contract" path="contract.code" readonly="true"/>	
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">

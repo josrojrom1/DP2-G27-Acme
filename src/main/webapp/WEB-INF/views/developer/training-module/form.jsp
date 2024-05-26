@@ -6,7 +6,9 @@
 <acme:form> 
 	<acme:input-textbox code="developer.training-module.form.label.code" path="code"/>
 	<acme:input-moment code="developer.training-module.form.label.creationMoment" path="creationMoment"/>
-	<acme:input-moment code="developer.training-module.form.label.updateMoment" path="updateMoment"/>	
+	<jstl:if test="${trainningModuleUpDa == false}">
+		<acme:input-moment code="developer.training-module.form.label.updateMoment" path="updateMoment"/>
+	</jstl:if>	
 	<acme:input-select code="developer.training-module.form.label.difficultyLevel" path="difficultyLevel" choices="${difficultyLevels}"/>
 	<acme:input-textbox code="developer.training-module.form.label.details" path="details"/>
 	<acme:input-textbox code="developer.training-module.form.label.totalTime" path="totalTime"/>
@@ -14,7 +16,7 @@
 	<acme:input-url code="developer.training-module.form.label.link" path="link"/>
 	
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && draftmode == false}">
+		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="developer.training-module.form.button.training-sessions" action="/developer/training-sessions/list?masterId=${id}"/>			
 		</jstl:when>
 		

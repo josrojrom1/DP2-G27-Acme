@@ -31,16 +31,16 @@ public interface ClientContractsRepository extends AbstractRepository {
 	@Query("select c from Contract c where c.code = :code")
 	Contract findContractByCode(String code);
 
-	@Query("select p from Project p")
-	Collection<Project> findAllProjects();
-
 	@Query("select p from Project p where p.draftMode = false")
 	Collection<Project> findAllPublishedProjects();
+
+	@Query("select p from Project p")
+	Collection<Project> findAllProjects();
 
 	@Query("select pl from ProgressLog pl where pl.contract.id = :contractId")
 	Collection<ProgressLog> findProgressLogsByContractId(int contractId);
 
-	@Query("select c from Contract c where c.project.id = :projectId")
+	@Query("select c from Contract c where c.project.id = :projectId and c.published = true")
 	Collection<Contract> findManyContractsByProjectId(int projectId);
 
 	@Query("select pl from ProgressLog pl where pl.contract.id = :contractId and pl.published = false")

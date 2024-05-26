@@ -17,22 +17,22 @@
 
 <acme:form>
 
-		<acme:input-textbox code="manager.project.list.label.code" path="code"/>
-		<acme:input-textbox code="manager.project.list.label.title" path="title"/>
-		<acme:input-textbox code="manager.project.list.label.description" path="description"/>
-		<acme:input-checkbox code="manager.project.list.label.draftMode" path="draftMode"/>
-		<acme:input-checkbox code="manager.project.list.label.indication" path="indication"/>
-		<acme:input-integer code="manager.project.list.label.cost" path="cost"/>
-		<acme:input-url code="manager.project.list.label.link" path="link"/>
+		<acme:input-textbox code="manager.project.list.label.code" path="code" readonly="${draftMode == false}"/>
+		<acme:input-textbox code="manager.project.list.label.title" path="title" readonly="${draftMode == false}"/>
+		<acme:input-textbox code="manager.project.list.label.description" path="description" readonly="${draftMode == false}"/>
+		<acme:input-checkbox code="manager.project.list.label.indication" path="indication" readonly="${draftMode == false}"/>
+		<acme:input-integer code="manager.project.list.label.cost" path="cost" readonly="${draftMode == false}"/>
+		<acme:input-url code="manager.project.list.label.link" path="link" readonly="${draftMode == false}"/>
 
 	<jstl:choose>	 
 			<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
-				<acme:button code="manager.user-story.list-project" action="/manager/user-story/list-project?masterId=${id}"/>
 				<jstl:if  test = "${draftMode == true}">
+					<acme:button code="manager.project.list-relations" action="/manager/project-user-story/list-by-project?masterId=${id}"/>
 					<acme:submit code="manager.project.delete" action="/manager/project/delete"/>	
 					<acme:submit code="manager.project.update" action="/manager/project/update"/>
 					<acme:submit code="manager.project.publish" action="/manager/project/publish"/>	
 				</jstl:if>		
+				<acme:button code="manager.user-story.list-project" action="/manager/user-story/list-project?masterId=${id}"/>
 			</jstl:when>
 			<jstl:when test="${_command == 'create'}">
 				<acme:submit code="manager.project.create" action="/manager/project/create"/>
