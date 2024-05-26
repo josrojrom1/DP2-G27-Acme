@@ -54,14 +54,20 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void bind(final Sponsorship object) {
 		assert object != null;
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
+
 		super.bind(object, "code", "startDate", "expirationDate", "amount", "type", "contact", "link");
+		object.setProject(project);
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
-		final Date baseDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
 		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
@@ -70,9 +76,6 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			existing = this.repository.findOneSponsorshipByCode(object.getCode());
 			super.state(existing == null || object.getId() == existing.getId(), "code", "sponsor.sponsorship.form.error.code.duplicated");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("moment"))
-			super.state(MomentHelper.isAfterOrEqual(object.getMoment(), baseDate), "moment", "sponsor.sponsorship.form.error.too-soon");
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(object.getMoment() != null, "startDate", "sponsor.sponsorship.form.error.inlavid-moment-date");
@@ -111,10 +114,13 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			super.state(object.getAmount().getAmount() >= total, "amount", "sponsor.sponsorship.form.error.invoices-inconsistency");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("project")) {
-			Project objProject = object.getProject();
-			super.state(!objProject.isDraftMode(), "project", "sponsor.sponsorship.form.error.project.published");
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(object.getId());
+			String targetCurrency = object.getAmount().getCurrency();
+			boolean allMatch = invoices.stream().map(i -> i.getQuantity().getCurrency()).allMatch(currency -> currency.equals(targetCurrency));
+			super.state(allMatch, "amount", "sponsor.sponsorship.form.error.invoices-currency-inconsistency");
 		}
+
 	}
 
 	@Override
@@ -152,8 +158,8 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 				break;
 			else
 				total += i.totalAmount();
-		if (total == object.getAmount().getAmount() && !invoices.isEmpty())
-			invoicesDraftModeState = false;
+		if (object.getAmount() != null)
+			invoicesDraftModeState = total != object.getAmount().getAmount();
 		dataset.put("invoicesDraftModeState", invoicesDraftModeState);
 		dataset.put("readOnly", true);
 		super.getResponse().addData(dataset);
