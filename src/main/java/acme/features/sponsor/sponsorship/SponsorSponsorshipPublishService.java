@@ -61,7 +61,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
-		final Date baseDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
 		final Date topDate = MomentHelper.parse("2200/12/31 23:59", "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
@@ -70,9 +69,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			existing = this.repository.findOneSponsorshipByCode(object.getCode());
 			super.state(existing == null || object.getId() == existing.getId(), "code", "sponsor.sponsorship.form.error.code.duplicated");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("moment"))
-			super.state(MomentHelper.isAfterOrEqual(object.getMoment(), baseDate), "moment", "sponsor.sponsorship.form.error.too-soon");
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(object.getMoment() != null, "startDate", "sponsor.sponsorship.form.error.inlavid-moment-date");
@@ -109,11 +105,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 				else
 					total += i.totalAmount();
 			super.state(object.getAmount().getAmount() == total, "amount", "sponsor.sponsorship.form.error.invoices-inconsistency");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("project")) {
-			Project objProject = object.getProject();
-			super.state(!objProject.isDraftMode(), "project", "sponsor.sponsorship.form.error.project.published");
 		}
 	}
 
