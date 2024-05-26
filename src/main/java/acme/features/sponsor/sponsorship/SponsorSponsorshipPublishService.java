@@ -53,8 +53,14 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void bind(final Sponsorship object) {
 		assert object != null;
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
 
 		super.bind(object, "code", "startDate", "expirationDate", "amount", "type", "contact", "link");
+		object.setProject(project);
 	}
 
 	@Override
@@ -96,7 +102,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.form.error.negative-amount");
 			super.state(object.getAmount().getAmount() <= 1000000, "amount", "sponsor.sponsorship.form.error.too-big");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("amount") && object.getAmount().getAmount() != null) {
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(object.getId());
 			double total = 0.0;
 			for (Invoice i : invoices)
@@ -106,6 +112,14 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 					total += i.totalAmount();
 			super.state(object.getAmount().getAmount() == total, "amount", "sponsor.sponsorship.form.error.invoices-inconsistency");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(object.getId());
+			String targetCurrency = object.getAmount().getCurrency();
+			boolean allMatch = invoices.stream().map(i -> i.getQuantity().getCurrency()).allMatch(currency -> currency.equals(targetCurrency));
+			super.state(allMatch, "amount", "sponsor.sponsorship.form.error.invoices-currency-inconsistency");
+		}
+
 	}
 
 	@Override
@@ -142,9 +156,10 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 				break;
 			else
 				total += i.totalAmount();
-		if (total == object.getAmount().getAmount() && !invoices.isEmpty() && object.getAmount().getAmount() != null)
-			invoicesDraftModeState = false;
+		if (object.getAmount() != null)
+			invoicesDraftModeState = total != object.getAmount().getAmount();
 		dataset.put("invoicesDraftModeState", invoicesDraftModeState);
+		dataset.put("readOnly", true);
 		super.getResponse().addData(dataset);
 	}
 
