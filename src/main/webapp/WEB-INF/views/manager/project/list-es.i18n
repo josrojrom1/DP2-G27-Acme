@@ -22,3 +22,13 @@ manager.project.form.title = Detalles de Proyecto
 manager.project.update = Actualizar
 manager.project.delete = Eliminar
 manager.project.create = Crear
+manager.project.publish = Publicar
+manager.project.list-relations = Lista de Relaciones de HU
+
+manager.project.form.error.duplicated = Este código de proyecto ya existe
+manager.project.form.error.negative-amount = El coste del proyecto debe ser positivo
+manager.project.form.error.too-big = El coste del proyecto es demasiado elevado
+manager.project.form.error.currency = Esa divisa no es válida en nuestro sistema
+manager.user-story.publish.error.no-errors = El proyecto no puede publicarse si tiene errores
+manager.user-story.publish.error.no-publisheds = Todas las historias de usuario del proyecto deben estar publicadas
+manager.user-story.publish.error.no-userStories = El proyecto debe tener al menos una historia de usuario asociada

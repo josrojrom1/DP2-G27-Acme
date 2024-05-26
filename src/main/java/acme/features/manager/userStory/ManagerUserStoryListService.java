@@ -9,15 +9,13 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.UserStory;
-import acme.features.manager.projectUserStory.ManagerProjectUserStoryRepository;
 import acme.roles.Manager;
 
 @Service
 public class ManagerUserStoryListService extends AbstractService<Manager, UserStory> {
 
 	@Autowired
-	protected ManagerUserStoryRepository		repository;
-	private ManagerProjectUserStoryRepository	pUSRepository;
+	protected ManagerUserStoryRepository repository;
 
 
 	@Override

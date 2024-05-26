@@ -1,0 +1,30 @@
+<%--
+- list-es.i18n
+-
+- Copyright (C) 2012-2024 Rafael Corchuelo.
+-
+- In keeping with the traditional purpose of furthering education and research, it is
+- the policy of the copyright owner to permit non-commercial use and redistribution of
+- this software. It has been tested carefully, but it is not guaranteed for any particular
+- purposes.  The copyright owner does not offer any warranties or representations, nor do
+- they accept any liabilities with respect to them.
+--%>
+
+manager.manager-dashboard.form.title = Manager dashboard
+manager.manager-dasboard.form.title.total-user-stories = User Story indicators
+manager.manager-dashboard.form.label.total-Must	= Total number of user stories with Must priority
+manager.manager-dashboard.form.label.total-Should = Total number of user stories with Should priority
+manager.manager-dashboard.form.label.total-Could = Total number of user stories with Could priority
+manager.manager-dashboard.form.label.total-Wont = Total number of user stories with Wont priority
+manager.manager-dasboard.form.title.user-stories-cost = User Story cost indicators
+manager.manager-dashboard.form.label.user-stories-average = Average user story estimated cost
+manager.manager-dashboard.form.label.user-stories-deviation	= Deviation user story estimated cost
+manager.manager-dashboard.form.label.user-stories-minimum = Minimum user story estimated cost
+manager.manager-dashboard.form.label.user-stories-maximum = Maximum user story estimated cost
+manager.manager-dasboard.form.title.project-USD-cost = Project cost indicators in USD
+manager.manager-dasboard.form.title.project-EUR-cost = Project cost indicators in EUR
+manager.manager-dasboard.form.title.project-GBP-cost = Project cost indicators in GBP
+manager.manager-dashboard.form.label.project-average = Average project cost
+manager.manager-dashboard.form.label.project-deviation	= Deviation project cost
+manager.manager-dashboard.form.label.project-minimum = Minimum project cost
+manager.manager-dashboard.form.label.project-maximum = Maximum project cost

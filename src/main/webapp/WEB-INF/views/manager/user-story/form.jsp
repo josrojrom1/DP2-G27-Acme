@@ -22,11 +22,7 @@
 		<acme:input-integer code="manager.user-story.list.label.estimatedCost" path="estimatedCost"/>
 		<acme:input-textbox code="manager.user-story.list.label.acceptanceCriteria" path="acceptanceCriteria"/>
 		<acme:input-select code="manager.user-story.list.label.priority" path="priority" choices="${priorities}"/>
-		<acme:input-checkbox code="manager.user-story.list.label.draftMode" path="draftMode"/>
 		<acme:input-url code="manager.user-story.list.label.link" path="link"/>
-		<jstl:if test="${_command == 'create'}">
-			<acme:input-select code="manager.user-story.list.label.projects" path="project" choices="${projects}"/>
-		</jstl:if>
 
 	
 
@@ -36,8 +32,11 @@
 				<acme:submit code="manager.user-story.publish" action="/manager/user-story/publish"/>	
 				<acme:submit code="manager.user-story.update" action="/manager/user-story/update"/>			
 			</jstl:when>
-			<jstl:when test="${acme:anyOf(_command, 'create-project|create')}">
+			<jstl:when test="${acme:anyOf(_command, 'create-project')}">
 				<acme:submit code="manager.user-story.create" action="/manager/user-story/create-project?masterId=${masterId}"/>
+			</jstl:when>
+			<jstl:when test="${acme:anyOf(_command, 'create')}">
+				<acme:submit code="manager.user-story.create" action="/manager/user-story/create"/>
 			</jstl:when>
 	</jstl:choose>	
 

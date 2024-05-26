@@ -22,7 +22,7 @@ master.menu.anonymous.favourite-link-pepe = 20605668Z: Rojas Romero, José Joaqu
 master.menu.anonymous.favourite-link-dani = 20091478N: Alors Romero, Daniel
 master.menu.anonymous.favourite-link-guadalupe = 090921097T: Ridruejo Pineda, Guadalupe
 master.menu.anonymous.favourite-link-benji = Y2643735Z: Maureira Flores, Benjamin
-master.administrator.banner.list = 29565167R: Devós Bono, Agustín
+master.menu.anonymous.favourite-link-agus = 29565167R: Devós Bono, Agustín
 
 # master.menu.administrator ###################################################
 
@@ -34,6 +34,7 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.banner.list = Listado de Banners
+master.menu.administrator.risk.list = Listado de Riesgos
 master.menu.administrator.create.objective = Crear objetivo
 
 master.menu.any ###############################################################
@@ -43,6 +44,7 @@ master.menu.any.sponsorship.list = Patrocinios
 master.menu.any.code-audit.list = Listar auditorías de código publicadas 
 master.menu.anonymous.all-claims = Lista de Reclamos publicados
 master.menu.any.training-module.list = Lista de Módulos de formación publicados
+master.menu.any.project.list = Lista de Proyectos publicados
 
 # master.menu.auditor ##########################################################
 
@@ -65,9 +67,10 @@ master.menu.developer.dashboard = Panel de desarrollador
 
 # master.menu.manager ##########################################################
 
-master.menu.manager = Manager
+master.menu.manager = Gerente
 master.menu.manager.project.list = Listado de Proyectos
-master.menu.manager.user-story.list = Listado de HUs
+master.menu.manager.user-story.list = Listado de Historia de Usuario
+master.menu.manager.dashboard = Panel de desarrollador
 
 # master.menu.user-account ####################################################
 
@@ -80,6 +83,9 @@ master.menu.user-account.developer = Datos de desarrollador
 master.menu.notice.list = Notificaciones
 master.menu.user-account.sponsor = Datos de patrocinador
 master.menu.user-account.become-sponsor = Hazte patrocinador
+master.menu.user-account.manager = Datos de gerente
+master.menu.user-account.become-manager = Hazte gerente
+
 
 # master.menu.sponsor #########################################################
 
