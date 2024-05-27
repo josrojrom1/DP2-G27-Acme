@@ -67,7 +67,7 @@ public class ClientContractsPublishService extends AbstractService<Client, Contr
 
 			code = object.getCode();
 			existing = this.repository.findContractByCode(code);
-			super.state(existing == null || object.getId() == existing.getId(), "code", "client.contract.form.error.code");
+			super.state(existing == null || object.getId() == existing.getId(), "code", "client.contract.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget"))

@@ -70,7 +70,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 
 			code = object.getRecordId();
 			existing = this.repository.findProgressLogByRecordId(code);
-			super.state(existing == null || object.getId() == existing.getId(), "recordId", "client.progress-log.form.error.recordId");
+			super.state(existing == null || object.getId() == existing.getId(), "recordId", "client.progress-log.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("completeness")) {
