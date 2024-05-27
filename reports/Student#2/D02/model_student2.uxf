@@ -194,6 +194,7 @@ Contract
 + customer: String {NotBlank, Length(max=75)}
 + goals: String {NotBlank, Length(max=100)}
 + budget: Money {Embedded}
++ published: boolean
 bg=pink</panel_attributes>
     <additional_attributes/>
   </element>
@@ -227,6 +228,7 @@ ProgressLog
 + comment: String {NotBlank, Length(max=100)}
 + registrationMoment: Date {NotNull, Past}
 + responsiblePerson: String {NotBlank, Length(max=75)}
++ published: boolean
 bg=pink</panel_attributes>
     <additional_attributes/>
   </element>
@@ -245,8 +247,8 @@ ClientDashboard
 + totalNumberOfProgLogsWithCompletenessBetween25and50: int
 + totalNumberOfProgLogsWithCompletenessBetween50and75: int
 + totalNumberOfProgLogsWithCompletenessAbove75: int
-+ contractsBudgetAverage: Double
-+ contractsBudgetDeviation: Double
++ contractsBudgetAverage: double
++ contractsBudgetDeviation: double
 + contractsBudgetMinimum: double
 + contractsBudgetMaximum: double
 bg=green</panel_attributes>
