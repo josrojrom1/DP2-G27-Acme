@@ -104,14 +104,14 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			super.state(object.getQuantity().getCurrency().equals(currency), "quantity", "sponsor.invoice.form.error.invalid-currency");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			Sponsorship sponsorship = object.getSponsorship();
 			Double amount = sponsorship.getAmount().getAmount();
 			Collection<Invoice> invoices = this.repository.findPublishedInvoicesByMasterId(sponsorship.getId());
 			double invoicesTotal = 0.0;
 			for (Invoice i : invoices)
 				invoicesTotal += i.totalAmount();
-			super.state(amount >= invoicesTotal + object.totalAmount(), "quantity", "sponsor.invoice.form.error.quantity-invalid");
+			super.state(amount >= invoicesTotal + object.totalAmount(), "*", "sponsor.invoice.form.error.quantity-invalid");
 		}
 	}
 
