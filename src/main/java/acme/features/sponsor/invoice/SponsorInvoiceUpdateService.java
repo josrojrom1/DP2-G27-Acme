@@ -103,7 +103,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 			double invoicesTotal = 0.0;
 			for (Invoice i : invoices)
 				invoicesTotal += i.totalAmount();
-			super.state(amount >= invoicesTotal + object.totalAmount() - existing.getQuantity().getAmount(), "quantity", "sponsor.invoice.form.error.quantity-invalid");
+			super.state(amount >= invoicesTotal + object.totalAmount() - existing.totalAmount(), "quantity", "sponsor.invoice.form.error.quantity-invalid");
 		}
 	}
 
