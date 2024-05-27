@@ -97,7 +97,7 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			Double amount = sponsorship.getAmount().getAmount();
 			Invoice existing;
 			existing = this.repository.findOneInvoiceById(object.getId());
-			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(sponsorship.getId());
+			Collection<Invoice> invoices = this.repository.findPublishedInvoicesByMasterId(sponsorship.getId());
 			double invoicesTotal = 0.0;
 			for (Invoice i : invoices)
 				invoicesTotal += i.totalAmount();

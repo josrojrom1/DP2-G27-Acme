@@ -107,7 +107,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
 			Sponsorship sponsorship = object.getSponsorship();
 			Double amount = sponsorship.getAmount().getAmount();
-			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(sponsorship.getId());
+			Collection<Invoice> invoices = this.repository.findPublishedInvoicesByMasterId(sponsorship.getId());
 			double invoicesTotal = 0.0;
 			for (Invoice i : invoices)
 				invoicesTotal += i.totalAmount();
@@ -129,7 +129,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		Dataset dataset;
 
 		dataset = super.unbind(object, "code", "registration", "dueDate", "quantity", "tax", "link", "draftMode");
-		dataset.put("totalAmount", object.totalAmount()); // ojo a esta
+		dataset.put("totalAmount", object.totalAmount());
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().addData(dataset);
