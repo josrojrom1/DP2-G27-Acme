@@ -92,7 +92,7 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 		if (!super.getBuffer().getErrors().hasErrors("published")) {
 			ProgressLog existing;
 
-			existing = this.repository.findProgressLogByRecordId(object.getRecordId());
+			existing = this.repository.findProgressLogById(object.getId());
 			super.state(!existing.isPublished(), "published", "client.progress-log.form.error.published");
 		}
 
