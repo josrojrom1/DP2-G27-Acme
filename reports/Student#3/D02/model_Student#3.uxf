@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>600</x>
-      <y>64</y>
+      <y>56</y>
       <w>168</w>
       <h>64</h>
     </coordinates>
@@ -19,9 +19,9 @@ Project
     <id>UMLClass</id>
     <coordinates>
       <x>104</x>
-      <y>288</y>
+      <y>280</y>
       <w>376</w>
-      <h>128</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Training Sessions
@@ -31,6 +31,7 @@ Training Sessions
 + periodFinish: Date { NotNull}
 + location: String {NotBlank, Length(75)}
 + instructor: String {NotBlank, Length(75)}
++ draftMode boolean
 + contactEmail: String {NotBlank, Email, Length(255)}
 + link: String {URL, Length(255)}</panel_attributes>
     <additional_attributes/>
@@ -39,7 +40,7 @@ Training Sessions
     <id>UMLClass</id>
     <coordinates>
       <x>496</x>
-      <y>304</y>
+      <y>296</y>
       <w>288</w>
       <h>104</h>
     </coordinates>
@@ -57,7 +58,7 @@ Developer
     <id>Relation</id>
     <coordinates>
       <x>472</x>
-      <y>80</y>
+      <y>72</y>
       <w>144</w>
       <h>40</h>
     </coordinates>
@@ -71,7 +72,7 @@ topic &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>432</x>
-      <y>168</y>
+      <y>160</y>
       <w>80</w>
       <h>136</h>
     </coordinates>
@@ -85,7 +86,7 @@ made up ^</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>624</x>
-      <y>144</y>
+      <y>136</y>
       <w>144</w>
       <h>80</h>
     </coordinates>
@@ -101,7 +102,7 @@ DifficultyLevel
     <id>Relation</id>
     <coordinates>
       <x>144</x>
-      <y>168</y>
+      <y>160</y>
       <w>24</w>
       <h>56</h>
     </coordinates>
@@ -111,8 +112,8 @@ DifficultyLevel
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>104</x>
-      <y>432</y>
+      <x>96</x>
+      <y>448</y>
       <w>192</w>
       <h>56</h>
     </coordinates>
@@ -125,19 +126,19 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>408</y>
+      <x>136</x>
+      <y>440</y>
       <w>24</w>
-      <h>40</h>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>104</x>
-      <y>40</y>
+      <y>32</y>
       <w>376</w>
       <h>136</h>
     </coordinates>
@@ -149,6 +150,7 @@ Training Module
 + details: String {NotBlank, Length(100)}
 + difficultyLevel: DifficultyLevel {NotNull}
 + updateMoment: Date {Temporal(TIMESTAMP), Past}
++ draftMode boolean
 + totalTime: int {NotNull, min(1), max(10000)}
 + link: String {URL, Length(255)}
 </panel_attributes>
@@ -158,7 +160,7 @@ Training Module
     <id>Relation</id>
     <coordinates>
       <x>472</x>
-      <y>120</y>
+      <y>112</y>
       <w>160</w>
       <h>200</h>
     </coordinates>
@@ -172,7 +174,7 @@ m2=1
     <id>UMLNote</id>
     <coordinates>
       <x>104</x>
-      <y>208</y>
+      <y>200</y>
       <w>112</w>
       <h>40</h>
     </coordinates>
@@ -185,7 +187,7 @@ bg=yellow</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>392</x>
-      <y>456</y>
+      <y>448</y>
       <w>368</w>
       <h>120</h>
     </coordinates>
@@ -199,5 +201,16 @@ DeveloperDashboard
 +trainingModuleMinimumTime: double
 +trainingModuleMaximumTime: double</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>176</x>
+      <y>416</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
 </diagram>
