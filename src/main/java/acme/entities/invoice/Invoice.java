@@ -5,7 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -30,6 +32,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "sponsorship_id"), @Index(columnList = "code", unique = true), @Index(columnList = "sponsorship_id,draftMode")
+})
 public class Invoice extends AbstractEntity {
 
 	// Serialisation identifier
@@ -77,7 +82,10 @@ public class Invoice extends AbstractEntity {
 	// The sum of the amount of invoices (including taxes) must add up 
 	// and never exceed the the amount of money to be paid in the corresponding sponsorship
 	public Double totalAmount() {
-		return this.tax * this.quantity.getAmount() / 100 + this.quantity.getAmount();
+		double total = 0.0;
+		if (this.quantity != null && this.tax != null)
+			total = this.quantity.getAmount() * this.tax / 100 + this.quantity.getAmount();
+		return total;
 	}
 
 	// Relations

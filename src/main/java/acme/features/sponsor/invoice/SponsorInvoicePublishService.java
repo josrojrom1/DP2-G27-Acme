@@ -31,10 +31,12 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		boolean status;
 		int invoiceId;
 		Sponsorship sponsorship;
+		Invoice invoice;
 
 		invoiceId = super.getRequest().getData("id", int.class);
+		invoice = this.repository.findOneInvoiceById(invoiceId);
 		sponsorship = this.repository.findOneSponsorshipByInvoiceId(invoiceId);
-		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor()) && super.getRequest().getPrincipal().getActiveRoleId() == sponsorship.getSponsor().getId();
+		status = sponsorship != null && sponsorship.isDraftMode() && invoice.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor()) && super.getRequest().getPrincipal().getActiveRoleId() == sponsorship.getSponsor().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -92,16 +94,16 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			String currency = sponsorship.getAmount().getCurrency();
 			super.state(object.getQuantity().getCurrency().equals(currency), "quantity", "sponsor.invoice.form.error.invalid-currency");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			Sponsorship sponsorship = object.getSponsorship();
 			Double amount = sponsorship.getAmount().getAmount();
 			Invoice existing;
 			existing = this.repository.findOneInvoiceById(object.getId());
-			Collection<Invoice> invoices = this.repository.findManyInvoicesByMasterId(sponsorship.getId());
+			Collection<Invoice> invoices = this.repository.findPublishedInvoicesByMasterId(sponsorship.getId());
 			double invoicesTotal = 0.0;
 			for (Invoice i : invoices)
 				invoicesTotal += i.totalAmount();
-			super.state(amount >= invoicesTotal + object.totalAmount() - existing.getQuantity().getAmount(), "quantity", "sponsor.invoice.form.error.quantity-invalid");
+			super.state(amount >= invoicesTotal + object.totalAmount(), "*", "sponsor.invoice.form.error.quantity-invalid");
 		}
 	}
 
