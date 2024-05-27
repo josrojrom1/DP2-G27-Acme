@@ -27,7 +27,7 @@
 	
 
 	<jstl:choose>	 
-			<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
+			<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 				<acme:submit code="manager.user-story.delete" action="/manager/user-story/delete"/>	
 				<acme:submit code="manager.user-story.publish" action="/manager/user-story/publish"/>	
 				<acme:submit code="manager.user-story.update" action="/manager/user-story/update"/>			
