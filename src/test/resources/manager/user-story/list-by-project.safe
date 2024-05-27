@@ -81,7 +81,7 @@ request-id,request-method,request-path,request-query,request-payload,response-st
 "c46bf31d-52a1-06ec-fa0d-c6eaedc6f72e",GET,"/libraries/acme/js/acme.js",,,200,application/javascript,,,607924048422100,607924050560600,607924051704800
 "eec6e669-f458-3ae3-bb47-ffc47798601c",GET,/images/banner.png,,,200,image/png,,,607924067370100,607924069222400,607924070041400
 "9068de2a-0d15-ce1a-03ab-8b2c88edadbf",GET,/images/logo.png,,,200,image/png,,,607924074692900,607924076218500,607924076881300
-"2f532197-ff40-7495-2782-ba8b0f49458e",GET,"/manager/user-story/list-project",masterId=26,,200,text/html;charset=utf-8,"childId=227&id%5B0%5D=227&priority%5B0%5D=COULD&showCreate=false&estimatedCost%5B0%5D=1&masterId=26&version%5B0%5D=0&title%5B0%5D=titulo+de+historia+de+ususario+1",,607925532435700,607925546808100,607926022714400
+"2f532197-ff40-7495-2782-ba8b0f49458e",GET,"/manager/user-story/list-project",masterId=26,,200,text/html;charset=utf-8,"childId=227&id%5B0%5D=227&priority%5B0%5D=COULD&estimatedCost%5B0%5D=1&masterId=26&version%5B0%5D=0&title%5B0%5D=titulo+de+historia+de+ususario+1",,607925532435700,607925546808100,607926022714400
 "5f2b8549-585b-657c-70bd-b918f27278c5",GET,"/libraries/fontawesome/5.2.0/css/all.min.css",,,200,text/css,,,607926059400600,607926061275700,607926061995700
 "78087a4e-40b5-5f4a-5ca0-0ca4bba4df4b",GET,"/libraries/bootstrap/4.1.3/css/bootstrap.min.css",,,200,text/css,,,607926066909000,607926068775000,607926069647400
 "7b51d5c8-9f63-bacf-82fa-9e8d2e33ccf5",GET,"/libraries/datatables/1.10.18/css/datatables.min.css",,,200,text/css,,,607926074802600,607926076976100,607926078113000
