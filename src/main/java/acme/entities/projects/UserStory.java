@@ -23,7 +23,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "manager")
+	@Index(columnList = "manager_id")
 })
 public class UserStory extends AbstractEntity {
 
