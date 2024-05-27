@@ -31,10 +31,12 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		boolean status;
 		int invoiceId;
 		Sponsorship sponsorship;
+		Invoice invoice;
 
 		invoiceId = super.getRequest().getData("id", int.class);
+		invoice = this.repository.findOneInvoiceById(invoiceId);
 		sponsorship = this.repository.findOneSponsorshipByInvoiceId(invoiceId);
-		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor()) && super.getRequest().getPrincipal().getActiveRoleId() == sponsorship.getSponsor().getId();
+		status = sponsorship != null && sponsorship.isDraftMode() && invoice.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor()) && super.getRequest().getPrincipal().getActiveRoleId() == sponsorship.getSponsor().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -101,7 +103,7 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			double invoicesTotal = 0.0;
 			for (Invoice i : invoices)
 				invoicesTotal += i.totalAmount();
-			super.state(amount >= invoicesTotal + object.totalAmount() - existing.totalAmount(), "*", "sponsor.invoice.form.error.quantity-invalid");
+			super.state(amount >= invoicesTotal + object.totalAmount(), "*", "sponsor.invoice.form.error.quantity-invalid");
 		}
 	}
 
