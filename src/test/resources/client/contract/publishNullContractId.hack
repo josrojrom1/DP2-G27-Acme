@@ -82,7 +82,6 @@ request-id,request-method,request-path,request-query,request-payload,response-st
 "eec6e669-f458-3ae3-bb47-ffc47798601c",GET,/images/banner.png,,,200,image/png,,,3462553986100,3462556146700,3462556913300
 "9068de2a-0d15-ce1a-03ab-8b2c88edadbf",GET,/images/logo.png,,,200,image/png,,,3462560323100,3462562009400,3462562538600
 "2f532197-ff40-7495-2782-ba8b0f49458e",GET,"/libraries/datatables/1.10.18/js/jquery.datatables.min.js",,,200,application/javascript,,,3465725723600,3465727237700,3465727745100
-"85ae81a5-1b77-accc-5518-9f6d395395c5",GET,/client/contract/show,id=120,,500,text/html;charset=utf-8,,"Access is not authorised",3465733106200,3465760474600,3466266190800
 "5f2b8549-585b-657c-70bd-b918f27278c5",POST,/client/contract/publish,,"id=&version=0&code=CON-006&instantiationMoment=2010%2F09%2F01+01%3A00&provider=1&customer=1&goals=1&budget=EUR+90.91&project.code=FBC-1234",500,text/html;charset=utf-8,,"Failed to convert from type [java.lang.String] to type [int] for value [null]; nested exception is java.lang.IllegalArgumentException: A null value cannot be assigned to a primitive type",3473458717500,3473464535500,3473803703900
 "b1e6a585-f866-faba-643d-289405af34a2",GET,"/libraries/fontawesome/5.2.0/css/all.min.css",,,200,text/css,,,3473848962300,3473850638200,3473851399500
 "c45993be-59e8-4cc5-1621-82c5bff46a85",GET,"/libraries/bootstrap/4.1.3/css/bootstrap.min.css",,,200,text/css,,,3473854803300,3473856345000,3473856795000

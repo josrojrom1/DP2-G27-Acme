@@ -113,7 +113,6 @@ request-id,request-method,request-path,request-query,request-payload,response-st
 "6fbcfdd0-a994-505a-69d8-b73b6f5fbf89",GET,/images/banner.png,,,200,image/png,,,6754312137000,6754314129300,6754314837200
 "5067fcc1-f5e4-a05a-344f-0c15c028b187",GET,/images/logo.png,,,200,image/png,,,6754318559000,6754320417300,6754320869800
 "121b371b-7338-9d7f-cbcc-78f6e066923b",GET,"/libraries/datatables/1.10.18/js/jquery.datatables.min.js",,,200,application/javascript,,,6763078081700,6763079594000,6763080320400
-"6eb7806a-ba1c-bc8a-7598-924ca5d2ae50",GET,"/client/progress-log/show",id=206,,500,text/html;charset=utf-8,,"Access is not authorised",6763084790500,6763115469100,6763608333200
 "02201aa4-5949-61aa-e629-56140a2c908c",POST,"/client/progress-log/delete",,"id=205&version=0&recordId=PG-M-9999&completeness=1.00&comment=progreso+completo&registrationMoment=2021%2F12%2F31+23%3A59&responsiblePerson=person6",500,text/html;charset=utf-8,,"Access is not authorised",6769834982300,6769859579600,6770122728700
 "fa61f362-4cbf-35ab-1702-d997d8aaf55c",GET,"/libraries/fontawesome/5.2.0/css/all.min.css",,,200,text/css,,,6770170374000,6770171690600,6770172071300
 "9ae00761-d4a9-3825-cb8c-8fab61f0aa78",GET,"/libraries/bootstrap/4.1.3/css/bootstrap.min.css",,,200,text/css,,,6770176280900,6770178119400,6770178830500

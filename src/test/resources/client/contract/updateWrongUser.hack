@@ -82,7 +82,6 @@ request-id,request-method,request-path,request-query,request-payload,response-st
 "eec6e669-f458-3ae3-bb47-ffc47798601c",GET,/images/banner.png,,,200,image/png,,,5716108005900,5716110142400,5716110876600
 "9068de2a-0d15-ce1a-03ab-8b2c88edadbf",GET,/images/logo.png,,,200,image/png,,,5716113983000,5716115500000,5716116003800
 "2f532197-ff40-7495-2782-ba8b0f49458e",GET,"/libraries/datatables/1.10.18/js/jquery.datatables.min.js",,,200,application/javascript,,,5723426185400,5723427981700,5723429034900
-"85ae81a5-1b77-accc-5518-9f6d395395c5",GET,/client/contract/show,id=119,,500,text/html;charset=utf-8,,"Access is not authorised",5723434084200,5723459145200,5723921225700
 "5f2b8549-585b-657c-70bd-b918f27278c5",POST,/client/contract/update,,"id=120&version=0&code=CON-005&instantiationMoment=2016%2F07%2F30+12%3A10&provider=1&customer=1&goals=estoesunstringde100caracteres.......................................................................&budget=EUR+10.01&project.code=ABC-9999",500,text/html;charset=utf-8,,"Access is not authorised",5730997326600,5731026012900,5731326627800
 "b1e6a585-f866-faba-643d-289405af34a2",GET,"/libraries/fontawesome/5.2.0/css/all.min.css",,,200,text/css,,,5731383136300,5731386032100,5731387859400
 "c45993be-59e8-4cc5-1621-82c5bff46a85",GET,"/libraries/bootstrap/4.1.3/css/bootstrap.min.css",,,200,text/css,,,5731392888800,5731394570700,5731395182500

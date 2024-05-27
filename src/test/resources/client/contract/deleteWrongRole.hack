@@ -82,7 +82,6 @@ request-id,request-method,request-path,request-query,request-payload,response-st
 "eec6e669-f458-3ae3-bb47-ffc47798601c",GET,/images/banner.png,,,200,image/png,,,5537562066700,5537564132400,5537564914400
 "9068de2a-0d15-ce1a-03ab-8b2c88edadbf",GET,/images/logo.png,,,200,image/png,,,5537568880900,5537570776400,5537571345500
 "2f532197-ff40-7495-2782-ba8b0f49458e",GET,"/libraries/datatables/1.10.18/js/jquery.datatables.min.js",,,200,application/javascript,,,5540960795700,5540962806100,5540963451200
-"85ae81a5-1b77-accc-5518-9f6d395395c5",GET,"/sponsor/sponsorship/show",id=141,,500,text/html;charset=utf-8,,"Access is not authorised",5540968869200,5541004027600,5541568280800
 "5f2b8549-585b-657c-70bd-b918f27278c5",POST,/client/contract/delete,,"id=120&version=0&code=B-000&moment=2022%2F01%2F01+00%3A00&startDate=2022%2F01%2F02+00%3A00&expirationDate=2022%2F02%2F02+12%3A00&amount=EUR+100.00&type=FINANCIAL&project=26&contact=example%40gmail.com&link=https%3A%2F%2Fwww.example.com",500,text/html;charset=utf-8,,"Access is not authorised",5559174146400,5559195637900,5559464282200
 "7b51d5c8-9f63-bacf-82fa-9e8d2e33ccf5",GET,"/libraries/fontawesome/5.2.0/css/all.min.css",,,200,text/css,,,5559527456800,5559531021100,5559531987400
 "b1e6a585-f866-faba-643d-289405af34a2",GET,"/libraries/bootstrap/4.1.3/css/bootstrap.min.css",,,200,text/css,,,5559538700400,5559540774900,5559541495900
