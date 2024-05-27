@@ -158,7 +158,6 @@ request-id,request-method,request-path,request-query,request-payload,response-st
 "aba49d4b-255d-030f-c8ee-a1c4954e8b52",GET,/images/banner.png,,,200,image/png,,,1032871538489300,1032871540642500,1032871541024400
 "6936c2d5-13c5-762c-2e5b-a96e1d94c52d",GET,/images/logo.png,,,200,image/png,,,1032871544496600,1032871547042200,1032871547666600
 "cff443b9-3867-1f8e-5e86-2d5140c2482e",GET,"/libraries/datatables/1.10.18/js/jquery.datatables.min.js",,,200,application/javascript,,,1032875169835100,1032875174139600,1032875174936100
-"543100ab-a0ac-3fbb-a185-79accda9882d",GET,/sponsor/invoice/show,id=317,,500,text/html;charset=utf-8,,"Access is not authorised",1032875178739000,1032875234733000,1032876815326000
 "a9b0cdb0-3895-2af4-01d2-2a957027a7d1",POST,/sponsor/invoice/update,,"id=888&version=0&code=IN-0909-0101&registration=2022%2F07%2F30+00%3A00&dueDate=2025%2F07%2F30+00%3A00&quantity=EUR+5.00&tax=0.00&totalAmount=5.00&link=",500,text/html;charset=utf-8,,"Access is not authorised",1032885998745100,1032886043378400,1032886807902000
 "44cbb74e-e132-f4d8-6a71-259bf521ae74",GET,"/libraries/fontawesome/5.2.0/css/all.min.css",,,200,text/css,,,1032886853750700,1032886855984900,1032886856762800
 "72883c6a-9804-1b6b-c7a6-71fbaf300d7d",GET,"/libraries/datatables/1.10.18/js/jquery.datatables.min.js",,,200,application/javascript,,,1032886861526900,1032886862845800,1032886863101400

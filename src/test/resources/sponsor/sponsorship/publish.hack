@@ -481,7 +481,6 @@ request-id,request-method,request-path,request-query,request-payload,response-st
 "572a223b-24ba-151f-bebd-1067fa2af2ad",GET,"/libraries/acme/js/acme.js",,,200,application/javascript,,,1030433258513900,1030433260204800,1030433260626300
 "c7bb2627-561e-1ff4-2f71-aae5a1ae9d93",GET,/images/banner.png,,,200,image/png,,,1030433289873000,1030433292140500,1030433292494000
 "73f4a84d-4a9d-6bbd-99d4-ac7ff31e340e",GET,/images/logo.png,,,200,image/png,,,1030433299419400,1030433302554500,1030433303202400
-"d50b5df2-010e-6b21-0f9b-d9941905815a",POST,"/manager/sponsorship/publish",,"id=140&version=0&code=A-000&moment=2022%2F01%2F01+00%3A00&startDate=2022%2F01%2F02+00%3A00&expirationDate=2022%2F02%2F02+12%3A00&amount=EUR+100.00&type=FINANCIAL&project=26&contact=example%40gmail.com&link=https%3A%2F%2Fwww.example.com",404,,,,1030445893904000,1030445905516500,1030445906434700
 "1dfe810f-ce7b-a913-b5f2-2bc2a229a859",GET,"/libraries/fontawesome/5.2.0/css/all.min.css",,,200,text/css,,,1030446609240600,1030446610744200,1030446611135900
 "b923daa9-ff78-ecb1-1c81-4dfcda0962b1",GET,"/libraries/bootstrap/4.1.3/css/bootstrap.min.css",,,200,text/css,,,1030446613880400,1030446615664400,1030446615930100
 "1367c2be-ddbb-d05d-f652-46686846f0a5",GET,"/libraries/datatables/1.10.18/css/datatables.min.css",,,200,text/css,,,1030446619121100,1030446620831200,1030446621256600
