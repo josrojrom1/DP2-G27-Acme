@@ -52,8 +52,9 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findProjectById(projectId);
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "link", "totalTime");
+		super.bind(object, "code", "details", "difficultyLevel", "link", "totalTime");
 		object.setProject(project);
+		object.setCreationMoment(MomentHelper.getCurrentMoment());
 	}
 
 	@Override
@@ -76,6 +77,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
+
 		this.repository.save(object);
 	}
 
@@ -99,8 +101,6 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		dataset.put("projects", projectChoices);
 		dataset.put("difficultyLevel", difficultyLevelChoices.getSelected().getKey());
 		dataset.put("difficultyLevels", difficultyLevelChoices);
-		boolean trainningModuleUpDa = true;
-		dataset.put("trainningModuleUpDa", trainningModuleUpDa);
 
 		super.getResponse().addData(dataset);
 	}

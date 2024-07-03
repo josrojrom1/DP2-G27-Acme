@@ -59,9 +59,9 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findProjectById(projectId);
 
-		super.bind(object, "code", "creationMoment", "updateMoment", "details", "difficultyLevel", "link", "totalTime");
+		super.bind(object, "code", "details", "difficultyLevel", "link", "totalTime");
 		object.setProject(project);
-		//object.setUpdateMoment(MomentHelper.getCurrentMoment());
+		object.setUpdateMoment(MomentHelper.getCurrentMoment());
 	}
 
 	@Override
@@ -84,13 +84,14 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 				super.state(object.getCreationMoment() != null, "updateMoment", "developer.training-module.form.error.NotcreationMoment");
 			if (object.getCreationMoment() != null)
 				if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
-					super.state(object.getUpdateMoment() == null || object.getUpdateMoment().after(object.getCreationMoment()), "updateMoment", "developer.training-module.form.error.updateMoment");
+					super.state(object.getUpdateMoment() == null || object.getUpdateMoment().compareTo(object.getCreationMoment()) >= 0, "updateMoment", "developer.training-module.form.error.updateMoment");
 		}
 	}
 
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
+
 		this.repository.save(object);
 	}
 
@@ -114,8 +115,6 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 		dataset.put("projects", projectChoices);
 		dataset.put("difficultyLevel", difficultyLevelChoices.getSelected().getKey());
 		dataset.put("difficultyLevels", difficultyLevelChoices);
-		boolean trainningModuleUpDa = false;
-		dataset.put("trainningModuleUpDa", trainningModuleUpDa);
 
 		super.getResponse().addData(dataset);
 	}

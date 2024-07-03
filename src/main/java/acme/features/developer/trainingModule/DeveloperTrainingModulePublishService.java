@@ -60,8 +60,9 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findProjectById(projectId);
 
-		super.bind(object, "code", "creationMoment", "updateMoment", "details", "difficultyLevel", "link", "totalTime");
+		super.bind(object, "code", "details", "difficultyLevel", "link", "totalTime");
 		object.setProject(project);
+		object.setUpdateMoment(MomentHelper.getCurrentMoment());
 	}
 
 	@Override
@@ -87,10 +88,10 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 				super.state(MomentHelper.isAfterOrEqual(object.getUpdateMoment(), baseDate), "updateMoment", "developer.training-module.form.error.tooLittle");
 			if (object.getCreationMoment() != null)
 				if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
-					super.state(object.getUpdateMoment() == null || object.getUpdateMoment().after(object.getCreationMoment()), "updateMoment", "developer.training-module.form.error.updateMoment");
+					super.state(object.getUpdateMoment() == null || object.getUpdateMoment().compareTo(object.getCreationMoment()) >= 0, "updateMoment", "developer.training-module.form.error.updateMoment");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("project")) {
+		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			Collection<TrainingSessions> trainingSessionNotPublish;
 			Collection<TrainingSessions> trainingSession;
 			trainingSession = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
@@ -104,6 +105,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		assert object != null;
 
 		object.setDraftMode(false);
+
 		this.repository.save(object);
 	}
 
@@ -112,8 +114,8 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		assert object != null;
 
 		Collection<Project> projects;
-		Collection<TrainingSessions> trainingSession;
-		Collection<TrainingSessions> trainingSessionNotPublish;
+		//Collection<TrainingSessions> trainingSession;
+		//Collection<TrainingSessions> trainingSessionNotPublish;
 		SelectChoices projectChoices;
 		SelectChoices difficultyLevelChoices;
 
@@ -129,16 +131,16 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		dataset.put("projects", projectChoices);
 		dataset.put("difficultyLevel", difficultyLevelChoices.getSelected().getKey());
 		dataset.put("difficultyLevels", difficultyLevelChoices);
-		boolean trainingSessionsDraft = true;
-		trainingSessionNotPublish = this.repository.findNotPublishTrainingSessionsByTrainingModuleId(object.getId());
-		trainingSession = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
-		if (!trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty())
-			trainingSessionsDraft = true;
-		if (trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty())
-			trainingSessionsDraft = false;
-		dataset.put("trainingSessionsDraft", trainingSessionsDraft);
-		boolean trainningModuleUpDa = false;
-		dataset.put("trainningModuleUpDa", trainningModuleUpDa);
+		//boolean trainingSessionsDraft = true;
+		//trainingSessionNotPublish = this.repository.findNotPublishTrainingSessionsByTrainingModuleId(object.getId());
+		//trainingSession = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
+		//if (!trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty())
+		//trainingSessionsDraft = true;
+		//if (trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty())
+		//trainingSessionsDraft = false;
+		//dataset.put("trainingSessionsDraft", trainingSessionsDraft);
+		//boolean trainningModuleUpDa = false;
+		//dataset.put("trainningModuleUpDa", trainningModuleUpDa);
 
 		super.getResponse().addData(dataset);
 	}

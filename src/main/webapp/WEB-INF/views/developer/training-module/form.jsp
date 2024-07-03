@@ -5,10 +5,8 @@
 
 <acme:form> 
 	<acme:input-textbox code="developer.training-module.form.label.code" path="code"/>
-	<acme:input-moment code="developer.training-module.form.label.creationMoment" path="creationMoment"/>
-	<jstl:if test="${trainningModuleUpDa == false}">
-		<acme:input-moment code="developer.training-module.form.label.updateMoment" path="updateMoment"/>
-	</jstl:if>	
+	<acme:input-moment code="developer.training-module.form.label.creationMoment" path="creationMoment" readonly="true"/>
+	<acme:input-moment code="developer.training-module.form.label.updateMoment" path="updateMoment" readonly="true"/>
 	<acme:input-select code="developer.training-module.form.label.difficultyLevel" path="difficultyLevel" choices="${difficultyLevels}"/>
 	<acme:input-textbox code="developer.training-module.form.label.details" path="details"/>
 	<acme:input-textbox code="developer.training-module.form.label.totalTime" path="totalTime"/>
@@ -24,9 +22,7 @@
 			<acme:button code="developer.training-module.form.button.training-sessions" action="/developer/training-sessions/list?masterId=${id}"/>
 			<acme:submit code="developer.training-module.form.button.update" action="/developer/training-module/update"/>
 			<acme:submit code="developer.training-module.form.button.delete" action="/developer/training-module/delete"/>
-			<jstl:if test="${trainingSessionsDraft == false}">
-				<acme:submit code="developer.training-module.form.button.publish" action="/developer/training-module/publish"/>
-			</jstl:if>
+			<acme:submit code="developer.training-module.form.button.publish" action="/developer/training-module/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="developer.training-module.form.button.create" action="/developer/training-module/create"/>
