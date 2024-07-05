@@ -155,6 +155,8 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 		dashboard.setMinimumProjectCostGBP(minimumProjectCostGBP);
 		dashboard.setMaximumProjectCostGBP(maximumProjectCostGBP);
 
+		super.getBuffer().addData(dashboard);
+
 	}
 
 	@Override
