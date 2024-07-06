@@ -4,7 +4,6 @@ package acme.features.manager.project;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,7 +73,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 			super.state(cost.getAmount() >= 0, "cost", "manager.project.form.error.negative-amount");
 			super.state(cost.getAmount() <= 1000000, "cost", "manager.project.form.error.too-big");
 
-			final List<String> acceptedCurrencies = Arrays.asList(this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",")).stream().map(String::trim).collect(Collectors.toList());
+			final List<String> acceptedCurrencies = Arrays.asList(this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",")).stream().map(String::trim).toList();
 			super.state(acceptedCurrencies.contains(cost.getCurrency()), "cost", "manager.project.form.error.currency");
 		}
 

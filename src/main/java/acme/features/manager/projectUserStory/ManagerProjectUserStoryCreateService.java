@@ -91,7 +91,7 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 
 		Dataset dataset;
 		SelectChoices userStoryChoices;
-		Collection<UserStory> userStories = this.repository.findUserStoryByManager(project.getManager().getId()).stream().filter(us -> !this.repository.getRelationsByProject(id).stream().map(ProjectUserStory::getUserStory).anyMatch(us2 -> us2.equals(us))) //
+		Collection<UserStory> userStories = this.repository.findUserStoryByManager(project.getManager().getId()).stream().filter(us -> this.repository.getRelationsByProject(id).stream().map(ProjectUserStory::getUserStory).noneMatch(us2 -> us2.equals(us))) //
 			.toList();
 
 		userStoryChoices = SelectChoices.from(userStories, "title", object.getUserStory());
