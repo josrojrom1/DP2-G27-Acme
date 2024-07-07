@@ -119,8 +119,6 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		assert object != null;
 
 		Collection<Project> projects;
-		//Collection<TrainingSessions> trainingSession;
-		//Collection<TrainingSessions> trainingSessionNotPublish;
 		SelectChoices projectChoices;
 		SelectChoices difficultyLevelChoices;
 
@@ -136,14 +134,6 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		dataset.put("projects", projectChoices);
 		dataset.put("difficultyLevel", difficultyLevelChoices.getSelected().getKey());
 		dataset.put("difficultyLevels", difficultyLevelChoices);
-		//boolean trainingSessionsDraft = true;
-		//trainingSessionNotPublish = this.repository.findNotPublishTrainingSessionsByTrainingModuleId(object.getId());
-		//trainingSession = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
-		//if (!trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty())
-		//trainingSessionsDraft = true;
-		//if (trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty())
-		//trainingSessionsDraft = false;
-		//dataset.put("trainingSessionsDraft", trainingSessionsDraft);
 		boolean trainningModuleUpDa = false;
 		dataset.put("trainningModuleUpDa", trainningModuleUpDa);
 

@@ -74,9 +74,6 @@ public class DeveloperTrainingSessionsPublishService extends AbstractService<Dev
 		if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
 			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodFinish(), topDate), "periodFinish", "developer.training-module.form.error.tooBig");
 
-		//if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
-		//	super.state(object.getPeriodFinish().after(object.getPeriodStart()), "periodFinish", "developer.training-sessions.form.error.NotperiodFinish");
-
 		if (!super.getBuffer().getErrors().hasErrors("periodFinish")) {
 			Date minimunPeriodFinish;
 			minimunPeriodFinish = MomentHelper.deltaFromMoment(object.getPeriodStart(), 7, ChronoUnit.DAYS);
@@ -100,14 +97,10 @@ public class DeveloperTrainingSessionsPublishService extends AbstractService<Dev
 	public void unbind(final TrainingSessions object) {
 		assert object != null;
 
-		//int masterId;
-		//masterId = super.getRequest().getData("masterId", int.class);
-
 		Dataset dataset;
 
 		dataset = super.unbind(object, "code", "periodStart", "periodFinish", "location", "instructor", "contactEmail", "link", "draftMode");
 		dataset.put("masterId", object.getTrainingModule().getId());
-		//dataset.put("draftMode", object.isDraftMode());
 
 		super.getResponse().addData(dataset);
 	}

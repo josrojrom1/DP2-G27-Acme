@@ -73,9 +73,6 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 			super.state(existing == null, "code", "developer.training-sessions.form.error.code.duplicated");
 		}
 
-		// if (!super.getBuffer().getErrors().hasErrors("periodFinish"))
-		//	super.state(object.getPeriodFinish().after(object.getPeriodStart()), "periodFinish", "developer.training-sessions.form.error.periodFinish");
-
 		if (!super.getBuffer().getErrors().hasErrors("periodStart"))
 			super.state(MomentHelper.isBeforeOrEqual(object.getPeriodStart(), topDate), "periodStart", "developer.training-sessions.form.error.tooBig");
 
@@ -106,9 +103,6 @@ public class DeveloperTrainingSessionsCreateService extends AbstractService<Deve
 	@Override
 	public void unbind(final TrainingSessions object) {
 		assert object != null;
-
-		//int masterId;
-		//masterId = super.getRequest().getData("masterId", int.class);
 
 		Dataset dataset;
 

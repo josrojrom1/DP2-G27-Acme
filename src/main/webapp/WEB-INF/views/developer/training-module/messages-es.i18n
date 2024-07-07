@@ -38,4 +38,4 @@ developer.training-module.form.error.updateMoment = El update moment debe ser po
 developer.training-module.form.error.tooLittle = La fecha no puede ser menor a 2000/01/01 00:00 
 developer.training-module.form.error.tooBig = La fecha no puede ser superior a 2200/12/31 23:59
 developer.training-module.form.error.code.projectNotPublish = El proyecto debe estar publicado
-developer.training-module.form.error.NotSessions = El módulo de formación debe tener publicada una Sesiones de formación como mínimo
+developer.training-module.form.error.NotSessions = El módulo de formación debe tener publicada todas sus Sesiones de formación
