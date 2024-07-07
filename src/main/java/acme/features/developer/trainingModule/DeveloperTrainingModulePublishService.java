@@ -91,6 +91,11 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 					super.state(object.getUpdateMoment() == null || object.getUpdateMoment().compareTo(object.getCreationMoment()) >= 0, "updateMoment", "developer.training-module.form.error.updateMoment");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("project")) {
+			Project objProject = object.getProject();
+			super.state(!objProject.isDraftMode(), "project", "developer.training-module.form.error.code.projectNotPublish");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			Collection<TrainingSessions> trainingSessionNotPublish;
 			Collection<TrainingSessions> trainingSession;
@@ -139,8 +144,8 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		//if (trainingSessionNotPublish.isEmpty() && !trainingSession.isEmpty())
 		//trainingSessionsDraft = false;
 		//dataset.put("trainingSessionsDraft", trainingSessionsDraft);
-		//boolean trainningModuleUpDa = false;
-		//dataset.put("trainningModuleUpDa", trainningModuleUpDa);
+		boolean trainningModuleUpDa = false;
+		dataset.put("trainningModuleUpDa", trainningModuleUpDa);
 
 		super.getResponse().addData(dataset);
 	}

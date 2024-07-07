@@ -69,7 +69,7 @@
 	<tr>
 	<jstl:if test="${trainingModuleMaximumTime != -1.00}">
 		<th scope="row">
-			<acme:message code="developer.developer-dashboard.form.label.training-module-minimum-time"/>
+			<acme:message code="developer.developer-dashboard.form.label.training-module-maximum-time"/>
 		</th>
 		<td>
 			<acme:print value="${trainingModuleMaximumTime}"/>
@@ -79,7 +79,7 @@
 	<tr>
 	<jstl:if test="${trainingModuleMaximumTime == -1.00}">
 		<th scope="row">
-			<acme:message code="developer.developer-dashboard.form.label.training-module-minimum-time"/>
+			<acme:message code="developer.developer-dashboard.form.label.training-module-maximum-time"/>
 		</th>
 		<td>
 			<acme:print value="${''}"/>

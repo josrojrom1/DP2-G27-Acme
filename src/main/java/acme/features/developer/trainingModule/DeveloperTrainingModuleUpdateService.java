@@ -86,6 +86,11 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 				if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
 					super.state(object.getUpdateMoment() == null || object.getUpdateMoment().compareTo(object.getCreationMoment()) >= 0, "updateMoment", "developer.training-module.form.error.updateMoment");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("project")) {
+			Project objProject = object.getProject();
+			super.state(!objProject.isDraftMode(), "project", "developer.training-module.form.error.code.projectNotPublish");
+		}
 	}
 
 	@Override

@@ -72,6 +72,11 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		if (!super.getBuffer().getErrors().hasErrors("creationMoment"))
 			super.state(MomentHelper.isAfterOrEqual(object.getCreationMoment(), baseDate), "creationMoment", "developer.training-module.form.error.tooLittle");
+
+		if (!super.getBuffer().getErrors().hasErrors("project")) {
+			Project objProject = object.getProject();
+			super.state(!objProject.isDraftMode(), "project", "developer.training-module.form.error.code.projectNotPublish");
+		}
 	}
 
 	@Override
