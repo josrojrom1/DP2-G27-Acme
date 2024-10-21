@@ -65,7 +65,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.user-stories-average"/>
 		</th>
 		<td>
-			<jstl:if test="${averageUserStoryCost != 0}">
+			<jstl:if test="${averageUserStoryCost > 0}">
 				<acme:print value = "${averageUserStoryCost}"/>
 			</jstl:if>
 		</td>
@@ -85,7 +85,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.user-stories-minimum"/>
 		</th>
 		<td>
-			<jstl:if test="${averageUserStoryCost != 0}">
+			<jstl:if test="${minimumUserStoryCost > 0}">
 				<acme:print value = "${minimumUserStoryCost}"/>
 			</jstl:if>
 		</td>
@@ -95,7 +95,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.user-stories-maximum"/>
 		</th>
 		<td>
-			<jstl:if test="${maximumUserStoryCost != 0}">
+			<jstl:if test="${maximumUserStoryCost > 0}">
 				<acme:print value = "${maximumUserStoryCost}"/>
 			</jstl:if>
 		</td>

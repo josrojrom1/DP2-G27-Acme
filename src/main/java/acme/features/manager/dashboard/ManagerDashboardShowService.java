@@ -81,10 +81,10 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 			maximumUserStoryCost = this.repository.findMaximumUserStoryCost(managerId);
 
 		} catch (Exception e) {
-			averageUserStoryCost = 0;
-			deviationUserStoryCost = 0;
-			minimumUserStoryCost = 0;
-			maximumUserStoryCost = 0;
+			averageUserStoryCost = -1;
+			deviationUserStoryCost = -1;
+			minimumUserStoryCost = -1;
+			maximumUserStoryCost = -1;
 		}
 
 		try {
@@ -93,10 +93,10 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 			minimumProjectCostUSD = this.repository.findMinimumProjectCost(managerId, "USD");
 			maximumProjectCostUSD = this.repository.findMaximumProjectCost(managerId, "USD");
 		} catch (Exception e) {
-			averageProjectCostUSD = 0;
-			deviationOfProjectCostUSD = 0;
-			minimumProjectCostUSD = 0;
-			maximumProjectCostUSD = 0;
+			averageProjectCostUSD = -1;
+			deviationOfProjectCostUSD = -1;
+			minimumProjectCostUSD = -1;
+			maximumProjectCostUSD = -1;
 		}
 
 		try {
@@ -105,10 +105,10 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 			minimumProjectCostEUR = this.repository.findMinimumProjectCost(managerId, "EUR");
 			maximumProjectCostEUR = this.repository.findMaximumProjectCost(managerId, "EUR");
 		} catch (Exception e) {
-			averageProjectCostEUR = 0;
-			deviationOfProjectCostEUR = 0;
-			minimumProjectCostEUR = 0;
-			maximumProjectCostEUR = 0;
+			averageProjectCostEUR = -1;
+			deviationOfProjectCostEUR = -1;
+			minimumProjectCostEUR = -1;
+			maximumProjectCostEUR = -1;
 		}
 
 		try {
@@ -117,10 +117,10 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 			minimumProjectCostGBP = this.repository.findMinimumProjectCost(managerId, "GBP");
 			maximumProjectCostGBP = this.repository.findMaximumProjectCost(managerId, "GBP");
 		} catch (Exception e) {
-			averageProjectCostGBP = 0;
-			deviationOfProjectCostGBP = 0;
-			minimumProjectCostGBP = 0;
-			maximumProjectCostGBP = 0;
+			averageProjectCostGBP = -1;
+			deviationOfProjectCostGBP = -1;
+			minimumProjectCostGBP = -1;
+			maximumProjectCostGBP = -1;
 		}
 
 		ManagerDashboard dashboard = new ManagerDashboard();
